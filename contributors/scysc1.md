@@ -1,7 +1,7 @@
 ##Personal
 >**This** is _Shiliang Chen_
 >**_scysc1@nottingham.edu.cn_**
-![image]([../images/liangzai.jpg])
+![image](../images/liangzai.jpg)
 * a 
 * b
 * c

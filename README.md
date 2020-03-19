@@ -6,8 +6,9 @@ you can create lists of e.g. contributors
 - [Yukai Lu (Leo)](contributors/scyyl6.md)
 - [Haonan CHEN (Link)](contributors/Link.md)
 - [Yuxiang Zhang (Andy)](contributors/scyyz5.md)
-### Analyses from Labs
 
+### Analyses from Labs
+[Lab1](docs/lab1analysis.md)
 
 ### Assessment Deliverables
 
