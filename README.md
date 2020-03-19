@@ -8,7 +8,7 @@ you can create lists of e.g. contributors
 - [Yuxiang Zhang (Andy)](contributors/scyyz5.md)
 
 ### Analyses from Labs
-[Lab1](docs/lab1analysis.md)
+[Lab1](docs/lab1.md)
 
 ### Assessment Deliverables
 
