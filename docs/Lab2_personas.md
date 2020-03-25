@@ -1,5 +1,6 @@
-### personas
-
+[BACK](../docs/lab2.md)
+# Personas
+***
 ## 1. Eddie
 ![eddie](/images/personas/eddie.jpg "Eddie")
 Eddie selected the DBI and SE(60-60) as his optional modules.
