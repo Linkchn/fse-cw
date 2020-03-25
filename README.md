@@ -1,6 +1,4 @@
-
 # GROUP BALCONY
-***
 ### Contributors 
 - [Shiliang Chen (Colin)](contributors/scysc1.md)
 - [Hongming Ping (Daze)](contributors/daze.md)
