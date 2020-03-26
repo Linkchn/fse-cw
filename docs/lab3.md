@@ -15,4 +15,5 @@
 		First it is the approvement by Head Teacher, in all the possibilities 
 3. Sequence Diagram
 	- The Diagram
+        ![Sequence](/images/lab3/sd.jpg)
 	- About the Diagram
