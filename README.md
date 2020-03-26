@@ -5,6 +5,7 @@ you can create lists of e.g. contributors
 - [Hongming Ping (Daze)](contributors/daze.md)
 - [Haonan CHEN (Link)](contributors/Link.md)
 - [Haonan CHEN (Link)](contributors/Link.md)
+- [Jiawei Wu (Eddie)](contributors/wjw.md)
 ### Analyses from Labs
 
 
