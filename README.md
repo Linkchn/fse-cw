@@ -4,15 +4,10 @@
 - [Hongming Ping (Daze)](contributors/daze.md)
 - [Yukai Lu (Leo)](contributors/scyyl6.md)
 - [Haonan CHEN (Link)](contributors/Link.md)
-<<<<<<< HEAD
-- [Haonan CHEN (Link)](contributors/Link.md)
-- [Jiawei Wu (Eddie)](contributors/wjw.md)
-=======
 - [Yuxiang Zhang (Andy)](contributors/scyyz5.md)
 - [Jiawei Wu (Eddie)](contributors/wjw.md)
 
 ***
->>>>>>> 4ab5bc6ec61e6b7c544b82d52bd74215bfd38ac4
 ### Analyses from Labs
 
 |Lab No.|Doc Link|Description|
