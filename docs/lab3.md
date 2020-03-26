@@ -1,4 +1,4 @@
 [BACK](../README.md)
 ***
 # Lab 3
-1. 
+1. Brief Introduction
