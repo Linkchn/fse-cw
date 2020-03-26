@@ -29,5 +29,7 @@
 - #### The Diagram
 ![Sequence](/images/lab3/sd.jpg)
  - #### About the Diagram
->   	First it is the approvement by Head Teacher, in all the possibilities 
+> First it is the approvement by Head Teacher, in all the possibilities 
+> Sequence diagram shows the whole process with every single step. Therefore, it starts from different objects and software to specify the step. 
+It also introduces the credit split and class size arrangement, which activity diagram does not show.
 
