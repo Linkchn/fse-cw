@@ -20,6 +20,7 @@ Compared with User Stroy, the Personas contains some typical potential clients w
 As the junior stage of development, the Personas is capable to satisfy our demand to simulate the problem. 
 
 >- [Here is the Personas](/docs/cw1_personas.md)  
+
 **Introduction to the Personas**  
 This Personas contains 6 personas classified by their account status, which are repectively 3 single-account-single-customers, 2 Multi-account-users and 1 Joint-account user.
 Generally, this allocation ia based on the proprotion of users in real world.
@@ -43,6 +44,9 @@ All essential information required for the development of this software and the 
 > > 4. This diagram provides a complete and global view of how this system works along with several modules that helps understand detailed tasks.
 > > 5. It also provides a legible way for customer to get clearly classified actions that are aimed to accomplish, as well as actions that are not provided which allows reader to point out more functions that this system is required to do.
 > > 6. All of this means more easily organizing further requirement engineering.
+
+> Analysis between Use Case and user story:
+> > As for this particular system, more than 20 actions can be done by users, which represents more than 20 use cases with relationships and classifications. It is obviously not suitable for us to use user story to present this whole system, which may lead to too many single stories and our customer would get bored of this.
 
 ![Use Case Diagram](/images/CW1UCD.png)
 
