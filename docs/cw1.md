@@ -1,12 +1,11 @@
-
 [BACK](../README.md)
 ***
 # Coursework 1
 ### 1. Brief Introduction
 > - This software is for personal finance management using data directly from their accounts in other application. People can use it to record how they spend money for different categories or different things. Then they can see clearly their income and expenses and set a set-aside amount for various use.The diagrams below shows the requirements Textual Analysis, 6 Personas, and a Use Case Diagram.
 > - The reason why we do not choose the user stories is:  
-> > - 1. The requirement of application is relatively specific in this case.  However, user story only indicates the requirement generally, it does not show the specification.  
-> > - 2. The logic of user story is from buttom to top, which will omit some specificrequirement of customer.
+> >  1. The requirement of application is relatively specific in this case.  However, user story only indicates the requirement generally, it does not show the specification.  
+> >  2. The logic of user story is from buttom to top, which will omit some specificrequirement of customer.
 
 
 ### 2. Textual Analysis
@@ -27,13 +26,13 @@ As the junior stage of development, the Personas is capable to satisfy our deman
 ### 4. Use Case Diagram
 > - Here is the Use Case Diagram of the requirements.
 > Reason to choose use case diagram is:
-> > - 1.in this case, the customers provide specific requirement. Therefore, compared to user story, use case diagram is suitable to the case, which can clearly shows the detail through use case.
-> > - 2.use case diagram is better to show the function of application with multiple actors and use cases.
-> > - 3.it also help software engineers build the program with specific requirement.
-> > - 3. Use case diagram enables us to model system functions as well as actors that actors interact with those function.
-> > - 4. This diagram provides a complete and global view of how this system works along with several modules that helps understand detailed tasks.
-> > - 5. It also provides a legible way for customer to get clearly classified actions that are aimed to accomplish, as well as actions that are not provided which allows reader to point out more functions that this system is required to do.
-> > - 6. All of this means more easily organizing further requirement engineering.
+> > 1. In this case, the customers provide specific requirement. Therefore, compared to user story, use case diagram is suitable to the case, which can clearly shows the detail through use case.
+> > 2. Use case diagram is better to show the function of application with multiple actors and use cases.
+> > 3. It also help software engineers build the program with specific requirement.
+> > 3. Use case diagram enables us to model system functions as well as actors that actors interact with those function.
+> > 4. This diagram provides a complete and global view of how this system works along with several modules that helps understand detailed tasks.
+> > 5. It also provides a legible way for customer to get clearly classified actions that are aimed to accomplish, as well as actions that are not provided which allows reader to point out more functions that this system is required to do.
+> > 6. All of this means more easily organizing further requirement engineering.
 ![Use Case Diagram](/images/CW1UCD.png)
 
 =======
