@@ -19,7 +19,7 @@ User Story derives from the Personas, therefore whatever our choice is, we need 
 Compared with User Stroy, the Personas contains some typical potential clients who could provide most of the cases we need to cope with when developing our software.
 As the junior stage of development, the Personas is capable to satisfy our demand to simulate the problem. 
 
->- [Here is the Personas](/docs/cw1_personas.md)
+>- [Here is the Personas](/docs/cw1_personas.md)  
 **Introduction to the Personas**
 This Personas contains 6 personas classified by their account status, which are repectively 3 single-account-single-customers, 2 Multi-account-users and 1 Joint-account user.
 Generally, this allocation ia based on the proprotion of users in real world.
