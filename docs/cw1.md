@@ -21,7 +21,6 @@ As the junior stage of development, the Personas is capable to satisfy our deman
 
 >- [Here is the Personas](/docs/cw1_personas.md)  
 **Introduction to the Personas**  
-
 This Personas contains 6 personas classified by their account status, which are repectively 3 single-account-single-customers, 2 Multi-account-users and 1 Joint-account user.
 Generally, this allocation ia based on the proprotion of users in real world.
 The main point of the Personas is the users' information which we think is likely to effect their income and expention, 
