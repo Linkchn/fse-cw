@@ -1,0 +1,36 @@
+Persona: single-account-single-customer
+Photo:
+Fictional name: Eddie Wu
+Location: Guangzhou, China
+
+Vocation: 
+Occupation: Computer Programmer;
+Work Age: 3 years;
+Diploma: Bechlor, UNNC;
+Eddie is about to promoted to be a software manager.
+
+Financial condition:
+Salary: 30,000 yuan per month; 
+Income: Salary only;
+Salary would increase due to promotion.
+Eddie has little savings for he has a stable job and no loans and high expention.
+Eddie has bought a car without loans. 
+Eddie has more than one credit card and his only account is almost used for pay for his credit cards.
+The pay day of his credit cards is closely after the day he gets his salary.
+The rent of his residence is paid once a month.
+
+Daily life:
+Eddie is living alone in an apartment rent from others. 
+Eddie just broke up with his ex-girlfriend.
+Eddie irregularly goes for trips in his spare time. 
+
+Consuming habit:
+Eddie likes to purchase anything he likes and affordable. This is one of his irregular consuming habit.
+Eddie has bought many prime services in many platforms, such as bilibili, youku, netflix, amazon prime, apple cloud, etc. Some of them is monthly paid
+, some are annually paid.
+Eddie uses Alipay, Wepay, apple Pay and directly paying by card and seldom cash when paying.
+Each month the petrol costs in a fluctuate level. 
+Eddie goes for meals in different types of restaurants, in which dishes could be either cheap or pretty expensive.
+
+Requirements:
+Eddie now wants to know how much his saving left and how much money has been spent for what purposes.
