@@ -5,7 +5,7 @@
 |Personas|s-s|s-s|s-s|s-m|s-m|joint|
 |:------:|------|------|------|------|------|------|
 |Fictional Names|Eddie Wu|Ema Yasuhara|George Johnson|Wei Wang|Jianguo Wang|Cuihua ZHOU|
-|Photo|![eddie](/images/personas/eddie.jpg "Eddie")|![Ema](/images/personas/ema.jpg "Ema")|||||
+|Photo|![eddie](/images/personas/eddie.jpg "Eddie")|![Ema](/images/personas/ema.jpg "Ema")|![Johnson](/images/personas/GeorgeJohnson.jpg "Johnson")|![Cuihua](/images/personas/CuihuaZHOU.jpg "Cuihua")|||
 |Age|25|22|27|42|||
 |Location|Guangzhou, China|Tokyo, Japan|Seatle, America|Harbin, China|||
 |Vocation|Graduated from UNNC with a bechlor diploma, gaining the job in his 22. Has been working for 3 years.<br>Eddie is computer programmer, which is a highly paid job with 30000 yuan a month after tax.<br>Eddie is about to promoted to be a software manager and his salary would increase too.|Ema work for Musashi Animation in outskirt of Tokyo, Japan.<br>Ema has been working as a key frame animator for one year, working in the company for 4 years.<br>Ema became a member of her company after grafuating from high school at the age of 18.|a aerospace engineer for 2 years|Senior executives in a transnational company|||
