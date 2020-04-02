@@ -19,9 +19,19 @@ User Story derives from the Personas, therefore whatever our choice is, we need 
 Compared with User Stroy, the Personas contains some typical potential clients who could provide most of the cases we need to cope with when developing our software.
 As the junior stage of development, the Personas is capable to satisfy our demand to simulate the problem. 
 
->- Here is the Personas.   
+>- [Here is the Personas](/docs/cw1_personas.md)
+**Introduction to the Personas**
+This Personas contains 6 personas classified by their account status, which are repectively 3 single-account-single-customers, 2 Multi-account-users and 1 Joint-account user.
+Generally, this allocation ia based on the proprotion of users in real world.
+The main point of the Personas is the users' information which we think is likely to effect their income and expention, 
+which relates to the prime function of our software.
+Basically, we take the nation, age, occupancy into the consideration of the selection of users in the Personas.
+We mainly focus on the users' Financial, Life Status. We think it is the primary factor of their consumption habits.
+Then we list some consomption habits of the users, by which we could simulate the finantial activities of users and the performance of the software.
+This leads to the further details of the development. 
+Fianlly, we assumpt some requirements of the users, which we think could be used for further development, such as the User Story.
+All essential information required for the development of this software and the discussion with our clients is included in the Personas. 
 
-[Personas.md](/docs/cw1_personas.md)
 
 ### 4. Use Case Diagram
 > - Here is the Use Case Diagram of the requirements.
