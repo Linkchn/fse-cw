@@ -9,7 +9,7 @@
 
 ### 2. Textual Analysis
 >- Here is the Textual Analysis of requirements. Actors and Use Cases have been identified.
-
+![Textual Analysis](/images/CW1TA.png)
 
 ### 3. Persona
 >- Here is the Personas. 
