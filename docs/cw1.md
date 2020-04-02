@@ -13,7 +13,7 @@
 
 ### 3. Persona
 >- Here is the Personas. 
-[Persona](/docs/cw1persona.md)
+[Persona.md](/docs/cw1_persona.md)
 
 ### 4. Use Case Diagram
 >- Here is the Use Case Diagram of the requirements.
