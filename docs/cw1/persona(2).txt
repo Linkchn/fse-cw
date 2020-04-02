@@ -1,0 +1,73 @@
+Persona: single-account-single-customer
+
+photo:
+
+Fictional name: George Johnson
+Location: Seatle, America
+
+Vocation: 
+Occupation: Aerospace Engineer;
+Work Age: 2 years;
+Diploma: Master of Aerospace Engneering;
+
+Financial Condition: 
+Salary: 10,000 dollars per month; 
+Income: Salary only;
+Saving: 10,000 dollars;
+He wants to save 4,000 dollars every month to buy a car. 
+He need remains 2000 dollars for the house rent.
+
+Daily Life:
+Marital status: Single;
+Family Status: has parents and a brother;
+
+Custom and Habit:
+He prefers to pay by credit card. 
+he like playing video game and watch science fiction movie for entertainment, which spend 200 dollars a month.
+And He spends 30 dollars for eating every day. 
+Otherwise, he spends 10 dollars every day for public transport.
+
+Requirement: 
+Want to use this application to konw how much he really spends on the different categories and use it to make a consumption plan every month to help him to maximize money he can move into savings at the end of month. 
+He wants to collect the situations of everyday eating and shopping in credit card.
+Moreover, he also would like to leave money that sit aside for  video game spending. 
+ 
+
+
+
+
+
+Persona: joint-account user
+
+photo:
+
+Fictional name: Cuihua ZHOU
+
+Job title/major responsibilities: 
+Company: Transnational company;
+Occupation: Senior executives;
+Diploma: Master of Business, UNNC;
+
+Age:42
+Location: China
+
+Demographics:     
+Marital status: married;
+Family Status: has parents,husband; she is a mother of two children.
+She also gives her two children 3000 yuan every one for pocket money. 
+
+Financial Condition: 
+She has 30,000 yuan per month for salary.
+Her husband hais 45,000 yuan per month for salary.
+10,000 yuan for the rent collection of house.
+
+Requirement: 
+Want to use this application to collect the total outcome and income of the whole family each month. 
+She wants to distribute 10,000 yuan to buy the daily things (for example,cosmetics and cloths) and food. 
+She wants the application could import the custom records manually.
+ 
+Custom and Habit:
+She prefers to use mobile pay (Wechat pay). 
+She likes travelling around the world so that she will arrange a famlity trip every month. 
+She organizes a family trip every month which costs about 20,000 yuan. 
+She also will buy some gifts for her husband and children, which is uncertain and might from 1,000 yuan to 10,0000 yuan.

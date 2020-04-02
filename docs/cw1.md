@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 [BACK](../README.md)
 ***
 # Coursework 1
@@ -15,3 +16,5 @@
 
 ### 4. Use Case Diagram
 >- Here is the Use Case Diagram of the requirements.
+=======
+>>>>>>> d833345a6b674b6f1d153d9aa2455ae1c5407bc2

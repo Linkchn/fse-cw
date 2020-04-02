@@ -1,0 +1,32 @@
+Persona: multi-account-single-customer
+Photo:
+Fictional name: Jianguo Wang
+Location: Henan, China
+Age: 35
+
+Vocation:
+Company: the People's Hospital;
+Occupation: dentist;
+Work Age: 5 years;
+Diploma: university degree;
+
+Financial condition:
+Salary: 10,000 RMB per month;
+Income: Salary only;
+Saving: 200,000 RMB;
+Jianguo Wang has three accounts used for consuming and saving his incomes.
+
+
+Daily Life:
+Residence: He lives in a department in the downtown alone. He always goes to company by subway. 
+Family: He is the only child in the family. Now he fights for the enterprise in outside.
+
+Consuming Habit:
+He is used to watching a movie once a week. Also, he is used to saving money in different accounts.
+He always has meals in the company dining hall which could save a large amount of money.
+	                                      
+Requirements: 
+He is focusing on whether one of his accounts could afford once payment.               
+(eg: Down payment when buying a car) His three accounts aim to: 
+storing fixed money to earn more interests; being used to afford monthly variable money
+(eg: telephone charge); storing extra income.                                                             

@@ -1,0 +1,33 @@
+Persona: single-account-single-customer
+Photo:
+Fictional name: Ema Yasuhara
+Location: Tokyo, Japan
+
+Vocation:
+Company: Musashi Animation;
+Occupation: Key Frame Animator;
+Work Age: 4 years;
+Diploma: High School;
+
+Financial condition:
+Salary: 220,000 per month ,fluctates according to her work production;
+Income: Salary only;
+Saving: 500,000 yen;
+Ema has only one account used for consuming and saving her incomes.
+Her application for a credit card has been rejected for her fragile financial condition.
+
+Daily Life:
+Residence: a rent single apartment, with only one living room and a toilet, totally 25 m^2
+Her apartment locates closely to her company, commuting by bike.
+Family: She was born in an affluent family, so she only needs to care for herself. 
+Her parents could provide further financial support for her, however she rejected.
+
+Consuming Habit:
+Ema seldom goes out for meals, she either eats garlic at home or has a small party together with her friends once a fortnight.
+Ema has to upgrade and maintain her prainting tools for work, which costs nearly constant amount of money.
+Ema subscribes weekly newpaper and pays for it once a month.
+3 quarters of Ema's expention is paid by card, which could be traced online, however, she remains the habit of using cash like other Japanese.
+
+Requirements:
+Ema wants to know how much money she could save in one month. 
+She also wants to know how to arrange her expention in her daily life and on which type she cost most except rent.
