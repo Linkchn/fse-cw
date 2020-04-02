@@ -33,6 +33,7 @@ As the junior stage of development, the Personas is capable to satisfy our deman
 > > 4. This diagram provides a complete and global view of how this system works along with several modules that helps understand detailed tasks.
 > > 5. It also provides a legible way for customer to get clearly classified actions that are aimed to accomplish, as well as actions that are not provided which allows reader to point out more functions that this system is required to do.
 > > 6. All of this means more easily organizing further requirement engineering.
+
 ![Use Case Diagram](/images/CW1UCD.png)
 
 =======
