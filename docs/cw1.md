@@ -1,5 +1,4 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
+
 [BACK](../README.md)
 ***
 # Coursework 1
