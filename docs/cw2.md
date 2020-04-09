@@ -66,7 +66,8 @@ Comparing with other diagrams or textual description, scenario has  these **adva
     **Assumptions:**
 1.	We assume that all the access authorities of other applications could be permitted according to their protocols.
 2.	Also assume that users can set rational strategies and not modify the plan randomly. <br><br>
-**Questions:**<br>
+**Questions:**
+
 1.	Because of requiring too many application’s access authorities, users might concern with the security. Setting a safe structure and protecting the data of users must be done.
 2.	For some offline spending or some invisible budgets, users might forget and leave them out. It is also necessary to process with it to provide a clear and precise strategy. 
 
