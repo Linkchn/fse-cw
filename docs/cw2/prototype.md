@@ -33,7 +33,7 @@ The user could also edit each records if they want to put the payment to another
 DETAIL: All the data shown in the APP derives the records in the TRACE page. Whatever, the user could modify them to make the APP closer to their requirements.
 The last page is SETTING page, in which we put other functions that are **crutial but seldom used**.
 First it is the ID settings, in which user could edit their ID information such as id name and profile. Also, the tel number linking to the ID.
-Second, there are options for editting ACCOUNT and CATAGORY, which directly jump to editting page( ).
+Second, there are options for editting ACCOUNT and CATAGORY, which directly jump to editting page.
 Third, the PERMITTION option is to authorise the APP to get information from other APP or accounts in the phone. This APP is a platform and it doesn't directly deal with payments, therefore it needs to be permitted to read from other apps automatically.
 Fourth, some other information of the APP would be put in the ABOUT THIS APP part, such as version, legality, user contract etc.
 In the bottom, it is the LOG OUT option.
