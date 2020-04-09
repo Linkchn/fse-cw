@@ -17,19 +17,19 @@ Contents are as follows:
   
 ***
 ## 2. Activity diagram
-- ### Description with assumptions & questions
+- ### Reasoning for why it is chosen
   
 - ### Diagram
   
-- ### Reasoning for why it is chosen
+- ### Description with assumptions & questions
   
 ***
 ## 3. Scenarios
-- ### Description with assumptions & questions
+- ### Reasoning for why it is chosen
   
 - ### Diagram
   
-- ### Reasoning for why it is chosen
+- ### Description with assumptions & questions
   
 ***
 ## 4. Contributors
