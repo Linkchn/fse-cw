@@ -38,5 +38,5 @@ Third, the PERMITTION option is to authorise the APP to get information from oth
 Fourth, some other information of the APP would be put in the ABOUT THIS APP part, such as version, legality, user contract etc.
 In the bottom, it is the LOG OUT option.
 
-Conclusion:
+##Conclusion:##
 This prototype shows all the primary features of the APP and they fit the requirements from the client. The APP operates based on the accounts and each record of user's expense. We make users know about their financial condition by our statistic method and allow them to modify the records to make it more accurate. All in all, this is a low level prototype however which is enough to let our clients to have a fully comprehention of our thoughts and prudution.
