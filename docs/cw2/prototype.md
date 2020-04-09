@@ -1,8 +1,9 @@
 The prototype of the planned software consists of several graphs of wireframing.
 These pictures simulates all primary functions of the software. And they are matched logically to illustrate how the software works.
-The prototype is built based on the concept that **all expenses take place only together with accounts** and not related to the type of the user.
-Therefore, we assume each user has an ID of the APP, which links to their private or joint accounts.
+The prototype is built based on the **assumption** that **all expenses take place only together with accounts** and not related to the type of the user.
+Therefore, we **assume each user has an ID of the APP**, which links to their private or joint accounts.
 Firstly, the user would enter the HOME page, which show brief information of their **balance, accounts and the category** of their expenses.
+
 **The information shown in the HOME page is the sum of all account linked to user's ID.**
 Below the three parts, there are four options linking to four pages while home page is one of them. These four pages are **HOME, COST, TRACE, SEETINGS**.
 There is no linking of the balance part of the HOME page, which is solely used for informing the user how much money totally remained in all his accounts.
