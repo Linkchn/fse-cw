@@ -9,6 +9,7 @@
 |    **Other activity**    | The client could collect the case of user’s outcome and give the suggestions to  modify the plan. |
 | **Completion of System** | the user can log in to their account and see the specific personal information. The administrator can detect the user login status including the log-in time, log-in  location, and operation record (such as: transferring account). |
 <br><br>
+-> **Scenario**
 
 |             **Title**           | *How does joint-account user manages finance by this application* |
 |       **Overview**       | 1. People: married female works in a transnational company, lives with her  husband and twochildre <br>2. Activities: manages finance of her whole family, and distributes the spending of all categories<br>3. Context: In office/ home, uses hermobile phone |
