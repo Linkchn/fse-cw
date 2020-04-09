@@ -1,4 +1,4 @@
--> **Scenario 1**
+-> **Scenario**
 <br><br>
 
 |             **Title**           | *how does the single-account-single-customer use the application to check his/her bank interest from the insurance.* |
@@ -9,8 +9,7 @@
 |    **Other activity**    | The client could collect the case of user’s outcome and give the suggestions to  modify the plan. |
 | **Completion of System** | the user can log in to their account and see the specific personal information. The administrator can detect the user login status including the log-in time, log-in  location, and operation record (such as: transferring account). |
 <br><br>
--> **Scenario 2**
-<br><br>
+
 |             **Title**           | *How does joint-account user manages finance by this application* |
 |       **Overview**       | 1. People: married female works in a transnational company, lives with her  husband and twochildre <br>2. Activities: manages finance of her whole family, and distributes the spending of all categories<br>3. Context: In office/ home, uses hermobile phone |
 |        **Detail**        | She is a joint-account user who manage her husband’s and children’s accounts. Firstly, she chooses the type of account and purpose after signing in. The financial management will connect to their bank accounts. When her andhusband’ s salary or the house rent is paid, APP put the income data into the build-in spreadsheet every month. Then our APP will ask her to set types and categories of expected spending and their quotas. Also provides option that if she wants to make an entertainment or set-aside quota. After that, when she does online shopping or pays electricity bills and water rates in other applications, the financial management software will require API for access permission. Once she approves, our APP can record all these spending and dates. When she pays by cash offline, she could use the manual recording function to add the outcomes, dates and from which account. She also plans a family trip so that the cost of trip is recorded as the entertainment category. When one of certain spending reaches the budget, Our APP will push the warning and ask her if she want to expand budget. She can query and modify the income and outcome information and budget plan at any time by APP’s GUI, and all the data is synchronized to the hidden spreadsheet in the server. At the end of month, APP calculates the remaining sum and asks to her for choosing strategy. She chooses to save money, so the account balance is added to the next month income. |
