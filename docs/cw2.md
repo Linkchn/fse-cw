@@ -1,7 +1,7 @@
 [BACK](../README.md)
 ***
-#Report for Coursework 2
-##Brief Introduction:
+# Report for Coursework 2
+## Brief Introduction:
 The following report will discuss in detail about **specification generating** and **modelling process** for building a personal financial management system. The **prototypes** shows the function and interface of app and how it meet the requirement of clients. The **activity diagram** illustrates different conditions the management system may meet as well as decisions will be made, and step-by-step procedure of different chioces of managing users' finance. The **scenarios** include two types of users which are single account user and joint account user. We record the detail of using progress under their context, respectively.
 
 **Contents** are as follow:
