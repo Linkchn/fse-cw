@@ -8,8 +8,7 @@
 |   **Problem perhaps**    | 1. When the user finishes checking his/her bank account and switches to other   applications, their private message will be exposed to the screen. In this situation, the strangers nearby might see the users' personal information.<br>2. When the user is entering their username and password, the people nearby can   remember the position of the key to speculate the password. |
 |    **Other activity**    | The client could collect the case of user’s outcome and give the suggestions to  modify the plan. |
 | **Completion of System** | the user can log in to their account and see the specific personal information. The administrator can detect the user login status including the log-in time, log-in  location, and operation record (such as: transferring account). |
-<br><br>
--> **Scenario**
+
 
 |             **Title**           | *How does joint-account user manages finance by this application* |
 | :----------------------: |------------------------------------------------------------ |
