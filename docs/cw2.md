@@ -52,7 +52,7 @@ The following report will discuss in detail about **specification generating** a
 ***
 ## 3. Scenarios
 - ### Reasoning for why it is chosen
-  A Scenario involves a situation that may have single or multiple actors that take a given functionality or path to resolve the scenario. Scenario is a structured description of process with defining a context, several actors, and goals. Our scenario includes two types of users which are single account user and joint account user. We record the detail of use progress under their context, respectively.<br>
+  A Scenario involves a situation that may have single or multiple actors that take a given functionality or path to resolve the scenario. Scenario is a structured description of process with defining a context, several actors, and goals. Our scenario includes two types of users which are single account user and joint account user. We record the detail of use progress under their context, respectively.<br><br>
 Firstly, we want to confirm what kind of user he is after signing in, we prepare different strategies for different types. Then Our App need to get the data of basis of incomes and properties. After that, it will provide chance to make their own strategies of budgets. User can set according to their need. During the using time, App provides the messages of situation and allows user to check at any time. Also, some offline spending could be recorded manually. At the end of month, App will collect and analyze the final data and return to customers. We also provide options for the remaining money.
 Comparing with other diagrams or textual description, scenario has  these **advantages**:
 1.	Comparing with UML diagram, scenario can record more details, contexts of the progress. Because we have chosen the activity diagram, scenario can add this information for our report.
@@ -63,6 +63,13 @@ Comparing with other diagrams or textual description, scenario has  these **adva
 - ### Diagram
   
 - ### Description with assumptions & questions
+    Assumptions:
+1.	We assume that all the access authorities of other applications could be permitted according to their protocols.
+2.	Also assume that users can set rational strategies and not modify the plan randomly.
+Questions:
+1.	Because of requiring too many application’s access authorities, users might concern with the security. Setting a safe structure and protecting the data of users must be done.
+2.	For some offline spending or some invisible budgets, users might forget and leave them out. It is also necessary to process with it to provide a clear and precise strategy. 
+
   
 ***
 ## 4. Contributors
