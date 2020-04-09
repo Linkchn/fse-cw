@@ -4,13 +4,13 @@
 ##Brief Introduction
 The following report will discuss in detail about **specification generating** and **modelling process** for building a personal financial management system. The **prototypes** ...... The **activity diagram** illustrates different conditions the management system may meet as well as decisions will be made, and step-by-step procedure of different chioces of managing users' finance. The **Scenarios** ......
 
-Contents are as follows:
-- [1. Prototype](#1-prototype)
+**Contents** are as follows:
+- [1. Prototypes](#1-prototypes)
 - [2. Activity diagram](#2-activity-diagram)
 - [3. Scenarios](#3-scenarios)
 - [4. Contributors](#4-contributors)
 ***
-## 1. Prototype
+## 1. Prototypes
 - ### Description with assumptions & questions
   
 - ### Diagram
@@ -64,3 +64,5 @@ Contents are as follows:
 | Prototypes | Hongming & Yukai |
 | Activity Diagram | Jiawei & Shiliang |
 | Scenarios | Haonan & Yuxiang |
+***
+[BACK](../README.md)
