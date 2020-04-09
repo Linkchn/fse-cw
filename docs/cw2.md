@@ -7,7 +7,7 @@ The following report will discuss in detail about **specification generating** a
 Contents are as follows:
 - [1. Prototype](#1-prototype)
 - [2. Activity diagram](#2-activity-diagram)
-- [3. Sequence diagram](#3-sequence-diagram)
+- [3. Scenarios](#3-scenarios)
 - [4. Contributors](#4-contributors)
 ***
 ## 1. Prototype
@@ -20,7 +20,7 @@ Contents are as follows:
 - ### Reasoning for why it is chosen
   
 
-## 3. Sequence diagram
+## 3. Scenarios
 - ### Description with assumptions & questions
   
 - ### Diagram
