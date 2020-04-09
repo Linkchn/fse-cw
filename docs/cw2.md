@@ -11,7 +11,11 @@ Contents are as follows:
 - [4. Contributors](#4-contributors)
 ***
 ## 1. Prototype
-
+- ### Description with assumptions & questions
+  
+- ### Diagram
+  
+***
 ## 2. Activity diagram
 - ### Description with assumptions & questions
   
@@ -19,7 +23,7 @@ Contents are as follows:
   
 - ### Reasoning for why it is chosen
   
-
+***
 ## 3. Scenarios
 - ### Description with assumptions & questions
   
@@ -27,4 +31,5 @@ Contents are as follows:
   
 - ### Reasoning for why it is chosen
   
+***
 ## 4. Contributors
