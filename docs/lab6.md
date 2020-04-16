@@ -1,5 +1,5 @@
 ### Projects
-- [Shiliang Chen (Colin)](contributors/scysc1.md)
+- [Shiliang Chen (Colin)](../src/Lab%2006/scysc1/)
 - [Hongming Ping (Daze)](contributors/daze.md)
 - [Yukai Lu (Leo)](contributors/scyyl6.md)
 - [Haonan CHEN (Link)](contributors/Link.md)
