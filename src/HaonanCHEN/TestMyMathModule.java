@@ -19,27 +19,27 @@ class TestMyMathModule {
 	}
 	
 	@Test
-//	void test1() throws Exception {
-//		int myAnswer = 0;
-//		try {
-//			myAnswer=MathModule.myMultiply(input2, input3);
-//		}catch(Exception e) {
-//			
-//		}
-//		assertEquals(12000000000, myAnswer); 
-//	}
-	
-//	void testError() {  
-//		int myAnswer = 0;
-//		try {   
-//			myAnswer = MathModule.myMultiply(input2, input3);
-//		} catch(Exception e) {   
-//			if(e.getClass() == Exception.class) {    
-//				return; // it passed   
-//			} 
-//		} 
-//		fail("it failed"); 
-//	}
+	void test1() throws Exception {
+	int myAnswer = 0;
+	try {
+		myAnswer=MathModule.myMultiply(input2, input3);
+	}catch(Exception e) {
+		
+	}
+	assertEquals(12000000000, myAnswer); 
+}
+
+void testError() {  
+	int myAnswer = 0;
+	try {   
+		myAnswer = MathModule.myMultiply(input2, input3);
+	} catch(Exception e) {   
+		if(e.getClass() == Exception.class) {    
+			return; // it passed   
+		} 
+	} 
+	fail("it failed"); 
+}
 	
 	void test2() throws Exception {
 		double myAnswer = 0;
@@ -51,15 +51,15 @@ class TestMyMathModule {
 		assertEquals(6.67, myAnswer); 
 	}
 		
-//	void testError() {  
-//		double myAnswer = 0;
-//		try {   
-//			myAnswer = MathModule.myDivsion(20, 1);
-//		} catch(Exception e) {   
-//			if(e.getClass() == Exception.class) {    
-//				return; // it passed   
-//			} 
-//		} 
-//		fail("it failed"); 
-//	}
+	void testError() {  
+		double myAnswer = 0;
+		try {   
+			myAnswer = MathModule.myDivsion(20, 1);
+		} catch(Exception e) {   
+			if(e.getClass() == Exception.class) {    
+				return; // it passed   
+			} 
+		} 
+		fail("it failed"); 
+	}
 }

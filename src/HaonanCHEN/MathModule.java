@@ -2,12 +2,12 @@ public class MathModule {
 
 	public static void main(String[] args) throws Exception {
 		// TODO Auto-generated method stub
-//		try {  
-//			int test = myMultiply(-2000000000, 6);  
-//			System.out.println(test); 
-//		} catch(Exception e) {
-//			System.out.println(e.toString()); 
-//		} 
+		try {  
+			int test = myMultiply(-2000000000, 6);  
+			System.out.println(test); 
+		} catch(Exception e) {
+			System.out.println(e.toString()); 
+		} 
 		try {
 			double test = myDivsion(20,3);
 			System.out.println(test);
