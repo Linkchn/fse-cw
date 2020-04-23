@@ -18,7 +18,7 @@
 |4|[CW1](docs/cw1.md)|COMP1035 – Coursework 1 |
 |5|[CW2](docs/cw2.md)|COMP1035 – Coursework 2 |
 |6|[Lab6](docs/lab6.md)|Exercising JUnit|
-|7|[Lab7](src/CW3/src/testplan.md)|Plan test for CW3|
+|7|[Lab7](src/CW3/testplan.md)|Plan test for CW3|
 
 ***
 ### Assessment Deliverables

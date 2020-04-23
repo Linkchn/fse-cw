@@ -1,5 +1,5 @@
 
-# Test Plan (and eventually Test Report) - Example Template
+# Test Plan (and eventually Test Report)
 
 |Contents|
 |--------|
