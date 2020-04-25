@@ -13,13 +13,62 @@
 ## Team Management
 Report here, by the end of the assignment, how the team has managed the project, e.g.: used version control, organised meetings, divided work, used labels, milestones, issues, etc. etc.
 ### Team stategy
+Overall, **Agile Software Development** using **Test Driven Development** based on the document and codes with **pair programming**.
+First analyse Class Description seperately.
+Second devide members in pairs and distribute works to pairs.
+Third build Tests Plan Table according to the Class Description analysis in pairs.
+Then adjust codes and plan throughout the whole process of development to achieve the requirements.
+
+Since this BoCAPP is a small-sized business system, agile method allows us to focus on the software itself rather than on its design and documentation, which is exactly what we need. As is required and recommended, we use JUnit to do TDD process. Although the whole development process is not so heavy that every one can do their own small piece of job to finish the task, we consider pair programming could be a good method which fits us well. Most importantly, it will act as an informal review process because each line of code is looked at by at least one person. It largly reduces the risk of more errors with cheap program inspections. Secondly, it is recommended that we can do refactoring to improve the software structure. Different from normal development environment, pair programming provide a more friendly environment for refactoring to happen as others could benifit immediately from that. Thirdly, it obviously widens the mind of the way making tests and improves the ability of each other's programming skills.
+
+Deep into the process, team is managed by several useful GitLab features. We use issues with labels to raise questions, distribute tasks, alert bugs, show what is ToDo, Doing and Done. Along with Boards, a very clear visible feature for managing tasks while clearly showing the whole process, Milestones are also used for make stage-based objectives with due time to control the productivity. Meetings are organised in period of three to five days, for the purpose of reporting works done, what to do next, work distribution, stategy adjustment etc. As pairs are devided, works will be distributed during the meeting and issued in GitLab.
+
+Planned time line:
+23/4
+stage 0: First meeting, discuss about the overall stategy.
+
+24/4 - 26/4
+stage 0.5: Read class description carefully, and finish planned tests tables.
+
+25/4
+Second meeting, share information from the class description, ask for understanding of git version control, uniform the format of coding and commenting, devide pairs and distribute work.
+
+26/4
+Fill the peer assessment form.
+
+26/4 - 30/4
+stage 1: Focus on two small classes, write tests and fix code for these two classes.
+
+30/4 - 5/5
+stage 2: Focus on the main class, write tests and fix code for this and other two classes possibly.
+
+6/5
+Improve the quality of code and documentation. Tag before the deadline
+
+7/5
+Final check and Tag
+
 
 ### Work distributions with pairs
 
 ### Timeline & decisions
 
 ### Meeting record
+## First meeting - 23/4
 
+## Second meeting - 25/4
+1. 分一下小组
+2. 交流一下对于类描述的理解
+3. 提一下参数化测试,以及各种assert的使用
+4. 提一下怎么使用issue的label, milestone, booads等
+5. 交流一下branch的使用
+6. 分配一下每个小组做的任务
+7. 统一编程风格和comment 风格
+8. 提一下commit的清晰重要
+9. refactoring
+10. 要测试逻辑的目的
+11. 过一遍总结文档
+    
 ### Conclusion
 
 ## Test Plan
@@ -31,7 +80,7 @@ Report here, by the end of the assignment, how the team has managed the project,
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
+|!-!!!!! |PASS/FAIL |TEST-NAME | | | | | | 为什么遇到问题和解决的原因| | pair的话写两个人|
 | | | | | | | | | | | |
 
 #### Function 2: BoCTransaction(String tName, BigDecimal tValue, int tCat) - Main Constructors
