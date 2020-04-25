@@ -1,4 +1,3 @@
-
 # Test Plan (and eventually Test Report)
 
 |Contents|
@@ -169,30 +168,139 @@ Final check and Tag
 | | | | | | | | | | | |
 | | | | | | | | | | | |
 
-#### Function: 
+#### Function 1: BoCCatogory() - Default Constructor (no parameters)       
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
 | | | | | | | | | | | |
 | | | | | | | | | | | |
 
+#### Function 2: BoCCatogory(String cName, BigDecimal cbudget, BigDecimal cSpend) - Main Constructors       
 
+|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
+|----------|------|----|------|----------------|------------|-------|------|------|----|------|
+| | | | | | | | | | | |
+| | | | | | | | | | | |
+
+#### Function 3: CatogoryName() - Get Category Name       
+
+|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
+|----------|------|----|------|----------------|------------|-------|------|------|----|------|
+| | | | | | | | | | | |
+| | | | | | | | | | | |
+
+#### Function 4: CatogoryBudget() - Get Category Budget       
+
+|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
+|----------|------|----|------|----------------|------------|-------|------|------|----|------|
+| | | | | | | | | | | |
+| | | | | | | | | | | |
+
+#### Function 5:  CatogorySpend() - Get Category Spend       
+
+|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
+|----------|------|----|------|----------------|------------|-------|------|------|----|------|
+| | | | | | | | | | | |
+| | | | | | | | | | | |
+
+#### Function 6:  setCatogoryName(String cName) - Set Category Name       
+
+|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
+|----------|------|----|------|----------------|------------|-------|------|------|----|------|
+| | | | | | | | | | | |
+| | | | | | | | | | | |
+
+#### Function 7: setCatogoryBudget(BigDecimal cBudget) - Set Category Budget       
+
+|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
+|----------|------|----|------|----------------|------------|-------|------|------|----|------|
+| | | | | | | | | | | |
+| | | | | | | | | | | |
+
+#### Function 8: addExpense(BigDecimal ) - add Expense function       
+
+|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
+|----------|------|----|------|----------------|------------|-------|------|------|----|------|
+| | | | | | | | | | | |
+| | | | | | | | | | | |
+
+#### Function 9: removeExpense(BigDecimal ) - remove Expense function       
+
+|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
+|----------|------|----|------|----------------|------------|-------|------|------|----|------|
+| | | | | | | | | | | |
+| | | | | | | | | | | |
+
+#### Function 10: resetSpendTotal(BigDecimal) - reset Spend Total Function       
+
+|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
+|----------|------|----|------|----------------|------------|-------|------|------|----|------|
+| | | | | | | | | | | |
+| | | | | | | | | | | |
+
+#### Function 11: resetSpendTotal(BigDecimal) - reset Spend Total Function       
+
+|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
+|----------|------|----|------|----------------|------------|-------|------|------|----|------|
+| | | | | | | | | | | |
+| | | | | | | | | | | |
+
+#### Function 12: toString()       
+
+|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
+|----------|------|----|------|----------------|------------|-------|------|------|----|------|
+| | | | | | | | | | | |
+| | | | | | | | | | | |
 
 ### Class: BoCApp
 
-#### Function: 
+#### Function 1: BoCAppMain - Main Method
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
 | | | | | | | | | | | |
 | | | | | | | | | | | |
 
-#### Function: 
+#### Function 2: ArrayListofBoCTransactionobjects  - List Transactions function
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
 | | | | | | | | | | | |
 | | | | | | | | | | | |
 
+#### Function 3: CategoryOverview - Category Overview function
+
+|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
+|----------|------|----|------|----------------|------------|-------|------|------|----|------|
+| | | | | | | | | | | |
+| | | | | | | | | | | |
+
+#### Function 4: ArrayListofBoCCategoryobjects - List Transactions in Category function
+
+|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
+|----------|------|----|------|----------------|------------|-------|------|------|----|------|
+| | | | | | | | | | | |
+| | | | | | | | | | | |
+
+#### Function 5: TransactionCategory - Change Transaction Category function
+
+|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
+|----------|------|----|------|----------------|------------|-------|------|------|----|------|
+| | | | | | | | | | | |
+| | | | | | | | | | | |
+
+#### Function 6: addTransaction - Add Transaction function
+
+|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
+|----------|------|----|------|----------------|------------|-------|------|------|----|------|
+| | | | | | | | | | | |
+| | | | | | | | | | | |
+
+#### Function 7: addCategory - Add Category function
+
+|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
+|----------|------|----|------|----------------|------------|-------|------|------|----|------|
+| | | | | | | | | | | |
+| | | | | | | | | | | |
 
 
