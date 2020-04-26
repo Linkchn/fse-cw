@@ -16,7 +16,7 @@
 
 ## Team Management
 Report here, by the end of the assignment, how the team has managed the project, e.g.: used version control, organised meetings, divided work, used labels, milestones, issues, etc. etc.
-### Team stategy
+### I. Team stategy
 - Overall, **Agile Software Development** using **Test Driven Development** based on the document and codes with **pair programming**.
 First analyse Class Description seperately.
 Second devide members in pairs and distribute works to pairs.
@@ -30,74 +30,106 @@ Then adjust codes and plan throughout the whole process of development to achiev
 - #### Planned time line
 
   - 23/4
-stage 0: First meeting, discuss about the overall stategy.
+  
+    stage 0: First meeting, discuss about the overall stategy.
 
   - 24/4 - 26/4
-stage 0.5: Read class description carefully, and finish planned tests tables.
+  
+    stage 0.5: Read class description carefully, and finish planned tests tables.
 
   - 25/4
-Second meeting, share information from the class description, ask for understanding of git version control, uniform the format of coding and commenting, devide pairs and distribute work.
+  
+    Second meeting, share information from the class description, ask for understanding of git version control, uniform the format of coding and commenting, devide pairs and distribute work.
 
   - 26/4
-Fill the peer assessment form.
+  
+    Fill the peer assessment form.
 
   - 26/4 - 30/4
-stage 1: Focus on two small classes, write tests and fix code for these two classes.
+  
+    stage 1: Focus on two small classes, write tests and fix code for these two classes.
 
   - 30/4 - 5/5
-stage 2: Focus on the main class, write tests and fix code for this and other two classes possibly.
+  
+    stage 2: Focus on the main class, write tests and fix code for this and other two classes possibly.
 
   - 6/5
-Improve the quality of code and documentation. Tag before the deadline
+  
+    Improve the quality of code and documentation. Tag before the deadline
 
   - 7/5
-Final check and Tag
+  
+    Final check and Tag
 
 
-### Work distributions with pairs
+### II. Work distributions with pairs
 
-#### Pair1 - Haonan Chen & Yuxiang Zhang
+- #### Pair1 - Haonan Chen & Yuxiang Zhang
 
-- BoC Transaction Class: 1, 2, 3, 4, 5, 6
+  - BoC Transaction Class: 1, 2, 3, 4, 5, 6
 
-- BoC Category Class: 1, 2, 3, 4, 5
+  - BoC Category Class: 1, 2, 3, 4, 5
 
-- BoCApp Main Class: 1, 2, 3
+  - BoCApp Main Class: 1, 2, 3
 
-#### Pair2 - Hongming Ping & Yukai Lu
+- #### Pair2 - Hongming Ping & Yukai Lu
 
-- BoC Transaction Class: 7, 8, 9, 10, 12
+  - BoC Transaction Class: 7, 8, 9, 10, 12
 
-- BoC Category Class: 6, 7
+  - BoC Category Class: 6, 7
 
-- BoCApp Main Class: 4, 5
+  - BoCApp Main Class: 4, 5
 
-#### Pair3 - Shiliang Chen & Jiawei Wu
+- #### Pair3 - Shiliang Chen & Jiawei Wu
 
-- BoC Transaction Class: 11
+  - BoC Transaction Class: 11
 
-- BoC Category Class: 8, 9, 10, 11, 12
+  - BoC Category Class: 8, 9, 10, 11, 12
 
-- BoCApp Main Class: 6, 7
-### Timeline & decisions
+  - BoCApp Main Class: 6, 7
 
-### Meeting record
+### III. Timeline & decisions
+  - 23/4
+  
+    stage 0: First meeting, discuss about the overall stategy.
+
+  - 24/4 issues: 3/8
+
+    Read class description carefully, and finish planned tests tables.
+
+  - 25/4 issues: 6/12
+  
+    Second meeting, share information from the class description, ask for understanding of git version control, uniform the format of coding and commenting, devide pairs and distribute work.
+
+    Work has been distributed to pairs and issued in gitlab
+
+  - 26/4 issues: 4/12
+  
+    Start doing tests plans
+
+### IV. Meeting record
 - #### First meeting - 23/4
-
+  1. Discuss about the whole coursework
+  2. Figure out what should be done
+  3. Roughly get through the timeline
+  4. Decide the date of next meeting
+   
 - #### Second meeting - 25/4
-1. Group assignment: Colin&Andy, Link&Ediie, Daze&Leo
-2. Exchange everyone's understanding of class description
-3. Mention the parameterized test and the use of various asserts
-4. Mention how to use issue including labels, milstones, boards and so on
-5. Communicate the use of branch and merge
-6. Assign the tasks of each group
-7. Unite programming style and comment style
-8. Mention the clarity and importance of the commit
-9. Refactoring
-10. The purpose of logic should be tested
-11. Cover the summery document
+  1. Group assignment: Colin&Andy, Link&Ediie, Daze&Leo
+  2. Exchange everyone's understanding of class description
+  3. Mention the parameterized test and the use of various asserts
+  4. Mention how to use issue including labels, milstones, boards and so on
+  5. Communicate the use of branch and merge
+  6. Assign the tasks of each group
+  7. Unite programming style and comment style
+  8. Mention the clarity and importance of the commit
+  9. Refactoring
+  10. The purpose of logic should be tested
+  11. Cover the summery document
     
-### Conclusion
+### V. Conclusion
+
+
 
 ## Test Plan
 **You should add rows and even columns, and indeed more tables, freely as you think will improve the report.**
