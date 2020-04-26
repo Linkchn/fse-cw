@@ -1,0 +1,15 @@
+src/CW3/CW3.iml
+src/CW3/.idea
+src/CW3/out
+*.class
+*.o
+.project
+.settings
+.classpath
+.DS_Store
+/bin/
+/gen/
+/out/
+*.log
+*.iml
+*.jks
