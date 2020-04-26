@@ -57,17 +57,17 @@ Final check and Tag
 ## First meeting - 23/4
 
 ## Second meeting - 25/4
-1. 分一下小组
-2. 交流一下对于类描述的理解
-3. 提一下参数化测试,以及各种assert的使用
-4. 提一下怎么使用issue的label, milestone, booads等
-5. 交流一下branch的使用
-6. 分配一下每个小组做的任务
-7. 统一编程风格和comment 风格
-8. 提一下commit的清晰重要
-9. refactoring
-10. 要测试逻辑的目的
-11. 过一遍总结文档
+1. Group assignment: Colin&Andy, Link&Ediie, Daze&Leo
+2. Exchange everyone's understanding of class description
+3. Mention the parameterized test and the use of various asserts
+4. Mention how to use issue including labels, milstones, boards and so on
+5. Communicate the use of branch and merge
+6. Assign the tasks of each group
+7. Unite programming style and comment style
+8. Mention the clarity and importance of the commit
+9. Refactoring
+10. The purpose of logic should be tested
+11. Cover the summery document
     
 ### Conclusion
 
