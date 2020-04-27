@@ -277,35 +277,40 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+|! | |addExpenseTest 1 |0 |0 | | | | | | |
+|! | |addExpenseTest 2 |100 |100 | | | | | | |
+|! | |addExpenseTest 3 |111.5 |211.5 | | | | | | |
+|! | |addExpenseTest 3 |10000000000 |10000000211.5 | | | | | | |
 
 #### Function 9: removeExpense(BigDecimal ) - remove Expense function       
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+|! |removeExpenseTest 1 |0 |10000000211.5 | | | | | | | |
+|! |removeExpenseTest 2 |10000000000 |211.5 | | | | | | | |
+|! |removeExpenseTest 3 |111.5 |100 | | | | | | | |
+|! |removeExpenseTest 3 |100 |0 | | | | | | | |
+|! |removeExpenseTest 3 |100 |Exception: expense should not be negative | | | | | | | |
 
-#### Function 10: resetSpendTotal(BigDecimal) - reset Spend Total Function       
-
-|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
-|----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
-
-#### Function 11: resetSpendTotal(BigDecimal) - reset Spend Total Function       
+#### Function 10: resetBudgetSpend() - reset Spend Total Function       
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
+|! |resetBudgetSpendTest 1|NONE |spend == 0 | | | | | | | |
 | | | | | | | | | | | |
+
+#### Function 11: getRemainingBudget() - Calculate Remaining Budget function    
+
+|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
+|----------|------|----|------|----------------|------------|-------|------|------|----|------|
+| |getRemainingBudgetTest 1 |NONE |--- | | | | | | | |
 | | | | | | | | | | | |
 
 #### Function 12: toString()       
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
+| |Cat_toStringTest 1|NONE |[Category Name](Budget: ¥xx.xx) – ¥yy.yy | | | | | | | |
 | | | | | | | | | | | |
 
 
@@ -347,14 +352,14 @@ Then adjust codes and plan throughout the whole process of development to achiev
 | | | | | | | | | | | |
 | | | | | | | | | | | |
 
-#### Function 6: addTransaction - Add Transaction function
+#### Function 6: addTransaction(Scanner in) - Add Transaction function
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
 | | | | | | | | | | | |
 | | | | | | | | | | | |
 
-#### Function 7: addCategory - Add Category function
+#### Function 7: addCategory(Scanner in) - Add Category function
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
