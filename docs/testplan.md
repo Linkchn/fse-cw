@@ -181,19 +181,22 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| !! |        | isString() | "Leo" | set successfully, transactionName = "Leo" | | | | | | Leo |
-| | | | "" | set failed, output "Error! Please type in your again! " | | | | | | Leo |
-| | | | "QWERTYUIOPASDFGHJKLZXCVBNM" | set successfully, transactionName = "QWERTYUIOPASDFGHJKLZXCVBN" | | | | | | Leo |
-| !! | | isValueTrue() | "", "Leo" | set successfully, transactionName = "Leo"                    | | | | | | Leo |
-|  | |  | "Leo", "Leopard" | set successfully, transactionName = "Leo", output "Your are not allowed to change your name! " the second time test | | | | | | Leo |
-|  | |  | "Leo", "" | set successfully, transactionName = "Leo", output "Your are not allowed to change your name! " the second time test | | | | | | Leo |
+| ! |        | setName1 | "Leo" | transactionName = "Leo" | | | | | | Leo |
+| ! | | setName2 | "" | set failed, output "Error! Please type in your again! " | | | | | | Leo |
+| ! | | setName3 | "QWERTYUIOPASDFGHJKLZXCVBNM" | transactionName = "QWERTYUIOPASDFGHJKLZXCVBN"                | | | | | | Leo |
+| !! | | setName4 | "", "Leo" | transactionName = "Leo"                                      | | | | | | Leo |
+| !! | | setName4 | "Leo", "Leopard" | transactionName = "Leo", output "Your are not allowed to change your name! " the second time test | | | | | | Leo |
+| !! | | setName4 | "Leo", "" | transactionName = "Leo", output "Your are not allowed to change your name! " the second time test | | | | | | Leo |
 
 #### Function 8: setTransactionValue(BigDecimal tValue) - Set Method for Transaction Value
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| |        | | | | | | | | | |
-| | | | | | | | | | | |
+| ! |        | setValue1 | 123 | transactionValue = 123.00 | | | | | | Leo |
+| ! |        | setValue2 | "123.12" | transactionValue = 123.12 | | | | | | Leo |
+| ! |        | setValue3 | "123.123" | set failed, output "The value should be at most two decimal places!" | | | | | | Leo |
+| !! | | setValue4 | "-123.12" | set failed, output "The value should be positive!" | | | | | | Leo |
+| !! | | setValue5 | "-123.123" | set failed, output "The value should be at most two decimal places!" | | | | | | Leo |
 
 #### Function 9: setTransactionCategory(int tCat) - Set Method for Transaction Category
 
