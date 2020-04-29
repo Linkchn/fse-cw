@@ -204,8 +204,11 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-|            |        |      |        |                  | | | | | | |
-| | | | | | | | | | | |
+| ！ |        | setCat1 | 12.3 | set failed, output "The value should be an integer!" | | | | | | Leo |
+| ! |        | setCat2 | "abc" | set failed, output "The value should be an integer!" | | | | | | Leo |
+| ! | | setCat3 | 10 | transactionCategory = 10 | | | | | | Leo |
+| ! | | setCat4 | -10 | set failed, output "The value should be a positive integer!" | | | | | | Leo |
+| !! | | setCat4 | 10,15 | transactionCategory = 15 | | | | | | Leo |
 
 #### Function 10: setTransactionTime(Date tTime) - Set Method for Transaction Time
 
