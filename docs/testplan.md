@@ -112,7 +112,7 @@ Then adjust codes and plan throughout the whole process of development to achiev
   2. Figure out what should be done
   3. Roughly get through the timeline
   4. Decide the date of next meeting
-   
+  
 - #### Second meeting - 25/4
   1. Group assignment: Colin&Andy, Link&Ediie, Daze&Leo
   2. Exchange everyone's understanding of class description
@@ -125,7 +125,7 @@ Then adjust codes and plan throughout the whole process of development to achiev
   9. Refactoring
   10. The purpose of logic should be tested
   11. Cover the summery document
-    
+  
 ### V. Conclusion
 
 
@@ -139,15 +139,18 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-|!-!!! |PASS/FAIL |TEST-NAME | | | | | | 为什么遇到问题和解决的原因| | pair的话写两个人|
-|! | |Default Constructor test 1 |No input | | | | | | |Haonan CHEN |
+|!! | |Default Constructor test 1 |void | [Pending Transaction] | | | | | |Haonan CHEN |
+|!!! | |Default Constructor test 2 |void | [Pending Transaction] | | | | | |Haonan CHEN |
 
 #### Function 2: BoCTransaction(String tName, BigDecimal tValue, int tCat) - Main Constructors
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+| !!! | | Main Constructors Test1 | "food",10000,2 | build the | | | | | | Haonan CHEN |
+| !!! | | Main Constructors Test2 | 12 | Exception:The numbers of parameters and input is not matching | | | | | | Haonan CHEN |
+| !!! | | Main Constructors Test3 | "food",20000 | Exception:The numbers of parameters and input is not matching | | | | | | Haonan CHEN |
+| !!! | | Main Constructors Test4 | 10,20000, 1 | Exception:The parameters and input is not matching | | | | | | Haonan CHEN |
+| !!! | | Main Constructors Test5 |  |  | | | | | | Haonan CHEN |
 
 #### Function 3: transactionName() - Get Method for Transaction Name
 
