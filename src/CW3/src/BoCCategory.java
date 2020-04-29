@@ -40,6 +40,9 @@ public class BoCCategory {
 		}
 	}
 
+
+
+
 	public void addExpense(BigDecimal valueToAdd) {
 		CategorySpend = CategorySpend.add(valueToAdd);
 	}

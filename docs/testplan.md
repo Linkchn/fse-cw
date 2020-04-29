@@ -112,7 +112,7 @@ Then adjust codes and plan throughout the whole process of development to achiev
   2. Figure out what should be done
   3. Roughly get through the timeline
   4. Decide the date of next meeting
-   
+  
 - #### Second meeting - 25/4
   1. Group assignment: Colin&Andy, Link&Ediie, Daze&Leo
   2. Exchange everyone's understanding of class description
@@ -125,7 +125,7 @@ Then adjust codes and plan throughout the whole process of development to achiev
   9. Refactoring
   10. The purpose of logic should be tested
   11. Cover the summery document
-    
+  
 ### V. Conclusion
 
 
@@ -279,38 +279,40 @@ Then adjust codes and plan throughout the whole process of development to achiev
 |! | |addExpenseTest 1 |0 |0 | | | | | | |
 |! | |addExpenseTest 2 |100 |100 | | | | | | |
 |! | |addExpenseTest 3 |111.5 |211.5 | | | | | | |
-|! | |addExpenseTest 3 |10000000000 |10000000211.5 | | | | | | |
+|! | |addExpenseTest 4 |10000000000 |10000000211.5 | | | | | | |
+|! | |addExpenseTest 5 |-11.5 |Reject this operation, remain 10000000211.5 | | | | | | |
+|! | |addExpenseTest 6 |-100 |Reject this operation, remain 10000000211.5 | | | | | | |
 
 #### Function 9: removeExpense(BigDecimal ) - remove Expense function       
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-|! |removeExpenseTest 1 |0 |10000000211.5 | | | | | | | |
-|! |removeExpenseTest 2 |10000000000 |211.5 | | | | | | | |
-|! |removeExpenseTest 3 |111.5 |100 | | | | | | | |
-|! |removeExpenseTest 3 |100 |0 | | | | | | | |
-|! |removeExpenseTest 3 |100 |Exception: expense should not be negative | | | | | | | |
+|! | |removeExpenseTest 1 |0 |10000000211.5 | | | | | | |
+|! | |removeExpenseTest 2 |10000000000 |211.5 | | | | | | |
+|! | |removeExpenseTest 3 |111.5 |100 | | | | | | |
+|! | |removeExpenseTest 4 |100 |0 | | | | | | |
+|! | |removeExpenseTest 5 |100 |Exception: expense should not be negative | | | | | | |
 
 #### Function 10: resetBudgetSpend() - reset Spend Total Function       
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-|! |resetBudgetSpendTest 1|NONE |spend == 0 | | | | | | | |
-| | | | | | | | | | | |
+|! | |resetBudgetSpendTest 1|NONE |spend == 0 | | | | | | | |
+| | | | | | | | | | |
 
 #### Function 11: getRemainingBudget() - Calculate Remaining Budget function    
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| |getRemainingBudgetTest 1 |NONE |--- | | | | | | | |
-| | | | | | | | | | | |
+| | |getRemainingBudgetTest 1 |NONE |--- | | | | | | | |
+| | | | | | | | | | |
 
 #### Function 12: toString()       
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| |Cat_toStringTest 1|NONE |[Category Name](Budget: ¥xx.xx) – ¥yy.yy | | | | | | | |
-| | | | | | | | | | | |
+| | |Cat_toStringTest 1|NONE |[Category Name](Budget: ¥xx.xx) – ¥yy.yy | | | | | | |
+| | | | | | | | | | |
 
 
 
