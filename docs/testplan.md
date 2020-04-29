@@ -112,7 +112,7 @@ Then adjust codes and plan throughout the whole process of development to achiev
   2. Figure out what should be done
   3. Roughly get through the timeline
   4. Decide the date of next meeting
-   
+  
 - #### Second meeting - 25/4
   1. Group assignment: Colin&Andy, Link&Ediie, Daze&Leo
   2. Exchange everyone's understanding of class description
@@ -125,7 +125,7 @@ Then adjust codes and plan throughout the whole process of development to achiev
   9. Refactoring
   10. The purpose of logic should be tested
   11. Cover the summery document
-    
+  
 ### V. Conclusion
 
 
@@ -181,28 +181,32 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+| !! |        | isString() | "Leo" | set successfully, transactionName = "Leo" | | | | | | Leo |
+| | | | "" | set failed, output "Error! Please type in your again! " | | | | | | Leo |
+| | | | "QWERTYUIOPASDFGHJKLZXCVBNM" | set successfully, transactionName = "QWERTYUIOPASDFGHJKLZXCVBN" | | | | | | Leo |
+| !! | | isValueTrue() | "", "Leo" | set successfully, transactionName = "Leo"                    | | | | | | Leo |
+|  | |  | "Leo", "Leopard" | set successfully, transactionName = "Leo", output "Your are not allowed to change your name! " the second time test | | | | | | Leo |
+|  | |  | "Leo", "" | set successfully, transactionName = "Leo", output "Your are not allowed to change your name! " the second time test | | | | | | Leo |
 
 #### Function 8: setTransactionValue(BigDecimal tValue) - Set Method for Transaction Value
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
+| |        | | | | | | | | | |
 | | | | | | | | | | | |
 
 #### Function 9: setTransactionCategory(int tCat) - Set Method for Transaction Category
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
+| |        | | | | | | | | | |
 | | | | | | | | | | | |
 
 #### Function 10: setTransactionTime(Date tTime) - Set Method for Transaction Time
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
+| |        | | | | | | | | | |
 | | | | | | | | | | | |
 
 #### Function 11: isComplete() - Check name and value
@@ -216,7 +220,7 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
+| |        | | | | | | | | | |
 | | | | | | | | | | | |
 
 
