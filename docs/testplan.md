@@ -112,7 +112,7 @@ Then adjust codes and plan throughout the whole process of development to achiev
   2. Figure out what should be done
   3. Roughly get through the timeline
   4. Decide the date of next meeting
-   
+  
 - #### Second meeting - 25/4
   1. Group assignment: Colin&Andy, Link&Ediie, Daze&Leo
   2. Exchange everyone's understanding of class description
@@ -125,7 +125,7 @@ Then adjust codes and plan throughout the whole process of development to achiev
   9. Refactoring
   10. The purpose of logic should be tested
   11. Cover the summery document
-    
+  
 ### V. Conclusion
 
 
@@ -260,17 +260,22 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 #### Function 6:  setCatogoryName(String cName) - Set Category Name       
 
-|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
-|----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|
+|----------|------|----|------|----------------|------------|
+| ! |  | setCNTest1 | "YTB" | "YTB" | |
+| ! |  | setCNTest2 | a string variable | a variable  with the same string as input | |
+| ! |  | setCNTest3 | blank space: " " | blank space: " " | |
+| ! |  | setCNTest4 | empty variable | empty variable | |
 
 #### Function 7: setCatogoryBudget(BigDecimal cBudget) - Set Category Budget       
 
-|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
-|----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|
+|----------|------|----|------|:---------------|------------|
+| !! |  | setCBTest1 | 12 | 12 | |
+| !! | | setCBTest2 | 0 | 0.00 | |
+| !! | | setCBTest3 | 1.002 | 1.002 | |
+| !! | | setCBTest4 | -100 | 0.00 | |
+| !! | | setCBTest5 | 11.2 | 11.2 | |
 
 #### Function 8: addExpense(BigDecimal ) - add Expense function       
 

@@ -31,6 +31,7 @@ public class BoCCategory {
 
 	public void setCategoryName(String newName) {
 		CategoryName = newName;
+		//System.out.println("Used once!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
 	}
 
 	public void setCategoryBudget(BigDecimal newValue) {
