@@ -197,12 +197,14 @@ Then adjust codes and plan throughout the whole process of development to achiev
 | ! |        | setValue3 | "123.123" | set failed, output "The value should be at most two decimal places!" | | | | | | Leo |
 | !! | | setValue4 | "-123.12" | set failed, output "The value should be positive!" | | | | | | Leo |
 | !! | | setValue5 | "-123.123" | set failed, output "The value should be at most two decimal places!" | | | | | | Leo |
+| !! | | setValue6 | "", "123.13" | transactionValue = 123.13 | | | | | | Leo |
+| !! | | setValue7 | "123.13", "134.14" | transactionValue = 123.13, output "Your are not allowed to change the value! " the second time test | | | | | | Leo |
 
 #### Function 9: setTransactionCategory(int tCat) - Set Method for Transaction Category
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| |        | | | | | | | | | |
+|            |        |      |        |                  | | | | | | |
 | | | | | | | | | | | |
 
 #### Function 10: setTransactionTime(Date tTime) - Set Method for Transaction Time
