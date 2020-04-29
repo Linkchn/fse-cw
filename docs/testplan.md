@@ -228,8 +228,9 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| |        | | | | | | | | | |
-| | | | | | | | | | | |
+| ! |        | testToString1 | transactionName is null | converting failed, output "Please type in the name!" | | | | | | Leo |
+| ! | | testToString2 | transactionValue is null | converting failed, output "Please type in the value!" | | | | | | Leo |
+| ! | | testToString3 |  | converting succeeded | | | | | | Leo |
 
 
 
