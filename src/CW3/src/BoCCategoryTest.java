@@ -1,31 +1,49 @@
 import static org.junit.jupiter.api.Assertions.*;
-import static org.junit.jupiter.api.*;
-import org.junit.After;
-import org.junit.AfterClass;
-import org.junit.Before;
-import org.junit.BeforeClass;
-import org.junit.Ignore;
-import org.junit.Test;
+import org.junit.jupiter.api.*;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.AfterEach;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.Test;
+
+import java.math.BigDecimal;
 
 class BoCCategoryTest {
-    @Before
 
+    static BoCCategory cat1;
+    static BigDecimal bd1;
 
+    @BeforeAll
+    static void set() {
+        cat1 = new BoCCategory();
+        bd1 = new BigDecimal("1000.00");
+    }
 
+    @BeforeEach
+    void setUp() {
+
+    }
+
+    @AfterEach
+    void tearDown() {
+    }
+
+    @DisplayName("addExpenseTest")
     @Test
-    void addExpense() {
+    void addExpenseTest() {
+        cat1.addExpense(bd1);
+        assertEquals(bd1, cat1.CategorySpend());
     }
 
     @Test
-    void removeExpense() {
+    void removeExpenseTest() {
     }
 
     @Test
-    void resetBudgetSpend() {
+    void resetBudgetSpendTest() {
     }
 
     @Test
-    void getRemainingBudget() {
+    void getRemainingBudgetTest() {
     }
 
     @Test
