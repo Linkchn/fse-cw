@@ -139,51 +139,43 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-|!! | |Default Constructor test 1 |void | [Pending Transaction] | | | | | |Haonan CHEN |
-|!!! | |Default Constructor test 2 |void | [Pending Transaction] | | | | | |Haonan CHEN |
+|!-!!! |PASS/FAIL |TEST-NAME | | | | | | 为什么遇到问题和解决的原因| | pair的话写两个人|
+|! | |Default Constructor test 1 |No input | | | | | | |Haonan CHEN |
 
 #### Function 2: BoCTransaction(String tName, BigDecimal tValue, int tCat) - Main Constructors
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| !!! | | Main Constructors Test 1 | "food",10000,2 | build successfully | | | | | | Haonan CHEN |
-| !!! | | Main Constructors Test 2 | 12 | Exception:The numbers of parameters and input is not matching | | | | | | Haonan CHEN |
-| !!! | | Main Constructors Test 3 | "food",20000 | Exception:The numbers of parameters and input is not matching | | | | | | Haonan CHEN |
-| !!! | | Main Constructors Test 4 | 10,20000, 1 | Exception:The parameters and input is not matching | | | | | | Haonan CHEN |
-| !!! | | Main Constructors Test 5 | “trip”，”20000.15“，1 | build successfully | | | | | | Haonan CHEN |
-| !!! | | Main Constructors Test 6 | “trip”，”20000.151“，1 | build successfully | | | | | | Haonan CHEN |
+| | | | | | | | | | | |
+| | | | | | | | | | | |
 
 #### Function 3: transactionName() - Get Method for Transaction Name
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| ！ |  | get_Transaction Name test 1 | void (in class food) | "food" | | | | | | Haonan CHEN |
-| ! | | get_Transaction Name test 2 | void(in class trip) | "trip" |  | | | | | Haonan CHEN |
-| ! | | get_Transaction Name test 3 | void(in [Pending Transaction]) | null | | | | | | Haonan CHEN |
+| | | | | | | | | | | |
+| | | | | | | | | | | |
 
 #### Function 4: transactionValue() - Get Method for Transaction Value
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| ! | | get_Transaction Value test 1 | void (in class food) | 10000 | | | | | | Haonan CHEN |
-| ! |        | get_Transaction Value test 2 | void(in class trip) | 20000.15 | | | | | | Haonan CHEN |
-| ! |        | get_Transaction Value test 3 | void(in [Pending Transaction]) | null | | | | | | Haonan CHEN |
+| | | | | | | | | | | |
+| | | | | | | | | | | |
 
 #### Function 5: transactionCategory() - Get Method for Transaction Category
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| ! | | get_Transaction Category test 1 | void (in class food) | 2 | | | | | | Haonan CHEN |
-| ! | | get_Transaction Category test 2 | void(in class trip) | 1 | | | | | | Haonan CHEN |
-| ! | | get_Transaction Category test 3 | void(in [Pending Transaction]) | 0 | | | | | | Haonan CHEN |
+| | | | | | | | | | | |
+| | | | | | | | | | | |
 
 #### Function 6: transactionTime() - Get Method for Transaction Time
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| ! | | get_Transaction time test 1 | void (in class food) | Time of creating, format is: week month date hour:min:sec time_zone year | | | | | | Haonan CHEN |
-| ! | | get_Transaction time test 2 | void(in class trip) | Time of creating  format is: week month date hour:min:sec time_zone year | | | | | | Haonan CHEN |
-| ! | | get_Transaction time test 3 | void(in [Pending Transaction]) | null       format is: week month date hour:min:sec time_zone year | | | | | | Haonan CHEN |
+| | | | | | | | | | | |
+| | | | | | | | | | | |
 
 #### Function 7: setTransactionName(String tName) - Set Method for Transaction Name
 
@@ -222,8 +214,8 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| ！ |        | setTime1 | none, tTime is (2020, 4, 29) | transactionTime = (2020, 4, 29) | | | | | | Leo |
-| ! |  | setTime2 | none, tTime is 1 | set failed, output "The value should be a date!" | | | | | | Leo |
+| ！ |        | setTime1 | (2020, 4, 29) | transactionTime = (2020, 4, 29) | | | | | | Leo |
+| ! |  | setTime2 | 1 | set failed, output "The value should be a date!" | | | | | | Leo |
 
 #### Function 11: isComplete() - Check name and value
 
@@ -236,8 +228,8 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| ! |        | testToString1 | none, transactionName is null | converting failed, output "Please type in the name!" | | | | | | Leo |
-| ! | | testToString2 | none, transactionValue is null | converting failed, output "Please type in the value!" | | | | | | Leo |
+| ! |        | testToString1 | transactionName is null | converting failed, output "Please type in the name!" | | | | | | Leo |
+| ! | | testToString2 | transactionValue is null | converting failed, output "Please type in the value!" | | | | | | Leo |
 | ! | | testToString3 |  | converting succeeded | | | | | | Leo |
 
 
@@ -281,22 +273,17 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 #### Function 6:  setCatogoryName(String cName) - Set Category Name       
 
-|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|
-|----------|------|----|------|----------------|------------|
-| ! |  | setCNTest1 | "YTB" | "YTB" | |
-| ! |  | setCNTest2 | a string variable | a variable  with the same string as input | |
-| ! |  | setCNTest3 | blank space: " " | blank space: " " | |
-| ! |  | setCNTest4 | empty variable | empty variable | |
+|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
+|----------|------|----|------|----------------|------------|-------|------|------|----|------|
+| | | | | | | | | | | |
+| | | | | | | | | | | |
 
 #### Function 7: setCatogoryBudget(BigDecimal cBudget) - Set Category Budget       
 
-|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|
-|----------|------|----|------|:---------------|------------|
-| !! |  | setCBTest1 | 12 | 12 | |
-| !! | | setCBTest2 | 0 | 0.00 | |
-| !! | | setCBTest3 | 1.002 | 1.002 | |
-| !! | | setCBTest4 | -100 | 0.00 | |
-| !! | | setCBTest5 | 11.2 | 11.2 | |
+|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
+|----------|------|----|------|----------------|------------|-------|------|------|----|------|
+| | | | | | | | | | | |
+| | | | | | | | | | | |
 
 #### Function 8: addExpense(BigDecimal ) - add Expense function       
 
