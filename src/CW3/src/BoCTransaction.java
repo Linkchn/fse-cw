@@ -7,13 +7,19 @@ public class BoCTransaction {
 	private int transactionCategory;
 	private Date transactionTime;
 
+	/*
+	1 – Pass – Haonan CHEN – 23:58/40/3
+	Change:Initiate the transactionName to [Pending Transaction]
+	Reason:keep same as requirement
+	Tracabiliy:Default_Constructor_test1 
+	*/
 	public BoCTransaction() {
-		transactionName = null;
+		transactionName ="[Pending Transaction]";
 		transactionValue = null;
 		transactionCategory = 0;
 		transactionTime = null;
 	}
-
+	
 	public BoCTransaction(String tName, BigDecimal tValue, int tCat) {
 		transactionName = tName;
 		transactionValue = tValue;

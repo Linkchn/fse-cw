@@ -139,8 +139,8 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-|!!! | |Default Constructor test 1 |No input | [Pending Transaction] | | | | | |Haonan CHEN |
-|!!! | |Default Constructor test 2 |void | [Pending Transaction] | | | | | |Haonan CHEN |
+|!!! | Fail |Default Constructor test 1 |void | [Pending Transaction] | Fail the test | The transactionName is not same as the expected outcome. | change the "transactionName"   to "[Pending Transaction]" | The default constructor gives null value. | 23:38/30/04 |Haonan CHEN |
+|!!! | Pass |Default Constructor test 2 |void | [Pending Transaction] | [Pending Transaction] | No | | | 23:56/30/04 |Haonan CHEN |
 
 #### Function 2: BoCTransaction(String tName, BigDecimal tValue, int tCat) - Main Constructors
 
