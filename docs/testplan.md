@@ -281,7 +281,7 @@ Then adjust codes and plan throughout the whole process of development to achiev
 |! | |addExpenseTest 3 |111.5 |211.5 | | | | | | |
 |! | |addExpenseTest 4 |10000000000 |10000000211.5 | | | | | | |
 |! | |addExpenseTest 5 |-11.5 |Reject this operation, remain 10000000211.5 | | | | | | |
-|! | |addExpenseTest 6 |-100 |Reject this operation, remain 10000000211.5 | | | | | | |
+|! | |addExpenseTest 6* |-100 |Reject this operation, remain 10000000211.5 | | | | | | |
 
 #### Function 9: removeExpense(BigDecimal ) - remove Expense function       
 
@@ -292,6 +292,7 @@ Then adjust codes and plan throughout the whole process of development to achiev
 |! | |removeExpenseTest 3 |111.5 |100 | | | | | | |
 |! | |removeExpenseTest 4 |100 |0 | | | | | | |
 |! | |removeExpenseTest 5 |100 |Exception: expense should not be negative | | | | | | |
+|! | |removeExpenseTest 6* |-100 | | | | | | | |
 
 #### Function 10: resetBudgetSpend() - reset Spend Total Function       
 
