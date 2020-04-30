@@ -189,29 +189,41 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+| ! |        | setName1 | "Leo" | transactionName = "Leo" | | | | | | Leo |
+| ! | | setName2 | "" | set failed, output "Error! Please type in your again! " | | | | | | Leo |
+| ! | | setName3 | "QWERTYUIOPASDFGHJKLZXCVBNM" | transactionName = "QWERTYUIOPASDFGHJKLZXCVBN"                | | | | | | Leo |
+| !! | | setName4 | "", "Leo" | transactionName = "Leo"                                      | | | | | | Leo |
+| !! | | setName4 | "Leo", "Leopard" | transactionName = "Leo", output "Your are not allowed to change your name! " the second time test | | | | | | Leo |
+| !! | | setName4 | "Leo", "" | transactionName = "Leo", output "Your are not allowed to change your name! " the second time test | | | | | | Leo |
 
 #### Function 8: setTransactionValue(BigDecimal tValue) - Set Method for Transaction Value
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+| ! |        | setValue1 | 123 | transactionValue = 123.00 | | | | | | Leo |
+| ! |        | setValue2 | "123.12" | transactionValue = 123.12 | | | | | | Leo |
+| ! |        | setValue3 | "123.123" | set failed, output "The value should be at most two decimal places!" | | | | | | Leo |
+| !! | | setValue4 | "-123.12" | set failed, output "The value should be positive!" | | | | | | Leo |
+| !! | | setValue5 | "-123.123" | set failed, output "The value should be at most two decimal places!" | | | | | | Leo |
+| !! | | setValue6 | "", "123.13" | transactionValue = 123.13 | | | | | | Leo |
+| !! | | setValue7 | "123.13", "134.14" | transactionValue = 123.13, output "Your are not allowed to change the value! " the second time test | | | | | | Leo |
 
 #### Function 9: setTransactionCategory(int tCat) - Set Method for Transaction Category
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+| ！ |        | setCat1 | 12.3 | set failed, output "The value should be an integer!" | | | | | | Leo |
+| ! |        | setCat2 | "abc" | set failed, output "The value should be an integer!" | | | | | | Leo |
+| ! | | setCat3 | 10 | transactionCategory = 10 | | | | | | Leo |
+| ! | | setCat4 | -10 | set failed, output "The value should be a positive integer!" | | | | | | Leo |
+| !! | | setCat4 | 10,15 | transactionCategory = 15 | | | | | | Leo |
 
 #### Function 10: setTransactionTime(Date tTime) - Set Method for Transaction Time
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+| ！ |        | setTime1 | none, tTime is (2020, 4, 29) | transactionTime = (2020, 4, 29) | | | | | | Leo |
+| ! |  | setTime2 | none, tTime is 1 | set failed, output "The value should be a date!" | | | | | | Leo |
 
 #### Function 11: isComplete() - Check name and value
 
@@ -224,8 +236,9 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+| ! |        | testToString1 | none, transactionName is null | converting failed, output "Please type in the name!" | | | | | | Leo |
+| ! | | testToString2 | none, transactionValue is null | converting failed, output "Please type in the value!" | | | | | | Leo |
+| ! | | testToString3 |  | converting succeeded | | | | | | Leo |
 
 
 
