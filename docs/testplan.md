@@ -140,28 +140,36 @@ Then adjust codes and plan throughout the whole process of development to achiev
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
 |!-!!! |PASS/FAIL |TEST-NAME | | | | | | 为什么遇到问题和解决的原因| | pair的话写两个人|
-|! | |Default Constructor test 1 |No input | | | | | | |Haonan CHEN |
+|!!! | |Default Constructor test 1 |No input | [Pending Transaction] | | | | | |Haonan CHEN |
+|!!! | |Default Constructor test 2 |void | [Pending Transaction] | | | | | |Haonan CHEN |
 
 #### Function 2: BoCTransaction(String tName, BigDecimal tValue, int tCat) - Main Constructors
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
+| !!! | | Main Constructors Test 1 | "food",10000,2 | build successfully | | | | | | Haonan CHEN |
+| !!! | | Main Constructors Test 2 | 12 | Exception:The numbers of parameters and input is not matching | | | | | | Haonan CHEN |
+| !!! | | Main Constructors Test 3 | "food",20000 | Exception:The numbers of parameters and input is not matching | | | | | | Haonan CHEN |
+| !!! | | Main Constructors Test 4 | 10,20000, 1 | Exception:The parameters and input is not matching | | | | | | Haonan CHEN |
+| !!! | | Main Constructors Test 5 | “trip”，”20000.15“，1 | build successfully | | | | | | Haonan CHEN |
+| !!! | | Main Constructors Test 6 | “trip”，”20000.151“，1 | build successfully | | | | | | Haonan CHEN |
 | | | | | | | | | | | |
 
 #### Function 3: transactionName() - Get Method for Transaction Name
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+| ！ | | get_Transaction Name test 1 | void (in class food) | "food" | | | | | | Haonan CHEN |
+| ! | | get_Transaction Name test 2 | void(in class trip) | "trip" | | | | | | Haonan CHEN |
+| ! | | get_Transaction Name test 3 | void(in [Pending Transaction]) | null | | | | | | Haonan CHEN |
 
 #### Function 4: transactionValue() - Get Method for Transaction Value
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+| ! | | get_Transaction Value test 1 | void (in class food) | 10000 | | | | | | Haonan CHEN |
+| ! | | get_Transaction Value test 2 | void(in class trip) | 20000.15 | | | | | | Haonan CHEN |
+| ! | | get_Transaction Value test 3 | void(in [Pending Transaction]) | null | | | | | | Haonan CHEN |
 
 #### Function 5: transactionCategory() - Get Method for Transaction Category
 
@@ -174,8 +182,9 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+| ! | | get_Transaction Category test 1 | void (in class food) | 2 | | | | | | Haonan CHEN |
+| ! | | get_Transaction Category test 2 | void(in class trip) | 1 | | | | | | Haonan CHEN |
+| ! | | get_Transaction Category test 3 | void(in [Pending Transaction]) | 0 | | | | | | Haonan CHEN |
 
 #### Function 7: setTransactionName(String tName) - Set Method for Transaction Name
 
