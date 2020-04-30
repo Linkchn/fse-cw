@@ -214,8 +214,8 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| ！ |        | setTime1 | (2020, 4, 29) | transactionTime = (2020, 4, 29) | | | | | | Leo |
-| ! |  | setTime2 | 1 | set failed, output "The value should be a date!" | | | | | | Leo |
+| ！ |        | setTime1 | none, tTime is (2020, 4, 29) | transactionTime = (2020, 4, 29) | | | | | | Leo |
+| ! |  | setTime2 | none, tTime is 1 | set failed, output "The value should be a date!" | | | | | | Leo |
 
 #### Function 11: isComplete() - Check name and value
 
@@ -228,8 +228,8 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| ! |        | testToString1 | transactionName is null | converting failed, output "Please type in the name!" | | | | | | Leo |
-| ! | | testToString2 | transactionValue is null | converting failed, output "Please type in the value!" | | | | | | Leo |
+| ! |        | testToString1 | none, transactionName is null | converting failed, output "Please type in the name!" | | | | | | Leo |
+| ! | | testToString2 | none, transactionValue is null | converting failed, output "Please type in the value!" | | | | | | Leo |
 | ! | | testToString3 |  | converting succeeded | | | | | | Leo |
 
 
