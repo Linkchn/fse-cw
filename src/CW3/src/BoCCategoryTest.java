@@ -32,18 +32,36 @@ class BoCCategoryTest {
     void tearDown() {
     }
 
+
     @DisplayName("addExpenseTest")
     @ParameterizedTest
-    @ValueSource(strings = {"0.00", "100.00", "111.50", "10000000000"})
+    @ValueSource(strings = {"0.00", "100.00", "111.50", "10000000000.00"})
     void addExpenseTest(String num) {
+
         bd1 = new BigDecimal(num);
         sum = sum.add(bd1);
         cat1.addExpense(bd1);
         assertEquals(sum, cat1.CategorySpend());
+
     }
 
-    @Test
-    void removeExpenseTest() {
+
+    @DisplayName("removeExpenseTest")
+    @ParameterizedTest
+    @ValueSource(strings = {"0.00", "10000000000.00", "111.50", "100.00", "100.00"})
+    void removeExpenseTest(String num) {
+        bd1 = new BigDecimal(num);
+        sum = cat1.CategorySpend();
+        BigDecimal temp = sum.subtract(bd1);
+
+        if (temp.compareTo(BigDecimal.ZERO) != -1){
+            sum = sum.subtract(bd1);
+            cat1.removeExpense(bd1);
+            assertEquals(sum, cat1.CategorySpend());
+        }
+        else{
+            assertThrows(Exception.class, ()->{cat1.removeExpense(bd1);});
+        }
     }
 
     @Test
