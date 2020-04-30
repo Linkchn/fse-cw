@@ -276,12 +276,14 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-|! | |addExpenseTest 1 |0 |0 | | | | | | |
-|! | |addExpenseTest 2 |100 |100 | | | | | | |
-|! | |addExpenseTest 3 |111.5 |211.5 | | | | | | |
-|! | |addExpenseTest 4 |10000000000 |10000000211.5 | | | | | | |
-|! | |addExpenseTest 5 |-11.5 |Reject this operation, remain 10000000211.5 | | | | | | |
-|! | |addExpenseTest 6* |-100 |Reject this operation, remain 10000000211.5 | | | | | | |
+| !          | FAIL   | addExpenseTest 1  | (Double)0     | (BigDecimal)0.00                            | (BigDecimal)0 | Decimals are different | /      | /      | 21:43/30/3 | Colin  |
+|! | |addExpenseTest 2 |(Double)0.00 |(BigDecimal)0.00 | (BigDecimal)0   | Decimals are still different | Changed the decimal places of Input | BigDecimal requires accurate numbers | 21:46/30/3 | Colin |
+|! | |addExpenseTest 2 |(String)0.00 |(BigDecimal)0.00 | (BigDecimal)0.00 | / | Changed the data type of Input | Only String can be accurate numbers for a BigDecimal constructor | 21:55/30/3 | Colin |
+|! | |addExpenseTest 2 |(String)100.00 |(BigDecimal)100.00 | (BigDecimal)100.00 | / | / | / | 21:58/30/3 | Colin |
+|! | |addExpenseTest 3 |(Stringl)111.50 |(BigDecimal)211.50 | (BigDecimal)211.50 |  | | | | |
+|! | |addExpenseTest 4 |(Stringl)10000000000 |(BigDecimal)10000000211.50 |(BigDecimal)10000000211.50 | | | | | |
+|! | |addExpenseTest 5 |(Stringl)-11.5 |Reject this operation, remain 10000000211.5 | | | | | | |
+|! | |addExpenseTest 6* |(Stringl)-100 |Reject this operation, remain 10000000211.5 | | | | | | |
 
 #### Function 9: removeExpense(BigDecimal ) - remove Expense function       
 

@@ -5,6 +5,9 @@ import org.junit.jupiter.api.AfterEach;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.ValueSource;
+
 import java.math.BigDecimal;
 
 class BoCCategoryTest {
@@ -15,7 +18,7 @@ class BoCCategoryTest {
     @BeforeAll
     static void set() {
         cat1 = new BoCCategory();
-        bd1 = new BigDecimal("1000.00");
+        bd1 = new BigDecimal("100");
     }
 
     @BeforeEach
@@ -28,8 +31,10 @@ class BoCCategoryTest {
     }
 
     @DisplayName("addExpenseTest")
-    @Test
+    @ParameterizedTest
+    @ValueSource(strings = {"0.00", "100.00", "111.50", "10000000000"})
     void addExpenseTest() {
+        bd1 = new BigDecimal("100");
         cat1.addExpense(bd1);
         assertEquals(bd1, cat1.CategorySpend());
     }
