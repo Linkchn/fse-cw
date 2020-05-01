@@ -295,7 +295,7 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 #### Function 7: setCatogoryBudget(BigDecimal cBudget) - Set Category Budget       
 
-|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Change|Reason|Reason|Time|Author|
+|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|------------|------------|------------|------------|------------|
 | !! | FAIL | setCBTest1 | 12 | 12.00 | 12 | | | | | Hongming Ping |
 | !! | PASS | setCBTest2 | 0 | 0.00 | 0.00 | | | | | Hongming Ping |
