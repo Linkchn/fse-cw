@@ -127,4 +127,19 @@ class BoCTransactionTest {
 		}
 		assertEquals(testExceptOutput, testOutput);
 	}
+	
+	@Test
+	void setCatTest2(){
+		int testInput = -10;
+		int testExceptOutput = 0;
+		int testOutput = 0;
+		try {
+			BoCTransaction copy = new BoCTransaction();
+			copy.setTransactionCategory(testInput);
+			testOutput = copy.transactionCategory();
+		}catch(Exception e) {
+			fail ("Someting wrong with catch");
+		}
+		assertEquals(testExceptOutput, testOutput);
+	}
 }
