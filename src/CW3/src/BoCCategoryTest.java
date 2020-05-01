@@ -102,18 +102,23 @@ class BoCCategoryTest {
         }
     }
     /*
-    1-
+    1- FAIL -Jiawei - 16:44 1/5
+    Problem: The Test is failed. 
+    Reason:  The code does not run the resetBudgetSpendTest method in the first test. Therefore,
+    the output is not match with the expected output.
+    Traceability: resetBudgetSpendTest1
      */
     @Order(4)
+
+    
     @DisplayName("resetBudgetSpendTest")
     @ParameterizedTest
     @ValueSource(strings = {"0.00"})
     void resetBudgetSpendTest(String num1) {
-    	bd1 = new BigDecimal(num1);
-    	assertEquals(bd1,cat1.CategorySpend());
+    	bd1 = neww BigDecimal(num1);
+    	assertEqual(bd1,cat1.resetBudgetSpend());
     	
     }
-
     @Order(3)
     @Test
     void getRemainingBudgetTest() {
