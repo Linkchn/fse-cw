@@ -77,11 +77,11 @@ class BoCCategoryTest {
     Reason: The source code does not handle this problem
     Traceability: removeExpenseTest 5
 
-    3 - 
+    3 -
     */
     @DisplayName("removeExpenseTest")
     @ParameterizedTest
-    @ValueSource(strings = {"0.00", "10000000000.00", "111.50", "100.00", "100.00"})
+    @ValueSource(strings = {"0.00", "10000000000.00", "111.50", "90.00", "100.00"})
     void removeExpenseTest(String num) {
         bd1 = new BigDecimal(num);
         sum = cat1.CategorySpend();
