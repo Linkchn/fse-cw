@@ -292,7 +292,7 @@ Then adjust codes and plan throughout the whole process of development to achiev
 |! | PASS |removeExpenseTest 1 |new BigDecimal(0.00) |(BigDecimal)10000000211.50 |(BigDecimal)10000000211.50 | / | / | / | 23:44 30/5 | Colin |
 |! | PASS |removeExpenseTest 2 |new BigDecimal("10000000000.00") |(BigDecimal)211.50 |(BigDecimal)211.50 | / | / | / | 23:44 30/5 | Colin |
 |! | PASS |removeExpenseTest 3 |new BigDecimal("111.50") |(BigDecimal)100.00 |(BigDecimal)100.00 | / | / | / | 23:44 30/5 | Colin |
-|! | PASS |removeExpenseTest 4 |new BigDecimal("100.00") |(BigDecimal)0.00 |(BigDecimal)0.00 | / | / | / | 23:44 30/5 | Colin |
+|! | PASS |removeExpenseTest 4 |new BigDecimal("90.00") |(BigDecimal)10.00 |(BigDecimal)10.00 | / | / | / | 23:44 30/5 | Colin |
 |! | FAIL |removeExpenseTest 5 |new BigDecimal("100.00") |Exception: expense should not be negative |Nothing was thrown | Nothing was thrown | / | The source code does not handle this problem | 23:44 30/5 | Colin |
 |! | |removeExpenseTest 6* |-100 | | | | | | | |
 
