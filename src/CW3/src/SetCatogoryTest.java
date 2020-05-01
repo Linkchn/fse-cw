@@ -5,7 +5,7 @@ import java.math.BigDecimal;
 import org.junit.jupiter.api.Test;
 
 class SetCatogoryTest {
-	private String TestInputString, TestOutputString,variable;
+	private String TestInputString, TestOutputString, variable;
 	private BigDecimal TestInputBudget;
 	private BigDecimal TestOutputBudget;
 	private BigDecimal TestExceptOutputBudget;
@@ -36,10 +36,6 @@ class SetCatogoryTest {
 		}
 		assertEquals(TestInputString, TestOutputString);
 	}
-	
-	//Author: Daze
-	//Date: 2020/4/30
-	//Time: 21:37
 	
 	@Test
 	void setCNTest3() throws Exception {
