@@ -45,8 +45,14 @@ public class BoCCategory {
 	/*
 	1 – FAIL – Shiliang – 16:13 1/5
     Change: /
+    Reason: Decimals are different
+	Traceability: getRemainingBudgetTest 1
+	
+	2 – PASS – Jiawei – 22:35 1/5
+    Change: /
     Reason: /
-    Traceability: getRemainingBudgetTest 1
+	Traceability: getRemainingBudgetTest 3, 4, 5, 6
+
 	 */
 	public void addExpense(BigDecimal valueToAdd) {
 		CategorySpend = CategorySpend.add(valueToAdd);
@@ -58,7 +64,7 @@ public class BoCCategory {
     		the new code will throw new exception "Expense should not be negative" if 
     		the result is negative.
     Reason: The source code does not handle this problem
-    Traceability: removeExpenseTest 5
+    Traceability: removeExpenseTest 6
 	 */
 	public void removeExpense(BigDecimal valueToRemove) throws Exception {
 		BigDecimal temp = CategorySpend.subtract(valueToRemove);
@@ -75,7 +81,7 @@ public class BoCCategory {
 	}
 
 	/*
-	1 – PASS – Shiliang – 16:13 1/5
+	1 – PASS – Jiawei – 16:13 1/5
     Change: /
     Reason: /
     Traceability: getRemainingBudgetTest 1

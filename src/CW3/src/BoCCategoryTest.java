@@ -79,12 +79,15 @@ class BoCCategoryTest {
     Reason: The source code does not handle this problem
     Traceability: removeExpenseTest 5
 
-    3 -
+    3 - PASS - Shiliang - 16:25 1/5
+    Problem: /
+    Reason: /
+    Traceability: removeExpenseTest 6
     */
+    @Order(2)
     @DisplayName("removeExpenseTest")
     @ParameterizedTest
     @ValueSource(strings = {"0.00", "10000000000.00", "111.50", "90.00", "100.00"})
-    @Order(2)
     void removeExpenseTest(String num) {
         bd1 = new BigDecimal(num);
         sum = cat1.CategorySpend();
@@ -101,24 +104,34 @@ class BoCCategoryTest {
             assertThrows(Exception.class, ()->{cat1.removeExpense(bd1);System.out.println(cat1.CategorySpend());});
         }
     }
+
+
     /*
-    1- FAIL -Jiawei - 16:44 1/5
+    1- FAIL - Jiawei - 16:44 1/5
     Problem: The Test is failed. 
-    Reason:  The code does not run the resetBudgetSpendTest method in the first test. Therefore,
-    the output is not match with the expected output.
-    Traceability: resetBudgetSpendTest1
+    Reason: The code does not run the resetBudgetSpendTest method in the first test. Therefore,
+            the output is not match with the expected output.
+    Traceability: resetBudgetSpendTest 1
+
+
      */
     @Order(4)
-
-    
     @DisplayName("resetBudgetSpendTest")
     @ParameterizedTest
     @ValueSource(strings = {"0.00"})
     void resetBudgetSpendTest(String num1) {
-    	bd1 = neww BigDecimal(num1);
-    	assertEqual(bd1,cat1.resetBudgetSpend());
+    	bd1 = new BigDecimal(num1);
+    	cat1.resetBudgetSpend();
+    	assertEquals(bd1, cat1.CategorySpend());
     	
     }
+
+    /*
+    1- PASS - Shiliang - 16:13 1/5
+    Problem: /
+    Reason:  /
+    Traceability: getRemainingBudgetTest 1
+     */
     @Order(3)
     @Test
     void getRemainingBudgetTest() {
