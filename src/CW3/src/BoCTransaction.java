@@ -61,12 +61,15 @@ public class BoCTransaction {
 	}
 
 	public void setTransactionValue(BigDecimal tValue) {
-		if (tValue.compareTo(new BigDecimal("0.00")) == 1) {
-			// 1 means bigger, -1 means smaller, 0 means same
-			transactionValue = tValue;
-		}
-		if (tValue.scale()>2) {
-			transactionValue = null;
+		if (counter == 0) {
+			if (tValue.compareTo(new BigDecimal("0.00")) == 1) {
+				// 1 means bigger, -1 means smaller, 0 means same
+				transactionValue = tValue;
+				counter += 1;
+			}
+			if (tValue.scale()>2) {
+				transactionValue = null;
+			}
 		}
 	}
 

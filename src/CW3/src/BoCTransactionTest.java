@@ -127,6 +127,7 @@ class BoCTransactionTest {
 		try {
 			BoCTransaction copy = new BoCTransaction();
 			copy.setTransactionValue(testInputBudget);
+			copy.resetCounter();
 			testOutputBudget = copy.transactionValue();
 		}catch(Exception e) {
 			fail ("Someting wrong with catch");
@@ -141,6 +142,7 @@ class BoCTransactionTest {
 		try {
 			BoCTransaction copy = new BoCTransaction();
 			copy.setTransactionValue(testInputBudget);
+			copy.resetCounter();
 			testOutputBudget = copy.transactionValue();
 		}catch(Exception e) {
 			fail ("Someting wrong with catch");
@@ -155,6 +157,7 @@ class BoCTransactionTest {
 		try {
 			BoCTransaction copy = new BoCTransaction();
 			copy.setTransactionValue(testInputBudget);
+			copy.resetCounter();
 			testOutputBudget = copy.transactionValue();
 		}catch(Exception e) {
 			fail ("Someting wrong with catch");
@@ -169,6 +172,7 @@ class BoCTransactionTest {
 		try {
 			BoCTransaction copy = new BoCTransaction();
 			copy.setTransactionValue(testInputBudget);
+			copy.resetCounter();
 			testOutputBudget = copy.transactionValue();
 		}catch(Exception e) {
 			fail ("Someting wrong with catch");
