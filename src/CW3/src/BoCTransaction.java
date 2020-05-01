@@ -7,7 +7,7 @@ import java.text.SimpleDateFormat;
 public class BoCTransaction {
 	private String transactionName;
 	private BigDecimal transactionValue;
-	private int transactionCategory;
+	private int transactionCategory, counter = 0;
 	private Date transactionTime;
 
 	public BoCTransaction() {
@@ -40,16 +40,23 @@ public class BoCTransaction {
 		return transactionTime;
 	}
 
+	public void resetCounter() {
+		counter = 0;
+	}
+	
 	public void setTransactionName(String tName) {
-		if (tName == null) {
-			transactionName = null;
-		}else {
-			transactionName = tName;
-			if (transactionName.length()>25) {
-				int start = 0;
-				int finish = 25;
-				transactionName = transactionName.substring(start, finish);
-			}			
+		if (counter == 0) {
+			if (tName == null && counter == 0) {
+				transactionName = null;
+			}else {
+				transactionName = tName;
+				counter += 1;
+				if (transactionName.length()>25) {
+					int start = 0;
+					int finish = 25;
+					transactionName = transactionName.substring(start, finish);
+				}			
+			}
 		}
 	}
 

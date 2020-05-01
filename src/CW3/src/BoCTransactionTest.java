@@ -37,6 +37,7 @@ class BoCTransactionTest {
 		try {
 			BoCTransaction copy = new BoCTransaction();
 			copy.setTransactionName(testInputString);
+			copy.resetCounter();
 			testOutputString = copy.transactionName();
 		}catch(Exception e) {
 			fail ("Someting wrong with catch");
@@ -50,6 +51,7 @@ class BoCTransactionTest {
 		try {
 			BoCTransaction copy = new BoCTransaction();
 			copy.setTransactionName(testInputString);
+			copy.resetCounter();
 			testOutputString = copy.transactionName();
 		}catch(Exception e) {
 			fail ("Someting wrong with catch");
@@ -63,6 +65,7 @@ class BoCTransactionTest {
 		try {
 			BoCTransaction copy = new BoCTransaction();
 			copy.setTransactionName(testInputString);
+			copy.resetCounter();
 			testOutputString = copy.transactionName();
 		}catch(Exception e) {
 			fail ("Someting wrong with catch");
@@ -89,6 +92,21 @@ class BoCTransactionTest {
 	void setNameTest5() {
 		testInputString1 = "Leo";
 		testInputString2 = "Leopard";
+		try {
+			BoCTransaction copy = new BoCTransaction();
+			copy.setTransactionName(testInputString1);
+			copy.setTransactionName(testInputString2);
+			testOutputString = copy.transactionName();
+		}catch(Exception e) {
+			fail ("Someting wrong with catch");
+		}
+		assertEquals("Leo", testOutputString);
+	}
+	
+	@Test
+	void setNameTest6() {
+		testInputString1 = "Leo";
+		testInputString2 = null;
 		try {
 			BoCTransaction copy = new BoCTransaction();
 			copy.setTransactionName(testInputString1);
