@@ -182,8 +182,8 @@ Then adjust codes and plan throughout the whole process of development to achiev
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
 | ! | Pass | setName1 | "Leo" | transactionName = "Leo" | transactionName = "Leo" | - | - | - | 1st/May 14:25 | Leo |
-| ! | | setName2 | null | set failed, transactionName = null | transactionName = null | - | - | - | 1st/May 14:42 | Leo |
-| ! | | setName3 | "QWERTYUIOPASDFGHJKLZXCVBNM" | transactionName = "QWERTYUIOPASDFGHJKLZXCVBN"                | | | | | | Leo |
+| ! | Pass | setName2 | null | set failed, transactionName = null | transactionName = null | - | - | - | 1st/May 14:42 | Leo |
+| ! | Fail | setName3 | "QWERTYUIOPASDFGHJKLZXCVBNM" | transactionName = "QWERTYUIOPASDFGHJKLZXCVBN"                | transactionName = "QWERTYUIOPASDFGHJKLZXCVBNM" | no limit of character number | edit code | the code is not complete | | Leo |
 | !! | | setName4 | "", "Leo" | transactionName = "Leo"                                      | | | | | | Leo |
 | !! | | setName4 | "Leo", "Leopard" | transactionName = "Leo", output "Your are not allowed to change your name! " the second time test | | | | | | Leo |
 | !! | | setName4 | "Leo", "" | transactionName = "Leo", output "Your are not allowed to change your name! " the second time test | | | | | | Leo |
