@@ -139,32 +139,36 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-|!! | |Default Constructor test 1 |void | [Pending Transaction] | | | | | |Haonan CHEN |
-|!!! | |Default Constructor test 2 |void | [Pending Transaction] | | | | | |Haonan CHEN |
+|!!! | FAIL |Default Constructor test 1 |void | [Pending Transaction] | Fail the test | The transactionName is not same as the expected outcome. | change the "transactionName"   to "[Pending Transaction]" | The default constructor gives null value. | 23:38/30/04 |Haonan CHEN |
+|!!! | PASS |Default Constructor test 2 |void | [Pending Transaction] | [Pending Transaction] | No | | | 23:56/30/04 |Haonan CHEN |
 
 #### Function 2: BoCTransaction(String tName, BigDecimal tValue, int tCat) - Main Constructors
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| !!! | | Main Constructors Test1 | "food",10000,2 | build the | | | | | | Haonan CHEN |
-| !!! | | Main Constructors Test2 | 12 | Exception:The numbers of parameters and input is not matching | | | | | | Haonan CHEN |
-| !!! | | Main Constructors Test3 | "food",20000 | Exception:The numbers of parameters and input is not matching | | | | | | Haonan CHEN |
-| !!! | | Main Constructors Test4 | 10,20000, 1 | Exception:The parameters and input is not matching | | | | | | Haonan CHEN |
-| !!! | | Main Constructors Test5 |  |  | | | | | | Haonan CHEN |
+| !!! | PASS | Main Constructors Test 1 | "food",10000,2 | build successfully | build successfully | No | No | No | 14:08/01/05 | Haonan CHEN |
+| !!! | ERROR  | Main Constructors Test 2 | 12 | Exception:The numbers of parameters and input is not matching | Error | the constructor BoCTransaction(int) is undefined. | Ignore the test | The compile error can't be solved in the method | 15:23/01/05 | Haonan CHEN |
+| !!! | ERROR  | Main Constructors Test 3 | "food",20000 | Exception:The numbers of parameters and input is not matching | Error | the constructor BoCTransaction(string,bigdecimal) is undefined. | Ignore the test | The compile error can't be solved in the method | 15:24/01/05 | Haonan CHEN |
+| !!! | ERROR  | Main Constructors Test 4 | 10,20000, 1 | Exception:The parameters and input is not matching | Error | the constructor BoCTransaction(int,bigdecimal,int) is undefined. | Ignore the test | The compile error can't be solved in the method | 15:25/01/05 | Haonan CHEN |
+| !!! | FAIL | Main Constructors Test 5 | “trip”，”20000.15“，1 | build successfully | constractiontime difference | constructorTime is not same as the expected value. | Create a method to cut the timestamp  until second. | The delay of the constructorTime and currentTime are created. | 16:28/01/05 | Haonan CHEN |
+| !!! | PASS | Main Constructors Test 5(2) | “trip”，”20000.15“，1 | build successfully | pass the test               | No | No | No | 16:50/01/05 | Haonan CHEN |
+| !!! | Fail | Main Constructors Test 6 | “trip”，”20000.151“，1 | build successfully | build successfully | The trip.transactionValue() does not match the expected outcome. | Ask user to input a correct value in main class | The value of accounts should be only 2 numbers after point | 16:50/01/05 | Haonan CHEN |
 
 #### Function 3: transactionName() - Get Method for Transaction Name
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+| ！ | | get_Transaction Name test 1 | void (in class food) | "food" | | | | | | Haonan CHEN |
+| ! | | get_Transaction Name test 2 | void(in class trip) | "trip" | | | | | | Haonan CHEN |
+| ! | | get_Transaction Name test 3 | void(in [Pending Transaction]) | null | | | | | | Haonan CHEN |
 
 #### Function 4: transactionValue() - Get Method for Transaction Value
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+| ! | | get_Transaction Value test 1 | void (in class food) | 10000 | | | | | | Haonan CHEN |
+| ! | | get_Transaction Value test 2 | void(in class trip) | 20000.15 | | | | | | Haonan CHEN |
+| ! | | get_Transaction Value test 3 | void(in [Pending Transaction]) | null | | | | | | Haonan CHEN |
 
 #### Function 5: transactionCategory() - Get Method for Transaction Category
 
@@ -177,36 +181,49 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+| ! | | get_Transaction Category test 1 | void (in class food) | 2 | | | | | | Haonan CHEN |
+| ! | | get_Transaction Category test 2 | void(in class trip) | 1 | | | | | | Haonan CHEN |
+| ! | | get_Transaction Category test 3 | void(in [Pending Transaction]) | 0 | | | | | | Haonan CHEN |
 
 #### Function 7: setTransactionName(String tName) - Set Method for Transaction Name
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+| ! |        | setName1 | "Leo" | transactionName = "Leo" | | | | | | Leo |
+| ! | | setName2 | "" | set failed, output "Error! Please type in your again! " | | | | | | Leo |
+| ! | | setName3 | "QWERTYUIOPASDFGHJKLZXCVBNM" | transactionName = "QWERTYUIOPASDFGHJKLZXCVBN"                | | | | | | Leo |
+| !! | | setName4 | "", "Leo" | transactionName = "Leo"                                      | | | | | | Leo |
+| !! | | setName4 | "Leo", "Leopard" | transactionName = "Leo", output "Your are not allowed to change your name! " the second time test | | | | | | Leo |
+| !! | | setName4 | "Leo", "" | transactionName = "Leo", output "Your are not allowed to change your name! " the second time test | | | | | | Leo |
 
 #### Function 8: setTransactionValue(BigDecimal tValue) - Set Method for Transaction Value
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+| ! |        | setValue1 | 123 | transactionValue = 123.00 | | | | | | Leo |
+| ! |        | setValue2 | "123.12" | transactionValue = 123.12 | | | | | | Leo |
+| ! |        | setValue3 | "123.123" | set failed, output "The value should be at most two decimal places!" | | | | | | Leo |
+| !! | | setValue4 | "-123.12" | set failed, output "The value should be positive!" | | | | | | Leo |
+| !! | | setValue5 | "-123.123" | set failed, output "The value should be at most two decimal places!" | | | | | | Leo |
+| !! | | setValue6 | "", "123.13" | transactionValue = 123.13 | | | | | | Leo |
+| !! | | setValue7 | "123.13", "134.14" | transactionValue = 123.13, output "Your are not allowed to change the value! " the second time test | | | | | | Leo |
 
 #### Function 9: setTransactionCategory(int tCat) - Set Method for Transaction Category
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+| ！ |        | setCat1 | 12.3 | set failed, output "The value should be an integer!" | | | | | | Leo |
+| ! |        | setCat2 | "abc" | set failed, output "The value should be an integer!" | | | | | | Leo |
+| ! | | setCat3 | 10 | transactionCategory = 10 | | | | | | Leo |
+| ! | | setCat4 | -10 | set failed, output "The value should be a positive integer!" | | | | | | Leo |
+| !! | | setCat4 | 10,15 | transactionCategory = 15 | | | | | | Leo |
 
 #### Function 10: setTransactionTime(Date tTime) - Set Method for Transaction Time
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+| ！ |        | setTime1 | none, tTime is (2020, 4, 29) | transactionTime = (2020, 4, 29) | | | | | | Leo |
+| ! |  | setTime2 | none, tTime is 1 | set failed, output "The value should be a date!" | | | | | | Leo |
 
 #### Function 11: isComplete() - Check name and value
 
@@ -219,8 +236,9 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+| ! |        | testToString1 | transactionName is null | converting failed, output "Please type in the name!" | | | | | | Leo |
+| ! | | testToString2 | transactionValue is null | converting failed, output "Please type in the value!" | | | | | | Leo |
+| ! | | testToString3 |  | converting succeeded | | | | | | Leo |
 
 
 
@@ -228,39 +246,50 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 #### Function 1: BoCCatogory() - Default Constructor (no parameters)       
 
-|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
-|----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+| Importance | Status | Test                       | Inputs | Expected Outcome   | Test Outcome       | Problem                                                 | Change                                                   | Reason                                   | Time | Author       |
+| ---------- | ------ | -------------------------- | ------ | ------------------ | ------------------ | ------------------------------------------------------- | -------------------------------------------------------- | ---------------------------------------- | ---- | ------------ |
+| !!!        | Fail   | Default Constructor test 1 | void   | [Pending Category] | Fail the test      | The CatogoryBudget is not same as the expected outcome. | change the "CatogoryBudget"   to "[Pending Transaction]" | The default constructor gives null value |      | YuxiangZhang |
+| !!!        | Pass   | Default Constructor test 2 | void   | [Pending Category] | [Pending Category] | No                                                      |                                                          |                                          |      | YuxiangZhang |
 
 #### Function 2: BoCCatogory(String cName, BigDecimal cbudget, BigDecimal cSpend) - Main Constructors       
 
-|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
-|----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+| Importance | Status | Test                     | Inputs             | Expected Outcome                                    | Test Outcome | Problem | Change | Reason | Time | Author       |
+| ---------- | ------ | ------------------------ | ------------------ | --------------------------------------------------- | ------------ | ------- | ------ | ------ | ---- | ------------ |
+| !!!        |        | Main Constructors Test 1 | 5                  | The numbers of parameters and input is not matching |              |         |        |        |      | YuxiangZhang |
+| !!!        |        | Main Constructors Test 2 | "transport",1000,1 | build successfully                                  |              |         |        |        |      | YuxiangZhang |
+| !!!        |        | Main Constructors Test 3 | "shopping",3000,1  | build successfully                                  |              |         |        |        |      | YuxiangZhang |
 
 #### Function 3: CatogoryName() - Get Category Name       
 
-|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
-|----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+| Importance | Status | Test                     | Inputs                         | Expected Outcome | Test Outcome | Problem | Change | Reason | Time | Author       |
+| ---------- | ------ | ------------------------ | ------------------------------ | ---------------- | ------------ | ------- | ------ | ------ | ---- | ------------ |
+| !          |        | get_Category Name test 1 | void (in class shopping)       | "shopping"       |              |         |        |        |      | YuxiangZhang |
+| !          |        | get_Category Name test 2 | void (in class transport)      | "transport"      |              |         |        |        |      | YuxiangZhang |
+| !          |        | get_Category Name test 2 | void(in [Pending Transaction]) | null             |              |         |        |        |      | YuxiangZhang |
 
 #### Function 4: CatogoryBudget() - Get Category Budget       
 
-|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
-|----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+| Importance | Status | Test                       | Inputs                         | Expected Outcome | Test Outcome | Problem | Change | Reason | Time | Author       |
+| ---------- | ------ | -------------------------- | ------------------------------ | ---------------- | ------------ | ------- | ------ | ------ | ---- | ------------ |
+| !          |        | get_Category Budget test 1 | void (in class shopping)3000   | 3000             |              |         |        |        |      | YuxiangZhang |
+| !          |        | get_Category Budget test 2 | void (in class transport)      | 1000             |              |         |        |        |      | YuxiangZhang |
+| !          |        | get_Category Budget test 3 | void(in [Pending Transaction]) | null             |              |         |        |        |      | YuxiangZhang |
 
 #### Function 5:  CatogorySpend() - Get Category Spend       
 
+| Importance | Status | Test                      | Inputs                         | Expected Outcome | Test Outcome | Problem | Change | Reason | Time | Author       |
+| ---------- | ------ | ------------------------- | ------------------------------ | ---------------- | ------------ | ------- | ------ | ------ | ---- | ------------ |
+| !          |        | get_Category Spend test 1 | void (in class shopping)       | 4500.45          |              |         |        |        |      | YuxiangZhang |
+| !          |        | get_Category Spend test 2 | void (in class transport)      | 1200.85          |              |         |        |        |      | YuxiangZhang |
+| !          |        | get_Category Spend test 3 | void(in [Pending Transaction]) | null             |              |         |        |        |      | YuxiangZhang |
+#### Function 6:  setCatogoryName(String cName) - Set Category Name       
+
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
 | | | | | | | | | | | |
 | | | | | | | | | | | |
 
+<<<<<<< HEAD
 #### Function 6:  setCatogoryName(String cName) - Set Category Name       
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|
@@ -294,6 +323,14 @@ Then adjust codes and plan throughout the whole process of development to achiev
 | !! | PASS | setCBTest5 | -100 | 0.00 | |
 | !! | FAIL | setCBTest6 | 11.2 | 11.20 | |
 >>>>>>> daze
+=======
+#### Function 7: setCatogoryBudget(BigDecimal cBudget) - Set Category Budget       
+
+|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
+|----------|------|----|------|----------------|------------|-------|------|------|----|------|
+| | | | | | | | | | | |
+| | | | | | | | | | | |
+>>>>>>> ecfffcbf4bfd6346b21a7f488a66bbd4c89f6ca5
 
 #### Function 8: addExpense(BigDecimal ) - add Expense function       
 
