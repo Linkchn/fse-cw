@@ -181,41 +181,41 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| ! | Pass | setName1 | "Leo" | transactionName = "Leo" | transactionName = "Leo" | - | - | - | 1st/May 14:25 | Leo |
-| ! | Pass | setName2 | null | set failed, transactionName = null | transactionName = null | - | - | - | 1st/May 14:42 | Leo |
-| ! | Pass | setName3 | "QWERTYUIOPASDFGHJKLZXCVBNM" | transactionName = "QWERTYUIOPASDFGHJKLZXCVBN"                | transactionName = "QWERTYUIOPASDFGHJKLZXCVBN" | - | - | - | 1st/May 15:27 | Leo |
-| !! | | setName4 | "", "Leo" | transactionName = "Leo"                                      | | | | | | Leo |
-| !! | | setName4 | "Leo", "Leopard" | transactionName = "Leo", output "Your are not allowed to change your name! " the second time test | | | | | | Leo |
-| !! | | setName4 | "Leo", "" | transactionName = "Leo", output "Your are not allowed to change your name! " the second time test | | | | | | Leo |
+| ! | Pass | setNameTest1 | "Leo" | transactionName = "Leo" | transactionName = "Leo" | - | - | - | 1st/May 14:25 | Leo |
+| ! | Pass | setNameTest2 | null | set failed, transactionName = null | transactionName = null | - | - | - | 1st/May 14:42 | Leo |
+| ! | Pass | setNameTest3 | "QWERTYUIOPASDFGHJKLZXCVBNM" | transactionName = "QWERTYUIOPASDFGHJKLZXCVBN"                | transactionName = "QWERTYUIOPASDFGHJKLZXCVBN" | - | - | - | 1st/May 15:27 | Leo |
+| !! | | setNameTest4 | "", "Leo" | transactionName = "Leo"                                      | | | | | | Leo |
+| !! | | setNameTest5 | "Leo", "Leopard" | transactionName = "Leo", output "Your are not allowed to change your name! " the second time test | | | | | | Leo |
+| !! | | setNameTest6 | "Leo", "" | transactionName = "Leo", output "Your are not allowed to change your name! " the second time test | | | | | | Leo |
 
 #### Function 8: setTransactionValue(BigDecimal tValue) - Set Method for Transaction Value
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| ! | Pass | setValue1 | 123 | transactionValue = 123 | transactionValue = 123 | - | - | - | 1st/May 15:50 | Leo |
-| ! | Fail | setValue2 | "123.12" | transactionValue = 123.12 | transactionValue = 123.120000~~ | not two decimal places | edit code | not limit to two decimal places | 1st/May 16:05 | Leo |
-| ! |        | setValue3 | "123.123" | set failed, output "The value should be at most two decimal places!" | | | | | | Leo |
-| !! | | setValue4 | "-123.12" | set failed, output "The value should be positive!" | | | | | | Leo |
-| !! | | setValue5 | "-123.123" | set failed, output "The value should be at most two decimal places!" | | | | | | Leo |
-| !! | | setValue6 | "", "123.13" | transactionValue = 123.13 | | | | | | Leo |
-| !! | | setValue7 | "123.13", "134.14" | transactionValue = 123.13, output "Your are not allowed to change the value! " the second time test | | | | | | Leo |
+| ! | Pass | setValueTest1 | 123 | transactionValue = 123 | transactionValue = 123 | - | - | - | 1st/May 15:50 | Leo |
+| ! | Pass   | setValueTest2 | "123.12" | transactionValue = 123.12 | transactionValue = 123.12 | - | - | - | 1st/May 16:55 | Leo |
+| ! | Fail | setValueTest3 | "123.123" | set failed, output "The value should be at most two decimal places!" | transactionValue = 123.123 | The decimals are more than 2 | edit code | no limit to decimals | 1st/May 17:09 | Leo |
+| !! | | setValueTest4 | "-123.12" | set failed, output "The value should be positive!" | | | | | | Leo |
+| !! | | setValueTest5 | "-123.123" | set failed, output "The value should be at most two decimal places!" | | | | | | Leo |
+| !! | | setValueTest6 | "", "123.13" | transactionValue = 123.13 | | | | | | Leo |
+| !! | | setValueTest7 | "123.13", "134.14" | transactionValue = 123.13, output "Your are not allowed to change the value! " the second time test | | | | | | Leo |
 
 #### Function 9: setTransactionCategory(int tCat) - Set Method for Transaction Category
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| ！ |        | setCat1 | 12.3 | set failed, output "The value should be an integer!" | | | | | | Leo |
-| ! |        | setCat2 | "abc" | set failed, output "The value should be an integer!" | | | | | | Leo |
-| ! | | setCat3 | 10 | transactionCategory = 10 | | | | | | Leo |
-| ! | | setCat4 | -10 | set failed, output "The value should be a positive integer!" | | | | | | Leo |
-| !! | | setCat4 | 10,15 | transactionCategory = 15 | | | | | | Leo |
+| ！ |        | setCatTest1 | 12.3 | set failed, output "The value should be an integer!" | | | | | | Leo |
+| ! |        | setCatTest2 | "abc" | set failed, output "The value should be an integer!" | | | | | | Leo |
+| ! | | setCatTest3 | 10 | transactionCategory = 10 | | | | | | Leo |
+| ! | | setCatTest4 | -10 | set failed, output "The value should be a positive integer!" | | | | | | Leo |
+| !! | | setCatTest4 | 10,15 | transactionCategory = 15 | | | | | | Leo |
 
 #### Function 10: setTransactionTime(Date tTime) - Set Method for Transaction Time
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| ！ |        | setTime1 | none, tTime is (2020, 4, 29) | transactionTime = (2020, 4, 29) | | | | | | Leo |
-| ! |  | setTime2 | none, tTime is 1 | set failed, output "The value should be a date!" | | | | | | Leo |
+| ！ |        | setTimeTest1 | none, tTime is (2020, 4, 29) | transactionTime = (2020, 4, 29) | | | | | | Leo |
+| ! |  | setTimeTest2 | none, tTime is 1 | set failed, output "The value should be a date!" | | | | | | Leo |
 
 #### Function 11: isComplete() - Check name and value
 
@@ -228,9 +228,9 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| ! |        | testToString1 | transactionName is null | converting failed, output "Please type in the name!" | | | | | | Leo |
-| ! | | testToString2 | transactionValue is null | converting failed, output "Please type in the value!" | | | | | | Leo |
-| ! | | testToString3 |  | converting succeeded | | | | | | Leo |
+| ! |        | testToStringTest1 | transactionName is null | converting failed, output "Please type in the name!" | | | | | | Leo |
+| ! | | testToStringTest2 | transactionValue is null | converting failed, output "Please type in the value!" | | | | | | Leo |
+| ! | | testToStringTest3 |  | converting succeeded | | | | | | Leo |
 
 
 
