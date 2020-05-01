@@ -192,7 +192,7 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| ! |        | setValue1 | 123 | transactionValue = 123.00 | | | | | | Leo |
+| ! | Pass | setValue1 | 123 | transactionValue = 123 | transactionValue = 123 | - | - | - | 1st/May 15:50 | Leo |
 | ! |        | setValue2 | "123.12" | transactionValue = 123.12 | | | | | | Leo |
 | ! |        | setValue3 | "123.123" | set failed, output "The value should be at most two decimal places!" | | | | | | Leo |
 | !! | | setValue4 | "-123.12" | set failed, output "The value should be positive!" | | | | | | Leo |
