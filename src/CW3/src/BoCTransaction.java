@@ -2,6 +2,7 @@ package src;
 
 import java.math.BigDecimal;
 import java.util.Date;
+import java.text.SimpleDateFormat;
 
 public class BoCTransaction {
 	private String transactionName;
@@ -70,7 +71,12 @@ public class BoCTransaction {
 
 	@Override
 	public String toString() {
-		return transactionName + " - ¥" + transactionValue.toString();
+		if (transactionTime != null && transactionName != null && transactionValue != null) {
+			SimpleDateFormat sdf =new SimpleDateFormat("yyyy-MM-dd HH:mm:ss SSS" );
+			return sdf.format(transactionTime) + transactionName + " - ¥" + transactionValue.toString();
+		}else {
+			return null;
+		}
 	}
 
 }

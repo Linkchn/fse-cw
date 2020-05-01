@@ -222,7 +222,7 @@ This method should not be used in this class. So it has been deleted.
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| ! | Fail | ToStringTest1 | transactionName is null | converting failed, return null | null-￥123 | it states not clearly | edit code | code is not completed | 1st/May 22:17 | Leo |
+| ! | Pass   | ToStringTest1 | transactionName is null | converting failed, return null | null | / | / | / | 1st/May 22:21 | Leo |
 | ! | | ToStringTest2 | transactionValue is null | converting failed, return null | | | | | | Leo |
 | ! | | ToStringTest3 |  | converting succeeded | | | | | | Leo |
 
