@@ -42,7 +42,12 @@ public class BoCCategory {
 
 
 
-
+	/*
+	1 – FAIL – Shiliang – 16:13 1/5
+    Change: /
+    Reason: /
+    Traceability: getRemainingBudgetTest 1
+	 */
 	public void addExpense(BigDecimal valueToAdd) {
 		CategorySpend = CategorySpend.add(valueToAdd);
 	}
@@ -69,6 +74,12 @@ public class BoCCategory {
 		CategorySpend = new BigDecimal("0.00");
 	}
 
+	/*
+	1 – PASS – Shiliang – 16:13 1/5
+    Change: /
+    Reason: /
+    Traceability: getRemainingBudgetTest 1
+	 */
 	public BigDecimal getRemainingBudget() {
 		BigDecimal remainingBudget = CategoryBudget.subtract(CategorySpend);
 		return remainingBudget;

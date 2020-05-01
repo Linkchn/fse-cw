@@ -289,12 +289,13 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-|! | PASS |removeExpenseTest 1 |new BigDecimal(0.00) |(BigDecimal)10000000211.50 |(BigDecimal)10000000211.50 | / | / | / | 23:44 30/5 | Colin |
-|! | PASS |removeExpenseTest 2 |new BigDecimal("10000000000.00") |(BigDecimal)211.50 |(BigDecimal)211.50 | / | / | / | 23:44 30/5 | Colin |
-|! | PASS |removeExpenseTest 3 |new BigDecimal("111.50") |(BigDecimal)100.00 |(BigDecimal)100.00 | / | / | / | 23:44 30/5 | Colin |
-|! | PASS |removeExpenseTest 4 |new BigDecimal("90.00") |(BigDecimal)10.00 |(BigDecimal)10.00 | / | / | / | 23:44 30/5 | Colin |
-|! | FAIL |removeExpenseTest 5 |new BigDecimal("100.00") |Exception: expense should not be negative |Nothing was thrown | Nothing was thrown | / | The source code does not handle this problem | 23:44 30/5 | Colin |
-|! | |removeExpenseTest 6* |-100 | | | | | | | |
+|! | PASS |removeExpenseTest 1 |new BigDecimal(0.00) |(BigDecimal)10000000211.50 |(BigDecimal)10000000211.50 | / | / | / | 23:44 30/4 | Colin |
+|! | PASS |removeExpenseTest 2 |new BigDecimal("10000000000.00") |(BigDecimal)211.50 |(BigDecimal)211.50 | / | / | / | 23:44 30/4 | Colin |
+|! | PASS |removeExpenseTest 3 |new BigDecimal("111.50") |(BigDecimal)100.00 |(BigDecimal)100.00 | / | / | / | 23:44 30/4 | Colin |
+|! | PASS |removeExpenseTest 4 |new BigDecimal("90.00") |(BigDecimal)10.00 |(BigDecimal)10.00 | / | / | / | 23:44 30/4 | Colin |
+|!! | FAIL |removeExpenseTest 5 |new BigDecimal("100.00") |Exception: expense should not be negative |Nothing was thrown | Nothing was thrown | / | The source code does not handle this problem | 23:44 30/4 | Colin |
+|! | PASS |removeExpenseTest 6 |new BigDecimal("100.00") |Exception: expense should not be negative |Exception: expense should not be negative | / | Add exception throw in the function, throw exception if the expense would be negative | The source code should throw exception for main to handle  anormaly | 16:25 1/5 | Colin |
+|! | |removeExpenseTest 7* |-100 | | | | | | | |
 
 #### Function 10: resetBudgetSpend() - reset Spend Total Function       
 

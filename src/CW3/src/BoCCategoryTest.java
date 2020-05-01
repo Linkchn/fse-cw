@@ -109,8 +109,8 @@ class BoCCategoryTest {
     @ParameterizedTest
     @ValueSource(strings = {"0.00"})
     void resetBudgetSpendTest(String num1) {
-    	bd1 = neww BigDecimal(num1);
-    	assertEqual(bd1,cat1.CategorySpend());
+    	bd1 = new BigDecimal(num1);
+    	assertEquals(bd1,cat1.CategorySpend());
     	
     }
 
