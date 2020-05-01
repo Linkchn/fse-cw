@@ -46,7 +46,7 @@ public class BoCTransaction {
 	
 	public void setTransactionName(String tName) {
 		if (counter == 0) {
-			if (tName == null && counter == 0) {
+			if (tName == null) {
 				transactionName = null;
 			}else {
 				transactionName = tName;

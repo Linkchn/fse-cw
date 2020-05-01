@@ -17,6 +17,8 @@ import jdk.nashorn.internal.runtime.regexp.joni.constants.Arguments;
 class BoCTransactionTest {
 	private String testInputString, testOutputString, testInputString1, testInputString2;
 	private BigDecimal testInputBudget;
+	private BigDecimal testInputBudget1;
+	private BigDecimal testInputBudget2;
 	private BigDecimal testOutputBudget;
 	private BigDecimal testExceptOutputBudget;
 	
@@ -167,6 +169,22 @@ class BoCTransactionTest {
 		try {
 			BoCTransaction copy = new BoCTransaction();
 			copy.setTransactionValue(testInputBudget);
+			testOutputBudget = copy.transactionValue();
+		}catch(Exception e) {
+			fail ("Someting wrong with catch");
+		}
+		assertEquals(testExceptOutputBudget, testOutputBudget);
+	}
+	
+	@Test
+	void setValueTest5(){
+		testInputBudget1 = new BigDecimal("-123.12");
+		testInputBudget2 = new BigDecimal("123.13");
+		testExceptOutputBudget = new BigDecimal("123.13");
+		try {
+			BoCTransaction copy = new BoCTransaction();
+			copy.setTransactionValue(testInputBudget1);
+			copy.setTransactionValue(testInputBudget2);
 			testOutputBudget = copy.transactionValue();
 		}catch(Exception e) {
 			fail ("Someting wrong with catch");
