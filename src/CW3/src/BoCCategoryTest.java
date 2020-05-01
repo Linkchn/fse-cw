@@ -101,10 +101,16 @@ class BoCCategoryTest {
             assertThrows(Exception.class, ()->{cat1.removeExpense(bd1);System.out.println(cat1.CategorySpend());});
         }
     }
-
+    /*
+    1-
+     */
     @Order(4)
-    @Test
-    void resetBudgetSpendTest() {
+    @DisplayName("resetBudgetSpendTest")
+    @ParameterizedTest
+    @ValueSource(strings = {"0.00"})
+    void resetBudgetSpendTest(String num1) {
+    	bd1 = neww BigDecimal(num1);
+    	assertEqual(bd1,cat1.CategorySpend());
     	
     }
 
