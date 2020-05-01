@@ -1,3 +1,5 @@
+package src;
+
 import java.math.BigDecimal;
 
 public class BoCCategory {
