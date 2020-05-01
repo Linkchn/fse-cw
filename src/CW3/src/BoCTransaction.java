@@ -40,7 +40,12 @@ public class BoCTransaction {
 		return transactionTime;
 	}
 
+	
 	public void resetCounter() {
+	/*
+	 * method that count the times the content has been successfully filled
+	 * can be used to achieve that name and value can be only set once 
+	 */
 		counter = 0;
 	}
 	

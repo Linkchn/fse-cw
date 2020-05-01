@@ -47,6 +47,12 @@ class BoCTransactionTest {
 		assertEquals(testInputString, testOutputString);
 	}
 	
+	/* 
+	2 – Pass – Leo - 14:42/1/5  
+	Problem: 
+	Reason:
+	Traceability: setNameTest2
+	*/
 	@Test
 	void setNameTest2() {
 		testInputString = null;
@@ -60,7 +66,13 @@ class BoCTransactionTest {
 		}
 		assertEquals(testInputString, testOutputString);
 	}
-	
+
+	/* 
+	3 – Pass – Leo - 15:27/1/5  
+	Problem: 
+	Reason:
+	Traceability: setNameTest3
+	*/
 	@Test
 	void setNameTest3() {
 		testInputString = "QWERTYUIOPASDFGHJKLZXCVBNM";
@@ -74,7 +86,13 @@ class BoCTransactionTest {
 		}
 		assertEquals("QWERTYUIOPASDFGHJKLZXCVBN", testOutputString);
 	}
-	
+
+	/* 
+	4 – Pass – Leo - 23:21/1/5  
+	Problem: 
+	Reason:
+	Traceability: setNameTest4
+	*/
 	@Test
 	void setNameTest4() {
 		testInputString1 = null;
@@ -89,7 +107,13 @@ class BoCTransactionTest {
 		}
 		assertEquals("Leo", testOutputString);
 	}
-	
+
+	/* 
+	5 – Pass – Leo - 23:26/1/5  
+	Problem: 
+	Reason:
+	Traceability: setNameTest5
+	*/
 	@Test
 	void setNameTest5() {
 		testInputString1 = "Leo";
@@ -104,7 +128,13 @@ class BoCTransactionTest {
 		}
 		assertEquals("Leo", testOutputString);
 	}
-	
+
+	/* 
+	6 – Pass – Leo - 23:37/1/5  
+	Problem: 
+	Reason:
+	Traceability: setNameTest6
+	*/
 	@Test
 	void setNameTest6() {
 		testInputString1 = "Leo";
@@ -120,6 +150,12 @@ class BoCTransactionTest {
 		assertEquals("Leo", testOutputString);
 	}
 	
+	/* 
+	7 – Pass – Leo - 15:50/1/5  
+	Problem: 
+	Reason:
+	Traceability: setValueTest1
+	*/
 	@Test
 	void setValueTest1(){
 		testInputBudget = new BigDecimal(123);
@@ -134,7 +170,13 @@ class BoCTransactionTest {
 		}
 		assertEquals(testExceptOutputBudget, testOutputBudget);
 	}
-	
+
+	/* 
+	8 – Pass – Leo - 16:55/1/5  
+	Problem: 
+	Reason:
+	Traceability: setValueTest2
+	*/
 	@Test
 	void setValueTest2(){
 		testInputBudget = new BigDecimal("123.12");
@@ -149,7 +191,13 @@ class BoCTransactionTest {
 		}
 		assertEquals(testExceptOutputBudget, testOutputBudget);
 	}
-	
+
+	/* 
+	9 – Pass – Leo - 17:19/1/5  
+	Problem: 
+	Reason:
+	Traceability: setValueTest3
+	*/
 	@Test
 	void setValueTest3(){
 		testInputBudget = new BigDecimal("123.123");
@@ -164,7 +212,13 @@ class BoCTransactionTest {
 		}
 		assertEquals(testExceptOutputBudget, testOutputBudget);
 	}
-	
+
+	/* 
+	10 – Pass – Leo - 18:28/1/5  
+	Problem: 
+	Reason:
+	Traceability: setValueTest4
+	*/
 	@Test
 	void setValueTest4(){
 		testInputBudget = new BigDecimal("-123.12");
@@ -179,7 +233,13 @@ class BoCTransactionTest {
 		}
 		assertEquals(testExceptOutputBudget, testOutputBudget);
 	}
-	
+
+	/* 
+	11 – Pass – Leo - 23:48/1/5  
+	Problem: 
+	Reason:
+	Traceability: setValueTest5
+	*/
 	@Test
 	void setValueTest5(){
 		testInputBudget1 = new BigDecimal("-123.12");
@@ -195,7 +255,13 @@ class BoCTransactionTest {
 		}
 		assertEquals(testExceptOutputBudget, testOutputBudget);
 	}
-	
+
+	/* 
+	12 – Pass – Leo - 00:55/2/5  
+	Problem: 
+	Reason:
+	Traceability: setValueTest6
+	*/
 	@Test
 	void setValueTest6(){
 		testInputBudget1 = new BigDecimal("123.13");
@@ -212,6 +278,12 @@ class BoCTransactionTest {
 		assertEquals(testExceptOutputBudget, testOutputBudget);
 	}
 	
+	/* 
+	13 – Pass – Leo - 19:03/1/5  
+	Problem: 
+	Reason:
+	Traceability: setCatTest1
+	*/
 	@Test
 	void setCatTest1(){
 		int testInput = 10;
@@ -227,7 +299,13 @@ class BoCTransactionTest {
 		}
 		assertEquals(testExceptOutput, testOutput);
 	}
-	
+
+	/* 
+	14 – Pass – Leo - 19:05/1/5  
+	Problem: 
+	Reason:
+	Traceability: setCatTest2
+	*/
 	@Test
 	void setCatTest2(){
 		int testInput = -10;
@@ -243,7 +321,13 @@ class BoCTransactionTest {
 		}
 		assertEquals(testExceptOutput, testOutput);
 	}
-	
+
+	/* 
+	15 – Pass – Leo - 00:59/2/5  
+	Problem: 
+	Reason:
+	Traceability: setCatTest3
+	*/
 	@Test
 	void setCatTest3(){
 		int testInput1 = 10;
@@ -261,6 +345,12 @@ class BoCTransactionTest {
 		assertEquals(testExceptOutput, testOutput);
 	}
 	
+	/* 
+	16 – Pass – Leo - 22:21/1/5  
+	Problem: 
+	Reason:
+	Traceability: toStringTest1
+	*/
 	@Test
 	void ToStringTest1(){
 		BigDecimal tValue = new BigDecimal(123);
@@ -275,7 +365,13 @@ class BoCTransactionTest {
 		}
 		assertEquals(testExceptOutput, testOutput);
 	}
-	
+
+	/* 
+	17 – Pass – Leo - 22:23/1/5  
+	Problem: 
+	Reason:
+	Traceability: toStringTest2
+	*/
 	@Test
 	void ToStringTest2(){
 		String tName = "Leo";
@@ -290,7 +386,13 @@ class BoCTransactionTest {
 		}
 		assertEquals(testExceptOutput, testOutput);
 	}
-	
+
+	/* 
+	18 – Pass – Leo - 22:37/1/5  
+	Problem: 
+	Reason:
+	Traceability: toStringTest3
+	*/
 	@Test
 	void ToStringTest3(){
 		String tName = "Leo";
