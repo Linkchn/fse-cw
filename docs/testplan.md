@@ -223,8 +223,8 @@ This method should not be used in this class. So it has been deleted.
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
 | ! | Pass   | ToStringTest1 | transactionName is null | converting failed, return null | null | / | / | / | 1st/May 22:21 | Leo |
-| ! | | ToStringTest2 | transactionValue is null | converting failed, return null | | | | | | Leo |
-| ! | | ToStringTest3 |  | converting succeeded | | | | | | Leo |
+| ! | Pass | ToStringTest2 | transactionValue is null | converting failed, return null | null | / | / | / | 1st/May 22:23 | Leo |
+| ! | Pass | ToStringTest3 |  | converting succeeded | converting succeeded | / | / | / | 1st/May 22:37 | Leo |
 
 
 

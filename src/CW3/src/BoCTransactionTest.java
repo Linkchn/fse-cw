@@ -3,6 +3,7 @@ package src;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import org.junit.Ignore;
@@ -157,6 +158,40 @@ class BoCTransactionTest {
 		String testOutput = null;
 		try {
 			BoCTransaction copy = new BoCTransaction();
+			copy.setTransactionValue(tValue);
+			testOutput = copy.toString();
+		}catch(Exception e) {
+			fail ("Someting wrong with catch");
+		}
+		assertEquals(testExceptOutput, testOutput);
+	}
+	
+	@Test
+	void ToStringTest2(){
+		String tName = "Leo";
+		String testExceptOutput = null;
+		String testOutput = null;
+		try {
+			BoCTransaction copy = new BoCTransaction();
+			copy.setTransactionName(tName);
+			testOutput = copy.toString();
+		}catch(Exception e) {
+			fail ("Someting wrong with catch");
+		}
+		assertEquals(testExceptOutput, testOutput);
+	}
+	
+	@Test
+	void ToStringTest3(){
+		String tName = "Leo";
+		BigDecimal tValue = new BigDecimal(123);
+		SimpleDateFormat sdf =new SimpleDateFormat("yyyy-MM-dd HH:mm:ss SSS" );
+		Date tTime = new Date();
+		String testExceptOutput = sdf.format(tTime) + " Leo - ¥123" ;
+		String testOutput = null;
+		try {
+			BoCTransaction copy = new BoCTransaction();
+			copy.setTransactionName(tName);
 			copy.setTransactionValue(tValue);
 			testOutput = copy.toString();
 		}catch(Exception e) {

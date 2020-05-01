@@ -71,9 +71,10 @@ public class BoCTransaction {
 
 	@Override
 	public String toString() {
-		if (transactionTime != null && transactionName != null && transactionValue != null) {
+		if (transactionName != null && transactionValue != null) {
 			SimpleDateFormat sdf =new SimpleDateFormat("yyyy-MM-dd HH:mm:ss SSS" );
-			return sdf.format(transactionTime) + transactionName + " - ¥" + transactionValue.toString();
+			transactionTime = new Date();
+			return sdf.format(transactionTime) + " " + transactionName + " - ¥" + transactionValue.toString();
 		}else {
 			return null;
 		}
