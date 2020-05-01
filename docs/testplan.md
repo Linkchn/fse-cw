@@ -194,7 +194,7 @@ Then adjust codes and plan throughout the whole process of development to achiev
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
 | ! | Pass | setValueTest1 | 123 | transactionValue = 123 | transactionValue = 123 | - | - | - | 1st/May 15:50 | Leo |
 | ! | Pass   | setValueTest2 | "123.12" | transactionValue = 123.12 | transactionValue = 123.12 | - | - | - | 1st/May 16:55 | Leo |
-| ! | Fail | setValueTest3 | "123.123" | set failed, output "The value should be at most two decimal places!" | transactionValue = 123.123 | The decimals are more than 2 | edit code | no limit to decimals | 1st/May 17:09 | Leo |
+| ! | Fail | setValueTest3 | "123.123" | set failed, transactionValue = null | transactionValue = null | - | - | - | 1st/May 17:19 | Leo |
 | !! | | setValueTest4 | "-123.12" | set failed, output "The value should be positive!" | | | | | | Leo |
 | !! | | setValueTest5 | "-123.123" | set failed, output "The value should be at most two decimal places!" | | | | | | Leo |
 | !! | | setValueTest6 | "", "123.13" | transactionValue = 123.13 | | | | | | Leo |
