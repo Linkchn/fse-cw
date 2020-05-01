@@ -67,12 +67,12 @@ class BoCCategoryTest {
     }
 
     /* 
-    1 – PASS – Shiliang – 23:44 30/5
+    1 – PASS – Shiliang – 23:44 30/4
     Problem: /
     Reason: /
     Traceability: removeExpenseTest 1, 2, 3, 4
 
-    2 – FAIL – Shiliang – 23:44 30/5
+    2 – FAIL – Shiliang – 23:44 30/4
     Problem: Expected an exception that expense should not be negative
     Reason: The source code does not handle this problem
     Traceability: removeExpenseTest 5
@@ -99,6 +99,7 @@ class BoCCategoryTest {
 
     @Test
     void resetBudgetSpendTest() {
+    	
     }
 
     @Test
