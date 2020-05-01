@@ -5,12 +5,17 @@ import static org.junit.jupiter.api.Assertions.*;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
 import java.util.Date;
+import java.util.List;
 
 import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
+import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.MethodSource;
+
+import jdk.nashorn.internal.runtime.regexp.joni.constants.Arguments;
 
 class BoCTransactionTest {
-	private String testInputString, testOutputString;
+	private String testInputString, testOutputString, testInputString1, testInputString2;
 	private BigDecimal testInputBudget;
 	private BigDecimal testOutputBudget;
 	private BigDecimal testExceptOutputBudget;
@@ -63,6 +68,21 @@ class BoCTransactionTest {
 			fail ("Someting wrong with catch");
 		}
 		assertEquals("QWERTYUIOPASDFGHJKLZXCVBN", testOutputString);
+	}
+	
+	@Test
+	void setNameTest4() {
+		testInputString1 = null;
+		testInputString2 = "Leo";
+		try {
+			BoCTransaction copy = new BoCTransaction();
+			copy.setTransactionName(testInputString1);
+			copy.setTransactionName(testInputString2);
+			testOutputString = copy.transactionName();
+		}catch(Exception e) {
+			fail ("Someting wrong with catch");
+		}
+		assertEquals("Leo", testOutputString);
 	}
 	
 	@Test
