@@ -32,7 +32,28 @@ class BoCCategoryTest {
     void tearDown() {
     }
 
+    
+    /* 
+    1 – FAIL – Shiliang – 21:43 30/5
+    Problem: Decimals are different
+    Reason: There might be something wrong with the input type
+    Traceability: addExpenseTest 1
 
+    2 – FAIL – Shiliang – 21:46 30/5
+    Problem: Decimals are still different
+    Reason: BigDecimal requires accurate numbers
+    Traceability: addExpenseTest 2
+
+    3 – PASS – Shiliang – 21:55 30/5
+    Problem: /
+    Reason: Only String can be accurate numbers for a BigDecimal constructor
+    Traceability: addExpenseTest 3
+
+    4 – PASS – Shiliang – 22:35 30/5
+    Problem: /
+    Reason: /
+    Traceability: addExpenseTest 4, 5, 6
+    */
     @DisplayName("addExpenseTest")
     @ParameterizedTest
     @ValueSource(strings = {"0.00", "100.00", "111.50", "10000000000.00"})
@@ -45,7 +66,19 @@ class BoCCategoryTest {
 
     }
 
+    /* 
+    1 – PASS – Shiliang – 23:44 30/5
+    Problem: /
+    Reason: /
+    Traceability: removeExpenseTest 1, 2, 3, 4
 
+    2 – FAIL – Shiliang – 23:44 30/5
+    Problem: Expected an exception that expense should not be negative
+    Reason: The source code does not handle this problem
+    Traceability: removeExpenseTest 5
+
+    3 - 
+    */
     @DisplayName("removeExpenseTest")
     @ParameterizedTest
     @ValueSource(strings = {"0.00", "10000000000.00", "111.50", "100.00", "100.00"})
