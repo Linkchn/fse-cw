@@ -220,6 +220,7 @@ class BoCTransactionTest {
 		try {
 			BoCTransaction copy = new BoCTransaction();
 			copy.setTransactionCategory(testInput);
+			copy.resetCounter();
 			testOutput = copy.transactionCategory();
 		}catch(Exception e) {
 			fail ("Someting wrong with catch");
@@ -235,6 +236,24 @@ class BoCTransactionTest {
 		try {
 			BoCTransaction copy = new BoCTransaction();
 			copy.setTransactionCategory(testInput);
+			copy.resetCounter();
+			testOutput = copy.transactionCategory();
+		}catch(Exception e) {
+			fail ("Someting wrong with catch");
+		}
+		assertEquals(testExceptOutput, testOutput);
+	}
+	
+	@Test
+	void setCatTest3(){
+		int testInput1 = 10;
+		int testInput2 = 15;
+		int testExceptOutput = 15;
+		int testOutput = 0;
+		try {
+			BoCTransaction copy = new BoCTransaction();
+			copy.setTransactionCategory(testInput1);
+			copy.setTransactionCategory(testInput2);
 			testOutput = copy.transactionCategory();
 		}catch(Exception e) {
 			fail ("Someting wrong with catch");

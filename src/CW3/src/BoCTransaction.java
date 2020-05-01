@@ -74,8 +74,10 @@ public class BoCTransaction {
 	}
 
 	public void setTransactionCategory(int tCat) {
-		if (tCat > 0) {
-			transactionCategory = tCat;
+		if (counter == 0) {
+			if (tCat > 0) {
+				transactionCategory = tCat;
+			}
 		}
 	}
 
