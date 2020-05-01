@@ -294,43 +294,21 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|
 |----------|------|----|------|----------------|------------|
-<<<<<<< HEAD
-
-
-
-=======
 | ! | PASS | setCNTest1 | "YTB" | "YTB" | |
 | ! | FAIL | setCNTest2 | "Bills" | null | |
 | ! | FAIL | setCNTest3 | blank space: " " | null | |
 | ! | FAIL | setCNTest4 | empty string: "" | null | |
->>>>>>> daze
 
 #### Function 7: setCatogoryBudget(BigDecimal cBudget) - Set Category Budget       
 
-
-
-
-
-
-
-
-
-=======
+|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|
+|----------|------|----|------|----------------|------------|
 | !! | FAIL | setCBTest1 | 12 | 12.00 | |
 | !! | PASS | setCBTest2 | 0 | 0.00 | |
 | !! | FAIL | setCBTest3 | 1.002 | 1.00 | |
 | !! | FAIL | setCBTest4 | 8.9999 | 9.00 | |
 | !! | PASS | setCBTest5 | -100 | 0.00 | |
 | !! | FAIL | setCBTest6 | 11.2 | 11.20 | |
->>>>>>> daze
-=======
-#### Function 7: setCatogoryBudget(BigDecimal cBudget) - Set Category Budget       
-
-|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
-|----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
->>>>>>> ecfffcbf4bfd6346b21a7f488a66bbd4c89f6ca5
 
 #### Function 8: addExpense(BigDecimal ) - add Expense function       
 
@@ -371,8 +349,6 @@ Then adjust codes and plan throughout the whole process of development to achiev
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
 | |Cat_toStringTest 1|NONE |[Category Name](Budget: ¥xx.xx) – ¥yy.yy | | | | | | | |
 | | | | | | | | | | | |
-
-
 
 ### Class: BoCApp
 
