@@ -276,14 +276,17 @@ class BoCTransactionTest {
 	void ToStringTest3(){
 		String tName = "Leo";
 		BigDecimal tValue = new BigDecimal(123);
-		SimpleDateFormat sdf =new SimpleDateFormat("yyyy-MM-dd HH:mm:ss SSS" );
-		Date tTime = new Date();
-		String testExceptOutput = sdf.format(tTime) + " Leo - ¥123" ;
+		long timeStamp = System.currentTimeMillis(); 
+		SimpleDateFormat sdff=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String sd = sdff.format(new Date(timeStamp));
+		String testExceptOutput = sd + " Leo - ¥123" ;
 		String testOutput = null;
 		try {
 			BoCTransaction copy = new BoCTransaction();
 			copy.setTransactionName(tName);
+			copy.resetCounter();
 			copy.setTransactionValue(tValue);
+			copy.resetCounter();
 			testOutput = copy.toString();
 		}catch(Exception e) {
 			fail ("Someting wrong with catch");
