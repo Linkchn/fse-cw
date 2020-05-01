@@ -209,8 +209,11 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+| !! | ERROR | isCompleteTest 1 | new BoCTransaction(null, new BigDecimal("850.00"), 0) | false | Error | isComplete () does not exitst | / | java reported error | 21:17 1/5 | Colin |
+| ! | PASS | isCompleteTest 2 | new BoCTransaction(null, new BigDecimal("850.00"), 0) | false | false | / | Create a new method which check whether transaction name and value are complete | / | 22:37 1/5 | Colin |
+| ! | PASS | isCompleteTest 3 | new BoCTransaction(); | false            | false | / | / | / | 22:37 1/5 | Colin |
+| ! | PASS | isCompleteTest  4 | new BoCTransaction("Rent", null, 0) | false | false | / | / | / | 22:37 1/5 | Colin |
+| ! | PASS | isCompleteTest 5 | new BoCTransaction("Rent", new BigDecimal("850.00"), 0) | true | true | / | / | / | 22:37 1/5 | Colin |
 
 #### Function 12: toString()
 
