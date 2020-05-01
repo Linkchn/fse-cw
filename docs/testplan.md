@@ -262,20 +262,21 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|
 |----------|------|----|------|----------------|------------|
-| ! |  | setCNTest1 | "YTB" | "YTB" | |
-| ! |  | setCNTest2 | a string variable | a variable  with the same string as input | |
-| ! |  | setCNTest3 | blank space: " " | blank space: " " | |
-| ! |  | setCNTest4 | empty variable | empty variable | |
+| ! | PASS | setCNTest1 | "YTB" | "YTB" | |
+| ! | FAIL | setCNTest2 | "Bills" | null | |
+| ! | FAIL | setCNTest3 | blank space: " " | null | |
+| ! | FAIL | setCNTest4 | empty string: "" | null | |
 
 #### Function 7: setCatogoryBudget(BigDecimal cBudget) - Set Category Budget       
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|
 |----------|------|----|------|:---------------|------------|
-| !! |  | setCBTest1 | 12 | 12 | |
-| !! | | setCBTest2 | 0 | 0.00 | |
-| !! | | setCBTest3 | 1.002 | 1.002 | |
-| !! | | setCBTest4 | -100 | 0.00 | |
-| !! | | setCBTest5 | 11.2 | 11.2 | |
+| !! | FAIL | setCBTest1 | 12 | 12.00 | |
+| !! | PASS | setCBTest2 | 0 | 0.00 | |
+| !! | FAIL | setCBTest3 | 1.002 | 1.00 | |
+| !! | FAIL | setCBTest4 | 8.9999 | 9.00 | |
+| !! | PASS | setCBTest5 | -100 | 0.00 | |
+| !! | FAIL | setCBTest6 | 11.2 | 11.20 | |
 
 #### Function 8: addExpense(BigDecimal ) - add Expense function       
 
