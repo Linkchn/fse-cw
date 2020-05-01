@@ -140,50 +140,51 @@ Then adjust codes and plan throughout the whole process of development to achiev
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
 |!!! | FAIL |Default Constructor test 1 |void | [Pending Transaction] | Fail the test | The transactionName is not same as the expected outcome. | change the "transactionName"   to "[Pending Transaction]" | The default constructor gives null value. | 23:38/30/04 |Haonan CHEN |
-|!!! | PASS |Default Constructor test 2 |void | [Pending Transaction] | [Pending Transaction] | No | | | 23:56/30/04 |Haonan CHEN |
+|!!! | PASS |Default Constructor test 2 |void | [Pending Transaction] | [Pending Transaction] | / | / | / | 23:56/30/04 |Haonan CHEN |
 
 #### Function 2: BoCTransaction(String tName, BigDecimal tValue, int tCat) - Main Constructors
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| !!! | PASS | Main Constructors Test 1 | "food",10000,2 | build successfully | build successfully | No | No | No | 14:08/01/05 | Haonan CHEN |
+| !!! | PASS | Main Constructors Test 1 | "food",10000,2 | build successfully | build successfully | / | / | / | 14:08/01/05 | Haonan CHEN |
 | !!! | ERROR  | Main Constructors Test 2 | 12 | Exception:The numbers of parameters and input is not matching | Error | the constructor BoCTransaction(int) is undefined. | Ignore the test | The compile error can't be solved in the method | 15:23/01/05 | Haonan CHEN |
 | !!! | ERROR  | Main Constructors Test 3 | "food",20000 | Exception:The numbers of parameters and input is not matching | Error | the constructor BoCTransaction(string,bigdecimal) is undefined. | Ignore the test | The compile error can't be solved in the method | 15:24/01/05 | Haonan CHEN |
 | !!! | ERROR  | Main Constructors Test 4 | 10,20000, 1 | Exception:The parameters and input is not matching | Error | the constructor BoCTransaction(int,bigdecimal,int) is undefined. | Ignore the test | The compile error can't be solved in the method | 15:25/01/05 | Haonan CHEN |
 | !!! | FAIL | Main Constructors Test 5 | “trip”，”20000.15“，1 | build successfully | constractiontime difference | constructorTime is not same as the expected value. | Create a method to cut the timestamp  until second. | The delay of the constructorTime and currentTime are created. | 16:28/01/05 | Haonan CHEN |
-| !!! | PASS | Main Constructors Test 5(2) | “trip”，”20000.15“，1 | build successfully | pass the test               | No | No | No | 16:50/01/05 | Haonan CHEN |
+| !!! | PASS | Main Constructors Test 5(2) | “trip”，”20000.15“，1 | build successfully | pass the test               | / | / | / | 16:50/01/05 | Haonan CHEN |
 | !!! | Fail | Main Constructors Test 6 | “trip”，”20000.151“，1 | build successfully | build successfully | The trip.transactionValue() does not match the expected outcome. | Ask user to input a correct value in main class | The value of accounts should be only 2 numbers after point | 16:50/01/05 | Haonan CHEN |
 
 #### Function 3: transactionName() - Get Method for Transaction Name
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| ！ | | get_Transaction Name test 1 | void (in class food) | "food" | | | | | | Haonan CHEN |
-| ! | | get_Transaction Name test 2 | void(in class trip) | "trip" | | | | | | Haonan CHEN |
-| ! | | get_Transaction Name test 3 | void(in [Pending Transaction]) | null | | | | | | Haonan CHEN |
+| ！ | PASS | get_Transaction Name test 1 | void (in class food) | "food" | "food" | / | / | / | 18:51/01/05 | Haonan CHEN |
+| ! | PASS | get_Transaction Name test 2 | void(in class trip) | "trip" | "trip" | / | / | / | 19:03/01/05 | Haonan CHEN |
+| ! | | get_Transaction Name test 3 | void(in [Pending Transaction]) | null | [Pending Transaction] | / | / | / | 19:04/01/05 | Haonan CHEN |
 
 #### Function 4: transactionValue() - Get Method for Transaction Value
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| ! | | get_Transaction Value test 1 | void (in class food) | 10000 | | | | | | Haonan CHEN |
-| ! | | get_Transaction Value test 2 | void(in class trip) | 20000.15 | | | | | | Haonan CHEN |
-| ! | | get_Transaction Value test 3 | void(in [Pending Transaction]) | null | | | | | | Haonan CHEN |
+| ! | PASS | get_Transaction Value test 1 | void (in class food) | 10000 | 10000 | / | / | / | 19:07/01/05 | Haonan CHEN |
+| ! | PASS | get_Transaction Value test 2 | void(in class trip) | 20000.15 | 20000.15 | / | / | / | 19:12/01/05 | Haonan CHEN |
+| ! | PASS | get_Transaction Value test 3 | void(in [Pending Transaction]) | null | null | / | / | / | 19:16/01/05 | Haonan CHEN |
 
 #### Function 5: transactionCategory() - Get Method for Transaction Category
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+| ! | PASS | get_Transaction Category test 1 | void (in class food) | 2 | 2 | / | / | / | 19:20/01/05 | Haonan CHEN |
+| ! | PASS | get_Transaction Category test 2 | void(in class trip) | 1 | 1 | / | / | / | 19:30/01/05 | CHEN        |
+| ! | PASS | get_Transaction Category test 3 | void(in [Pending Transaction]) | 0 | 0 | / | / | / | 19:42/01/05 | Haonan CHEN |
 
 #### Function 6: transactionTime() - Get Method for Transaction Time
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| ! | | get_Transaction Category test 1 | void (in class food) | 2 | | | | | | Haonan CHEN |
-| ! | | get_Transaction Category test 2 | void(in class trip) | 1 | | | | | | Haonan CHEN |
-| ! | | get_Transaction Category test 3 | void(in [Pending Transaction]) | 0 | | | | | | Haonan CHEN |
+| !          | PASS   | get_Transaction Time test 1 | void (in class food) | timestamp of Date() of current time | timestamp of Date() of current time | /       | /      | /      | 19:45/01/05 | Haonan CHEN |
+| !          | PASS   | get_Transaction Time test 2 | void (in class food) | timestamp of Date() of current time | timestamp of Date() of current time | /       | /      | /      | 19:51/01/05 | Haonan CHEN |
+| !          | PASS   | get_Transaction Time test 3 | void (in class food) | null                                | null                                | /       | /      | /      | 20:03/01/05 | Haonan CHEN |
 
 #### Function 7: setTransactionName(String tName) - Set Method for Transaction Name
 
