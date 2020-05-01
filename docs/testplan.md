@@ -181,9 +181,9 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| ! | Pass | setNameTest1 | "Leo" | transactionName = "Leo" | transactionName = "Leo" | - | - | - | 1st/May 14:25 | Leo |
-| ! | Pass | setNameTest2 | null | set failed, transactionName = null | transactionName = null | - | - | - | 1st/May 14:42 | Leo |
-| ! | Pass | setNameTest3 | "QWERTYUIOPASDFGHJKLZXCVBNM" | transactionName = "QWERTYUIOPASDFGHJKLZXCVBN"                | transactionName = "QWERTYUIOPASDFGHJKLZXCVBN" | - | - | - | 1st/May 15:27 | Leo |
+| ! | Pass | setNameTest1 | "Leo" | transactionName = "Leo" | transactionName = "Leo" | / | / | / | 1st/May 14:25 | Leo |
+| ! | Pass | setNameTest2 | null | set failed, transactionName = null | transactionName = null | / | / | / | 1st/May 14:42 | Leo |
+| ! | Pass | setNameTest3 | "QWERTYUIOPASDFGHJKLZXCVBNM" | transactionName = "QWERTYUIOPASDFGHJKLZXCVBN"                | transactionName = "QWERTYUIOPASDFGHJKLZXCVBN" | / | / | / | 1st/May 15:27 | Leo |
 | !! | | setNameTest4 | "", "Leo" | transactionName = "Leo"                                      | | | | | | Leo |
 | !! | | setNameTest5 | "Leo", "Leopard" | transactionName = "Leo" | | | | | | Leo |
 | !! | | setNameTest6 | "Leo", "" | transactionName = "Leo" | | | | | | Leo |
@@ -192,10 +192,10 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| ! | Pass | setValueTest1 | 123 | transactionValue = 123 | transactionValue = 123 | - | - | - | 1st/May 15:50 | Leo |
-| ! | Pass   | setValueTest2 | "123.12" | transactionValue = 123.12 | transactionValue = 123.12 | - | - | - | 1st/May 16:55 | Leo |
-| ! | Pass   | setValueTest3 | "123.123" | set failed, transactionValue = null | transactionValue = null | - | - | - | 1st/May 17:19 | Leo |
-| !! | Pass | setValueTest4 | "-123.12" | set failed | transactionValue = null | - | - | - | 1st/May 18:28 | Leo |
+| ! | Pass | setValueTest1 | 123 | transactionValue = 123 | transactionValue = 123 | / | / | / | 1st/May 15:50 | Leo |
+| ! | Pass   | setValueTest2 | "123.12" | transactionValue = 123.12 | transactionValue = 123.12 | / | / | / | 1st/May 16:55 | Leo |
+| ! | Pass   | setValueTest3 | "123.123" | set failed, transactionValue = null | transactionValue = null | / | / | / | 1st/May 17:19 | Leo |
+| !! | Pass | setValueTest4 | "-123.12" | set failed | transactionValue = null | / | / | / | 1st/May 18:28 | Leo |
 | !! | | setValueTest6 | "", "123.13" | transactionValue = 123.13 | | | | | | Leo |
 | !! | | setValueTest7 | "123.13", "134.14" | transactionValue = 123.13 | | | | | | Leo |
 
@@ -203,8 +203,8 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| ! | Pass | setCatTest3 | 10 | transactionCategory = 10 | transactionCategory = 10 | - | - | - | 1st/May 19:03 | Leo |
-| ! | Pass | setCatTest4 | -10 | set failed, transactionCategory = 0 | transactionCategory = 0 | - | - | - | 1st/May 19:05 | Leo |
+| ! | Pass | setCatTest3 | 10 | transactionCategory = 10 | transactionCategory = 10 | / | / | / | 1st/May 19:03 | Leo |
+| ! | Pass | setCatTest4 | -10 | set failed, transactionCategory = 0 | transactionCategory = 0 | / | / | / | 1st/May 19:05 | Leo |
 | !! | | setCatTest4 | 10,15 | transactionCategory = 15 | | | | | | Leo |
 
 #### Function 10: setTransactionTime(Date tTime) - Set Method for Transaction Time

@@ -3,12 +3,13 @@ package src;
 import static org.junit.jupiter.api.Assertions.*;
 
 import java.math.BigDecimal;
+import java.util.Date;
 
 import org.junit.Ignore;
 import org.junit.jupiter.api.Test;
 
 class BoCTransactionTest {
-	private String testInputString, testOutputString, variable;
+	private String testInputString, testOutputString;
 	private BigDecimal testInputBudget;
 	private BigDecimal testOutputBudget;
 	private BigDecimal testExceptOutputBudget;
@@ -18,7 +19,13 @@ class BoCTransactionTest {
 		fail("Not yet implemented");
 	}
 
-	@Test
+	/* 
+	1 – Pass – Leo - 14:25/1/5  
+	Problem: 
+	Reason:
+	Traceability: setNameTest1
+	*/
+	@Test		
 	void setNameTest1() {
 		testInputString = "Leo";
 		try {
@@ -142,4 +149,5 @@ class BoCTransactionTest {
 		}
 		assertEquals(testExceptOutput, testOutput);
 	}
+	
 }
