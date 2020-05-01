@@ -181,7 +181,7 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| ! |        | setName1 | "Leo" | transactionName = "Leo" | | | | | | Leo |
+| ! | Pass | setName1 | "Leo" | transactionName = "Leo" | transactionName = "Leo" | - | - | - | 1st/May 14:25 | Leo |
 | ! | | setName2 | "" | set failed, output "Error! Please type in your again! " | | | | | | Leo |
 | ! | | setName3 | "QWERTYUIOPASDFGHJKLZXCVBNM" | transactionName = "QWERTYUIOPASDFGHJKLZXCVBN"                | | | | | | Leo |
 | !! | | setName4 | "", "Leo" | transactionName = "Leo"                                      | | | | | | Leo |
