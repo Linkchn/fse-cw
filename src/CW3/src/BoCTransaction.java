@@ -40,8 +40,15 @@ public class BoCTransaction {
 	}
 
 	public void setTransactionName(String tName) {
-		if (tName != null) {
+		if (tName == null) {
+			transactionName = null;
+		}else {
 			transactionName = tName;
+			if (transactionName.length()>25) {
+				int start = 0;
+				int finish = 25;
+				transactionName = transactionName.substring(start, finish);
+			}			
 		}
 	}
 
@@ -49,6 +56,9 @@ public class BoCTransaction {
 		if (tValue.compareTo(new BigDecimal("0.00")) == 1) {
 			// 1 means bigger, -1 means smaller, 0 means same
 			transactionValue = tValue;
+		}
+		if (tValue.scale()>2) {
+			transactionValue = null;
 		}
 	}
 
