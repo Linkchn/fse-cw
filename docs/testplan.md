@@ -204,7 +204,7 @@ Then adjust codes and plan throughout the whole process of development to achiev
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
 | ! | Pass | setCatTest3 | 10 | transactionCategory = 10 | transactionCategory = 10 | - | - | - | 1st/May 19:03 | Leo |
-| ! | | setCatTest4 | -10 | set failed | | | | | | Leo |
+| ! | Pass | setCatTest4 | -10 | set failed, transactionCategory = 0 | transactionCategory = 0 | - | - | - | 1st/May 19:05 | Leo |
 | !! | | setCatTest4 | 10,15 | transactionCategory = 15 | | | | | | Leo |
 
 #### Function 10: setTransactionTime(Date tTime) - Set Method for Transaction Time
