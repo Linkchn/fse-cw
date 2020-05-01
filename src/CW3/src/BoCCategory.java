@@ -47,8 +47,15 @@ public class BoCCategory {
 		CategorySpend = CategorySpend.add(valueToAdd);
 	}
 
-	public void removeExpense(BigDecimal valueToRemove) {
-		CategorySpend = CategorySpend.subtract(valueToRemove);
+	public void removeExpense(BigDecimal valueToRemove) throws Exception {
+		BigDecimal temp = CategorySpend.subtract(valueToRemove);
+		if (temp.compareTo(BigDecimal.ZERO) == -1) {
+			throw new Exception("Expense should not be less than 0!");
+		}
+		else {
+			CategorySpend = temp;
+		}
+
 	}
 
 	public void resetBudgetSpend() {

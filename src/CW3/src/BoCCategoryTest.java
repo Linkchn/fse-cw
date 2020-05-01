@@ -10,6 +10,7 @@ import org.junit.jupiter.params.provider.ValueSource;
 
 import java.math.BigDecimal;
 
+@TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class BoCCategoryTest {
 
     static BoCCategory cat1;
@@ -54,6 +55,7 @@ class BoCCategoryTest {
     Reason: /
     Traceability: addExpenseTest 4, 5, 6
     */
+    @Order(1)
     @DisplayName("addExpenseTest")
     @ParameterizedTest
     @ValueSource(strings = {"0.00", "100.00", "111.50", "10000000000.00"})
@@ -82,30 +84,38 @@ class BoCCategoryTest {
     @DisplayName("removeExpenseTest")
     @ParameterizedTest
     @ValueSource(strings = {"0.00", "10000000000.00", "111.50", "90.00", "100.00"})
+    @Order(2)
     void removeExpenseTest(String num) {
         bd1 = new BigDecimal(num);
         sum = cat1.CategorySpend();
         BigDecimal temp = sum.subtract(bd1);
 
-        if (temp.compareTo(BigDecimal.ZERO) != -1){
+        try {
             sum = sum.subtract(bd1);
             cat1.removeExpense(bd1);
             assertEquals(sum, cat1.CategorySpend());
+            System.out.println(cat1.CategorySpend());
+
         }
-        else{
-            assertThrows(Exception.class, ()->{cat1.removeExpense(bd1);});
+        catch (Exception e){
+            assertThrows(Exception.class, ()->{cat1.removeExpense(bd1);System.out.println(cat1.CategorySpend());});
         }
     }
 
+    @Order(4)
     @Test
     void resetBudgetSpendTest() {
     	
     }
 
+    @Order(3)
     @Test
     void getRemainingBudgetTest() {
+        System.out.println(cat1.CategorySpend());
+        assertEquals(new BigDecimal("-10.00"), cat1.getRemainingBudget());
     }
 
+    @Order(5)
     @Test
     void testToString() {
     }

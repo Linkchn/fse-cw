@@ -307,8 +307,8 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | |getRemainingBudgetTest 1 |NONE |--- | | | | | | | |
-| | | | | | | | | | |
+| ！ | PASS |getRemainingBudgetTest 1 |NONE |CategoryBudget == BigDecimal("-10.00") |CategoryBudget == BigDecimal("-10.00") | / | / | / | 16:13 1/5 | Colin |
+| | | | | | | | | | ||
 
 #### Function 12: toString()       
 
