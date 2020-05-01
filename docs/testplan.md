@@ -183,7 +183,7 @@ Then adjust codes and plan throughout the whole process of development to achiev
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
 | ! | Pass | setName1 | "Leo" | transactionName = "Leo" | transactionName = "Leo" | - | - | - | 1st/May 14:25 | Leo |
 | ! | Pass | setName2 | null | set failed, transactionName = null | transactionName = null | - | - | - | 1st/May 14:42 | Leo |
-| ! | Fail | setName3 | "QWERTYUIOPASDFGHJKLZXCVBNM" | transactionName = "QWERTYUIOPASDFGHJKLZXCVBN"                | transactionName = "QWERTYUIOPASDFGHJKLZXCVBNM" | no limit of character number | edit code | the code is not complete | | Leo |
+| ! | Pass | setName3 | "QWERTYUIOPASDFGHJKLZXCVBNM" | transactionName = "QWERTYUIOPASDFGHJKLZXCVBN"                | transactionName = "QWERTYUIOPASDFGHJKLZXCVBN" | - | - | - | 1st/May 15:27 | Leo |
 | !! | | setName4 | "", "Leo" | transactionName = "Leo"                                      | | | | | | Leo |
 | !! | | setName4 | "Leo", "Leopard" | transactionName = "Leo", output "Your are not allowed to change your name! " the second time test | | | | | | Leo |
 | !! | | setName4 | "Leo", "" | transactionName = "Leo", output "Your are not allowed to change your name! " the second time test | | | | | | Leo |
