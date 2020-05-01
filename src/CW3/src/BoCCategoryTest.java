@@ -14,12 +14,18 @@ import java.math.BigDecimal;
 class BoCCategoryTest {
 
     static BoCCategory cat1;
+    static BoCCategory catName;
+    static BoCCategory catBudget;
+    static BoCCategory catSpend;
     static BigDecimal bd1;
     static BigDecimal sum;
 
     @BeforeAll
     static void set() {
         cat1 = new BoCCategory();
+        catName = new BoCCategory();
+        catBudget = new BoCCategory();
+        catSpend = new BoCCategory();
         bd1 = new BigDecimal("100");
         sum = new BigDecimal("0.00");
     }
@@ -112,7 +118,11 @@ class BoCCategoryTest {
     Reason: The code does not run the resetBudgetSpendTest method in the first test. Therefore,
             the output is not match with the expected output.
     Traceability: resetBudgetSpendTest 1
-
+	2 - PASS -Jiawei - 18:23 1/5
+	Problem: /
+	Reason:/
+	Traceability: resetBudgetSpendTest 2
+	
 
      */
     @Order(4)
@@ -141,6 +151,13 @@ class BoCCategoryTest {
 
     @Order(5)
     @Test
-    void testToString() {
+    @DisplayName("testToString")
+    @ParameterizedTest
+    @CsvSource({"TestCategoryName,'5.00,7.00',6.00"})
+    void testToString(String Name, String Budget, String Spend) {
+    	catName = Name;
+    	catBudget = new BigDecimal(Budget);
+    	catSppend = new BigDecimal(Spend);
+    	cat
     }
 }

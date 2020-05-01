@@ -90,11 +90,23 @@ public class BoCCategory {
 		BigDecimal remainingBudget = CategoryBudget.subtract(CategorySpend);
 		return remainingBudget;
 	}
-
+	/*
+	 * not test yet
+	 */
 	@Override
 	public String toString() {
-		return CategoryName + "(¥" + CategoryBudget.toPlainString() + ") - Est. ¥" + CategorySpend.toPlainString()
+		
+		if(CategoryBudget.compareTo(CategorySpend) != -1)
+			return CategoryName + "(¥" + CategoryBudget.toPlainString() + ") - Est. ¥" + CategorySpend.toPlainString()
 				+ " (¥" + getRemainingBudget().toPlainString() + " Remaining)";
+		else
+		{
+			BigDecimal OverSpent = new BigDecimal("0.00");
+			OverSpent = getRemainingBudget();
+			return CategoryName + "(¥" + CategoryBudget.toPlainString() + ") - Est. ¥" + CategorySpend.toPlainString()
+			+ " (¥" + OverSpent.toPlainString() + " Overspent)";
+		}
+		
 	}
 
 }
