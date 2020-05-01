@@ -209,10 +209,7 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 #### Function 10: setTransactionTime(Date tTime) - Set Method for Transaction Time
 
-|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
-|----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| ！ |        | setTimeTest1 | none, tTime is (2020, 4, 29) | transactionTime = (2020, 4, 29) | | | | | | Leo |
-| ! |  | setTimeTest2 | none, tTime is 1 | set failed | | | | | | Leo |
+This method should not be used in this class. So it has been deleted. 
 
 #### Function 11: isComplete() - Check name and value
 
@@ -225,9 +222,9 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| ! |        | testToStringTest1 | transactionName is null | converting failed, output "Please type in the name!" | | | | | | Leo |
-| ! | | testToStringTest2 | transactionValue is null | converting failed, output "Please type in the value!" | | | | | | Leo |
-| ! | | testToStringTest3 |  | converting succeeded | | | | | | Leo |
+| ! | Fail | ToStringTest1 | transactionName is null | converting failed, return null | null-￥123 | it states not clearly | edit code | code is not completed | 1st/May 22:17 | Leo |
+| ! | | ToStringTest2 | transactionValue is null | converting failed, return null | | | | | | Leo |
+| ! | | ToStringTest3 |  | converting succeeded | | | | | | Leo |
 
 
 

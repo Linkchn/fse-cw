@@ -150,4 +150,18 @@ class BoCTransactionTest {
 		assertEquals(testExceptOutput, testOutput);
 	}
 	
+	@Test
+	void ToStringTest1(){
+		BigDecimal tValue = new BigDecimal(123);
+		String testExceptOutput = null;
+		String testOutput = null;
+		try {
+			BoCTransaction copy = new BoCTransaction();
+			copy.setTransactionValue(tValue);
+			testOutput = copy.toString();
+		}catch(Exception e) {
+			fail ("Someting wrong with catch");
+		}
+		assertEquals(testExceptOutput, testOutput);
+	}
 }

@@ -68,12 +68,6 @@ public class BoCTransaction {
 		}
 	}
 
-	public void setTransactionTime(Date tTime) {
-		if (tTime != null) {
-			transactionTime = tTime;
-		}
-	}
-
 	@Override
 	public String toString() {
 		return transactionName + " - ¥" + transactionValue.toString();
