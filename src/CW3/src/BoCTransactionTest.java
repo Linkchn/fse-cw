@@ -86,6 +86,21 @@ class BoCTransactionTest {
 	}
 	
 	@Test
+	void setNameTest5() {
+		testInputString1 = "Leo";
+		testInputString2 = "Leopard";
+		try {
+			BoCTransaction copy = new BoCTransaction();
+			copy.setTransactionName(testInputString1);
+			copy.setTransactionName(testInputString2);
+			testOutputString = copy.transactionName();
+		}catch(Exception e) {
+			fail ("Someting wrong with catch");
+		}
+		assertEquals("Leo", testOutputString);
+	}
+	
+	@Test
 	void setValueTest1(){
 		testInputBudget = new BigDecimal(123);
 		testExceptOutputBudget = new BigDecimal("123");
