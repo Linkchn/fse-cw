@@ -283,33 +283,27 @@ Then adjust codes and plan throughout the whole process of development to achiev
 | !          |        | get_Category Spend test 1 | void (in class shopping)       | 4500.45          |              |         |        |        |      | YuxiangZhang |
 | !          |        | get_Category Spend test 2 | void (in class transport)      | 1200.85          |              |         |        |        |      | YuxiangZhang |
 | !          |        | get_Category Spend test 3 | void(in [Pending Transaction]) | null             |              |         |        |        |      | YuxiangZhang |
+
+
 #### Function 6:  setCatogoryName(String cName) - Set Category Name       
 
-|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
-|----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
-
-<<<<<<< HEAD
-#### Function 6:  setCatogoryName(String cName) - Set Category Name       
-
-|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|
-|----------|------|----|------|----------------|------------|
-| ! | PASS | setCNTest1 | "YTB" | "YTB" | |
-| ! | FAIL | setCNTest2 | "Bills" | null | |
-| ! | FAIL | setCNTest3 | blank space: " " | null | |
-| ! | FAIL | setCNTest4 | empty string: "" | null | |
+|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Change|Reason|Reason|Time|Author|
+|----------|------|----|------|----------------|------------|------------|------------|------------|------------|------------|
+| ! | PASS | setCNTest1 | "YTB" | "YTB" | "YTB" |        | | | | Hongming Ping |
+| ! | FAIL | setCNTest2 | "Bills" | null | "Bills" | | | | | Hongming Ping |
+| ! | FAIL | setCNTest3 | blank space: " " | null | blank space: " " | | | | | Hongming Ping |
+| ! | FAIL | setCNTest4 | empty string: "" | null | empty string: "" | | | | | Hongming Ping |
 
 #### Function 7: setCatogoryBudget(BigDecimal cBudget) - Set Category Budget       
 
-|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|
-|----------|------|----|------|----------------|------------|
-| !! | FAIL | setCBTest1 | 12 | 12.00 | |
-| !! | PASS | setCBTest2 | 0 | 0.00 | |
-| !! | FAIL | setCBTest3 | 1.002 | 1.00 | |
-| !! | FAIL | setCBTest4 | 8.9999 | 9.00 | |
-| !! | PASS | setCBTest5 | -100 | 0.00 | |
-| !! | FAIL | setCBTest6 | 11.2 | 11.20 | |
+|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
+|----------|------|----|------|----------------|------------|------------|------------|------------|------------|------------|
+| !! | FAIL | setCBTest1 | 12 | 12.00 | 12 | | | | | Hongming Ping |
+| !! | PASS | setCBTest2 | 0 | 0.00 | 0.00 | | | | | Hongming Ping |
+| !! | FAIL | setCBTest3 | 1.002 | 1.00 | 1.002 | | | | | Hongming Ping |
+| !! | FAIL | setCBTest4 | 8.9999 | 9.00 | 8.9999 | | | | | Hongming Ping |
+| !! | PASS | setCBTest5 | -100 | 0.00 | 0.00 | | | | | Hongming Ping |
+| !! | FAIL | setCBTest6 | 11.2 | 11.20 | 11.2 | | | | | Hongming Ping |
 
 #### Function 8: addExpense(BigDecimal ) - add Expense function       
 
