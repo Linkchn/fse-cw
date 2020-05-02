@@ -26,7 +26,7 @@ class SetCatogoryTest {
 	}
 	
 	@ParameterizedTest
-	@ValueSource(strings = {"Bills"," ", ""})
+	@ValueSource(strings = {"Bills", " " ,""})
 	void setCNTest234(String TestInputString) throws Exception {
 		try {
 			BoCCategory copy = new BoCCategory();
@@ -82,7 +82,7 @@ class SetCatogoryTest {
 	
 	@Test
 	void setCBTest4(){
-		TestInputBudget = new BigDecimal("-8.9999");
+		TestInputBudget = new BigDecimal("8.9999");
 		TestExceptOutputBudget = new BigDecimal("9.00");
 		try {
 			BoCCategory copy = new BoCCategory();
