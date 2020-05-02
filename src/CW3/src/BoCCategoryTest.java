@@ -14,6 +14,8 @@ import java.math.BigDecimal;
 class BoCCategoryTest {
 
     static BoCCategory cat1;
+    static BoCCategory cat2;
+    static BoCCategory cat3;
     static String catName;
     static BigDecimal catBudget;
     static BigDecimal catSpend;
@@ -24,8 +26,11 @@ class BoCCategoryTest {
     @BeforeAll
     static void set() {	
         cat1 = new BoCCategory();
+        cat2 = new BoCCategory();
+        cat3 = new BoCCategory();
         bd1 = new BigDecimal("100");
         sum = new BigDecimal("0.00");
+        
     }
 
     @BeforeEach
@@ -148,28 +153,56 @@ class BoCCategoryTest {
     }
     
     /*
-     * 1 - PASS - Jiawei - 15:55 2/5
+     * 1 - FAIL - Jiawei - 15:55 2/5
+     * Problem: Does not set a specific parameter in the test Therefore two conditions will not test either
+     * Reason: the parameter needs to be a value in the test plan 
+     * Traceability: testToString(previous one)
+     * 2 - PASS - Jiawei -19:13 2/5
      * Problem: /
      * Reason: /
-     * Traceability: testToString
+     * Traceability: testToString1, testToString2 
      */
     @Order(5)
     @Test
-    void testToString() {
-    	catName = cat1.CategoryName();
-    	catBudget = cat1.CategoryBudget();
-    	catSpend = cat1.CategorySpend();
-    	catRemaining = cat1.getRemainingBudget();
+    void testToString1() {
+    	catName = "testToStringName";
+    	cat2.setCategoryName("testToStringName");
+    	catBudget = new BigDecimal("5.00");
+    	cat2.setCategoryBudget(catBudget);
+    	catSpend = new BigDecimal("6.00");
+    	cat2.addExpense(catSpend);
+    	catRemaining = cat2.getRemainingBudget();
     	if(catRemaining.compareTo(BigDecimal.ZERO) != -1 )
     	{
     		assertEquals( catName + "(¥" + catBudget.toPlainString() + ") - Est. ¥" + catSpend.toPlainString()
-				+ " (¥" + catRemaining.toPlainString() + " Remaining)", cat1.toString());
+				+ " (¥" + catRemaining.toPlainString() + " Remaining)", cat2.toString());
     	}
     	else {
     		BigDecimal temp1 = new BigDecimal(catRemaining.toPlainString());
     		temp1 = temp1.abs();
     		assertEquals( catName + "(¥" + catBudget.toPlainString() + ") - Est. ¥" + catSpend.toPlainString()
-			+ " (¥" + temp1.toPlainString() + " Overspent)", cat1.toString());
+			+ " (¥" + temp1.toPlainString() + " Overspent)", cat2.toString());
+    	}
+    }
+    @Test
+    void testToString2() {
+    	catName = "testToStringName";
+    	cat3.setCategoryName("testToStringName");
+    	catBudget = new BigDecimal("7.00");
+    	cat3.setCategoryBudget(catBudget);
+    	catSpend = new BigDecimal("6.00");
+    	cat3.addExpense(catSpend);
+    	catRemaining = cat3.getRemainingBudget();
+    	if(catRemaining.compareTo(BigDecimal.ZERO) != -1 )
+    	{
+    		assertEquals( catName + "(¥" + catBudget.toPlainString() + ") - Est. ¥" + catSpend.toPlainString()
+				+ " (¥" + catRemaining.toPlainString() + " Remaining)", cat3.toString());
+    	}
+    	else {
+    		BigDecimal temp2 = new BigDecimal(catRemaining.toPlainString());
+    		temp2 = temp2.abs();
+    		assertEquals( catName + "(¥" + catBudget.toPlainString() + ") - Est. ¥" + catSpend.toPlainString()
+			+ " (¥" + temp2.toPlainString() + " Overspent)", cat3.toString());
     	}
     }
 

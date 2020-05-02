@@ -95,11 +95,11 @@ public class BoCCategory {
 	Change: the code will return a new result if the remaining is negative, which becomes overspend
 	Reason: the previous code only explain the result that the remaining is positive, Therefore, it neeeds
 	to explain the situation that the remaining is negative with a if condition
-	Traceability: testToString
+	Traceability: testToString1, testToString2
 	 */
 	@Override
 	public String toString() {
-		
+			
 		if(CategoryBudget.compareTo(CategorySpend) != -1)
 			return CategoryName + "(¥" + CategoryBudget.toPlainString() + ") - Est. ¥" + CategorySpend.toPlainString()
 				+ " (¥" + getRemainingBudget().toPlainString() + " Remaining)";
