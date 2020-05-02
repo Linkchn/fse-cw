@@ -68,6 +68,28 @@ public class BoCTransaction {
 		}
 	}
 
+
+	/*
+	1 – ERROR – Shiliang – 21:43 1/5
+    Change: /
+    Reason: isComplete is needed in class description
+	Traceability: isCompleteTest 1
+
+	2 – PASS – Shiliang – 22:37 1/5
+    Change: Create a new method which check whether transaction name and value are complete
+    Reason: /
+	Traceability: isCompleteTest 2
+
+	 */
+	public boolean isComplete() {
+		if (transactionName == null || transactionValue == null) {
+			return false;
+		}
+		else {
+			return true;
+		}
+	}
+
 	@Override
 	public String toString() {
 		return transactionName + " - ¥" + transactionValue.toString();

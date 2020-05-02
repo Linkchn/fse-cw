@@ -174,7 +174,7 @@ Branches will be made once pair work has begun.
   
 - #### Second meeting - 25/4
   
-  1. Group assignment: Colin&Andy, Link&Ediie, Daze&Leo
+  1. Group assignment: Colin & Ediie, Link & Andy, Daze & Leo
   2. Exchange everyone's understanding of class description
   3. Mention the parameterized test and the use of various asserts
   4. Mention how to use issue including labels, milstones, boards and so on
@@ -186,7 +186,7 @@ Branches will be made once pair work has begun.
   10. The purpose of logic should be tested
   11. Cover the summery document
 
-- #### Second meeting - 01/05
+- #### Third meeting - 01/05
   
   1. finish the class test plan and test together
   2. communicate the format of test
@@ -300,8 +300,11 @@ Branches will be made once pair work has begun.
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+| !! | ERROR | isCompleteTest 1 | new BoCTransaction(null, new BigDecimal("850.00"), 0) | false | Error | isComplete () does not exitst | / | java reported error | 21:17 1/5 | Shiliang |
+| ! | PASS | isCompleteTest 2 | new BoCTransaction(null, new BigDecimal("850.00"), 0) | false | false | / | Create a new method which check whether transaction name and value are complete | / | 22:37 1/5 | Shiliang |
+| ! | PASS | isCompleteTest 3 | new BoCTransaction(); | false            | false | / | / | / | 22:37 1/5 | Shiliang |
+| ! | PASS | isCompleteTest  4 | new BoCTransaction("Rent", null, 0) | false | false | / | / | / | 22:37 1/5 | Shiliang |
+| ! | PASS | isCompleteTest 5 | new BoCTransaction("Rent", new BigDecimal("850.00"), 0) | true | true | / | / | / | 22:37 1/5 | Shiliang |
 
 #### Function 12: toString()
 
@@ -379,41 +382,50 @@ Branches will be made once pair work has begun.
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-|! | |addExpenseTest 1 |0 |0 | | | | | | |
-|! | |addExpenseTest 2 |100 |100 | | | | | | |
-|! | |addExpenseTest 3 |111.5 |211.5 | | | | | | |
-|! | |addExpenseTest 3 |10000000000 |10000000211.5 | | | | | | |
+| !          | FAIL   | addExpenseTest 1  | new BigDecimal(0.00) | (BigDecimal)0.00                            | (BigDecimal)0 | Decimals are different | /      | /      | 21:43 30/5 | Shiliang  |
+|! | FAIL |addExpenseTest 2 |new BigDecimal(0.00) |(BigDecimal)0.00 | (BigDecimal)0   | Decimals are still different | Changed the decimal places of Input | BigDecimal requires accurate numbers | 21:46 30/5 | Shiliang |
+|! | PASS |addExpenseTest 3 |new BigDecimal("0.00") |(BigDecimal)0.00 | (BigDecimal)0.00 | / | Changed the data type of Input | Only String can be accurate numbers for a BigDecimal constructor | 21:55 30/5 | Shiliang |
+|! | PASS |addExpenseTest 4 |new BigDecimal("100.00") |(BigDecimal)100.00 | (BigDecimal)100.00 | / | / | / | 22:35 30/5 | Shiliang |
+|! | PASS |addExpenseTest 5 |new BigDecimal("111.50") |(BigDecimal)211.50 | (BigDecimal)211.50 | / | / | / | 22:35 30/5 | Shiliang |
+|! | PASS |addExpenseTest 6 |new BigDecimal("10000000000.00") |(BigDecimal)10000000211.50 |(BigDecimal)10000000211.50 | / | / | / | 22:35 30/5 | Shiliang |
+|! |  |addExpenseTest 7* |(String)-11.5 |Throw an exception, remain (BigDecimal)10000000211.5 | | | | | | |
+|! | |addExpenseTest 6* |(String)-100 |Throw an exception, remain (BigDecimal)10000000211.5 | | | | | | |
 
 #### Function 9: removeExpense(BigDecimal ) - remove Expense function       
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-|! |removeExpenseTest 1 |0 |10000000211.5 | | | | | | | |
-|! |removeExpenseTest 2 |10000000000 |211.5 | | | | | | | |
-|! |removeExpenseTest 3 |111.5 |100 | | | | | | | |
-|! |removeExpenseTest 3 |100 |0 | | | | | | | |
-|! |removeExpenseTest 3 |100 |Exception: expense should not be negative | | | | | | | |
+|! | PASS |removeExpenseTest 1 |new BigDecimal(0.00) |(BigDecimal)10000000211.50 |(BigDecimal)10000000211.50 | / | / | / | 23:44 30/4 | Shiliang |
+|! | PASS |removeExpenseTest 2 |new BigDecimal("10000000000.00") |(BigDecimal)211.50 |(BigDecimal)211.50 | / | / | / | 23:44 30/4 | Shiliang |
+|! | PASS |removeExpenseTest 3 |new BigDecimal("111.50") |(BigDecimal)100.00 |(BigDecimal)100.00 | / | / | / | 23:44 30/4 | Shiliang |
+|! | PASS |removeExpenseTest 4 |new BigDecimal("90.00") |(BigDecimal)10.00 |(BigDecimal)10.00 | / | / | / | 23:44 30/4 | Shiliang |
+|!! | FAIL |removeExpenseTest 5 |new BigDecimal("100.00") |Exception: expense should not be negative |Nothing was thrown | Nothing was thrown | / | The source code does not handle this problem | 23:44 30/4 | Shiliang |
+|! | PASS |removeExpenseTest 6 |new BigDecimal("100.00") |Exception: expense should not be negative |Exception: expense should not be negative | / | Add exception throw in the function, throw exception if the expense would be negative | The source code should throw exception for main to handle  anormaly | 16:25 1/5 | Shiliang |
+|! | |removeExpenseTest 7* |-100 | | | | | | | |
 
 #### Function 10: resetBudgetSpend() - reset Spend Total Function       
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-|! |resetBudgetSpendTest 1|NONE |spend == 0 | | | | | | | |
-| | | | | | | | | | | |
+|! | |resetBudgetSpendTest 1|NONE |spend == 0 | spend==0 | / | / | / | 16:37 | Eddie |
+| | | | | | | | | | ||
 
 #### Function 11: getRemainingBudget() - Calculate Remaining Budget function    
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| |getRemainingBudgetTest 1 |NONE |--- | | | | | | | |
-| | | | | | | | | | | |
+| ！ | PASS |getRemainingBudgetTest 1 |NONE |CategoryBudget == BigDecimal("-10.00") |CategoryBudget == BigDecimal("-10.00") | / | / | / | 16:13 1/5 | Shiliang Jiawei |
+| | | | | | | | | | ||
 
 #### Function 12: toString()       
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| |Cat_toStringTest 1|NONE |[Category Name](Budget: ¥xx.xx) – ¥yy.yy | | | | | | | |
-| | | | | | | | | | | |
+|!!!|FAIL|toStringTest (previous one)|/| testToStringName(¥x.xx) - Est. ¥y.yy (¥z.zz Overspent) == toString() or testToStringName(¥x.xx) - Est. ¥y.yy (¥z.zz Remaining) == toString() |testToStringName(¥x.xx) - Est. ¥y.yy (¥z.zz Overspent) == toString() or testToStringName(¥x.xx) - Est. ¥y.yy (¥z.zz Remaining) == toString()|Does not set a specific parameter in the test Therefore two conditions will not test either|add an if condition to implement the negative remaining budget|the parameter needs to be a value in next test plan|19;26 2/5|Eddie|
+| !!! | R |toStringTest 1|catName=testToString Name; catBudget=5.00; catSpend=6.00; |testToStringName(¥5.00) - Est. ¥6.00 (¥1.00 Overspent) == toString() | testToStringName(¥5.00) - Est. ¥6.00 (¥1.00 Overspent) == toString | Does not use Parameterized Test | Set a specific value to ensure that two condition can | Parameterized Test is more standart | 19:26 2/5 | Eddie |
+| !!! | ERROR | toStringTest2 | catName=testToString Name; catBudget=7.00; catSpend=6.00; | testToStringName(¥5.00) - Est. ¥6.00 (¥1.00 Remaining) == toString() | testToStringName(¥5.00) - Est. ¥6.00 (¥1.00 Remaining) == toString() | Does not use Parameterized Test | add an if condition to implement the negative remaining budget | Parameterized Test is more standart | 19:26 2/5 |Eddie|
+| !!! | PASS | teStringTest 3| cat2, toStringResult1 | toStringResult1 == cat.toString() | toStringResult1 == cat.toString() | / | use Parameterized Test | / | 21:20 2/5 |Eddie Shiliang|
+| !!! | PASS | teStringTest 4| cat3, toStringResult2 | toStringResult1 == cat.toString() | toStringResult1 == cat.toString() | / | use Parameterized Test | / | 21:20 2/5 |Eddie Shiliang|
 
 ### Class: BoCApp
 
