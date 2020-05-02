@@ -14,13 +14,17 @@
 
 
 ## Team Management
+
 Report here, by the end of the assignment, how the team has managed the project, e.g.: used version control, organised meetings, divided work, used labels, milestones, issues, etc. etc.
+
 ### I. Team stategy
+
 - Overall, **Agile Software Development** using **Test Driven Development** based on the document and codes with **pair programming**.
 First analyse Class Description seperately.
 Second devide members in pairs and distribute works to pairs.
 Third build Tests Plan Table according to the Class Description analysis in pairs.
 Then adjust codes and plan throughout the whole process of development to achieve the requirements.
+Branches will be made once pair work has begun.
 
 - Since this BoCAPP is a small-sized business system, agile method allows us to focus on the software itself rather than on its design and documentation, which is exactly what we need. As is required and recommended, we use JUnit to do TDD process. Although the whole development process is not so heavy that every one can do their own small piece of job to finish the task, we consider pair programming could be a good method which fits us well. Most importantly, it will act as an informal review process because each line of code is looked at by at least one person. It largly reduces the risk of more errors with cheap program inspections. Secondly, it is recommended that we can do refactoring to improve the software structure. Different from normal development environment, pair programming provide a more friendly environment for refactoring to happen as others could benifit immediately from that. Thirdly, it obviously widens the mind of the way making tests and improves the ability of each other's programming skills.
 
@@ -88,6 +92,7 @@ Then adjust codes and plan throughout the whole process of development to achiev
   - BoCApp Main Class: 6, 7
 
 ### III. Timeline & decisions
+
   - 23/4
   
     stage 0: First meeting, discuss about the overall stategy.
@@ -103,17 +108,72 @@ Then adjust codes and plan throughout the whole process of development to achiev
     Work has been distributed to pairs and issued in gitlab
 
   - 26/4 issues: 4/12
-  
+
     Start doing tests plans
 
+  - 27/4 issues: 4/12
+
+    Work with plan table
+
+  - 28/4 issues: 4/15
+  
+    Work with plan table
+
+    Branches are made by pairs: master for Pair1, daze for Pair2, Pair3 for Pair3
+
+  - 29/4 issues: 4/15
+
+    Work with plan table and tests coding
+
+  - 30/4 issues: 5/16
+
+    Work with plan table and tests coding
+
+  - 1/5 issues: 6/17
+
+    Second meeting, discuss about current problems and efficiency improvement, talk about further plans.
+
+    Keep working on tests of first two classes
+
+  - 2/5 issues: 4/18
+  
+    Plans of the rest of the days release by pairs:
+    
+    **Plan of Pair 2**
+
+    | Date | What to do                         | Daze | Leo  | Status |
+    | ---- | ---------------------------------- | ---- | ---- | ------ |
+    | 5/2  | Finish Test                        |      |      |        |
+    | 5/3  | Fix Category and Transaction Class |      |      |        |
+    | 5/4  | Set Test for Main Class 4,5        |      |      |        |
+    | 5/5  | Fix Main Class                     |      |      |        |
+    | 5/6  | Fix Main Class                     |      |      |        |
+    | 5/7  | Final check and Tag                |      |      |        |
+
+    **Plan of Pair 3**
+
+    | Date | What to do                         | Shiliang | Jiawei | Status |
+    | ---- | ---------------------------------- | ---- | ---- | ------ |
+    | 5/2  | Finish Tests of first two classes with fixed code|      |      |        |
+    | 5/3  | Start plan for main 6, 7 and write test code|      |      |        |
+    | 5/4  | Work on main 6, 7                  |      |      |        |
+    | 5/5  | Work on main 6, 7                  |      |      |        |
+    | 5/6  | Work on main 6, 7                  |      |      |        |
+    | 5/7  | Final check and Tag                |      |      |        |
+
+
+
 ### IV. Meeting record
+
 - #### First meeting - 23/4
+  
   1. Discuss about the whole coursework
   2. Figure out what should be done
   3. Roughly get through the timeline
   4. Decide the date of next meeting
   
 - #### Second meeting - 25/4
+  
   1. Group assignment: Colin&Andy, Link&Ediie, Daze&Leo
   2. Exchange everyone's understanding of class description
   3. Mention the parameterized test and the use of various asserts
@@ -127,6 +187,7 @@ Then adjust codes and plan throughout the whole process of development to achiev
   11. Cover the summery document
 
 - #### Second meeting - 01/05
+  
   1. finish the class test plan and test together
   2. communicate the format of test
   3. use the parameterized test in the class test
@@ -139,6 +200,7 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 
 ## Test Plan
+
 **You should add rows and even columns, and indeed more tables, freely as you think will improve the report.**
 
 ### Class: BoCTransaction
