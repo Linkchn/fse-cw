@@ -15,7 +15,7 @@ import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class BoCTransactionTest {
+class BoCTransactionTest_p3 {
 
     static BoCTransaction tran1;
     static BoCTransaction tran2;
@@ -47,6 +47,7 @@ class BoCTransactionTest {
     Traceability: isCompleteTest 2
 
      */
+    @DisplayName("isCompleteTest")
     @ParameterizedTest
     @MethodSource
     void isCompleteTest(BoCTransaction tran) {

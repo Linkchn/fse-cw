@@ -15,7 +15,7 @@ import java.math.BigDecimal;
 import java.util.List;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
-class BoCCategoryTest {
+class BoCCategoryTest_p3 {
     // Declare BoCCategories for tests
     static BoCCategory cat1;
     static BoCCategory cat2;
@@ -166,6 +166,7 @@ class BoCCategoryTest {
     Traceability: getRemainingBudgetTest 1
      */
     @Order(3)
+    @DisplayName("getRemainingBudgetTest")
     @Test
     void getRemainingBudgetTest() {
         System.out.println(cat1.CategorySpend());
@@ -190,6 +191,7 @@ class BoCCategoryTest {
     Traceability: testToString 3, 4
      */
     @Order(5)
+    @DisplayName("testToString")
     @ParameterizedTest
     @MethodSource
     void testToString(BoCCategory cat, String string1 ) {
