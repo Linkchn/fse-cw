@@ -6,7 +6,7 @@
 |[Work distributions with pairs](#work-distributions-with-pairs)|
 |[Timeline & decisions](#timeline--decisions)|
 |[Meeting record](#meeting-record)|
-|[conclusion](#conclusion)|
+|[Conclusion](#conclusion)|
 |[Test Plan](#test-plan)|
 |[Jump to Class: BoCTransaction](#class-BoCTransaction)|
 |[Jump to Class: BoCCategory](#class-BoCCategory)|
