@@ -6,9 +6,12 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 import org.junit.jupiter.params.provider.ValueSource;
 
 import java.math.BigDecimal;
+import java.util.List;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class BoCCategoryTest {
@@ -16,18 +19,25 @@ class BoCCategoryTest {
     static BoCCategory cat1;
     static BoCCategory cat2;
     static BoCCategory cat3;
+    static String toStringResult1; 
+    static String toStringResult2; 
     static String catName;
-    static BigDecimal catBudget;
-    static BigDecimal catSpend;
-    static BigDecimal catRemaining;
     static BigDecimal bd1;
     static BigDecimal sum;
 
     @BeforeAll
     static void set() {	
-        cat1 = new BoCCategory();
+    	cat1 = new BoCCategory();
         cat2 = new BoCCategory();
         cat3 = new BoCCategory();
+        toStringResult1 = new String ( "testToStringName(¥5.00) - Est. ¥6.00 (¥1.00 Overspent)");
+        toStringResult2 = new String ( "testToStringName(¥7.00) - Est. ¥6.00 (¥1.00 Remaining)");
+    	cat2.setCategoryName("testToStringName");
+    	cat2.setCategoryBudget(new BigDecimal ("5.00"));
+		cat2.addExpense(new BigDecimal ("6.00"));
+    	cat3.setCategoryName("testToStringName");
+    	cat3.setCategoryBudget(new BigDecimal ("7.00"));
+    	cat3.addExpense(new BigDecimal ("6.00"));
         bd1 = new BigDecimal("100");
         sum = new BigDecimal("0.00");
         
@@ -153,57 +163,37 @@ class BoCCategoryTest {
     }
     
     /*
-     * 1 - FAIL - Jiawei - 15:55 2/5
-     * Problem: Does not set a specific parameter in the test Therefore two conditions will not test either
-     * Reason: the parameter needs to be a value in the test plan 
-     * Traceability: testToString(previous one)
-     * 2 - PASS - Jiawei -19:13 2/5
-     * Problem: /
-     * Reason: /
-     * Traceability: testToString1, testToString2 
+      1 - FAIL - Jiawei - 15:55 2/5
+      Problem: Does not set a specific parameter in the test Therefore two conditions will not test either
+      Reason: the parameter needs to be a value in the test plan 
+      Traceability: testToString(previous one)
+      2 - ERROR - Jiawei -19:13 2/5
+      Problem: Does not use Parameterized Test 
+      Reason: Parameterized Test is more standart
+      Traceability: testToString1, testToString2 
+      3 - PASS - Jiawei - 21:20 2/5
+      Problem:/
+      Reason:/
+      Traceability: testToString
+     
+      
      */
     @Order(5)
-    @Test
-    void testToString1() {
-    	catName = "testToStringName";
-    	cat2.setCategoryName("testToStringName");
-    	catBudget = new BigDecimal("5.00");
-    	cat2.setCategoryBudget(catBudget);
-    	catSpend = new BigDecimal("6.00");
-    	cat2.addExpense(catSpend);
-    	catRemaining = cat2.getRemainingBudget();
-    	if(catRemaining.compareTo(BigDecimal.ZERO) != -1 )
+    @ParameterizedTest
+    @MethodSource
+    void testToString(BoCCategory cat, String string1 ) {
+    	if(cat.getRemainingBudget().compareTo(BigDecimal.ZERO) != -1 )
     	{
-    		assertEquals( catName + "(¥" + catBudget.toPlainString() + ") - Est. ¥" + catSpend.toPlainString()
-				+ " (¥" + catRemaining.toPlainString() + " Remaining)", cat2.toString());
+    		assertEquals( string1, cat.toString());
     	}
     	else {
-    		BigDecimal temp1 = new BigDecimal(catRemaining.toPlainString());
-    		temp1 = temp1.abs();
-    		assertEquals( catName + "(¥" + catBudget.toPlainString() + ") - Est. ¥" + catSpend.toPlainString()
-			+ " (¥" + temp1.toPlainString() + " Overspent)", cat2.toString());
+    		assertEquals( string1, cat.toString());
     	}
     }
-    @Test
-    void testToString2() {
-    	catName = "testToStringName";
-    	cat3.setCategoryName("testToStringName");
-    	catBudget = new BigDecimal("7.00");
-    	cat3.setCategoryBudget(catBudget);
-    	catSpend = new BigDecimal("6.00");
-    	cat3.addExpense(catSpend);
-    	catRemaining = cat3.getRemainingBudget();
-    	if(catRemaining.compareTo(BigDecimal.ZERO) != -1 )
-    	{
-    		assertEquals( catName + "(¥" + catBudget.toPlainString() + ") - Est. ¥" + catSpend.toPlainString()
-				+ " (¥" + catRemaining.toPlainString() + " Remaining)", cat3.toString());
-    	}
-    	else {
-    		BigDecimal temp2 = new BigDecimal(catRemaining.toPlainString());
-    		temp2 = temp2.abs();
-    		assertEquals( catName + "(¥" + catBudget.toPlainString() + ") - Est. ¥" + catSpend.toPlainString()
-			+ " (¥" + temp2.toPlainString() + " Overspent)", cat3.toString());
-    	}
+    static List<Arguments> testToString() {
+        return List.of( // arguments:
+                Arguments.arguments(cat2,toStringResult1),
+                Arguments.arguments(cat3,toStringResult2)
+        );
     }
-
 }
