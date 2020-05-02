@@ -103,6 +103,7 @@ public class BoCCategory {
 		{
 			BigDecimal OverSpent = new BigDecimal("0.00");
 			OverSpent = getRemainingBudget();
+			OverSpent = OverSpent.abs();
 			return CategoryName + "(¥" + CategoryBudget.toPlainString() + ") - Est. ¥" + CategorySpend.toPlainString()
 			+ " (¥" + OverSpent.toPlainString() + " Overspent)";
 		}

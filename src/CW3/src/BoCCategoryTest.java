@@ -14,18 +14,25 @@ import java.math.BigDecimal;
 class BoCCategoryTest {
 
     static BoCCategory cat1;
-    static BoCCategory catName;
-    static BoCCategory catBudget;
-    static BoCCategory catSpend;
+//    static BoCCategory catName;
+//    static BoCCategory catBudget1;
+//    static BoCCategory catBudget2;
+//    static BoCCategory catSpend;
+    static String Name;
+    static BigDecimal Budget1;
+    static BigDecimal Budget2;
+    static BigDecimal Spend;
     static BigDecimal bd1;
     static BigDecimal sum;
 
     @BeforeAll
-    static void set() {
+    static void set() {	
         cat1 = new BoCCategory();
-        catName = new BoCCategory();
-        catBudget = new BoCCategory();
-        catSpend = new BoCCategory();
+//        catName = new BoCCategory();
+//        catBudget1 = new BoCCategory();
+//        catBudget2 = new BoCCategory();
+//        catSpend = new BoCCategory();
+//        
         bd1 = new BigDecimal("100");
         sum = new BigDecimal("0.00");
     }
@@ -153,11 +160,18 @@ class BoCCategoryTest {
     @Test
     @DisplayName("testToString")
     @ParameterizedTest
-    @CsvSource({"TestCategoryName,'5.00,7.00',6.00"})
-    void testToString(String Name, String Budget, String Spend) {
-    	catName = Name;
-    	catBudget = new BigDecimal(Budget);
-    	catSppend = new BigDecimal(Spend);
-    	cat
+    @ValueSource(strings = {"TestCategoryName", "5.00", "7.00"})
+    void testToString(String string1) {
+    	 Name = string1;
+    	 cat1.setCategoryName(Name);
+    	 Budget1 = new BigDecimal(string1);
+    	 cat1.setCategoryBudget(Budget1);
+    	 Spend = new BigDecimal(str);
+    	 cat1.setCategorySpend(Spend);
+    	 assertEquals("TestCategoryName(¥5.00) - Est. ¥6.00 (¥1.00 Overspent)", cat1.toString());
+    	 catBudget2 = new BigDecimal(string1);
+    	 
+    	 
+    	
     }
 }
