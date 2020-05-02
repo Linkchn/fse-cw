@@ -1,18 +1,26 @@
 import static org.junit.jupiter.api.Assertions.*;
 import java.math.BigDecimal;
 import java.util.Date;
+import java.util.List;
+
 import org.junit.Ignore;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
+import org.junit.jupiter.params.provider.ValueSource;
+
 
 class BoCTransactionTest {
 	private static String string1, string2;
 	private static int integer1, integer2;
 	private static BigDecimal bignum1;
-	private static BigDecimal bignum2;
 	private static BigDecimal bignum3;
 	private static BigDecimal bignum4;
+	private static BoCTransaction food;
+	private static BoCTransaction trip;
+	private static BoCTransaction empty;
 	@BeforeAll
 	static void setup() {
 		string1 = "food";
@@ -20,9 +28,11 @@ class BoCTransactionTest {
 		integer1 = 1;
 		integer2 = 2;
 		bignum1 = new BigDecimal("10000");
-		bignum2 = new BigDecimal("20000");
 		bignum3 = new BigDecimal("20000.15");
 		bignum4 = new BigDecimal("20000.151");
+		food = new BoCTransaction(string1,bignum1,integer2);
+		trip = new BoCTransaction(string2,bignum3,integer1);
+		empty = new BoCTransaction();
 	}
 	
 	/*
@@ -55,10 +65,9 @@ class BoCTransactionTest {
 	*/
 	@Test 			//Test of the default constructor by Haonan CHEN
 	void Default_Constructor_test1() throws Exception {
-
 			BoCTransaction empty = new BoCTransaction();
-			assertEquals(empty.transactionName(),"[Pending Transaction]"); 
-			assertEquals(empty.transactionCategory(),0);
+			assertEquals("[Pending Transaction]", empty.transactionName()); 
+			assertEquals(0,empty.transactionCategory());
 	}
 	
 	
@@ -75,12 +84,10 @@ class BoCTransactionTest {
 		BigDecimal value = new BigDecimal("10000");
 		try {
 			BoCTransaction food = new BoCTransaction(string1,bignum1,integer2);
-
-			
-			assertEquals(food.transactionName(),"food"); 
-			assertEquals(food.transactionCategory(),2);
-			assertEquals(food.transactionValue(),value);
-			assertEquals(getSecondTimestamp(food.transactionTime()),getSecondTimestamp(current));
+			assertEquals("food",food.transactionName()); 
+			assertEquals(2,food.transactionCategory());
+			assertEquals(value,food.transactionValue());
+			assertEquals(getSecondTimestamp(current),getSecondTimestamp(food.transactionTime()));
 		}catch(Exception e) {
 			fail ("Something wrong with catch");
 		}
@@ -98,9 +105,9 @@ class BoCTransactionTest {
 		BigDecimal value = new BigDecimal("10000");
 		try {
 			BoCTransaction food = new BoCTransaction();
-			assertEquals(food.transactionName(),"food"); 
-			assertEquals(food.transactionCategory(),2);
-			assertEquals(food.transactionValue(),value);
+			assertEquals("food",food.transactionName()); 
+			assertEquals(2,food.transactionCategory());
+			assertEquals(value,food.transactionValue());
 			assertEquals(food.transactionTime(),current);
 		}catch(Exception e) {
 			fail ("Something wrong with catch");
@@ -119,10 +126,10 @@ class BoCTransactionTest {
 		BigDecimal value2 = new BigDecimal("20000.15");
 		try {
 			BoCTransaction trip = new BoCTransaction(string2,bignum3,integer1);
-			assertEquals(trip.transactionName(),"trip"); 
-			assertEquals(trip.transactionCategory(),1);
-			assertEquals(trip.transactionValue(),value2);
-			assertEquals(getSecondTimestamp(trip.transactionTime()),getSecondTimestamp(current));
+			assertEquals("trip",trip.transactionName()); 
+			assertEquals(1,trip.transactionCategory());
+			assertEquals(value2,trip.transactionValue());
+			assertEquals(getSecondTimestamp(current),getSecondTimestamp(trip.transactionTime()));
 		}catch(Exception e) {
 			fail ("Something wrong with catch");
 		}
@@ -140,10 +147,10 @@ class BoCTransactionTest {
 		BigDecimal value2 = new BigDecimal("20000.15");
 		try {
 			BoCTransaction trip = new BoCTransaction(string2,bignum4,integer1);
-			assertEquals(trip.transactionName(),"trip"); 
-			assertEquals(trip.transactionCategory(),1);
-			assertEquals(trip.transactionValue(),value2);
-			assertEquals(getSecondTimestamp(trip.transactionTime()),getSecondTimestamp(current));
+			assertEquals("trip",trip.transactionName()); 
+			assertEquals(1,trip.transactionCategory());
+			assertEquals(value2,trip.transactionValue());
+			assertEquals(getSecondTimestamp(current),getSecondTimestamp(trip.transactionTime()));
 		}catch(Exception e) {
 			fail ("Something wrong with catch");
 		}
@@ -156,37 +163,29 @@ class BoCTransactionTest {
 	Problem: 
 	Reason:
 	Traceability:transactionName Test 1
-	*/
-	@Test 
-	void transactionNameTest1() throws Exception {
-		BoCTransaction food = new BoCTransaction(string1,bignum1,integer2);
-		assertEquals(food.transactionName(),"food");
-	}
 	
-	/* 
 	2 – Pass – Haonan CHEN - 19:03/01/05  
 	Problem: 
 	Reason:
 	Traceability:transactionName Test 2
-	*/
-	@Test 
-	void transactionNameTest2() throws Exception {
-		BoCTransaction trip = new BoCTransaction(string2,bignum3,integer1);
-		assertEquals(trip.transactionName(),"trip");
-	}
 	
-	/* 
 	3 – Pass – Haonan CHEN - 19:04/01/05  
 	Problem: 
 	Reason:
 	Traceability:transactionName Test 3
 	*/
-	@Test 
-	void transactionNameTest3() throws Exception {
-		BoCTransaction empty = new BoCTransaction();
-		assertEquals(empty.transactionName(),"[Pending Transaction]");
+	@ParameterizedTest
+	@MethodSource
+	void transactionNameTest(BoCTransaction test,String testValue) throws Exception {
+		assertEquals(testValue,test.transactionName());
 	}
-	
+	static List<Arguments> transactionNameTest(){
+		return List.of(
+				Arguments.arguments(food,"food"),
+				Arguments.arguments(trip,"trip"),
+				Arguments.arguments(empty,"[Pending Transaction]")
+		);
+	}
 	
 	
 	/* TRANSACTION VALUE TEST*******************************************************************
@@ -194,75 +193,57 @@ class BoCTransactionTest {
 	Problem: 
 	Reason:
 	Traceability:transactionValue Test 1
-	*/
-	@Test 
-	void transactionValueTest1() throws Exception {
-		BoCTransaction food = new BoCTransaction(string1,bignum1,integer2);
-		BigDecimal testvalue = new BigDecimal("10000");
-		assertEquals(food.transactionValue(),testvalue);
-	}
 	
-	/* 
 	2 – Pass – Haonan CHEN - 19:12/01/05  
 	Problem: 
 	Reason:
 	Traceability:transactionValue Test 2
-	*/
-	@Test 
-	void transactionValueTest2() throws Exception {
-		BoCTransaction trip = new BoCTransaction(string2,bignum3,integer1);
-		BigDecimal testvalue = new BigDecimal("20000.15");
-		assertEquals(trip.transactionValue(),testvalue);
-	}
 	
-	/* 
 	3 – Pass – Haonan CHEN - 19:16/01/05  
 	Problem: 
 	Reason:
 	Traceability:transactionValue Test 3
 	*/
-	@Test 
-	void transactionValueTest3() throws Exception {
-		BoCTransaction empty = new BoCTransaction();
-		BigDecimal testvalue = null;
-		assertEquals(empty.transactionValue(),testvalue);
+	@ParameterizedTest
+	@MethodSource
+	void transactionValueTest(BoCTransaction test,BigDecimal testValue) throws Exception {
+		assertEquals(testValue,test.transactionValue());
 	}
-	
+	static List<Arguments> transactionValueTest(){
+		return List.of(
+				Arguments.arguments(food,bignum1),
+				Arguments.arguments(trip,bignum3),
+				Arguments.arguments(empty,null)
+		);
+	}
 	
 	/* TRANSACTION CATEGORY TEST*******************************************************************
 	1 – Pass – Haonan CHEN - 19:20/01/05  
 	Problem: 
 	Reason:
 	Traceability:transactionCategory Test 1
-	*/
-	@Test 
-	void transactionCategoryTest1() throws Exception {
-		BoCTransaction food = new BoCTransaction(string1,bignum1,integer2);
-		assertEquals(food.transactionCategory(),2);
-	}
 	
-	/* 
 	2 – Pass – Haonan CHEN - 19:30/01/05  
 	Problem: 
 	Reason:
 	Traceability:transactionCategory Test 2
-	*/
-	@Test 
-	void transactionCategoryTest2() throws Exception {
-		BoCTransaction trip = new BoCTransaction(string2,bignum3,integer1);
-		assertEquals(trip.transactionCategory(),1);
-	}
 	
-	/* 
 	3 – Pass – Haonan CHEN - 19:42/01/05  
 	Problem: 
 	Reason:
 	Traceability:transactionCategory Test 3
 	*/
-	@Test 
-	void transactionCategoryTest3() throws Exception {
-		BoCTransaction empty = new BoCTransaction();
-		assertEquals(empty.transactionCategory(),0);
+	@ParameterizedTest
+	@MethodSource
+	void transactionCategoryTest(BoCTransaction test,int testValue) throws Exception {
+		assertEquals(testValue,test.transactionCategory());
+	}
+	static List<Arguments> transactionCategoryTest(){
+		return List.of(
+				Arguments.arguments(food,2),
+				Arguments.arguments(trip,1),
+				Arguments.arguments(empty,0)
+		);
 	}
 	
 	
@@ -271,36 +252,27 @@ class BoCTransactionTest {
 	Problem: 
 	Reason:
 	Traceability:transactionTime Test 1
-	*/
-	@Test 
-	void transactionTimeTest1() throws Exception {
-		Date current = new Date();
-		BoCTransaction food = new BoCTransaction(string1,bignum1,integer2);
-		assertEquals(getSecondTimestamp(food.transactionTime()),getSecondTimestamp(current));
-	}
 	
-	/* 
 	2 – Pass – Haonan CHEN - 19:51/01/05  
 	Problem: 
 	Reason:
 	Traceability:transactionTime Test 2
-	*/
-	@Test 
-	void transactionTimeTest2() throws Exception {
-		Date current = new Date();
-		BoCTransaction trip = new BoCTransaction(string2,bignum3,integer1);
-		assertEquals(getSecondTimestamp(trip.transactionTime()),getSecondTimestamp(current));
-	}
 	
-	/* 
 	3 – Pass – Haonan CHEN - 20:03/01/05  
 	Problem: 
 	Reason:
 	Traceability:transactionTime Test 3
 	*/
-	@Test 
-	void transactionTimeTest3() throws Exception {
-		BoCTransaction empty = new BoCTransaction();
-		assertEquals(empty.transactionTime(),null);
+	@ParameterizedTest
+	@MethodSource
+	void transactionTimeTest(BoCTransaction test,Date testValue) throws Exception {
+		assertEquals(getSecondTimestamp(testValue),getSecondTimestamp(test.transactionTime()));
+	}
+	static List<Arguments> transactionTimeTest(){
+		return List.of(
+				Arguments.arguments(food,new Date()),
+				Arguments.arguments(trip,new Date()),
+				Arguments.arguments(empty,null)
+		);
 	}
 }
