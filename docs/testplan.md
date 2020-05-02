@@ -125,7 +125,15 @@ Then adjust codes and plan throughout the whole process of development to achiev
   9. Refactoring
   10. The purpose of logic should be tested
   11. Cover the summery document
-  
+
+- #### Second meeting - 01/05
+  1. finish the class test plan and test together
+  2. communicate the format of test
+  3. use the parameterized test in the class test
+  4. use timestamp to compare the date()
+  5. assign the main class test
+  6. fix part of codes in the sub-class
+   
 ### V. Conclusion
 
 
