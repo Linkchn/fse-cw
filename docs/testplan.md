@@ -311,7 +311,7 @@ Then adjust codes and plan throughout the whole process of development to achiev
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| ！ | PASS |getRemainingBudgetTest 1 |NONE |CategoryBudget == BigDecimal("-10.00") |CategoryBudget == BigDecimal("-10.00") | / | / | / | 16:13 1/5 | Colin |
+| ！ | PASS |getRemainingBudgetTest 1 |NONE |CategoryBudget == BigDecimal("-10.00") |CategoryBudget == BigDecimal("-10.00") | / | / | / | 16:13 1/5 | Colin Jiawei |
 | | | | | | | | | | ||
 
 #### Function 12: toString()       
@@ -321,8 +321,8 @@ Then adjust codes and plan throughout the whole process of development to achiev
 |!!!|FAIL|toStringTest (previous one)|/| testToStringName(¥x.xx) - Est. ¥y.yy (¥z.zz Overspent) == toString() or testToStringName(¥x.xx) - Est. ¥y.yy (¥z.zz Remaining) == toString() |testToStringName(¥x.xx) - Est. ¥y.yy (¥z.zz Overspent) == toString() or testToStringName(¥x.xx) - Est. ¥y.yy (¥z.zz Remaining) == toString()|Does not set a specific parameter in the test Therefore two conditions will not test either|add an if condition to implement the negative remaining budget|the parameter needs to be a value in next test plan|19;26 2/5|Eddie|
 | !!! | R |toStringTest 1|catName=testToString Name; catBudget=5.00; catSpend=6.00; |testToStringName(¥5.00) - Est. ¥6.00 (¥1.00 Overspent) == toString() | testToStringName(¥5.00) - Est. ¥6.00 (¥1.00 Overspent) == toString | Does not use Parameterized Test | Set a specific value to ensure that two condition can | Parameterized Test is more standart | 19:26 2/5 | Eddie |
 | !!! | ERROR | toStringTest2 | catName=testToString Name; catBudget=7.00; catSpend=6.00; | testToStringName(¥5.00) - Est. ¥6.00 (¥1.00 Remaining) == toString() | testToStringName(¥5.00) - Est. ¥6.00 (¥1.00 Remaining) == toString() | Does not use Parameterized Test | add an if condition to implement the negative remaining budget | Parameterized Test is more standart | 19:26 2/5 |Eddie|
-| !!! | PASS | teStringTest | cat2, toStringResult1 | toStringResult1 == cat.toString() | toStringResult1 == cat.toString() | / | use Parameterized Test | / | 21:20 2/5 |Eddie|
-| !!! | PASS | teStringTest | cat3, toStringResult2 | toStringResult1 == cat.toString() | toStringResult1 == cat.toString() | / | use Parameterized Test | / | 21:20 2/5 |Eddie|
+| !!! | PASS | teStringTest 3| cat2, toStringResult1 | toStringResult1 == cat.toString() | toStringResult1 == cat.toString() | / | use Parameterized Test | / | 21:20 2/5 |Eddie Colin|
+| !!! | PASS | teStringTest 4| cat3, toStringResult2 | toStringResult1 == cat.toString() | toStringResult1 == cat.toString() | / | use Parameterized Test | / | 21:20 2/5 |Eddie Colin|
 
 
 

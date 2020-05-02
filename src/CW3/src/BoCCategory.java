@@ -48,7 +48,7 @@ public class BoCCategory {
     Reason: Decimals are different
 	Traceability: getRemainingBudgetTest 1
 	
-	2 – PASS – Jiawei – 22:35 1/5
+	2 – PASS – Jiawei Shiliang– 22:35 1/5
     Change: /
     Reason: /
 	Traceability: getRemainingBudgetTest 3, 4, 5, 6
@@ -76,12 +76,18 @@ public class BoCCategory {
 		}
 	}
 
+	/*
+	1 – PASS – Jiawei – 16:37 1/5
+    Change: /
+    Reason: /
+    Traceability: resetBudgetSpendTest 1
+	 */
 	public void resetBudgetSpend() {
 		CategorySpend = new BigDecimal("0.00");
 	}
 
 	/*
-	1 – PASS – Jiawei – 16:13 1/5
+	1 – PASS – Jiawei Shiliang– 16:13 1/5
     Change: /
     Reason: /
     Traceability: getRemainingBudgetTest 1
@@ -90,11 +96,13 @@ public class BoCCategory {
 		BigDecimal remainingBudget = CategoryBudget.subtract(CategorySpend);
 		return remainingBudget;
 	}
+
+
 	/*
 	1 - PASS - Jiawei - 15:57 2/5
 	Change: the code will return a new result if the remaining is negative, which becomes overspend
 	Reason: the previous code only explain the result that the remaining is positive, Therefore, it neeeds
-	to explain the situation that the remaining is negative with a if condition
+			to explain the situation that the remaining is negative with a if condition
 	Traceability: testToString1, testToString2
 	 */
 	@Override

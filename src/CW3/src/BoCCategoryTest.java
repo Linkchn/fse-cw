@@ -1,4 +1,5 @@
 import static org.junit.jupiter.api.Assertions.*;
+
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.AfterEach;
@@ -15,13 +16,16 @@ import java.util.List;
 
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class BoCCategoryTest {
-
+    // Declare BoCCategories for tests
     static BoCCategory cat1;
     static BoCCategory cat2;
     static BoCCategory cat3;
+
+    // Declare result Strings for tests
     static String toStringResult1; 
     static String toStringResult2; 
-    static String catName;
+
+    // Declare BigDecimals for tests
     static BigDecimal bd1;
     static BigDecimal sum;
 
@@ -30,14 +34,19 @@ class BoCCategoryTest {
     	cat1 = new BoCCategory();
         cat2 = new BoCCategory();
         cat3 = new BoCCategory();
-        toStringResult1 = new String ( "testToStringName(¥5.00) - Est. ¥6.00 (¥1.00 Overspent)");
-        toStringResult2 = new String ( "testToStringName(¥7.00) - Est. ¥6.00 (¥1.00 Remaining)");
+
+        // Set data for tests
     	cat2.setCategoryName("testToStringName");
     	cat2.setCategoryBudget(new BigDecimal ("5.00"));
 		cat2.addExpense(new BigDecimal ("6.00"));
     	cat3.setCategoryName("testToStringName");
     	cat3.setCategoryBudget(new BigDecimal ("7.00"));
-    	cat3.addExpense(new BigDecimal ("6.00"));
+        cat3.addExpense(new BigDecimal ("6.00"));
+
+        // Define expected result
+        toStringResult1 = new String ( "testToStringName(¥5.00) - Est. ¥6.00 (¥1.00 Overspent)");
+        toStringResult2 = new String ( "testToStringName(¥7.00) - Est. ¥6.00 (¥1.00 Remaining)");
+        
         bd1 = new BigDecimal("100");
         sum = new BigDecimal("0.00");
         
@@ -87,6 +96,7 @@ class BoCCategoryTest {
 
     }
 
+
     /* 
     1 – PASS – Shiliang – 23:44 30/4
     Problem: /
@@ -131,12 +141,11 @@ class BoCCategoryTest {
     Reason: The code does not run the resetBudgetSpendTest method in the first test. Therefore,
             the output is not match with the expected output.
     Traceability: resetBudgetSpendTest 1
+
 	2 - PASS -Jiawei - 18:23 1/5
 	Problem: /
 	Reason:/
 	Traceability: resetBudgetSpendTest 2
-	
-
      */
     @Order(4)
     @DisplayName("resetBudgetSpendTest")
@@ -149,8 +158,9 @@ class BoCCategoryTest {
     	
     }
 
+
     /*
-    1- PASS - Shiliang - 16:13 1/5
+    1- PASS - Shiliang Jiawei- 16:13 1/5
     Problem: /
     Reason:  /
     Traceability: getRemainingBudgetTest 1
@@ -161,22 +171,23 @@ class BoCCategoryTest {
         System.out.println(cat1.CategorySpend());
         assertEquals(new BigDecimal("-10.00"), cat1.getRemainingBudget());
     }
-    
+
+
     /*
-      1 - FAIL - Jiawei - 15:55 2/5
-      Problem: Does not set a specific parameter in the test Therefore two conditions will not test either
-      Reason: the parameter needs to be a value in the test plan 
-      Traceability: testToString(previous one)
-      2 - ERROR - Jiawei -19:13 2/5
-      Problem: Does not use Parameterized Test 
-      Reason: Parameterized Test is more standart
-      Traceability: testToString1, testToString2 
-      3 - PASS - Jiawei - 21:20 2/5
-      Problem:/
-      Reason:/
-      Traceability: testToString
-     
-      
+    1 - FAIL - Jiawei - 15:55 2/5
+    Problem: Does not set a specific parameter in the test Therefore two conditions will not test either
+    Reason: the parameter needs to be a value in the test plan 
+    Traceability: testToString(previous version)
+
+    2 - ERROR - Jiawei Shiliang-19:13 2/5
+    Problem: Does not use Parameterized Test 
+    Reason: Parameterized Test is more standard
+    Traceability: testToString1, testToString 2 
+
+    3 - PASS - Jiawei - 21:20 2/5
+    Problem:/
+    Reason:/
+    Traceability: testToString 3, 4
      */
     @Order(5)
     @ParameterizedTest
@@ -190,10 +201,12 @@ class BoCCategoryTest {
     		assertEquals( string1, cat.toString());
     	}
     }
+
     static List<Arguments> testToString() {
         return List.of( // arguments:
                 Arguments.arguments(cat2,toStringResult1),
                 Arguments.arguments(cat3,toStringResult2)
         );
     }
+
 }
