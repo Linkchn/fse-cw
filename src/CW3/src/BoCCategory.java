@@ -91,7 +91,11 @@ public class BoCCategory {
 		return remainingBudget;
 	}
 	/*
-	 * not test yet
+	1 - PASS - Jiawei - 15:57 2/5
+	Change: the code will return a new result if the remaining is negative, which becomes overspend
+	Reason: the previous code only explain the result that the remaining is positive, Therefore, it neeeds
+	to explain the situation that the remaining is negative with a if condition
+	Traceability: testToString
 	 */
 	@Override
 	public String toString() {

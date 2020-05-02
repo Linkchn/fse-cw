@@ -14,25 +14,16 @@ import java.math.BigDecimal;
 class BoCCategoryTest {
 
     static BoCCategory cat1;
-//    static BoCCategory catName;
-//    static BoCCategory catBudget1;
-//    static BoCCategory catBudget2;
-//    static BoCCategory catSpend;
-    static String Name;
-    static BigDecimal Budget1;
-    static BigDecimal Budget2;
-    static BigDecimal Spend;
+    static String catName;
+    static BigDecimal catBudget;
+    static BigDecimal catSpend;
+    static BigDecimal catRemaining;
     static BigDecimal bd1;
     static BigDecimal sum;
 
     @BeforeAll
     static void set() {	
         cat1 = new BoCCategory();
-//        catName = new BoCCategory();
-//        catBudget1 = new BoCCategory();
-//        catBudget2 = new BoCCategory();
-//        catSpend = new BoCCategory();
-//        
         bd1 = new BigDecimal("100");
         sum = new BigDecimal("0.00");
     }
@@ -155,23 +146,31 @@ class BoCCategoryTest {
         System.out.println(cat1.CategorySpend());
         assertEquals(new BigDecimal("-10.00"), cat1.getRemainingBudget());
     }
-
+    
+    /*
+     * 1 - PASS - Jiawei - 15:55 2/5
+     * Problem: /
+     * Reason: /
+     * Traceability: testToString
+     */
     @Order(5)
     @Test
-    @DisplayName("testToString")
-    @ParameterizedTest
-    @ValueSource(strings = {"TestCategoryName", "5.00", "7.00"})
-    void testToString(String string1) {
-    	 Name = string1;
-    	 cat1.setCategoryName(Name);
-    	 Budget1 = new BigDecimal(string1);
-    	 cat1.setCategoryBudget(Budget1);
-    	 Spend = new BigDecimal(str);
-    	 cat1.setCategorySpend(Spend);
-    	 assertEquals("TestCategoryName(¥5.00) - Est. ¥6.00 (¥1.00 Overspent)", cat1.toString());
-    	 catBudget2 = new BigDecimal(string1);
-    	 
-    	 
-    	
+    void testToString() {
+    	catName = cat1.CategoryName();
+    	catBudget = cat1.CategoryBudget();
+    	catSpend = cat1.CategorySpend();
+    	catRemaining = cat1.getRemainingBudget();
+    	if(catRemaining.compareTo(BigDecimal.ZERO) != -1 )
+    	{
+    		assertEquals( catName + "(¥" + catBudget.toPlainString() + ") - Est. ¥" + catSpend.toPlainString()
+				+ " (¥" + catRemaining.toPlainString() + " Remaining)", cat1.toString());
+    	}
+    	else {
+    		BigDecimal temp1 = new BigDecimal(catRemaining.toPlainString());
+    		temp1 = temp1.abs();
+    		assertEquals( catName + "(¥" + catBudget.toPlainString() + ") - Est. ¥" + catSpend.toPlainString()
+			+ " (¥" + temp1.toPlainString() + " Overspent)", cat1.toString());
+    	}
     }
+
 }
