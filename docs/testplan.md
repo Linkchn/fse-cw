@@ -141,14 +141,14 @@ Branches will be made once pair work has begun.
     
     **Plan of Pair 2**
 
-    | Date | What to do                         | Daze | Leo  | Status |
-    | ---- | ---------------------------------- | ---- | ---- | ------ |
-    | 5/2  | Finish Test                        |      |      |        |
-    | 5/3  | Fix Category and Transaction Class |      |      |        |
-    | 5/4  | Set Test for Main Class 4,5        |      |      |        |
-    | 5/5  | Fix Main Class                     |      |      |        |
-    | 5/6  | Fix Main Class                     |      |      |        |
-    | 5/7  | Final check and Tag                |      |      |        |
+    | Date | What to do                         | Daze   | Leo               | Status   |
+    | ---- | ---------------------------------- | ------ | ----------------- | -------- |
+    | 5/2  | Finish Test                        | C 6, 7 | T 7, 8, 9, 10, 12 | Finished |
+    | 5/3  | Fix Category and Transaction Class | C 6, 7 | T 7, 8, 9, 10, 12 | Finished |
+    | 5/4  | Set Test for Main Class 4,5        | M 4    | M 5               |          |
+    | 5/5  | Fix Main Class                     |        |                   |          |
+    | 5/6  | Fix Main Class                     |        |                   |          |
+    | 5/7  | Final check and Tag                |        |                   |          |
 
     **Plan of Pair 3**
 
@@ -194,7 +194,24 @@ Branches will be made once pair work has begun.
   4. use timestamp to compare the date()
   5. assign the main class test
   6. fix part of codes in the sub-class
+
+- #### Fourth meeting - 02/05
+
+  1. make a detailed plan for the rest days and workload
   
+  2. allocate the rest workload respectively to each pairs
+  
+  3. emphasize some points of coding for the Test and fix of BoCApp.java
+  
+     | Date | BoCAppTest                                                   | BoCApp fixing                                                |
+     | ---- | ------------------------------------------------------------ | ------------------------------------------------------------ |
+     | 5/3  | Create the file BoCAppTest.java, make sure the file could be run on each member's PC without any path related problem |                                                              |
+     | 5/4  | Each pair codes for Test file respectively, then merge them into one file | After Test file finished,  analyse the main method, and make sure each member in Team Balcony has a fully comprehension of each method of main |
+     | 5/5  |                                                              | Fix methods in BoCApp until the Test passes. Each pair fix codes respectively, while knowing not only themselves' tasks but also others' purposes of their methods. |
+     | 5/6  |                                                              | Finish coding, tag, conclude                                 |
+     | 5/7  |                                                              |                                                              |
+  
+     
 ### V. Conclusion
 
 
@@ -354,19 +371,19 @@ This method should not be used in this class. So it has been deleted.
 
 #### Function 6:  setCatogoryName(String cName) - Set Category Name       
 
-|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Change|Reason|Reason|Time|Author|
-|----------|------|----|------|----------------|------------|------------|------------|------------|------------|------------|
-| ! | PASS | setCNTest1 | "YTB" | "YTB" | "YTB" |        | | | | Hongming Ping |
-| ! | FAIL | setCNTest2 | blank space: " " | null | blank space: " " | | | | | Hongming Ping |
-| ! | FAIL | setCNTest3 | empty string: "" | null | empty string: "" | | | | | Hongming Ping |
+|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Reason|Time|Author|
+|----------|------|----|------|----------------|------------|------------|------------|------------|------------|
+| ! | PASS | setCNTest1 | "YTB" | "YTB" | "YTB" |        | | 23:38/30/4 | Hongming Ping |
+| ! | FAIL | setCNTest2 | blank space: " " | null | blank space: " " | If newName is sapce only or empty, the result still returns the value of<br/>	newName, which is Unknown name. | Fixed the Method with adding an "if" statement to assign null to String <br/>	while whose newName is empty or sapce | 22:57/2/5 | Hongming Ping |
+| ! | FAIL | setCNTest3 | empty string: "" | null | empty string: "" | If newName is sapce only or empty, the result still returns the value of<br/>	newName, which is Unknown name. | Fixed the Method with adding an "if" statement to assign null to String <br/>	while whose newName is empty or sapce | 22:57/2/5 | Hongming Ping |
 
 #### Function 7: setCatogoryBudget(BigDecimal cBudget) - Set Category Budget       
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|------------|------------|------------|------------|------------|
-| !! | PASS | setCBTest1 | 0 | 0.00 | 0.00 | | | | | Hongming Ping |
-| !! | PASS | setCBTest2 | -100 | 0.00             | 0.00 | | | | | Hongming Ping |
-| !! | PASS | setCBTest3 | 11.2 | 11.20 | 11.20 | | | | | Hongming Ping |
+| !! | PASS | setCBTest1 | 0 | 0.00 | 0.00 | | | | 16:52/1/5 | Hongming Ping |
+| !! | PASS | setCBTest2 | -100 | 0.00             | 0.00 | | | | 16:52/1/5 | Hongming Ping |
+| !! | PASS | setCBTest3 | 11.2 | 11.20 | 11.20 | | | | 16:52/1/5 | Hongming Ping |
 
 #### Function 8: addExpense(BigDecimal ) - add Expense function       
 
