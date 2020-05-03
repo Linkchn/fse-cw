@@ -39,10 +39,10 @@ class BoCTransactionTest {
 	private static BoCTransaction trip;
 	private static BoCTransaction empty;
 
-	static BoCTransaction tran1;
-    static BoCTransaction tran2;
-    static BoCTransaction tran3;
-    static BoCTransaction tran4;
+	private static BoCTransaction tran1;
+	private static BoCTransaction tran2;
+	private static BoCTransaction tran3;
+	private static BoCTransaction tran4;
 
     
 	@BeforeAll
@@ -63,6 +63,10 @@ class BoCTransactionTest {
         tran3 = new BoCTransaction("Rent", null, 0);
         tran4 = new BoCTransaction("Rent", new BigDecimal("850.00"), 0);
 	}
+	
+	@AfterEach
+    void tearDown() {
+    }
 	
 	/*
 	 * method of get the timestamp until seconds
