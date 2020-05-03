@@ -30,12 +30,12 @@ public class BoCCategory {
 	}
 
 	public void setCategoryName(String newName) {
-		CategoryName = newName;
-		//System.out.println("Used once!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!");
+		newName = newName.trim();
+		if (newName.length()!=0) CategoryName = newName;
+		else CategoryName=null;
 	}
 
 	public void setCategoryBudget(BigDecimal newValue) {
-		// 1 means bigger, -1 means smaller, 0 means same
 		if (newValue.compareTo(new BigDecimal("0.00")) == 1) {
 			CategoryBudget = newValue;
 		}
