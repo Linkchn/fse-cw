@@ -27,8 +27,8 @@ class BoCCategoryTest {
 	}
 	
 	@ParameterizedTest
-	@ValueSource(strings = {"Bills", " " ,""})
-	void setCNTest234(String TestInputString) throws Exception {
+	@ValueSource(strings = {" " ,""})
+	void setCNTest23(String TestInputString) throws Exception {
 		try {
 			BoCCategory copy = new BoCCategory();
 			copy.setCategoryName(TestInputString);

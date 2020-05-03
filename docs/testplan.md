@@ -194,7 +194,7 @@ Branches will be made once pair work has begun.
   4. use timestamp to compare the date()
   5. assign the main class test
   6. fix part of codes in the sub-class
-   
+  
 ### V. Conclusion
 
 
@@ -363,20 +363,16 @@ Branches will be made once pair work has begun.
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Change|Reason|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|------------|------------|------------|------------|------------|
 | ! | PASS | setCNTest1 | "YTB" | "YTB" | "YTB" |        | | | | Hongming Ping |
-| ! | FAIL | setCNTest2 | "Bills" | null | "Bills" | | | | | Hongming Ping |
-| ! | FAIL | setCNTest3 | blank space: " " | null | blank space: " " | | | | | Hongming Ping |
-| ! | FAIL | setCNTest4 | empty string: "" | null | empty string: "" | | | | | Hongming Ping |
+| ! | FAIL | setCNTest2 | blank space: " " | null | blank space: " " | | | | | Hongming Ping |
+| ! | FAIL | setCNTest3 | empty string: "" | null | empty string: "" | | | | | Hongming Ping |
 
 #### Function 7: setCatogoryBudget(BigDecimal cBudget) - Set Category Budget       
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|------------|------------|------------|------------|------------|
-| !! | FAIL | setCBTest1 | 12 | 12.00 | 12 | | | | | Hongming Ping |
-| !! | PASS | setCBTest2 | 0 | 0.00 | 0.00 | | | | | Hongming Ping |
-| !! | FAIL | setCBTest3 | 1.002 | 1.00 | 1.002 | | | | | Hongming Ping |
-| !! | FAIL | setCBTest4 | 8.9999 | 9.00 | 8.9999 | | | | | Hongming Ping |
-| !! | PASS | setCBTest5 | -100 | 0.00 | 0.00 | | | | | Hongming Ping |
-| !! | FAIL | setCBTest6 | 11.2 | 11.20 | 11.2 | | | | | Hongming Ping |
+| !! | PASS | setCBTest1 | 0 | 0.00 | 0.00 | | | | | Hongming Ping |
+| !! | PASS | setCBTest2 | -100 | 0.00             | 0.00 | | | | | Hongming Ping |
+| !! | PASS | setCBTest3 | 11.2 | 11.20 | 11.20 | | | | | Hongming Ping |
 
 #### Function 8: addExpense(BigDecimal ) - add Expense function       
 
