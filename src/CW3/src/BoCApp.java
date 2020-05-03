@@ -12,12 +12,15 @@ public class BoCApp {
 
 		// SETUP EXAMPLE DATA //
 		UserCategories.add(new BoCCategory("Unknown"));
+
 		BoCCategory BillsCategory = new BoCCategory("Bills");
 		BillsCategory.setCategoryBudget(new BigDecimal("120.00"));
 		UserCategories.add(BillsCategory);
+
 		BoCCategory Groceries = new BoCCategory("Groceries");
 		Groceries.setCategoryBudget(new BigDecimal("75.00"));
 		UserCategories.add(Groceries);
+
 		BoCCategory SocialSpending = new BoCCategory("Social");
 		SocialSpending.setCategoryBudget(new BigDecimal("100.00"));
 		UserCategories.add(SocialSpending);
