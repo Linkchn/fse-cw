@@ -13,6 +13,9 @@ class BoCCategoryTest {
 	private BigDecimal TestOutputBudget;
 	private BigDecimal TestExceptOutputBudget;
 	
+	/* – Pass – Hongming PING - 23:38/30/4  
+	
+	*/
 	@Test
 	void setCNTest1() throws Exception {
 		TestInputString="YTB";
@@ -26,6 +29,13 @@ class BoCCategoryTest {
 		assertEquals(TestInputString, TestOutputString);
 	}
 	
+	/*1. – Fail – Hongming PING - 21:38/2/5
+	Problem: If newName is sapce only or empty, the result still returns the value of
+	newName, which is Unknown name.
+	2. - Pass - 22:57/2/5
+	Reason: Fixed the Method with adding an "if" statement to assign null to String 
+	while whose newName is empty or sapce
+	*/
 	@ParameterizedTest
 	@ValueSource(strings = {" " ,""})
 	void setCNTest23(String TestInputString) throws Exception {
@@ -39,6 +49,9 @@ class BoCCategoryTest {
 		assertNull(TestOutputString);
 	}
 	
+	/* – Pass – Hongming PING - 16:52/1/5  
+	
+	*/
 	@Test
 	void setCBTest1(){
 		TestInputBudget = new BigDecimal("0");
@@ -53,6 +66,9 @@ class BoCCategoryTest {
 		assertEquals(TestExceptOutputBudget, TestOutputBudget);
 	}
 	
+	/* – Pass – Hongming PING - 16:52/1/5  
+	
+	*/
 	@Test
 	void setCBTest2(){
 		TestInputBudget = new BigDecimal("-100");
@@ -67,6 +83,9 @@ class BoCCategoryTest {
 		assertEquals(TestExceptOutputBudget, TestOutputBudget);
 	}
 	
+	/* – Pass – Hongming PING - 16:52/1/5  
+	
+	*/
 	@Test
 	void setCBTest3(){
 		TestInputBudget = new BigDecimal("11.20");

@@ -354,19 +354,19 @@ This method should not be used in this class. So it has been deleted.
 
 #### Function 6:  setCatogoryName(String cName) - Set Category Name       
 
-|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Change|Reason|Reason|Time|Author|
-|----------|------|----|------|----------------|------------|------------|------------|------------|------------|------------|
-| ! | PASS | setCNTest1 | "YTB" | "YTB" | "YTB" |        | | | | Hongming Ping |
-| ! | FAIL | setCNTest2 | blank space: " " | null | blank space: " " | | | | | Hongming Ping |
-| ! | FAIL | setCNTest3 | empty string: "" | null | empty string: "" | | | | | Hongming Ping |
+|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Reason|Time|Author|
+|----------|------|----|------|----------------|------------|------------|------------|------------|------------|
+| ! | PASS | setCNTest1 | "YTB" | "YTB" | "YTB" |        | | 23:38/30/4 | Hongming Ping |
+| ! | FAIL | setCNTest2 | blank space: " " | null | blank space: " " | If newName is sapce only or empty, the result still returns the value of<br/>	newName, which is Unknown name. | Fixed the Method with adding an "if" statement to assign null to String <br/>	while whose newName is empty or sapce | 22:57/2/5 | Hongming Ping |
+| ! | FAIL | setCNTest3 | empty string: "" | null | empty string: "" | If newName is sapce only or empty, the result still returns the value of<br/>	newName, which is Unknown name. | Fixed the Method with adding an "if" statement to assign null to String <br/>	while whose newName is empty or sapce | 22:57/2/5 | Hongming Ping |
 
 #### Function 7: setCatogoryBudget(BigDecimal cBudget) - Set Category Budget       
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|------------|------------|------------|------------|------------|
-| !! | PASS | setCBTest1 | 0 | 0.00 | 0.00 | | | | | Hongming Ping |
-| !! | PASS | setCBTest2 | -100 | 0.00             | 0.00 | | | | | Hongming Ping |
-| !! | PASS | setCBTest3 | 11.2 | 11.20 | 11.20 | | | | | Hongming Ping |
+| !! | PASS | setCBTest1 | 0 | 0.00 | 0.00 | | | | 16:52/1/5 | Hongming Ping |
+| !! | PASS | setCBTest2 | -100 | 0.00             | 0.00 | | | | 16:52/1/5 | Hongming Ping |
+| !! | PASS | setCBTest3 | 11.2 | 11.20 | 11.20 | | | | 16:52/1/5 | Hongming Ping |
 
 #### Function 8: addExpense(BigDecimal ) - add Expense function       
 
