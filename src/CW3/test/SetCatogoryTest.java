@@ -7,144 +7,144 @@ import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 
-class BoCCategoryTest {
-	private static String string1, string2, string3;
-	private static BigDecimal bignum1; 
-	private static BigDecimal bignum2;
-	private static BigDecimal bignum3;
-	private static BigDecimal bignum4;
-	@BeforeAll
-	static void setup() {
-		string1 = "5";
-		string2 = "transport";
-		string3 = "shopping";
-		final BigDecimal bignum1 = new BigDecimal("1000");
-		final BigDecimal bignum2 = new BigDecimal("1200.85");
-		final BigDecimal bignum3 = new BigDecimal("3000");
-		final BigDecimal bignum4 = new BigDecimal("4500.45");
-	}
-		
-	/*
-	 * method of get the timestamp until seconds
-	 * author:Yuxiang Zhang
-	 */
-	public static int getSecondTimestamp(final Date date){  
-		if (null == date) {  
-		    return 0;  
-		}  
-		final String timestamp = String.valueOf(date.getTime());  
-		final int length = timestamp.length();  
-		if (length > 3) {  
-		    return Integer.valueOf(timestamp.substring(0,length-3));  
-		} else {  
-		    return 0;  
-		}  
-	}  
-	@Ignore
-	void test() {
-		fail("Not yet implemented");
-	}
-
-	/* 
-    1-Fail – Yuxiang Zhang - 17:30/01/05       
-    Problem: The categoryName is not same as the expected outcome.
-	Reason:
-	Traceability:
-	*/
-	@Test 			//Test of the default constructor by Yuxiang Zhang
-	void Default_Constructor_test1() throws Exception {
-
-			final BoCCategory empty = new BoCCatogory();
-			assertEquals(empty.CategoryName(),"[Pending Catogory]"); 
-			assertEquals(empty.Category(),0);
-	}
-		
-	/* 
-	2 – Pass – Yuxiang Zhang - 19:50/01/05  
-	Problem: 
-	Reason:
-	Traceability:
-	*/
-	@Test 			
-	void Main_Constructor_test1() throws Exception {
-		final Date current = new Date();
-		final BigDecimal budget = new BigDecimal("1000");
-		try {
-			final BoCCatogory transport = new BoCCatogory(string2,bignum1,bignum2);
-
-				
-			assertEquals(transport.CatogoryName(),"transport"); 
-			assertEquals(transport.CatogoryBudget(),1000);
-			assertEquals(transport.CatogorySpend(),1200.85);
-			assertEquals(getSecondTimestamp(transport.CatogoryTime()),getSecondTimestamp(current));
-		}catch(final Exception e) {
-			fail ("Something wrong with catch");
-		}
-	}
-		
-	/* 
-	3 – Pass – Yuxiang Zhang - 20:05/01/05  
-	Problem: The numbers of parameters and input is not matching
-	Reason: the constructor BoCCatogory(string,bigdecimal,bigdecimal) is undefined.
-	Traceability:Main Constructors Test 2; Main Constructors Test 2;Main Constructors Test 2;
-	*/
-	@Ignore 			
-	void Main_Constructor_test2() throws Exception {
-		final Date current = new Date();
-		final BigDecimal spend = new BigDecimal("1000");
-		try {
-			BoCCatogorytransport = new BoCCatogory();
-			assertEquals(transport.CatogoryName(),"transport"); 
-			assertEquals(transport.CatogoryBudget(),1000);
-			assertEquals(transport.CatogorySpend(),1200.85);
-		}catch(final Exception e) {
-			fail ("Something wrong with catch");
-		}
-	}
-		
-	/* 
-	4 – Pass – Yuxiang Zhang - 21:40/01/05  
-	Problem: constructorTime is not same as the expected value.
-	Reason:The delay of the constructorTime and currentTime are created.
-	Traceability:Main Constructors Test 3; Main Constructors Test 3
-	*/
-	@Test 
-	void Main_Constructor_test3() throws Exception {
-		final Date current = new Date();
-		final BigDecimal spend = new BigDecimal("3000");
-		try {
-			final BoCCatogory shopping = new BoCCatogory(string3,bignum3,bignum4);
-			assertEquals(shopping.CatogoryName(),"shopping"); 
-			assertEquals(shopping.CatogoryBudget(),3000);
-			assertEquals(shopping.CatogorySpend(),4500.45);
-			assertEquals(getSecondTimestamp(shopping.CatogoryTime()),getSecondTimestamp(current));
-		}catch(final Exception e) {
-			fail ("Something wrong with catch");
-		}
-	}
-		
-	/* 
-	5 – Pass – Yuxiang Zhang - 21:40/01/05  
-	Problem: 
-	Reason:
-	Traceability:Main Constructors Test 3
-	*/
-	@Test 
-	void Main_Constructor_test3() throws Exception {
-		final Date current = new Date();
-		final BigDecimal spend = new BigDecimal("3000");
-		try {
-			final BoCCatogory shopping = new BoCCatogory(string3,bignum3,bignum4);
-			assertEquals(shopping.CatogoryName(),"shopping"); 
-			assertEquals(shopping.CatogoryCategory(),3000);
-			assertEquals(shopping.CatogoryValue(),4500.45);
-			assertEquals(getSecondTimestamp(shopping.CatogoryTime()),getSecondTimestamp(current));
-		}catch(final Exception e) {
-			fail ("Something wrong with catch");
-		}
-	}
-}		
-}
+//class BoCCategoryTest {
+//	private static String string1, string2, string3;
+//	private static BigDecimal bignum1; 
+//	private static BigDecimal bignum2;
+//	private static BigDecimal bignum3;
+//	private static BigDecimal bignum4;
+//	@BeforeAll
+//	static void setup() {
+//		string1 = "5";
+//		string2 = "transport";
+//		string3 = "shopping";
+//		final BigDecimal bignum1 = new BigDecimal("1000");
+//		final BigDecimal bignum2 = new BigDecimal("1200.85");
+//		final BigDecimal bignum3 = new BigDecimal("3000");
+//		final BigDecimal bignum4 = new BigDecimal("4500.45");
+//	}
+//		
+//	/*
+//	 * method of get the timestamp until seconds
+//	 * author:Yuxiang Zhang
+//	 */
+//	public static int getSecondTimestamp(final Date date){  
+//		if (null == date) {  
+//		    return 0;  
+//		}  
+//		final String timestamp = String.valueOf(date.getTime());  
+//		final int length = timestamp.length();  
+//		if (length > 3) {  
+//		    return Integer.valueOf(timestamp.substring(0,length-3));  
+//		} else {  
+//		    return 0;  
+//		}  
+//	}  
+//	@Ignore
+//	void test() {
+//		fail("Not yet implemented");
+//	}
+//
+//	/* 
+//    1-Fail 鈥� Yuxiang Zhang - 17:30/01/05       
+//    Problem: The categoryName is not same as the expected outcome.
+//	Reason:
+//	Traceability:
+//	*/
+//	@Test 			//Test of the default constructor by Yuxiang Zhang
+//	void Default_Constructor_test1() throws Exception {
+//
+//			final BoCCategory empty = new BoCCatogory();
+//			assertEquals(empty.CategoryName(),"[Pending Catogory]"); 
+//			assertEquals(empty.Category(),0);
+//	}
+//		
+//	/* 
+//	2 鈥� Pass 鈥� Yuxiang Zhang - 19:50/01/05  
+//	Problem: 
+//	Reason:
+//	Traceability:
+//	*/
+//	@Test 			
+//	void Main_Constructor_test1() throws Exception {
+//		final Date current = new Date();
+//		final BigDecimal budget = new BigDecimal("1000");
+//		try {
+//			final BoCCatogory transport = new BoCCatogory(string2,bignum1,bignum2);
+//
+//				
+//			assertEquals(transport.CatogoryName(),"transport"); 
+//			assertEquals(transport.CatogoryBudget(),1000);
+//			assertEquals(transport.CatogorySpend(),1200.85);
+//			assertEquals(getSecondTimestamp(transport.CatogoryTime()),getSecondTimestamp(current));
+//		}catch(final Exception e) {
+//			fail ("Something wrong with catch");
+//		}
+//	}
+//		
+//	/* 
+//	3 鈥� Pass 鈥� Yuxiang Zhang - 20:05/01/05  
+//	Problem: The numbers of parameters and input is not matching
+//	Reason: the constructor BoCCatogory(string,bigdecimal,bigdecimal) is undefined.
+//	Traceability:Main Constructors Test 2; Main Constructors Test 2;Main Constructors Test 2;
+//	*/
+//	@Ignore 			
+//	void Main_Constructor_test2() throws Exception {
+//		final Date current = new Date();
+//		final BigDecimal spend = new BigDecimal("1000");
+//		try {
+//			BoCCatogorytransport = new BoCCatogory();
+//			assertEquals(transport.CatogoryName(),"transport"); 
+//			assertEquals(transport.CatogoryBudget(),1000);
+//			assertEquals(transport.CatogorySpend(),1200.85);
+//		}catch(final Exception e) {
+//			fail ("Something wrong with catch");
+//		}
+//	}
+//		
+//	/* 
+//	4 鈥� Pass 鈥� Yuxiang Zhang - 21:40/01/05  
+//	Problem: constructorTime is not same as the expected value.
+//	Reason:The delay of the constructorTime and currentTime are created.
+//	Traceability:Main Constructors Test 3; Main Constructors Test 3
+//	*/
+//	@Test 
+//	void Main_Constructor_test3() throws Exception {
+//		final Date current = new Date();
+//		final BigDecimal spend = new BigDecimal("3000");
+//		try {
+//			final BoCCatogory shopping = new BoCCatogory(string3,bignum3,bignum4);
+//			assertEquals(shopping.CatogoryName(),"shopping"); 
+//			assertEquals(shopping.CatogoryBudget(),3000);
+//			assertEquals(shopping.CatogorySpend(),4500.45);
+//			assertEquals(getSecondTimestamp(shopping.CatogoryTime()),getSecondTimestamp(current));
+//		}catch(final Exception e) {
+//			fail ("Something wrong with catch");
+//		}
+//	}
+//		
+//	/* 
+//	5 鈥� Pass 鈥� Yuxiang Zhang - 21:40/01/05  
+//	Problem: 
+//	Reason:
+//	Traceability:Main Constructors Test 3
+//	*/
+//	@Test 
+//	void Main_Constructor_test3() throws Exception {
+//		final Date current = new Date();
+//		final BigDecimal spend = new BigDecimal("3000");
+//		try {
+//			final BoCCatogory shopping = new BoCCatogory(string3,bignum3,bignum4);
+//			assertEquals(shopping.CatogoryName(),"shopping"); 
+//			assertEquals(shopping.CatogoryCategory(),3000);
+//			assertEquals(shopping.CatogoryValue(),4500.45);
+//			assertEquals(getSecondTimestamp(shopping.CatogoryTime()),getSecondTimestamp(current));
+//		}catch(final Exception e) {
+//			fail ("Something wrong with catch");
+//		}
+//	}
+//}		
+//}
 
 import static org.junit.jupiter.api.Assertions.*;
 
