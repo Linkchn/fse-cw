@@ -260,41 +260,35 @@ Branches will be made once pair work has begun.
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| ! |        | setName1 | "Leo" | transactionName = "Leo" | | | | | | Leo |
-| ! | | setName2 | "" | set failed, output "Error! Please type in your again! " | | | | | | Leo |
-| ! | | setName3 | "QWERTYUIOPASDFGHJKLZXCVBNM" | transactionName = "QWERTYUIOPASDFGHJKLZXCVBN"                | | | | | | Leo |
-| !! | | setName4 | "", "Leo" | transactionName = "Leo"                                      | | | | | | Leo |
-| !! | | setName4 | "Leo", "Leopard" | transactionName = "Leo", output "Your are not allowed to change your name! " the second time test | | | | | | Leo |
-| !! | | setName4 | "Leo", "" | transactionName = "Leo", output "Your are not allowed to change your name! " the second time test | | | | | | Leo |
+| ! | Pass | setNameTest1 | "Leo" | transactionName = "Leo" | transactionName = "Leo" | / | / | / | 1st/May 14:25 | Leo |
+| ! | Pass | setNameTest2 | null | set failed, transactionName = null | transactionName = null | / | / | / | 1st/May 14:42 | Leo |
+| ! | Pass | setNameTest3 | "QWERTYUIOPASDFGHJKLZXCVBNM" | transactionName = "QWERTYUIOPASDFGHJKLZXCVBN"                | transactionName = "QWERTYUIOPASDFGHJKLZXCVBN" | / | / | / | 1st/May 15:27 | Leo |
+| !! | Pass | setNameTest4 | null, "Leo" | transactionName = "Leo"                                      | transactionName = "Leo" | / | / | / | 1st/May   23:21 | Leo |
+| !! | Pass | setNameTest5 | "Leo", "Leopard" | transactionName = "Leo" | transactionName = "Leo" | / | / | / | 1st/May   23:26 | Leo |
+| !! | Pass | setNameTest6 | "Leo", null | transactionName = "Leo" | transactionName = "Leo" | / | / | / | 1st/May   23:37 | Leo |
 
 #### Function 8: setTransactionValue(BigDecimal tValue) - Set Method for Transaction Value
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| ! |        | setValue1 | 123 | transactionValue = 123.00 | | | | | | Leo |
-| ! |        | setValue2 | "123.12" | transactionValue = 123.12 | | | | | | Leo |
-| ! |        | setValue3 | "123.123" | set failed, output "The value should be at most two decimal places!" | | | | | | Leo |
-| !! | | setValue4 | "-123.12" | set failed, output "The value should be positive!" | | | | | | Leo |
-| !! | | setValue5 | "-123.123" | set failed, output "The value should be at most two decimal places!" | | | | | | Leo |
-| !! | | setValue6 | "", "123.13" | transactionValue = 123.13 | | | | | | Leo |
-| !! | | setValue7 | "123.13", "134.14" | transactionValue = 123.13, output "Your are not allowed to change the value! " the second time test | | | | | | Leo |
+| ! | Pass | setValueTest1 | 123 | transactionValue = 123 | transactionValue = 123 | / | / | / | 1st/May 15:50 | Leo |
+| ! | Pass   | setValueTest2 | "123.12" | transactionValue = 123.12 | transactionValue = 123.12 | / | / | / | 1st/May 16:55 | Leo |
+| ! | Pass   | setValueTest3 | "123.123" | set failed, transactionValue = null | transactionValue = null | / | / | / | 1st/May 17:19 | Leo |
+| !! | Pass | setValueTest4 | "-123.12" | set failed | transactionValue = null | / | / | / | 1st/May 18:28 | Leo |
+| !! | Pass | setValueTest5 | "-123.12", "123.13" | transactionValue = 123.13 | transactionValue = 123.13 | / | / | / | 1st/May 23:48 | Leo |
+| !! | Pass | setValueTest6 | "123.13", "134.14" | transactionValue = 123.13 | transactionValue = 123.13 | / | / | / | 2nd/May 00:55 | Leo |
 
 #### Function 9: setTransactionCategory(int tCat) - Set Method for Transaction Category
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| ！ |        | setCat1 | 12.3 | set failed, output "The value should be an integer!" | | | | | | Leo |
-| ! |        | setCat2 | "abc" | set failed, output "The value should be an integer!" | | | | | | Leo |
-| ! | | setCat3 | 10 | transactionCategory = 10 | | | | | | Leo |
-| ! | | setCat4 | -10 | set failed, output "The value should be a positive integer!" | | | | | | Leo |
-| !! | | setCat4 | 10,15 | transactionCategory = 15 | | | | | | Leo |
+| ! | Pass | setCatTest3 | 10 | transactionCategory = 10 | transactionCategory = 10 | / | / | / | 1st/May 19:03 | Leo |
+| ! | Pass | setCatTest4 | -10 | set failed, transactionCategory = 0 | transactionCategory = 0 | / | / | / | 1st/May 19:05 | Leo |
+| !! | Pass | setCatTest4 | 10,15 | transactionCategory = 15 | transactionCategory = 15 | / | / | / | 2nd/May 00:59 | Leo |
 
 #### Function 10: setTransactionTime(Date tTime) - Set Method for Transaction Time
 
-|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
-|----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| ！ |        | setTime1 | none, tTime is (2020, 4, 29) | transactionTime = (2020, 4, 29) | | | | | | Leo |
-| ! |  | setTime2 | none, tTime is 1 | set failed, output "The value should be a date!" | | | | | | Leo |
+This method should not be used in this class. So it has been deleted. 
 
 #### Function 11: isComplete() - Check name and value
 
@@ -310,9 +304,9 @@ Branches will be made once pair work has begun.
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| ! |        | testToString1 | transactionName is null | converting failed, output "Please type in the name!" | | | | | | Leo |
-| ! | | testToString2 | transactionValue is null | converting failed, output "Please type in the value!" | | | | | | Leo |
-| ! | | testToString3 |  | converting succeeded | | | | | | Leo |
+| ! | Pass   | ToStringTest1 | transactionName is null | converting failed, return null | null | / | / | / | 1st/May 22:21 | Leo |
+| ! | Pass | ToStringTest2 | transactionValue is null | converting failed, return null | null | / | / | / | 1st/May 22:23 | Leo |
+| ! | Pass | ToStringTest3 |  | converting succeeded | converting succeeded | / | / | / | 1st/May 22:37 | Leo |
 
 
 
