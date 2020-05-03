@@ -41,20 +41,6 @@ class BoCCategoryTest {
 	
 	@Test
 	void setCBTest1(){
-		TestInputBudget = new BigDecimal("12");
-		TestExceptOutputBudget = new BigDecimal("12.00");
-		try {
-			BoCCategory copy = new BoCCategory();
-			copy.setCategoryBudget(TestInputBudget);
-			TestOutputBudget = copy.CategoryBudget();
-		}catch(Exception e) {
-			fail ("Someting wrong with catch");
-		}
-		assertEquals(TestExceptOutputBudget, TestOutputBudget);
-	}
-	
-	@Test
-	void setCBTest2(){
 		TestInputBudget = new BigDecimal("0");
 		TestExceptOutputBudget = new BigDecimal("0.00");
 		try {
@@ -68,35 +54,7 @@ class BoCCategoryTest {
 	}
 	
 	@Test
-	void setCBTest3(){
-		TestInputBudget = new BigDecimal("1.002");
-		TestExceptOutputBudget = new BigDecimal("1.00");
-		try {
-			BoCCategory copy = new BoCCategory();
-			copy.setCategoryBudget(TestInputBudget);
-			TestOutputBudget = copy.CategoryBudget();
-		}catch(Exception e) {
-			fail ("Someting wrong with catch");
-		}
-		assertEquals(TestExceptOutputBudget, TestOutputBudget);
-	}
-	
-	@Test
-	void setCBTest4(){
-		TestInputBudget = new BigDecimal("8.9999");
-		TestExceptOutputBudget = new BigDecimal("9.00");
-		try {
-			BoCCategory copy = new BoCCategory();
-			copy.setCategoryBudget(TestInputBudget);
-			TestOutputBudget = copy.CategoryBudget();
-		}catch(Exception e) {
-			fail ("Someting wrong with catch");
-		}
-		assertEquals(TestExceptOutputBudget, TestOutputBudget);
-	}
-	
-	@Test
-	void setCBTest5(){
+	void setCBTest2(){
 		TestInputBudget = new BigDecimal("-100");
 		TestExceptOutputBudget = new BigDecimal("0.00");
 		try {
@@ -110,8 +68,8 @@ class BoCCategoryTest {
 	}
 	
 	@Test
-	void setCBTest6(){
-		TestInputBudget = new BigDecimal("11.2");
+	void setCBTest3(){
+		TestInputBudget = new BigDecimal("11.20");
 		TestExceptOutputBudget = new BigDecimal("11.20");
 		try {
 			BoCCategory copy = new BoCCategory();
