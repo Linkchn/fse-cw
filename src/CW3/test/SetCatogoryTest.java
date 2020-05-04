@@ -27,7 +27,7 @@ class BoCCategoryTest {
 		
 	/*
 	 * method of get the timestamp until seconds
-	 * author:Haonan CHEN
+	 * author:Yuxiang Zhang
 	 */
 	public static int getSecondTimestamp(final Date date){  
 		if (null == date) {  
