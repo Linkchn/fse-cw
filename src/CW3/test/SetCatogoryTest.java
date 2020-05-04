@@ -71,13 +71,13 @@ class BoCCategoryTest {
 		final Date current = new Date();
 		final BigDecimal budget = new BigDecimal("1000");
 		try {
-			final BoCCatogory transport = new BoCCatogory(string2,bignum1,bignum2);
+			final BoCCategory transport = new BoCCategory(string2,bignum1,bignum2);
 
 				
-			assertEquals(transport.CatogoryName(),"transport"); 
-			assertEquals(transport.CatogoryBudget(),1000);
-			assertEquals(transport.CatogorySpend(),1200.85);
-			assertEquals(getSecondTimestamp(transport.CatogoryTime()),getSecondTimestamp(current));
+			assertEquals(transport.CategoryName(),"transport"); 
+			assertEquals(transport.CategorySpend(),1000);
+			assertEquals(transport.CategorySpend(),1200.85);
+			assertEquals(getSecondTimestamp(transport.CateoryTime()),getSecondTimestamp(current));
 		}catch(final Exception e) {
 			fail ("Something wrong with catch");
 		}
@@ -86,7 +86,7 @@ class BoCCategoryTest {
 	/* 
 	3 -Fail- Yuxiang Zhang - 20:05/01/05  
 	Problem: The numbers of parameters and input is not matching
-	Reason: the constructor BoCCatogory(string,bigdecimal,bigdecimal) is undefined.
+	Reason: the constructor BoCCategory(string,bigdecimal,bigdecimal) is undefined.
 	Traceability:Main Constructors Test 2; Main Constructors Test 2;Main Constructors Test 2;
 	*/
 	@Ignore 			
@@ -94,10 +94,10 @@ class BoCCategoryTest {
 		final Date current = new Date();
 		final BigDecimal spend = new BigDecimal("1000");
 		try {
-			BoCCatogorytransport = new BoCCatogory();
-			assertEquals(transport.CatogoryName(),"transport"); 
-			assertEquals(transport.CatogoryBudget(),1000);
-			assertEquals(transport.CatogorySpend(),1200.85);
+			BoCCategorytransport = new BoCCategory();
+			assertEquals(transport.CategoryName(),"transport"); 
+			assertEquals(transport.CategoryBudget(),1000);
+			assertEquals(transport.CategorySpend(),1200.85);
 		}catch(final Exception e) {
 			fail ("Something wrong with catch");
 		}
@@ -114,11 +114,11 @@ class BoCCategoryTest {
 		final Date current = new Date();
 		final BigDecimal spend = new BigDecimal("3000");
 		try {
-			final BoCCatogory shopping = new BoCCatogory(string3,bignum3,bignum4);
-			assertEquals(shopping.CatogoryName(),"shopping"); 
-			assertEquals(shopping.CatogoryBudget(),3000);
-			assertEquals(shopping.CatogorySpend(),4500.45);
-			assertEquals(getSecondTimestamp(shopping.CatogoryTime()),getSecondTimestamp(current));
+			final BoCCategory shopping = new BoCCategory(string3,bignum3,bignum4);
+			assertEquals(shopping.CategoryName(),"shopping"); 
+			assertEquals(shopping.CategoryBudget(),3000);
+			assertEquals(shopping.CategorySpend(),4500.45);
+			assertEquals(getSecondTimestamp(shopping.CategoryTime()),getSecondTimestamp(current));
 		}catch(final Exception e) {
 			fail ("Something wrong with catch");
 		}
@@ -135,11 +135,11 @@ class BoCCategoryTest {
 		final Date current = new Date();
 		final BigDecimal spend = new BigDecimal("3000");
 		try {
-			final BoCCatogory shopping = new BoCCatogory(string3,bignum3,bignum4);
-			assertEquals(shopping.CatogoryName(),"shopping"); 
-			assertEquals(shopping.CatogoryCategory(),3000);
-			assertEquals(shopping.CatogoryValue(),4500.45);
-			assertEquals(getSecondTimestamp(shopping.CatogoryTime()),getSecondTimestamp(current));
+			final BoCCategory shopping = new BoCCategory(string3,bignum3,bignum4);
+			assertEquals(shopping.CategoryName(),"shopping"); 
+			assertEquals(shopping.CategoryCategory(),3000);
+			assertEquals(shopping.CategoryValue(),4500.45);
+			assertEquals(getSecondTimestamp(shopping.CategoryTime()),getSecondTimestamp(current));
 		}catch(final Exception e) {
 			fail ("Something wrong with catch");
 		}
@@ -147,7 +147,7 @@ class BoCCategoryTest {
 }		
 }
 
-class SetCatogoryTest {
+class SetCategoryTest {
 	private String TestInputString, TestOutputString;
 	private BigDecimal TestInputBudget;
 	private BigDecimal TestOutputBudget;
