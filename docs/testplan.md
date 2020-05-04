@@ -459,10 +459,13 @@ This method should not be used in this class. So it has been deleted.
 
 #### Function 4: ArrayListofBoCCategoryobjects - List Transactions in Category function
 
-|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
-|----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Reason|Problem|Change|Time|Author|
+|----------|------|----|------|----------------|------------|------|-------|------|----|------|
+|!|Failed|listTransactionsForCategoryTest1|0|"1) Unknown: Rent - ¥850.00"+'\n'|"1)  Rent - ¥850.00"+'\n'|there isn't a output operation for output of Category name|*The output doesn't include the name of Category as required.*||*22:14/4/5*|Daze|
+|!|Failed|listTransactionsForCategoryTest2|1|"2) Bills: Phone Bill - ¥37.99"+'\n'+"3) Bills: Electricity Bill - ¥75.00"+'\n'|"2)  Phone Bill - ¥37.99"+'\n'+"3)  Electricity Bill - ¥75.00"+'\n'|same as above|*The output doesn't include the name of Category as required.*||*22:14/4/5*|Daze|
+| ! | Failed | listTransactionsForCategoryTest3 | 2 | "4) Groceries: Sainsbury's Checkout - ¥23.76"+'\n'+"5) Groceries: Tesco's Checkout - ¥7.24"+'\n' | "4)  Sainbury Bill - ¥37.99"+'\n'+"5)  Electricity Bill - ¥75.00"+'\n' | same as above | *The output doesn't include the name of Category as required.* | | *22:14/4/5* | Daze |
+| ! | Failed | listTransactionsForCategoryTest4 | 3 | "6) Social: RockCity Drinks - ¥8.50"+'\n'+"7) Social: The Mooch - ¥13.99"+'\n' | "2)  Phone Bill - ¥37.99"+'\n'+"3)  Electricity Bill - ¥75.00"+'\n' | same as above | *The output doesn't include the name of Category as required.* | | *22:14/4/5* | Daze |
+| ! | Failed | listTransactionsForCategoryTest5 | 4 | "The Category doesn't exit"+'\n' | (nothing) | there isn't a output operation for invalid input | *If a number larger than bound is input, no tips is output.* | | *22:14/4/5* | Daze |
 
 #### Function 5: TransactionCategory - Change Transaction Category function
 
