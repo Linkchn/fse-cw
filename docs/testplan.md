@@ -329,14 +329,14 @@ This method should not be used in this class. So it has been deleted.
 
 ### Class: BoCCategory
 
-#### Function 1: BoCCatogory() - Default Constructor (no parameters)       
+#### Function 1: BoCCategory() - Default Constructor (no parameters)       
 
 | Importance | Status | Test                       | Inputs | Expected Outcome   | Test Outcome       | Problem                                                 | Change                                                   | Reason                                   | Time | Author       |
 | ---------- | ------ | -------------------------- | ------ | ------------------ | ------------------ | ------------------------------------------------------- | -------------------------------------------------------- | ---------------------------------------- | ---- | ------------ |
 | !!!        | Fail   | Default Constructor test 1 | void   | [Pending Category] | Fail the test      | The CatogoryBudget is not same as the expected outcome. | change the "CatogoryBudget"   to "[Pending Category]" | The default constructor gives null value |     17:30/01/05 | YuxiangZhang |
 | !!!        | Pass   | Default Constructor test 2 | void   | [Pending Category] | [Pending Category] | No                                                      |                                                          |                                          |   19:50/01/05   | YuxiangZhang |
 
-#### Function 2: BoCCatogory(String cName, BigDecimal cbudget, BigDecimal cSpend) - Main Constructors       
+#### Function 2: BoCCategory(String cName, BigDecimal cbudget, BigDecimal cSpend) - Main Constructors       
 
 | Importance | Status | Test                     | Inputs             | Expected Outcome                                    | Test Outcome | Problem | Change | Reason | Time | Author       |
 | ---------- | ------ | ------------------------ | ------------------ | --------------------------------------------------- | ------------ | ------- | ------ | ------ | ---- | ------------ |
@@ -344,7 +344,7 @@ This method should not be used in this class. So it has been deleted.
 | !!!        |    Pass    | Main Constructors Test 2 | "transport",1000,1 | build successfully                                  |       "transport",1000,1       |    /     |    /    |    /    |    21:40/01/05  | YuxiangZhang |
 | !!!        |    Pass    | Main Constructors Test 3 | "shopping",3000,1  | build successfully                                  |       "shopping",3000,1       |    /     |    /    |    /    |    21:40/01/05  | YuxiangZhang |
 
-#### Function 3: CatogoryName() - Get Category Name       
+#### Function 3: CategoryName() - Get Category Name       
 
 | Importance | Status | Test                     | Inputs                         | Expected Outcome | Test Outcome | Problem | Change | Reason | Time | Author       |
 | ---------- | ------ | ------------------------ | ------------------------------ | ---------------- | ------------ | ------- | ------ | ------ | ---- | ------------ |
@@ -352,7 +352,7 @@ This method should not be used in this class. So it has been deleted.
 | !          |   Pass     | get_Category Name test 2 | void (in class transport)      | "transport"      |    "transport"          |      /    |    /     |     /    |    22:45/02/05  | YuxiangZhang |
 | !          |   Pass     | get_Category Name test 2 | void(in [Pending Category]) | null             |     "[Pending Category]"        |       /   |     /    |     /    |   00:18/02/05   | YuxiangZhang |
 
-#### Function 4: CatogoryBudget() - Get Category Budget       
+#### Function 4: CategoryBudget() - Get Category Budget       
 
 | Importance | Status | Test                       | Inputs                         | Expected Outcome | Test Outcome | Problem | Change | Reason | Time | Author       |
 | ---------- | ------ | -------------------------- | ------------------------------ | ---------------- | ------------ | ------- | ------ | ------ | ---- | ------------ |
@@ -360,7 +360,7 @@ This method should not be used in this class. So it has been deleted.
 | !          |   Pass    | get_Category Budget test 2 | void (in class transport)      | 1000             |     1000         |        /   |      /    |   /       |   14:51/03/05   | YuxiangZhang |
 | !          |   Pass     | get_Category Budget test 3 | void(in [Pending Category]) | null             |       null       |       /    |     /     |       /   |    15:32/03/05  | YuxiangZhang |
 
-#### Function 5:  CatogorySpend() - Get Category Spend       
+#### Function 5:  CategorySpend() - Get Category Spend       
 
 | Importance | Status | Test                      | Inputs                         | Expected Outcome | Test Outcome | Problem | Change | Reason | Time | Author       |
 | ---------- | ------ | ------------------------- | ------------------------------ | ---------------- | ------------ | ------- | ------ | ------ | ---- | ------------ |
@@ -369,7 +369,7 @@ This method should not be used in this class. So it has been deleted.
 | !          |   Pass     | get_Category Spend test 3 | void(in [Pending Category]) | null             |        null      |      /    |     /    |     /    |   19:47/03/05   | YuxiangZhang |
 
 
-#### Function 6:  setCatogoryName(String cName) - Set Category Name       
+#### Function 6:  setCategoryName(String cName) - Set Category Name       
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|------------|------------|------------|------------|
@@ -377,7 +377,7 @@ This method should not be used in this class. So it has been deleted.
 | ! | FAIL | setCNTest2 | blank space: " " | null | blank space: " " | If newName is sapce only or empty, the result still returns the value of<br/>	newName, which is Unknown name. | Fixed the Method with adding an "if" statement to assign null to String <br/>	while whose newName is empty or sapce | 22:57/2/5 | Hongming Ping |
 | ! | FAIL | setCNTest3 | empty string: "" | null | empty string: "" | If newName is sapce only or empty, the result still returns the value of<br/>	newName, which is Unknown name. | Fixed the Method with adding an "if" statement to assign null to String <br/>	while whose newName is empty or sapce | 22:57/2/5 | Hongming Ping |
 
-#### Function 7: setCatogoryBudget(BigDecimal cBudget) - Set Category Budget       
+#### Function 7: setCategoryBudget(BigDecimal cBudget) - Set Category Budget       
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|------------|------------|------------|------------|------------|
