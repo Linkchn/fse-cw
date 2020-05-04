@@ -12,7 +12,6 @@ import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
@@ -22,7 +21,7 @@ class BoCAppTest {
     private static final ByteArrayOutputStream outContent = new ByteArrayOutputStream(); 
     private static ArrayList<BoCTransaction> UserTransactions;
     private static ArrayList<BoCCategory> UserCategories;
-    private static Scanner in;
+    private static Scanner inp;
     private static BoCApp a = null;
 
     @BeforeAll 
@@ -56,7 +55,7 @@ class BoCAppTest {
 		UserTransactions.add(new BoCTransaction("RockCity Drinks", new BigDecimal("8.50"), 3));
         UserTransactions.add(new BoCTransaction("The Mooch", new BigDecimal("13.99"), 3));
         
-        in = new Scanner(System.in);
+
         a = new BoCApp();
     }
 
@@ -66,32 +65,39 @@ class BoCAppTest {
     }
 
     @AfterEach
-    public static void tearDown() {
-        System.setOut(null); 
+    public void tearDown() {
+        System.setOut(null);
+        outContent.reset();
     }
 
 
 
-    @DisplayName("testToString")
+    @DisplayName("AddTransactionTest")
     @ParameterizedTest
     @MethodSource
-    void AddTransactionTest() throws NoSuchMethodException, InvocationTargetException, IllegalAccessException {
+    void AddTransactionTest(String name1, String val1, String cat1, String out1) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
         Method AddTransactionTest = a.getClass().getDeclaredMethod("AddTransaction", Scanner.class);
         AddTransactionTest.setAccessible(true);
-        //调用
-        String input = "Hello2"; 
-        InputStream in = new ByteArrayInputStream(input.getBytes());  
-        System.setIn(in);
 
-        Object result = AddTransactionTest.invoke(a, "this is a test information");
-        System.out.println(result);
-        assertNotNull(result);
+        String input = "\n" + name1 + "\n" + val1 + "\n" + cat1 + "\n";
+        inp = new Scanner(input);
+
+        AddTransactionTest.invoke(a, inp);
+        
+        assertEquals(out1, outContent.toString());
+        outContent.reset(); 
     }
 
-    static List<Arguments> testToString() {
+    static List<Arguments> AddTransactionTest() {
         return List.of( // arguments:
-                Arguments.arguments(cat2,toStringResult1),
-                Arguments.arguments(cat3,toStringResult2)
+                Arguments.arguments("tran1", "1", "1", "What is the title of the transaction?\nWhat is the value of the transaction?\n[Transaction added]\n")
+//                Arguments.arguments("\n", ""),
+//                Arguments.arguments("tran3", "\n", "3", "1", ""),
+//                Arguments.arguments("\n", "tran4", "\n", "4", "\n", ""),
+//                Arguments.arguments("tran5", "", "5", "", "6", "" ),
+//                Arguments.arguments("tran6", "", "6", "", "-1", "5"),
+//                Arguments.arguments("tran7", "", "7", "", "-1", "6" ),
+//                Arguments.arguments("tran2", "tran8", "8", "", "1", "")
         );
     }
 

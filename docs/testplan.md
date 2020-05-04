@@ -3,10 +3,10 @@
 |Contents|
 |--------|
 |[Team Management](#team-management)|
-|[Work distributions with pairs](#work-distributions-with-pairs)|
-|[Timeline & decisions](#timeline--decisions)|
-|[Meeting record](#meeting-record)|
-|[Conclusion](#conclusion)|
+|[Work distributions with pairs](#ii-work-distributions-with-pairs)|
+|[Timeline & decisions](#iii-timeline--decisions)|
+|[Meeting record](#iv-meeting-record)|
+|[Conclusion](#v-conclusion)|
 |[Test Plan](#test-plan)|
 |[Jump to Class: BoCTransaction](#class-BoCTransaction)|
 |[Jump to Class: BoCCategory](#class-BoCCategory)|
@@ -475,12 +475,13 @@ This method should not be used in this class. So it has been deleted.
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| ! | | addTransactionTest 1 | "tran1", 1, 1 | name is set to tran1, value is set to 1, category is set to 0, shows "tran1(¥1) was added to Unknown" | | | | | | |
-| !! | | addTransactionTest 2 | \n, "tran2",  2, 1 | Alert "Transaction name should not be blank!", then ask for a new one, value is set to 5, category is set to 0, shows "tran2(¥) was added to Unknown" | | | | | | |
-| !! | | addTransactionTest 3 | \n, "tran3", \n, 3, 1 | Alert "Transaction name should not be blank!", then ask for a new one. For the number, alert "Transaction value should not be blank!", then ask for a new one, the category is set to 0, shows "tran3(¥3) was added to Unknown" | | | | | | |
-| !! | | addTransactionTest 4 | \n, "tran4", \n, 4, \n | Alert "Transaction name should not be blank!", then ask for a new one. For the number, alert "Transaction value should not be blank!", then ask for a new one, the category is set to 0, shows "tran4(¥4) was added to Unknown" | | | | | | |
-| !! | | addTransactionTest 5 | "tran1", 1, 6 (where 6 is not yet created) | name is set to tran1, value is set to 5, category is set to 0, shows "This category is not yet created, please add enough new categories first." | | | | | | |
-| !! | | addTransactionTest 6 | "tran1", 1, -1 (where -1 is invalid) | name is set to tran1, value is set to 5, category is set to 0, shows "." | | | | | | |
+| ! | | addTransactionTest 1 | "tran1", "1", "1" | name is set to tran1, value is set to 1, category is set to 0, shows "tran1(¥1) was added to Unknown" | | | | | | |
+| !! | | addTransactionTest 2 | "\n", "tran2",  "2", "1" | Alert "Transaction name should not be blank!", then ask for a new one, value is set to 5, category is set to 0, shows "tran2(¥) was added to Unknown" | | | | | | |
+| !! | | addTransactionTest 3 | "\n", "tran3", "\n", "3", "1" | Alert "Transaction name should not be blank!", then ask for a new one. For the number, alert "Transaction value should not be blank!", then ask for a new one, the category is set to 0, shows "tran3(¥3) was added to Unknown" | | | | | | |
+| !! | | addTransactionTest 4 | "\n", "tran4", "\n", "4", "\n" | Alert "Transaction name should not be blank!", then ask for a new one. For the number, alert "Transaction value should not be blank!", then ask for a new one, the category is set to 0, shows "tran4(¥4) was added to Unknown" | | | | | | |
+| !! | | addTransactionTest 5 | "tran5", "1", "6" (where 6 is not yet created) | name is set to tran1, value is set to 5, category is set to 0, shows "This category is not yet created, please add enough new categories first.", then exit back | | | | | | |
+| !! | | addTransactionTest 6 | "tran6", "1", "-1" (where -1 is invalid), "5" | name is set to tran1, value is set to 5,  shows "Invalid input, please try again." | | | | | | |
+| !! | | addTransactionTest 7 | "tran7", "1", "-1" (where -1 is invalid), "6" (where 6 is not yet created) | name is set to tran1, value is set to 5,  shows "Invalid input, please try again.", shows "This category is not yet created, please add enough new categories first.", then exit back | | | | | | |
 
 #### Function 7: addCategory(Scanner in) - Add Category function
 
