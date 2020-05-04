@@ -19,11 +19,6 @@ import java.util.Scanner;
 
 class BoCAppTest {
 
-//    private static ArrayList<BoCTransaction> UserTransactions;
-//    private static ArrayList<BoCCategory> UserCategories;
-//    private static Scanner in;
-//    private static BoCApp a = null;
-    
     private static final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     @BeforeAll 
@@ -110,11 +105,11 @@ class BoCAppTest {
 	}
 	static List<Arguments> listTransactionsForCategoryTest(){
 		return List.of(
-				Arguments.arguments(0,"1)  Rent - ¥850.00"+'\n'),
-				Arguments.arguments(1,"2)  Phone Bill - ¥37.99"+'\n'+"3)  Electricity Bill - ¥75.00"+'\n'),
-				Arguments.arguments(2,"4)  Sainbury Bill - ¥37.99"+'\n'+"5)  Electricity Bill - ¥75.00"+'\n'),
-				Arguments.arguments(3,"2)  Phone Bill - ¥37.99"+'\n'+"3)  Electricity Bill - ¥75.00"+'\n')
-				//Arguments.arguments(1,"1)  Rent - ¥850.00"+'\n')
+				Arguments.arguments(0,"1)  Unknown: Rent - ¥850.00"+'\n'),
+				Arguments.arguments(1,"2)  Bills: Phone Bill - ¥37.99"+'\n'+"3)  Bills: Electricity Bill - ¥75.00"+'\n'),
+				Arguments.arguments(2,"4)  Groceries: Sainsbury's Checkout - ¥23.76"+'\n'+"5)  Groceries: Tesco's Checkout - ¥7.24"+'\n'),
+				Arguments.arguments(3,"6)  Social: RockCity Drinks - ¥8.50"+'\n'+"7)  Social: The Mooch - ¥13.99"+'\n'),
+				Arguments.arguments(4,"The Category doesn't exit"+'\n')
 		);
 	}
 	
