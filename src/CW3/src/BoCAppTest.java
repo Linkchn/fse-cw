@@ -2,6 +2,7 @@ import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.api.*;
 import org.junit.jupiter.params.*;
 import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.CsvSource;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import jdk.nashorn.internal.ir.annotations.Ignore;
@@ -15,6 +16,8 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
+
+import javax.swing.Spring;
 
 
 class BoCAppTest {
@@ -79,17 +82,26 @@ class BoCAppTest {
     	outContent.reset();
     }
 
-    @Ignore
-    void main() {
 
+    @ParameterizedTest
+    @CsvSource({
+    "'1) Rent - ¥850.00\r\n2) Phone Bill - ¥37.99\r\n3) Electricity Bill - ¥75.00\r\n4) Sainsbury's Checkout - ¥23.76\r\n5) Tesco's Checkout - ¥7.24\r\n6) RockCity Drinks - ¥8.50\r\n7) The Mooch - ¥13.99','T'",
+    "'1) Unknown(¥0.00) - Est. ¥850.00 (¥850.00 Overspent)\r\n2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)\r\n3) Groceries(¥75.00) - Est. ¥31.00 (¥44.00 Remaining)\r\n4) Social(¥100.00) - Est. ¥22.49 (¥77.51 Remaining)','O'",
+    "'2) Phone Bill - ¥37.99\r\n3) Electricity Bill - ¥75.00','1'",
+    "'','7'",
+    "'Something went wrong: java.lang.NumberFormatException: For input string: \"asd\"\n','asd'"
+    })
+    void mainTest(String hint, String input) {
+    	Scanner in = new Scanner(input);
+    	
     }
 
-    @Ignore
+    @Disabled
     void listTransactionsTest() {
 
     }
 
-    @Ignore
+    @Disabled
     void categoryOverviewTest() {
         
     }
@@ -118,12 +130,12 @@ class BoCAppTest {
 		);
 	}
 	
-	@Ignore
+	@Disabled
     void ChangeTransactionCategoryTest() {
 
     }
 
-    @Ignore
+    @Disabled
     void AddCategoryTest() {
 
     }
