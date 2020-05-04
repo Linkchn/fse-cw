@@ -56,7 +56,7 @@ class BoCCategoryTest {
 	void Default_Constructor_test1() throws Exception {
 
 			final BoCCategory empty = new BoCCatogory();
-			assertEquals(empty.CategoryName(),"[Pending Catogory]"); 
+			assertEquals(empty.CategoryName(),"New Catogory"); 
 			assertEquals(empty.Category(),0);
 	}
 		
