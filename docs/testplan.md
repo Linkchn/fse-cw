@@ -475,12 +475,12 @@ This method should not be used in this class. So it has been deleted.
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| ! | | addTransactionTest 1 | "tran1", 1, 0 | name is set to tran1, value is set to 1, category is set to 0, shows "tran1(¥1) was added to Unknown" | | | | | | |
-| !! | | addTransactionTest 2 | \n, "tran2",  2, 0 | Alert "Transaction name should not be blank!", then ask for a new one, value is set to 5, category is set to 0, shows "tran2(¥) was added to Unknown" | | | | | | |
-| !! | | addTransactionTest 3 | \n, "tran3", \n, 3, 0 | Alert "Transaction name should not be blank!", then ask for a new one. For the number, alert "Transaction value should not be blank!", then ask for a new one, the category is set to 0, shows "tran3(¥3) was added to Unknown" | | | | | | |
+| ! | | addTransactionTest 1 | "tran1", 1, 1 | name is set to tran1, value is set to 1, category is set to 0, shows "tran1(¥1) was added to Unknown" | | | | | | |
+| !! | | addTransactionTest 2 | \n, "tran2",  2, 1 | Alert "Transaction name should not be blank!", then ask for a new one, value is set to 5, category is set to 0, shows "tran2(¥) was added to Unknown" | | | | | | |
+| !! | | addTransactionTest 3 | \n, "tran3", \n, 3, 1 | Alert "Transaction name should not be blank!", then ask for a new one. For the number, alert "Transaction value should not be blank!", then ask for a new one, the category is set to 0, shows "tran3(¥3) was added to Unknown" | | | | | | |
 | !! | | addTransactionTest 4 | \n, "tran4", \n, 4, \n | Alert "Transaction name should not be blank!", then ask for a new one. For the number, alert "Transaction value should not be blank!", then ask for a new one, the category is set to 0, shows "tran4(¥4) was added to Unknown" | | | | | | |
-| !! | | addTransactionTest 5 | "tran1", 1, 1 (where 1 is not yet created) | name is set to tran1, value is set to 5, category is set to 0, shows "This category is not yet created, please add enough new categories first." | | | | | | |
-| !! | | addTransactionTest 6 |  |  | | | | | | |
+| !! | | addTransactionTest 5 | "tran1", 1, 6 (where 6 is not yet created) | name is set to tran1, value is set to 5, category is set to 0, shows "This category is not yet created, please add enough new categories first." | | | | | | |
+| !! | | addTransactionTest 6 | "tran1", 1, -1 (where -1 is invalid) | name is set to tran1, value is set to 5, category is set to 0, shows "." | | | | | | |
 
 #### Function 7: addCategory(Scanner in) - Add Category function
 

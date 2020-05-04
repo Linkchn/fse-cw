@@ -120,7 +120,6 @@ class BoCCategoryTest_p3 {
     void removeExpenseTest(String num) {
         bd1 = new BigDecimal(num);
         sum = cat1.CategorySpend();
-        BigDecimal temp = sum.subtract(bd1);
 
         try {
             sum = sum.subtract(bd1);
