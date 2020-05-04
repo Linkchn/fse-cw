@@ -145,7 +145,6 @@ class BoCCategoryTest {
 		}
 	}
 }		
-}
 
 class SetCategoryTest {
 	private String TestInputString, TestOutputString;
