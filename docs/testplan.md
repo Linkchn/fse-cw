@@ -333,40 +333,40 @@ This method should not be used in this class. So it has been deleted.
 
 | Importance | Status | Test                       | Inputs | Expected Outcome   | Test Outcome       | Problem                                                 | Change                                                   | Reason                                   | Time | Author       |
 | ---------- | ------ | -------------------------- | ------ | ------------------ | ------------------ | ------------------------------------------------------- | -------------------------------------------------------- | ---------------------------------------- | ---- | ------------ |
-| !!!        | Fail   | Default Constructor test 1 | void   | [Pending Category] | Fail the test      | The CatogoryBudget is not same as the expected outcome. | change the "CatogoryBudget"   to "[Pending Category]" | The default constructor gives null value |      | YuxiangZhang |
-| !!!        | Pass   | Default Constructor test 2 | void   | [Pending Category] | [Pending Category] | No                                                      |                                                          |                                          |      | YuxiangZhang |
+| !!!        | Fail   | Default Constructor test 1 | void   | [Pending Category] | Fail the test      | The CatogoryBudget is not same as the expected outcome. | change the "CatogoryBudget"   to "[Pending Category]" | The default constructor gives null value |     17:30/01/05 | YuxiangZhang |
+| !!!        | Pass   | Default Constructor test 2 | void   | [Pending Category] | [Pending Category] | No                                                      |                                                          |                                          |   19:50/01/05   | YuxiangZhang |
 
 #### Function 2: BoCCatogory(String cName, BigDecimal cbudget, BigDecimal cSpend) - Main Constructors       
 
 | Importance | Status | Test                     | Inputs             | Expected Outcome                                    | Test Outcome | Problem | Change | Reason | Time | Author       |
 | ---------- | ------ | ------------------------ | ------------------ | --------------------------------------------------- | ------------ | ------- | ------ | ------ | ---- | ------------ |
-| !!!        |        | Main Constructors Test 1 | 5                  | The numbers of parameters and input is not matching |              |         |        |        |      | YuxiangZhang |
-| !!!        |        | Main Constructors Test 2 | "transport",1000,1 | build successfully                                  |              |         |        |        |      | YuxiangZhang |
-| !!!        |        | Main Constructors Test 3 | "shopping",3000,1  | build successfully                                  |              |         |        |        |      | YuxiangZhang |
+| !!!        |    Fail    | Main Constructors Test 1 | 5                  | The numbers of parameters and input is not matching |       Error       |    the constructor BoCCategory(BigDecimal) is undefined.     |    Ignore the test    |    The compile error can't be solved in the method    |    20:05/01/05  | YuxiangZhang |
+| !!!        |    Pass    | Main Constructors Test 2 | "transport",1000,1 | build successfully                                  |       "transport",1000,1       |    /     |    /    |    /    |    21:40/01/05  | YuxiangZhang |
+| !!!        |    Pass    | Main Constructors Test 3 | "shopping",3000,1  | build successfully                                  |       "shopping",3000,1       |    /     |    /    |    /    |    21:40/01/05  | YuxiangZhang |
 
 #### Function 3: CatogoryName() - Get Category Name       
 
 | Importance | Status | Test                     | Inputs                         | Expected Outcome | Test Outcome | Problem | Change | Reason | Time | Author       |
 | ---------- | ------ | ------------------------ | ------------------------------ | ---------------- | ------------ | ------- | ------ | ------ | ---- | ------------ |
-| !          |        | get_Category Name test 1 | void (in class shopping)       | "shopping"       |              |         |        |        |      | YuxiangZhang |
-| !          |        | get_Category Name test 2 | void (in class transport)      | "transport"      |              |         |        |        |      | YuxiangZhang |
-| !          |        | get_Category Name test 2 | void(in [Pending Category]) | null             |              |         |        |        |      | YuxiangZhang |
+| !          |   Pass     | get_Category Name test 1 | void (in class shopping)       | "shopping"       |  "shopping"           |     /     |   /      |     /    |    21:30/02/05  | YuxiangZhang |
+| !          |   Pass     | get_Category Name test 2 | void (in class transport)      | "transport"      |    "transport"          |      /    |    /     |     /    |    22:45/02/05  | YuxiangZhang |
+| !          |   Pass     | get_Category Name test 2 | void(in [Pending Category]) | null             |     "[Pending Category]"        |       /   |     /    |     /    |   00:18/02/05   | YuxiangZhang |
 
 #### Function 4: CatogoryBudget() - Get Category Budget       
 
 | Importance | Status | Test                       | Inputs                         | Expected Outcome | Test Outcome | Problem | Change | Reason | Time | Author       |
 | ---------- | ------ | -------------------------- | ------------------------------ | ---------------- | ------------ | ------- | ------ | ------ | ---- | ------------ |
-| !          |        | get_Category Budget test 1 | void (in class shopping)3000   | 3000             |              |         |        |        |      | YuxiangZhang |
-| !          |        | get_Category Budget test 2 | void (in class transport)      | 1000             |              |         |        |        |      | YuxiangZhang |
-| !          |        | get_Category Budget test 3 | void(in [Pending Category]) | null             |              |         |        |        |      | YuxiangZhang |
+| !          |   Pass     | get_Category Budget test 1 | void (in class shopping)3000   | 3000             |     3000         |        /   |    /      |    /      |  14:29/03/05   | YuxiangZhang |
+| !          |   Pass    | get_Category Budget test 2 | void (in class transport)      | 1000             |     1000         |        /   |      /    |   /       |   14:51/03/05   | YuxiangZhang |
+| !          |   Pass     | get_Category Budget test 3 | void(in [Pending Category]) | null             |       null       |       /    |     /     |       /   |    15:32/03/05  | YuxiangZhang |
 
 #### Function 5:  CatogorySpend() - Get Category Spend       
 
 | Importance | Status | Test                      | Inputs                         | Expected Outcome | Test Outcome | Problem | Change | Reason | Time | Author       |
 | ---------- | ------ | ------------------------- | ------------------------------ | ---------------- | ------------ | ------- | ------ | ------ | ---- | ------------ |
-| !          |        | get_Category Spend test 1 | void (in class shopping)       | 4500.45          |              |         |        |        |      | YuxiangZhang |
-| !          |        | get_Category Spend test 2 | void (in class transport)      | 1200.85          |              |         |        |        |      | YuxiangZhang |
-| !          |        | get_Category Spend test 3 | void(in [Pending Category]) | null             |              |         |        |        |      | YuxiangZhang |
+| !          |   Pass     | get_Category Spend test 1 | void (in class shopping)       | 4500.45          |     4500.45         |     /     |   /      |    /     |   17:14/03/05   | YuxiangZhang |
+| !          |   Pass     | get_Category Spend test 2 | void (in class transport)      | 1200.85          |     1200.85         |    /      |   / /      |   /      |   17:49/03/05   | YuxiangZhang |
+| !          |   Pass     | get_Category Spend test 3 | void(in [Pending Category]) | null             |        null      |      /    |     /    |     /    |   19:47/03/05   | YuxiangZhang |
 
 
 #### Function 6:  setCatogoryName(String cName) - Set Category Name       
