@@ -484,7 +484,11 @@ This method should not be used in this class. So it has been deleted.
 
 #### Function 7: addCategory(Scanner in) - Add Category function
 
-|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
-|----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|
+|----------|------|----|------|----------------|------------|
+| !! | | AddCategoryTest1 | “cat1Name”, "6.23" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\nWhat is the budget for this category?\r\nNote:It should be a pisitive decimal number with exact two decimal places.\r\n", "[Category added]" | |
+| !!! | | AddCategoryTest2 | "cat2Name123456789"   ,"6.00" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n" Alert "Category  name should be at most 15 characters." |  |
+| !!! | | AddCategoryTest3 | "cat1Name", "7.45" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n" Alert "Category name should not be the same as the existed name." |  |
+| !!! | | AddCategoryTest4 | "cat4Name","6" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\nWhat is the budget for this category?\r\nNote:It should be a poistive decimal number with exact two decimal places.\r\n" Alert"Category  budget should be a decimal number" |  |
+| !!! | | AddCategoryTest5 | "cat5Name", "6.1" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\nWhat is the budget for this category?\r\nNote:It should be a positive decimal number with exact two decimal places.\r\n" Alert "Category budeget should be a decimal number with exact two decimal places" |  |
+|  | | AddCategoryTest6 | "cat6Name", "-7.23" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\nWhat is the budget for this category?\r\nNote:It should be a positive decimal number with exact two decimal places.\r\n" Alert"Category budget should be a positive decimal number" |  |
