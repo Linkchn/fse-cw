@@ -72,8 +72,6 @@ class BoCAppTest {
 		prompt1 = new String("Which transaction ID?\r\n");
         prompt2 = new String("Which category will it move to?\r\n");
         prompt3 = new String("Change complete!\r\n");
-        prompt4 = new String("Please input valid transaction value!\r\n");
-        prompt5 = new String("Please input valid category!\r\n");
     }
 
     @BeforeEach
@@ -132,6 +130,12 @@ class BoCAppTest {
 		);
 	}
 
+	/* 
+	1 – Pass – Leo - 00:46/6/5  
+	Problem: /
+	Reason:/
+	Traceability: ChangeTransactionCategoryTest1,2,3,4,5,6
+	*/
 	@DisplayName("AddTransactionTest")
 	@ParameterizedTest
 	@MethodSource
@@ -139,25 +143,30 @@ class BoCAppTest {
 	    Method ChangeTransactionCategoryTest = a.getClass().getDeclaredMethod("ChangeTransactionCategory", Scanner.class);
 	    ChangeTransactionCategoryTest.setAccessible(true);
 	    
-	    String input = "\n" + tID + "\n" + newCat + "\n";
-	    inp = new Scanner(input);
-	    catList = "1) " + a.UserCategories.get(0).toString() + "\r\n";
-    	for (int x = 1; x < a.UserCategories.size(); x++) {
-			BoCCategory temp = a.UserCategories.get(x);
-			catList += (x+1) + ") " + temp.toString() + "\r\n";
-		}
-    	int tIDi = Integer.parseInt( tID )-1;
-    	int newCati = Integer.parseInt( newCat )-1;
-	    
-    	BoCTransaction temp = a.UserTransactions.get(tIDi);
-		int oldCat = temp.transactionCategory();
-    	
-        if (alert.equals("1")) {
-        	ChangeTransactionCategoryTest.invoke(a, inp);
-        	BoCCategory newCatSpend = a.UserCategories.get(newCati);
-        	BoCCategory oldCatSpend = a.UserCategories.get(oldCat);
-            assertEquals(prompt1 + "\t- " + a.UserTransactions.get( tIDi ).toString() + "\r\n" + prompt2 + catList + prompt3 + "Target category: " + (newCati + 1) + ") " + newCatSpend.toString() + "\r\n" + "Origin category: " + (oldCat + 1) + ") " + oldCatSpend.toString() + "\r\n", outContent.toString());
-            assertEquals(newCati, temp.transactionCategory());
+	    try {
+		    if(alert.equals("1")) {
+			    String input = "\n" + tID + "\n" + newCat + "\n";
+			    inp = new Scanner(input);
+			    catList = "1) " + a.UserCategories.get(0).toString() + "\r\n";
+		    	for (int x = 1; x < a.UserCategories.size(); x++) {
+					BoCCategory temp = a.UserCategories.get(x);
+					catList += (x+1) + ") " + temp.toString() + "\r\n";
+				}
+		    	int tIDi = Integer.parseInt( tID )-1;
+		    	int newCati = Integer.parseInt( newCat )-1;
+			    
+		    	BoCTransaction temp = a.UserTransactions.get(tIDi);
+				int oldCat = temp.transactionCategory();
+		    	
+	        	ChangeTransactionCategoryTest.invoke(a, inp);
+	        	BoCCategory newCatSpend = a.UserCategories.get(newCati);
+	        	BoCCategory oldCatSpend = a.UserCategories.get(oldCat);
+	            assertEquals(prompt1 + "\t- " + a.UserTransactions.get( tIDi ).toString() + "\r\n" + prompt2 + catList + prompt3 + "Target category: " + (newCati + 1) + ") " + newCatSpend.toString() + "\r\n" + "Origin category: " + (oldCat + 1) + ") " + oldCatSpend.toString() + "\r\n", outContent.toString());
+	            assertEquals(newCati, temp.transactionCategory());
+		    }
+	    }
+	    catch (Exception e) {
+            assertEquals(alert, e.getCause().getMessage());
         }
         
 	    outContent.reset(); 
@@ -167,8 +176,9 @@ class BoCAppTest {
                 Arguments.arguments("1", "3", "1"),
                 Arguments.arguments("3", "1", "1"),
                 Arguments.arguments("4", "2", "1"),
-                Arguments.arguments("7", "4", "1")
-                
+                Arguments.arguments("7", "4", "1"),
+                Arguments.arguments("8", "4", "Please input valid transaction value!"),
+                Arguments.arguments("5", "-1", "Please input valid category!")
         );
     }
 	
