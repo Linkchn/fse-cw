@@ -21,11 +21,19 @@ class BoCAppTest {
     private static final ByteArrayOutputStream outContent = new ByteArrayOutputStream(); 
 
     private static BoCApp a = null;
-    static BoCApp addCat1;
+    private static BoCApp b = null;
+    private static BoCApp addCat1;
     private static Scanner inp;
+    private static Scanner inp2;
     private static String prompt1;
     private static String prompt2;
     private static String prompt3;
+    private static String prompt4;
+    private static String prompt5;
+    private static String prompt6;
+    private static String allCategory;
+
+    
 
 
     @BeforeAll 
@@ -61,10 +69,19 @@ class BoCAppTest {
         
 
         a = new BoCApp();
-
+        b = new BoCApp();
         prompt1 = new String("What is the title of the transaction?\r\nNOTE: It should not be blank and less than 25 characters.\r\n");
         prompt2 = new String("What is the value of the transaction?\r\nNOTE: It should be greater than 0 with two decimal places e.g. 10.00.\r\n");
         prompt3 = new String("What is the category of the transaction?\r\nNote: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.\r\n");
+        prompt4 = new String("What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters.\r\n");
+        prompt5 = new String("What is the budget for this category?\r\nNote:It should be a pisitive decimal number with exact two decimal places.\r\n");
+        prompt6 = new String("[Category added]");
+        allCategory = new String("1) Unknown(¥0.00) - Est. ¥0.00 (¥0.00 Remaining)\r\n" + 
+        		"2) Bills(¥120.00) - Est. ¥0.00 (¥120.00 Remaining)\r\n" + 
+        		"3) Groceries(¥75.00) - Est. ¥0.00 (¥75.00 Remaining)\r\n" + 
+        		"4) Social(¥100.00) - Est. ¥0.00 (¥100.00 Remaining)\r\n" + 
+        		"5) cat1Name(¥6.23) - Est. ¥0.00 (¥6.23 Remaining)\r\n" 
+        		);
     }
 
     @BeforeEach
@@ -148,34 +165,48 @@ class BoCAppTest {
         );
     }
 
-//    @DisplayName("AddCategoryTest")
-//    @ParameterizedTest
-//    @MethodSource
-//    void AddCategoryTest(String string1, String string2, String string3, String string4, String string5) throws IllegalAccessException,
-//    IllegalArgumentException, InvocationTargetException,
-//    NoSuchMethodException, SecurityException {
-//        Method AddCategoryTest = a.getClass().getDeclaredMethod("AddCategory", Scanner.class);
-//    	addCat1 = new BoCApp();
-//    	String input = new String();
-//    	InputStream in = new ByteArrayInputStream(string2.getBytes());
-//    	System.setIn(in);
-//    	addCat1.addCategory(in);
-//
-//
-//
-//
-//
-//
-//    }
-//    static List<Arguments> AddCategoryTest() {
-//    	return List.of( // arguments:
-//        		Arguments.arguments("What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n", "cat1Name", "What is the budget for this category?\r\nNote:It should be a pisitive decimal number with exact two decimal places.\r\n", "6.23", "[Category added]"),
-//        		Arguments.arguments("What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n", "cat2Name123456789", "", "", ""),
-//        		Arguments.arguments("What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n", "cat1Name", "", "", ""),
-//        		Arguments.arguments("What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n", "cat1Name", "What is the budget for this category?\r\nNote:It should be a pisitive decimal number with exact two decimal places.\r\n", "6", ""),
-//        		Arguments.arguments("What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n", "cat1Name", "What is the budget for this category?\r\nNote:It should be a pisitive decimal number with exact two decimal places.\r\n", "6.1", ""),
-//        		Arguments.arguments("What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n", "cat1Name", "What is the budget for this category?\r\nNote:It should be a pisitive decimal number with exact two decimal places.\r\n", "-7.23", "")
-//        );
-//    }
+    @DisplayName("AddCategoryTest")
+    @ParameterizedTest
+    @MethodSource
+    void AddCategoryTest(String name, String budget, String alert) throws IllegalAccessException, 
+    IllegalArgumentException, InvocationTargetException, 
+    NoSuchMethodException, SecurityException {
+        Method AddCategoryTest = b.getClass().getDeclaredMethod("AddCategory", Scanner.class);
+        AddCategoryTest.setAccessible(true);
+        String input = "\n" + name + budget;
+        inp2 = new Scanner(input);
+        try {
+            AddCategoryTest.invoke(b, inp2);
+            BoCCategory tr = BoCApp.UserCategories.get(BoCApp.UserCategories.size()-1);
+            if (alert.equals("1")) {
+                assertEquals(prompt4 + prompt5 + prompt6 + "\r\n" + allCategory, outContent.toString());
+                assertEquals(name.replace("\n", "") ,tr.CategoryName());
+                assertEquals(new BigDecimal(budget.replace("\n", "")) ,tr.CategoryBudget());
+            }
+        }
+        catch (Exception e) {
+            assertEquals(alert, e.getCause().getMessage());
+
+        }
+    	
+    	
+        outContent.reset(); 
+    	 
+
+    }
+    static List<Arguments> AddCategoryTest() {
+    	return List.of( // arguments:
+    			Arguments.arguments("cat1Name\n","6.23\n","1"),
+    			Arguments.arguments("cat2Name123456789\n","6.23\n", "Wrong title! It should be at most 15 characters."),
+    			Arguments.arguments("cat1Name\n", "7.45\n", "Wrong title! It should not be the same as the existed name."),
+    			Arguments.arguments("cat4Name\n", "6\n", "Wrong budget! It should be a positive decimal number with exact two decimal places."),
+    			Arguments.arguments("cat5Name\n", "6.1\n", "Wrong budget! It should be a positive decimal number with exact two decimal places."),
+    			Arguments.arguments("cat6Name\n", "-7.23\n", "Wrong budget! It should be a positive decimal number with exact two decimal places."),
+    			Arguments.arguments("\n", "6.34\n", "Wrong title! It should not be blank."),
+    			Arguments.arguments("   \n", "6.34\n", "Wrong title! It should not be blank."),
+    			Arguments.arguments("cat9Name\n", "\n", "Wrong budget! It should not be blank."),
+    			Arguments.arguments("cat10Name\n", "   \n", "Wrong budget! It should not be blank.")
+        );
+    }
     
 }
