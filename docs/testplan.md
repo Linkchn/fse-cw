@@ -334,7 +334,7 @@ This method should not be used in this class. So it has been deleted.
 | Importance | Status | Test                       | Inputs | Expected Outcome   | Test Outcome       | Problem                                                 | Change                                                   | Reason                                   | Time | Author       |
 | ---------- | ------ | -------------------------- | ------ | ------------------ | ------------------ | ------------------------------------------------------- | -------------------------------------------------------- | ---------------------------------------- | ---- | ------------ |
 | !!!        | Fail   | Default Constructor test 1 | void   | [Pending Category] | Fail the test      | The CatogoryBudget is not same as the expected outcome. | change the "CatogoryBudget"   to "[Pending Category]" | The default constructor gives null value |     17:30/01/05 | YuxiangZhang |
-| !!!        | Pass   | Default Constructor test 2 | void   | [Pending Category] | [Pending Category] | No                                                      |                                                          |                                          |   19:50/01/05   | YuxiangZhang |
+| !!!        | Pass   | Default Constructor test 2 | void   | [Pending Category] | [Pending Category] | No                                                      |                             /                             |                      /                    |   19:50/01/05   | YuxiangZhang |
 
 #### Function 2: BoCCategory(String cName, BigDecimal cbudget, BigDecimal cSpend) - Main Constructors       
 
@@ -364,8 +364,8 @@ This method should not be used in this class. So it has been deleted.
 
 | Importance | Status | Test                      | Inputs                         | Expected Outcome | Test Outcome | Problem | Change | Reason | Time | Author       |
 | ---------- | ------ | ------------------------- | ------------------------------ | ---------------- | ------------ | ------- | ------ | ------ | ---- | ------------ |
-| !          |   Pass     | get_Category Spend test 1 | void (in class shopping)       | 4500.45          |     4500.45         |     /     |   /      |    /     |   17:14/03/05   | YuxiangZhang |
-| !          |   Pass     | get_Category Spend test 2 | void (in class transport)      | 1200.85          |     1200.85         |    /      |   / /      |   /      |   17:49/03/05   | YuxiangZhang |
+| !          |   Pass     | get_Category Spend test 1 | void (in class shopping)       | 4500.45          |     4500.45         |     /     |     /    |    /     |   17:14/03/05   | YuxiangZhang |
+| !          |   Pass     | get_Category Spend test 2 | void (in class transport)      | 1200.85          |     1200.85         |    /      |     /    |    /     |   17:49/03/05   | YuxiangZhang |
 | !          |   Pass     | get_Category Spend test 3 | void(in [Pending Category]) | null             |        null      |      /    |     /    |     /    |   19:47/03/05   | YuxiangZhang |
 
 
