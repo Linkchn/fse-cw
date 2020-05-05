@@ -79,7 +79,10 @@ class BoCAppTest {
 
     @Test
     void mainTest() {
-        BoCApp.main(new String[]{""});
+        String input = "X\n";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        BoCApp.main(new String[]{"X\n"});
     }
 
 
