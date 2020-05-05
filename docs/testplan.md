@@ -20,11 +20,12 @@ Report here, by the end of the assignment, how the team has managed the project,
 ### I. Team stategy
 
 - Overall, **Agile Software Development** using **Test Driven Development** based on the document and codes with **pair programming**.
-First analyse Class Description seperately.
-Second devide members in pairs and distribute works to pairs.
-Third build Tests Plan Table according to the Class Description analysis in pairs.
-Then adjust codes and plan throughout the whole process of development to achieve the requirements.
-Branches will be made once pair work has begun.
+  First analyse Class Description seperately.
+  Second devide members in pairs and distribute works to pairs.
+  Third build Tests Plan Table according to the Class Description analysis in pairs.
+  Then adjust codes and plan throughout the whole process of development to achieve the requirements.
+  Branches will be made once pair work has begun.
+  Group meeting will be organised 3 - 4 days once.
 
 - Since this BoCAPP is a small-sized business system, agile method allows us to focus on the software itself rather than on its design and documentation, which is exactly what we need. As is required and recommended, we use JUnit to do TDD process. Although the whole development process is not so heavy that every one can do their own small piece of job to finish the task, we consider pair programming could be a good method which fits us well. Most importantly, it will act as an informal review process because each line of code is looked at by at least one person. It largly reduces the risk of more errors with cheap program inspections. Secondly, it is recommended that we can do refactoring to improve the software structure. Different from normal development environment, pair programming provide a more friendly environment for refactoring to happen as others could benifit immediately from that. Thirdly, it obviously widens the mind of the way making tests and improves the ability of each other's programming skills.
 
@@ -154,12 +155,28 @@ Branches will be made once pair work has begun.
 
     | Date | What to do                         | Shiliang | Jiawei | Status |
     | ---- | ---------------------------------- | ---- | ---- | ------ |
-    | 5/2  | Finish Tests of first two classes with fixed code|      |      |        |
-    | 5/3  | Start plan for main 6, 7 and write test code|      |      |        |
-    | 5/4  | Work on main 6, 7                  |      |      |        |
+    | 5/2  | Finish Tests of first two classes with fixed code| √ | √ | √ |
+    | 5/3  | Start plan for main 6, 7 and write test code| M 6 | M 7 | × |
+    | 5/4  | Work on main 6, 7                  | M 6 | M 7 |        |
     | 5/5  | Work on main 6, 7                  |      |      |        |
     | 5/6  | Work on main 6, 7                  |      |      |        |
     | 5/7  | Final check and Tag                |      |      |        |
+
+    Forth meeting, discussed about further plan and merge problems
+
+    Work together fixing issues
+
+  - 3/5 issues: 5/19
+
+    Keep working on main
+
+  - 4/5 issues: 6/20
+
+    work on tests for main
+
+  - 5/5 issues: 4/20
+
+    work on tests and code fixing
 
 
 
@@ -475,15 +492,22 @@ This method should not be used in this class. So it has been deleted.
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| ! | | addTransactionTest 1 | "tran1", "1", "1" | name is set to tran1, value is set to 1, category is set to 0, shows "tran1(¥1) was added to Unknown" | | | | | | |
-| !! | | addTransactionTest 2 | "\n", "tran2",  "2", "1" | Alert "Transaction name should not be blank!", then ask for a new one, value is set to 5, category is set to 0, shows "tran2(¥) was added to Unknown" | | | | | | |
-| !! | | addTransactionTest 3 | "\n", "tran3", "\n", "3", "1" | Alert "Transaction name should not be blank!", then ask for a new one. For the number, alert "Transaction value should not be blank!", then ask for a new one, the category is set to 0, shows "tran3(¥3) was added to Unknown" | | | | | | |
-| !! | | addTransactionTest 4 | "\n", "tran4", "\n", "4", "\n" | Alert "Transaction name should not be blank!", then ask for a new one. For the number, alert "Transaction value should not be blank!", then ask for a new one, the category is set to 0, shows "tran4(¥4) was added to Unknown" | | | | | | |
-| !! | | addTransactionTest 5 | "tran5", "1", "6" (where 6 is not yet created) | name is set to tran1, value is set to 5, category is set to 0, shows "This category is not yet created, please add enough new categories first.", then exit back | | | | | | |
-| !! | | addTransactionTest 6 | "tran6", "1", "-1" (where -1 is invalid), "5" | name is set to tran1, value is set to 5,  shows "Invalid input, please try again." | | | | | | |
-| !! | | addTransactionTest 7 | "tran7", "1", "-1" (where -1 is invalid), "6" (where 6 is not yet created) | name is set to tran1, value is set to 5,  shows "Invalid input, please try again.", shows "This category is not yet created, please add enough new categories first.", then exit back | | | | | | |
+| !! | FAIL | addTransactionTest 1 | "tran1\n", "1.00\n", "1\n" | name is set to tran1, value is set to 1.00, category is set to 0, shows "tran1(¥1) was added to Unknown" | Category is not set. prompt "[Transaction added]" | 1. Category cant be correctly set up 2. prompt message is different 3. Confirmation message is different | / | 1. No category input is set up 2. The original message does not match new expected one 3. Confirmation message has not been created yet | 23:15 4/5 | Shiliang |
+| !! | FAIL | addTransactionTest 2 | "\n",  "2.00", "1" | Nothing is actually set up. Alert "Wrong name. It should not be blank!" and stop | Category is  set to "". prompt "[Transaction added]" | 1. It does not alert and stop | / | 1. Exception catcher has not been created yet | 23:15 4/5 | Shiliang |
+| !! | FAIL | addTransactionTest 3 | "tran3\n", "\n", "1\n" | Nothing is actually set up. Alert "Wrong value. It should not be blank!" and stop | InvocationException | 1. It does not alert the right message and stop 2. alert an invocation exception | / | 1. Exception catcher has not been created yet 2. BigDecimal get a "" | 23:15 4/5 | Shiliang |
+| !! | FAIL | addTransactionTest 4 | "tran4\n", "4.00\n", "\n" | name is set to tran4, value is set to 4.00, category is set to 0, shows "tran1(¥1) was added to Unknown" | Category is  set to "tran4". value is set to 4.00. category is  set to Unknown, prompt "[Transaction added]" | 1. It does not alert the right message and stop 2. confirmation message is not right | / | the prompt and confirmation message are not reset yet | 23:15 4/5 | Shiliang |
+| !! | FAIL | addTransactionTest 5 | "tran5\n", "5.00\n", "6\n" (where 6 is not yet created) | nothing is set actually, shows "Wrong category. It should be an integer between 1 - 4", then exit back | Category is  set to "tran5". value is set to 5.00. category is set to Unknown, prompt "[Transaction added]" | 1. no exception thrown | / | exception throw has not been created | 23:15 4/5 | Shiliang |
+| !! | FAIL | addTransactionTest 6 | "tran6\n", "0.00\n", "3\n" | nothing is set actually, shows "Wrong value. It should be a number greater than 0!", then exit back | Category is  set to "tran6". value is set to 0.00. category is set to Unknown, prompt "[Transaction added]" | 1. no exception thrown | / | exception throw has not been created | 23:15 4/5 | Shiliang |
+| !! | FAIL | addTransactionTest 7 | "tran7\n", "-5.00\n", "2\n" | nothing is set actually, shows "Wrong value. It should be a number greater than 0!", then exit back | Category is  set to "tran7". value is set to -5.00. category is set to Unknown, prompt "[Transaction added]" | 1. no exception thrown | / | exception throw has not been created | 23:15 4/5 | Shiliang |
+| !! | FAIL | addTransactionTest 8 | "tran8\n", "8.00\n", "0\n" | nothing is set actually, shows "Wrong category. It should be a number between 1 - 4", then exit back | Category is  set to "tran8". value is set to -5.00. category is set to Unknown, prompt "[Transaction added]" | 1. no exception thrown | / | exception throw has not been created | 23:15 4/5 | Shiliang |
+| !! | FAIL | addTransactionTest 9 | "tran9\n", "9.00\n", "-1\n" | nothing is set actually, shows "Wrong category. It should be a number between 1 - 4", then exit back | Category is  set to "tran9". value is set to 9.00. category is set to Unknown, prompt "[Transaction added]" | 1. no exception thrown | / | exception throw has not been created | 23:15 4/5 | Shiliang |
+| !! | FAIL | addTransactionTest 10 | "tttttrrrrraaaaannnnn10101\n", "10.00\n", "1\n" | name is set to tttttrrrrraaaaannnnn10101, value is set to 10.00, category is set to 1, shows "tttttrrrrraaaaannnnn10101(¥10.00) was added to Bills" | Category is  set to "tttttrrrrraaaaannnnn10101". value is set to10.00. category is set to Unknown, prompt "[Transaction added]" | 1. category set is wrong 2. prompt message is wrong | / | the prompt and confirmation message are not reset yet. | 23:15 4/5 | Shiliang |
+| !! | FAIL | addTransactionTest 11 | "tttttrrrrraaaaannnnn111111111111\n", "11.00\n", "1\n" | nothing is set actually, shows "Wrong name. It should not be more than 25 characters!", then exit back | Category is  set to "tttttrrrrraaaaannnnn111111111111". value is set to11.00. category is set to Unknown, prompt "[Transaction added]" | 1. no exception thrown | / | exception throw has not been created | 23:15 4/5 | Shiliang |
+| !! | FAIL | addTransactionTest 12 | "tran12\n", "12\n", "2\n" | nothing is set actually, shows ""Wrong value. It should have two decimal places e.g. 10.00!", then exit back | Category is  set to "tran12". value is set to12. category is set to Unknown, prompt "[Transaction added]" | 1. no exception thrown | / | exception throw has not been created | 23:15 4/5 | Shiliang |
+| !! |  | addTransactionTest 13 |  |  |  |  |  |  |  |  |
+| !! |  | addTransactionTest 14 |  |  |  |  |  |  |  |  |
 
-#### Function 7: addCategory(Scanner in) - Add Category function
+#### FAILFunction 7: addCategory(Scanner in) - Add Category function
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|
 |----------|------|----|------|----------------|------------|
