@@ -18,7 +18,7 @@ import java.util.Scanner;
 
 
 class BoCAppTest {
-
+    
     private static final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     @BeforeAll 
@@ -73,30 +73,17 @@ class BoCAppTest {
     	System.setOut(null);
     	outContent.reset();
     }
-
-    @Ignore
-    void main() {
-
-    }
-
-    @Ignore
-    void listTransactionsTest() {
-
-    }
-
-    @Ignore
-    void categoryOverviewTest() {
-        
-    }
-
-    @Test
-    public void listTransactionsForCategoryTest1() {
-    	int CategoryNum = 0;
-    	BoCApp.ListTransactionsForCategory(CategoryNum);
-    	assertEquals("1)  Rent - ¥850.00"+'\n', outContent.toString());
-        //outContent.reset();
-    }
     
+    /*
+     1. Failed Hongming Ping 22:14/4/5
+     Reason: The output doesn't include the name of Category as required.
+     If a number larger than bound is input, no tips is output. 
+     2. Failed Hongming Ping 17:48/5/5
+     Reason: The output doesn't include the name of Category as required.
+     Change: The problem of out of bound has been solved.
+     3. Passed Hongming Ping 20:45/5/5
+     
+     */
     @ParameterizedTest
 	@MethodSource
 	void listTransactionsForCategoryTest(int CategoryNum, String ExpectedOutput) throws Exception {
@@ -105,11 +92,11 @@ class BoCAppTest {
 	}
 	static List<Arguments> listTransactionsForCategoryTest(){
 		return List.of(
-				Arguments.arguments(0,"1)  Unknown: Rent - ¥850.00"+'\n'),
-				Arguments.arguments(1,"2)  Bills: Phone Bill - ¥37.99"+'\n'+"3)  Bills: Electricity Bill - ¥75.00"+'\n'),
-				Arguments.arguments(2,"4)  Groceries: Sainsbury's Checkout - ¥23.76"+'\n'+"5)  Groceries: Tesco's Checkout - ¥7.24"+'\n'),
-				Arguments.arguments(3,"6)  Social: RockCity Drinks - ¥8.50"+'\n'+"7)  Social: The Mooch - ¥13.99"+'\n'),
-				Arguments.arguments(4,"The Category doesn't exit"+'\n')
+				Arguments.arguments(1,"Unknown: 1) Rent - ¥850.00"+'\n'),
+				Arguments.arguments(2,"Bills: 2) Phone Bill - ¥37.99"+'\n'+"Bills: 3) Electricity Bill - ¥75.00"+'\n'),
+				Arguments.arguments(3,"Groceries: 4) Sainsbury's Checkout - ¥23.76"+'\n'+"Groceries: 5) Tesco's Checkout - ¥7.24"+'\n'),
+				Arguments.arguments(4,"Social: 6) RockCity Drinks - ¥8.50"+'\n'+"Social: 7) The Mooch - ¥13.99"+'\n'),
+				Arguments.arguments(5,"The Category doesn't exit"+'\n')
 		);
 	}
 	
