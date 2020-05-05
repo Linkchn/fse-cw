@@ -85,17 +85,26 @@ class BoCAppTest {
         Method AddTransactionTest = a.getClass().getDeclaredMethod("AddTransaction", Scanner.class);
         AddTransactionTest.setAccessible(true);
 
-        String input = "\n" + name + "\n" + val + "\n" + cat + "\n";
+        String input = "\n"+ name + val + cat;
         inp = new Scanner(input);
+
         try {
             AddTransactionTest.invoke(a, inp);
+            BoCTransaction tr = BoCApp.UserTransactions.get(BoCApp.UserTransactions.size()-1);
             if (alert.equals("1")) {
-                assertEquals(prompt1 + prompt2 + prompt3 + name + "(¥" + val + ")" + " was added to " + BoCApp.UserCategories.get(Integer.parseInt(cat) - 1).CategoryName() + "\r\n", outContent.toString());
+                if (cat.equals("\n")) {
+                    cat = cat.replaceAll("\n", "1");
+                }
+                assertEquals(prompt1 + prompt2 + prompt3 + name.replace("\n", "") + "(¥" + val.replace("\n", "") + ")" + " was added to " + BoCApp.UserCategories.get(Integer.parseInt(cat.replace("\n", "")) - 1).CategoryName() + "\r\n", outContent.toString());
+                assertEquals(name.replace("\n", "") ,tr.transactionName());
+                assertEquals(new BigDecimal(val.replace("\n", "")) ,tr.transactionValue());
+                assertEquals(Integer.parseInt(cat.replace("\n", "")) - 1 ,tr.transactionCategory());
             }
         }
         catch (Exception e) {
-            e.printStackTrace();
-            assertEquals(alert, e);
+            System.out.println(outContent.toString());
+            assertEquals(alert, e.getCause().getMessage());
+
         }
         
 
@@ -104,18 +113,18 @@ class BoCAppTest {
 
     static List<Arguments> AddTransactionTest() {
         return List.of( // arguments:
-                Arguments.arguments("tran1", "1.00", "1", "1"),
-                Arguments.arguments("\n", "2.00", "1", "Wrong name. It should not be blank!"),
-                Arguments.arguments("tran3", "\n", "1", "Wrong value. It should not be blank!"),
-                Arguments.arguments("tran4", "4.00", "\n", "1"),
-                Arguments.arguments("tran5", "5.00", "6", "Wrong category. It should be an integer between 1 - 4"),
-                Arguments.arguments("tran6", "0.00", "3", "Wrong value. It should be a number greater than 0!"),
-                Arguments.arguments("tran7", "-5.00", "2", "Wrong value. It should be a number greater than 0!"),
-                Arguments.arguments("tran8", "8.00", "0", "Wrong category. It should be a number between 1 - 4"),
-                Arguments.arguments("tran9", "9.00", "-1", "Wrong category. It should be an integer between 1 - 4"),
-                Arguments.arguments("tttttrrrrraaaaannnnn10101", "10.00", "1", "1"),
-                Arguments.arguments("tttttrrrrraaaaannnnn111111111111", "11.00", "1", "Wrong name. It should not be more than 25 characters!"),
-                Arguments.arguments("tran12", "12", "2", "Wrong value. It should have two decimal places e.g. 10.00!")
+                Arguments.arguments("tran1\n", "1.00\n", "1\n", "1"),
+                Arguments.arguments("\n", "2.00\n", "1\n", "Wrong name. It should not be blank!"),
+                Arguments.arguments("tran3\n", "\n", "1\n", "Wrong value. It should not be blank!"),
+                Arguments.arguments("tran4\n", "4.00\n", "\n", "1"),
+                Arguments.arguments("tran5\n", "5.00\n", "6\n", "Wrong category. It should be an integer between 1 - 4"),
+                Arguments.arguments("tran6\n", "0.00\n", "3\n", "Wrong value. It should be a positive number with two decimal places e.g. 10.00."),
+                Arguments.arguments("tran7\n", "-5.00\n", "2\n", "Wrong value. It should be a positive number with two decimal places e.g. 10.00."),
+                Arguments.arguments("tran8\n", "8.00\n", "0\n", "Wrong category. It should be an integer between 1 - 4"),
+                Arguments.arguments("tran9\n", "9.00\n", "-1\n", "Wrong category. It should be an integer between 1 - 4"),
+                Arguments.arguments("tttttrrrrraaaaannnnn10101\n", "10.00\n", "2\n", "1"),
+                Arguments.arguments("tttttrrrrraaaaannnnn111111111111\n", "11.00\n", "1\n", "Wrong name. It should not be more than 25 characters!"),
+                Arguments.arguments("tran12\n", "12\n", "2\n", "Wrong value. It should be a positive number with two decimal places e.g. 10.00.")
         );
     }
 

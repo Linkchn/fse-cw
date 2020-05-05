@@ -102,17 +102,44 @@ public class BoCApp {
 		}
 	}
 
-	private static void AddTransaction(Scanner in) {
+	private static void AddTransaction(Scanner in) throws Exception {
 		System.out.println("What is the title of the transaction?\r\nNOTE: It should not be blank and less than 25 characters.");
 		in.nextLine(); // to remove read-in bug
 		String title = in.nextLine();
-		System.out.println("What is the value of the transaction?\r\nNOTE: It should be greater than 0 with two decimal places e.g. 10.00.");
-		BigDecimal tvalue = new BigDecimal(in.nextLine());
-		System.out.println("What is the category of the transaction?\r\nNote: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.");
-		int tcat = Integer.parseInt(in.nextLine());
-		UserTransactions.add(new BoCTransaction(title, tvalue, 0));
 
-		System.out.println(title + "(¥" + tvalue + ")" + " was added to " + BoCApp.UserCategories.get(tcat - 1).CategoryName());
+		if (title.replaceAll(" ", "").equals("")) {
+			throw new Exception("Wrong name. It should not be blank!");
+		}
+		else if (title.length() > 25){
+			throw new Exception("Wrong name. It should not be more than 25 characters!");
+		}
+
+		System.out.println("What is the value of the transaction?\r\nNOTE: It should be greater than 0 with two decimal places e.g. 10.00.");
+		String value = in.nextLine();
+		if (value.replaceAll(" ", "").equals("")) {
+			throw new Exception("Wrong value. It should not be blank!");
+		} else if (value.matches("[0-9]+.[0-9]{2}") != true) {
+			throw new Exception("Wrong value. It should be a positive number with two decimal places e.g. 10.00.");
+		}
+		BigDecimal tvalue = new BigDecimal(value);
+
+		System.out.println("What is the category of the transaction?\r\nNote: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.");
+		String cat = new String(in.nextLine());
+		int range = UserCategories.size();
+		if (cat.equals("")) {
+			cat = cat.concat("1");
+		} else if (cat.matches("[0-9]*") != true) {
+			throw new Exception("Wrong category. It should be an integer between 1 - " + range);
+		} else if (Integer.parseInt(cat) < 1){
+			throw new Exception("Wrong category. It should be an integer between 1 - " + range);
+		} else if (Integer.parseInt(cat) > UserCategories.size()) {
+			throw new Exception("Wrong category. It should be an integer between 1 - " + range);
+		}
+		int tcat = Integer.parseInt(cat) - 1;
+
+		UserTransactions.add(new BoCTransaction(title, tvalue, tcat));
+
+		System.out.println(title + "(¥" + tvalue + ")" + " was added to " + UserCategories.get(tcat).CategoryName());
 	}
 
 	private static void ChangeTransactionCategory(Scanner in) {
