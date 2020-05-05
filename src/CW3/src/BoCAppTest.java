@@ -23,6 +23,7 @@ class BoCAppTest {
     private static ArrayList<BoCCategory> UserCategories;
     private static Scanner inp;
     private static BoCApp a = null;
+    static BoCApp addCat1;
 
     @BeforeAll 
     static void setup() {
@@ -90,7 +91,7 @@ class BoCAppTest {
 
     static List<Arguments> AddTransactionTest() {
         return List.of( // arguments:
-                Arguments.arguments("tran1", "1", "1", "What is the title of the transaction?\nWhat is the value of the transaction?\n[Transaction added]\n")
+        		Arguments.arguments("tran1", "1", "1", "What is the title of the transaction?\nWhat is the value of the transaction?\n[Transaction added]\n")
 //                Arguments.arguments("\n", ""),
 //                Arguments.arguments("tran3", "\n", "3", "1", ""),
 //                Arguments.arguments("\n", "tran4", "\n", "4", "\n", ""),
@@ -101,8 +102,34 @@ class BoCAppTest {
         );
     }
 
-    @Test
-    void AddCategoryTest() {
+    @DisplayName("AddCategoryTest")
+    @ParameterizedTest
+    @MethodSource
+    void AddCategoryTest(String string1, String string2, String string3, String string4, String string5) throws IllegalAccessException, 
+    IllegalArgumentException, InvocationTargetException, 
+    NoSuchMethodException, SecurityException {
+        Method AddCategoryTest = a.getClass().getDeclaredMethod("AddCategory", Scanner.class);
+    	addCat1 = new BoCApp();
+    	String input = new String();
+    	InputStream in = new ByteArrayInputStream(string2.getBytes());
+    	System.setIn(in);
+    	addCat1.addCategory(in);
+    	
+    	
+    	
+    	
+    	 
 
     }
+    static List<Arguments> AddCategoryTest() {
+    	return List.of( // arguments:
+        		Arguments.arguments("What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n", "cat1Name", "What is the budget for this category?\r\nNote:It should be a pisitive decimal number with exact two decimal places.\r\n", "6.23", "[Category added]"),
+        		Arguments.arguments("What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n", "cat2Name123456789", "", "", ""),
+        		Arguments.arguments("What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n", "cat1Name", "", "", ""),
+        		Arguments.arguments("What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n", "cat1Name", "What is the budget for this category?\r\nNote:It should be a pisitive decimal number with exact two decimal places.\r\n", "6", ""),
+        		Arguments.arguments("What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n", "cat1Name", "What is the budget for this category?\r\nNote:It should be a pisitive decimal number with exact two decimal places.\r\n", "6.1", ""),
+        		Arguments.arguments("What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n", "cat1Name", "What is the budget for this category?\r\nNote:It should be a pisitive decimal number with exact two decimal places.\r\n", "-7.23", "")
+        );
+    }
+    
 }
