@@ -120,6 +120,8 @@ public class BoCApp {
 			throw new Exception("Wrong value. It should not be blank!");
 		} else if (value.matches("[0-9]+.[0-9]{2}") != true) {
 			throw new Exception("Wrong value. It should be a positive number with two decimal places e.g. 10.00.");
+		} else if (!(new BigDecimal(value).compareTo(BigDecimal.ZERO) == 1)) {
+			throw new Exception("Wrong value. It should be a positive number with two decimal places e.g. 10.00.");
 		}
 		BigDecimal tvalue = new BigDecimal(value);
 

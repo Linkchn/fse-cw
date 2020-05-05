@@ -94,6 +94,11 @@ class BoCAppTest {
         outContent.reset();
     }
 
+    @Test
+    void mainTest() {
+        BoCApp.main(new String[]{""});
+    }
+
 
     /*
 	1 - FAIL - Shiliang - 16:13 1/5
