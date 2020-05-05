@@ -334,15 +334,15 @@ This method should not be used in this class. So it has been deleted.
 | Importance | Status | Test                       | Inputs | Expected Outcome   | Test Outcome       | Problem                                                 | Change                                                   | Reason                                   | Time | Author       |
 | ---------- | ------ | -------------------------- | ------ | ------------------ | ------------------ | ------------------------------------------------------- | -------------------------------------------------------- | ---------------------------------------- | ---- | ------------ |
 | !!!        | Fail   | Default Constructor test 1 | void   | [Pending Category] | Fail the test      | The CatogoryBudget is not same as the expected outcome. | change the "CatogoryBudget"   to "[Pending Category]" | The default constructor gives null value |     17:30/01/05 | YuxiangZhang |
-| !!!        | Pass   | Default Constructor test 2 | void   | [Pending Category] | [Pending Category] | No                                                      |                                                          |                                          |   19:50/01/05   | YuxiangZhang |
+| !!!        | Pass   | Default Constructor test 2 | void   | [Pending Category] | [Pending Category] | No                                                      |                             /                             |                      /                    |   19:50/01/05   | YuxiangZhang |
 
 #### Function 2: BoCCategory(String cName, BigDecimal cbudget, BigDecimal cSpend) - Main Constructors       
 
 | Importance | Status | Test                     | Inputs             | Expected Outcome                                    | Test Outcome | Problem | Change | Reason | Time | Author       |
 | ---------- | ------ | ------------------------ | ------------------ | --------------------------------------------------- | ------------ | ------- | ------ | ------ | ---- | ------------ |
 | !!!        |    Fail    | Main Constructors Test 1 | 5                  | The numbers of parameters and input is not matching |       Error       |    the constructor BoCCategory(BigDecimal) is undefined.     |    Ignore the test    |    The compile error can't be solved in the method    |    20:05/01/05  | YuxiangZhang |
-| !!!        |    Pass    | Main Constructors Test 2 | "transport",1000,1200.85 | build successfully                                  |       "transport",1000,1       |    /     |    /    |    /    |    21:40/01/05  | YuxiangZhang |
-| !!!        |    Pass    | Main Constructors Test 3 | "shopping",3000,4500.45  | build successfully                                  |       "shopping",3000,1       |    /     |    /    |    /    |    21:40/01/05  | YuxiangZhang |
+| !!!        |    Pass    | Main Constructors Test 2 | "transport",1000,1200.85 | build successfully                                  |       "transport",1000,1200.85       |    /     |    /    |    /    |    21:40/01/05  | YuxiangZhang |
+| !!!        |    Pass    | Main Constructors Test 3 | "shopping",3000,4500.45  | build successfully                                  |       "shopping",3000,4500.45       |    /     |    /    |    /    |    21:40/01/05  | YuxiangZhang |
 
 #### Function 3: CategoryName() - Get Category Name       
 
@@ -364,8 +364,8 @@ This method should not be used in this class. So it has been deleted.
 
 | Importance | Status | Test                      | Inputs                         | Expected Outcome | Test Outcome | Problem | Change | Reason | Time | Author       |
 | ---------- | ------ | ------------------------- | ------------------------------ | ---------------- | ------------ | ------- | ------ | ------ | ---- | ------------ |
-| !          |   Pass     | get_Category Spend test 1 | void (in class shopping)       | 4500.45          |     4500.45         |     /     |   /      |    /     |   17:14/03/05   | YuxiangZhang |
-| !          |   Pass     | get_Category Spend test 2 | void (in class transport)      | 1200.85          |     1200.85         |    /      |   / /      |   /      |   17:49/03/05   | YuxiangZhang |
+| !          |   Pass     | get_Category Spend test 1 | void (in class shopping)       | 4500.45          |     4500.45         |     /     |     /    |    /     |   17:14/03/05   | YuxiangZhang |
+| !          |   Pass     | get_Category Spend test 2 | void (in class transport)      | 1200.85          |     1200.85         |    /      |     /    |    /     |   17:49/03/05   | YuxiangZhang |
 | !          |   Pass     | get_Category Spend test 3 | void(in [Pending Category]) | null             |        null      |      /    |     /    |     /    |   19:47/03/05   | YuxiangZhang |
 
 
