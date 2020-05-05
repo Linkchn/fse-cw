@@ -77,7 +77,17 @@ class BoCAppTest {
     }
 
 
-
+    /*
+	1 - FAIL - Shiliang - 16:13 1/5
+    Change: /
+    Reason: Decimals are different
+	Traceability: getRemainingBudgetTest 1
+	
+	2 - PASS - Jiawei Shiliang- 22:35 1/5
+    Change: /
+    Reason: /
+	Traceability: getRemainingBudgetTest 3, 4, 5, 6
+	 */
     @DisplayName("AddTransactionTest")
     @ParameterizedTest
     @MethodSource
