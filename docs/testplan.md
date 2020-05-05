@@ -355,8 +355,8 @@ This method should not be used in this class. So it has been deleted.
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+| | | ChangeTransactionCategoryTest1 | | | | | | | | |
+| | | ChangeTransactionCategoryTest2 | | | | | | | | |
 
 #### Function 6: addTransaction(Scanner in) - Add Transaction function
 
