@@ -108,13 +108,11 @@ public class BoCApp {
 			for (int x = 0; x < UserTransactions.size(); x++) {
 				BoCTransaction temp = UserTransactions.get(x);
 				if (temp.transactionCategory() == chosenCategory) {
-					System.out.print( name + ": " +(x + 1) + ") " + temp.toString());
-					System.out.print('\n');
+					System.out.println( name + ": " +(x + 1) + ") " + temp.toString());
 				}
 			}
 		}else{			
-			System.out.print("The Category doesn't exit"); //if out of range, then print error message
-			System.out.print('\n');
+			System.out.println("The Category doesn't exit"); //if out of range, then print error message
 		}
 	}
 

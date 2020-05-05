@@ -105,10 +105,10 @@ class BoCAppTest {
 	static List<Arguments> listTransactionsForCategoryTest(){
 		return List.of(
 				Arguments.arguments(1,"Unknown: 1) Rent - ¥850.00\r\nUnknown: 8) tran1 - ¥1.00\r\n" + "Unknown: 9) tran4 - ¥4.00\r\n" + "Unknown: 10) tran6 - ¥0.00\r\n" + "Unknown: 11) tttttrrrrraaaaannnnn10101 - ¥10.00\r\n"),
-				Arguments.arguments(2,"Bills: 2) Phone Bill - ¥37.99"+'\n'+"Bills: 3) Electricity Bill - ¥75.00"+'\n'),
-				Arguments.arguments(3,"Groceries: 4) Sainsbury's Checkout - ¥23.76"+'\n'+"Groceries: 5) Tesco's Checkout - ¥7.24"+'\n'),
-				Arguments.arguments(4,"Social: 6) RockCity Drinks - ¥8.50"+'\n'+"Social: 7) The Mooch - ¥13.99"+'\n'),
-				Arguments.arguments(5,"The Category doesn't exit"+'\n')
+				Arguments.arguments(2,"Bills: 2) Phone Bill - ¥37.99\r"+'\n'+"Bills: 3) Electricity Bill - ¥75.00\r"+'\n'),
+				Arguments.arguments(3,"Groceries: 4) Sainsbury's Checkout - ¥23.76\r"+'\n'+"Groceries: 5) Tesco's Checkout - ¥7.24\r"+'\n'),
+				Arguments.arguments(4,"Social: 6) RockCity Drinks - ¥8.50\r"+'\n'+"Social: 7) The Mooch - ¥13.99\r"+'\n'),
+				Arguments.arguments(5,"The Category doesn't exit\r"+'\n')
 		);
 	}
 
