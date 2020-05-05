@@ -471,8 +471,12 @@ This method should not be used in this class. So it has been deleted.
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+| !! | Pass | ChangeTransactionCategoryTest1 | "1","3" | Rent to Groceries | Rent to Groceries | / | / | / | 6th/May 00:17 | Leo |
+| !! | Pass | ChangeTransactionCategoryTest2 | "3","1" | Electricity Bill to Unknown | Electricity Bill to Unknown | / | / | / | 6th/May 00:17 | Leo |
+| !! | Pass | ChangeTransactionCategoryTest3 | "4","2" | Sainsbury's Checkout to Bills | Sainsbury's Checkout to Bills | / | / | / | 6th/May 00:17 | Leo |
+| !! | Pass | ChangeTransactionCategoryTest4 | "7","4" | The Mooch to Social | The Mooch to Social | / | / | / | 6th/May 00:18 | Leo |
+| !!! | Pass | ChangeTransactionCategoryTest5 | "8","4" | "Please input valid transaction value!" | "Please input valid transaction value!" | / | / | / | 6th/May 00:46 | Leo |
+| !!! | Pass | ChangeTransactionCategoryTest6 | "5","-1" | "Please input valid category!" | "Please input valid category!" | / | / | / | 6th/May 00:48 | Leo |
 
 #### Function 6: addTransaction(Scanner in) - Add Transaction function
 
