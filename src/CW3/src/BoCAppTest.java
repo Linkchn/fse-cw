@@ -102,7 +102,6 @@ class BoCAppTest {
             }
         }
         catch (Exception e) {
-            System.out.println(outContent.toString());
             assertEquals(alert, e.getCause().getMessage());
 
         }
@@ -124,7 +123,9 @@ class BoCAppTest {
                 Arguments.arguments("tran9\n", "9.00\n", "-1\n", "Wrong category. It should be an integer between 1 - 4"),
                 Arguments.arguments("tttttrrrrraaaaannnnn10101\n", "10.00\n", "2\n", "1"),
                 Arguments.arguments("tttttrrrrraaaaannnnn111111111111\n", "11.00\n", "1\n", "Wrong name. It should not be more than 25 characters!"),
-                Arguments.arguments("tran12\n", "12\n", "2\n", "Wrong value. It should be a positive number with two decimal places e.g. 10.00.")
+                Arguments.arguments("tran12\n", "12\n", "2\n", "Wrong value. It should be a positive number with two decimal places e.g. 10.00."),
+                Arguments.arguments("   \n", "13.00\n", "3\n", "Wrong name. It should not be blank!"),
+                Arguments.arguments("tran14\n", "   \n", "2\n", "Wrong value. It should not be blank!")
         );
     }
 

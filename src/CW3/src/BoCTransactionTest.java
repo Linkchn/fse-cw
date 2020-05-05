@@ -71,7 +71,7 @@ class BoCTransactionTest {
 	}
 
 	/* DEFAULT CONSTRUCTOR TEST******************************************************************
-	1 – Fail – Haonan CHEN - 23:38/30/4  
+	1 - Fail - Haonan CHEN - 23:38/30/4  
 	Problem: The transactionName is not same as the expected outcome.
 	Reason:
 	Traceability:
@@ -86,7 +86,7 @@ class BoCTransactionTest {
 	
 	
 	/* MAIN CONSTRUCTOR TEST**********************************************************************
-	1 – Pass – Haonan CHEN - 00:09/01/05  
+	1 - Pass - Haonan CHEN - 00:09/01/05  
 	Problem: 
 	Reason:
 	Traceability:
@@ -107,7 +107,7 @@ class BoCTransactionTest {
 	}
 	
 	/* 
-	2 – Pass – Haonan CHEN - 14:56/01/05  
+	2 - Pass - Haonan CHEN - 14:56/01/05  
 	Problem: The numbers of parameters and input is not matching
 	Reason: the constructor BoCTransaction(string,bigdecimal) is undefined.
 	Traceability:Main Constructors Test 2; Main Constructors Test 3;Main Constructors Test 4;
@@ -128,7 +128,7 @@ class BoCTransactionTest {
 	}
 	
 	/* 
-	3 – Pass – Haonan CHEN - 16:07/01/05  
+	3 - Pass - Haonan CHEN - 16:07/01/05  
 	Problem: constructorTime is not same as the expected value.
 	Reason:The delay of the constructorTime and currentTime are created.
 	Traceability:Main Constructors Test 5; Main Constructors Test 5(2)
@@ -149,7 +149,7 @@ class BoCTransactionTest {
 	}
 	
 	/* 
-	4 – Pass – Haonan CHEN - 16:07/01/05  
+	4 - Pass - Haonan CHEN - 16:07/01/05  
 	Problem: 
 	Reason:
 	Traceability:Main Constructors Test 6
@@ -172,17 +172,17 @@ class BoCTransactionTest {
 	
 	
 	/* TRANSACTION NAME TEST*******************************************************************
-	1 – Pass – Haonan CHEN - 18:51/01/05  
+	1 - Pass - Haonan CHEN - 18:51/01/05  
 	Problem: 
 	Reason:
 	Traceability:transactionName Test 1
 	
-	2 – Pass – Haonan CHEN - 19:03/01/05  
+	2 - Pass - Haonan CHEN - 19:03/01/05  
 	Problem: 
 	Reason:
 	Traceability:transactionName Test 2
 	
-	3 – Pass – Haonan CHEN - 19:04/01/05  
+	3 - Pass - Haonan CHEN - 19:04/01/05  
 	Problem: 
 	Reason:
 	Traceability:transactionName Test 3
@@ -202,17 +202,17 @@ class BoCTransactionTest {
 	
 	
 	/* TRANSACTION VALUE TEST*******************************************************************
-	1 – Pass – Haonan CHEN - 19:07/01/05  
+	1 - Pass - Haonan CHEN - 19:07/01/05  
 	Problem: 
 	Reason:
 	Traceability:transactionValue Test 1
 	
-	2 – Pass – Haonan CHEN - 19:12/01/05  
+	2 - Pass - Haonan CHEN - 19:12/01/05  
 	Problem: 
 	Reason:
 	Traceability:transactionValue Test 2
 	
-	3 – Pass – Haonan CHEN - 19:16/01/05  
+	3 - Pass - Haonan CHEN - 19:16/01/05  
 	Problem: 
 	Reason:
 	Traceability:transactionValue Test 3
@@ -231,17 +231,17 @@ class BoCTransactionTest {
 	}
 	
 	/* TRANSACTION CATEGORY TEST*******************************************************************
-	1 – Pass – Haonan CHEN - 19:20/01/05  
+	1 - Pass - Haonan CHEN - 19:20/01/05  
 	Problem: 
 	Reason:
 	Traceability:transactionCategory Test 1
 	
-	2 – Pass – Haonan CHEN - 19:30/01/05  
+	2 - Pass - Haonan CHEN - 19:30/01/05  
 	Problem: 
 	Reason:
 	Traceability:transactionCategory Test 2
 	
-	3 – Pass – Haonan CHEN - 19:42/01/05  
+	3 - Pass - Haonan CHEN - 19:42/01/05  
 	Problem: 
 	Reason:
 	Traceability:transactionCategory Test 3
@@ -261,17 +261,17 @@ class BoCTransactionTest {
 	
 	
 	/* TRANSACTION TIME TEST*******************************************************************
-	1 – Pass – Haonan CHEN - 19:45/01/05  
+	1 - Pass - Haonan CHEN - 19:45/01/05  
 	Problem: 
 	Reason:
 	Traceability:transactionTime Test 1
 	
-	2 – Pass – Haonan CHEN - 19:51/01/05  
+	2 - Pass - Haonan CHEN - 19:51/01/05  
 	Problem: 
 	Reason:
 	Traceability:transactionTime Test 2
 	
-	3 – Pass – Haonan CHEN - 20:03/01/05  
+	3 - Pass - Haonan CHEN - 20:03/01/05  
 	Problem: 
 	Reason:
 	Traceability:transactionTime Test 3
@@ -290,12 +290,12 @@ class BoCTransactionTest {
 	}
 
 	/*
-    1 – ERROR – Shiliang – 21:43 1/5
+    1 - ERROR - Shiliang - 21:43 1/5
     Problem: isComplete () does not exist
     Reason: java reported error, cant invoke a non-exist method
     Traceability: isCompleteTest 1
 
-    2 – PASS – Shiliang – 22:37 1/5
+    2 - PASS - Shiliang - 22:37 1/5
     Problem: /
     Reason: /
     Traceability: isCompleteTest 2
