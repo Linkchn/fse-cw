@@ -54,7 +54,7 @@ class BoCCategoryTest {
         
     }
 	
-	/* – Pass – Hongming PING - 23:38/30/4  
+	/* - Pass - Hongming PING - 23:38/30/4  
 	
 	*/
 	@Test
@@ -70,7 +70,7 @@ class BoCCategoryTest {
 		assertEquals(TestInputString, TestOutputString);
 	}
 	
-	/*1. – Fail – Hongming PING - 21:38/2/5
+	/*1. - Fail - Hongming PING - 21:38/2/5
 	Problem: If newName is sapce only or empty, the result still returns the value of
 	newName, which is Unknown name.
 	2. - Pass - 22:57/2/5
@@ -90,7 +90,7 @@ class BoCCategoryTest {
 		assertNull(TestOutputString);
 	}
 	
-	/* – Pass – Hongming PING - 16:52/1/5  
+	/* - Pass - Hongming PING - 16:52/1/5  
 	
 	*/
 	@Test
@@ -107,7 +107,7 @@ class BoCCategoryTest {
 		assertEquals(TestExceptOutputBudget, TestOutputBudget);
 	}
 	
-	/* – Pass – Hongming PING - 16:52/1/5  
+	/* - Pass - Hongming PING - 16:52/1/5  
 	
 	*/
 	@Test
@@ -124,7 +124,7 @@ class BoCCategoryTest {
 		assertEquals(TestExceptOutputBudget, TestOutputBudget);
 	}
 	
-	/* – Pass – Hongming PING - 16:52/1/5  
+	/* - Pass - Hongming PING - 16:52/1/5  
 	
 	*/
 	@Test
@@ -143,22 +143,22 @@ class BoCCategoryTest {
 
 	
 	/* 
-    1 – FAIL – Shiliang – 21:43 30/5
+    1 - FAIL - Shiliang - 21:43 30/5
     Problem: Decimals are different
     Reason: There might be something wrong with the input type
     Traceability: addExpenseTest 1
 
-    2 – FAIL – Shiliang – 21:46 30/5
+    2 - FAIL - Shiliang - 21:46 30/5
     Problem: Decimals are still different
     Reason: BigDecimal requires accurate numbers
     Traceability: addExpenseTest 2
 
-    3 – PASS – Shiliang – 21:55 30/5
+    3 - PASS - Shiliang - 21:55 30/5
     Problem: /
     Reason: Only String can be accurate numbers for a BigDecimal constructor
     Traceability: addExpenseTest 3
 
-    4 – PASS – Shiliang – 22:35 30/5
+    4 - PASS - Shiliang - 22:35 30/5
     Problem: /
     Reason: /
     Traceability: addExpenseTest 4, 5, 6
@@ -178,12 +178,12 @@ class BoCCategoryTest {
 
 
     /* 
-    1 – PASS – Shiliang – 23:44 30/4
+    1 - PASS - Shiliang - 23:44 30/4
     Problem: /
     Reason: /
     Traceability: removeExpenseTest 1, 2, 3, 4
 
-    2 – FAIL – Shiliang – 23:44 30/4
+    2 - FAIL - Shiliang - 23:44 30/4
     Problem: Expected an exception that expense should not be negative
     Reason: The source code does not handle this problem
     Traceability: removeExpenseTest 5

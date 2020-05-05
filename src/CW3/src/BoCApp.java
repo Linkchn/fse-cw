@@ -150,7 +150,7 @@ public class BoCApp {
 		System.out.println("Which category will it move to?");
 		CategoryOverview();
 		int newCat = Integer.parseInt(in.nextLine());
-		BoCTransaction temp = UserTransactions.get(tID);
+		BoCTransaction temp = UserTransactions.get(tID-1);
 		temp.setTransactionCategory(newCat);
 		UserTransactions.set(tID, temp);
 		BoCCategory temp2 = UserCategories.get(newCat);

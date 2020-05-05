@@ -44,12 +44,12 @@ public class BoCCategory {
 
 
 	/*
-	1 – FAIL – Shiliang – 16:13 1/5
+	1 - FAIL - Shiliang - 16:13 1/5
     Change: /
     Reason: Decimals are different
 	Traceability: getRemainingBudgetTest 1
 	
-	2 – PASS – Jiawei Shiliang– 22:35 1/5
+	2 - PASS - Jiawei Shiliang- 22:35 1/5
     Change: /
     Reason: /
 	Traceability: getRemainingBudgetTest 3, 4, 5, 6
@@ -60,7 +60,7 @@ public class BoCCategory {
 	}
 
 	/*
-	1 – PASS – Jiawei – 16:00 1/5
+	1 - PASS - Jiawei - 16:00 1/5
     Change: Add an parameter 'temp' to check whether the result is negative. Then
     		the new code will throw new exception "Expense should not be negative" if 
     		the result is negative.
@@ -78,7 +78,7 @@ public class BoCCategory {
 	}
 
 	/*
-	1 – PASS – Jiawei – 16:37 1/5
+	1 - PASS - Jiawei - 16:37 1/5
     Change: /
     Reason: /
     Traceability: resetBudgetSpendTest 1
@@ -88,7 +88,7 @@ public class BoCCategory {
 	}
 
 	/*
-	1 – PASS – Jiawei Shiliang– 16:13 1/5
+	1 - PASS - Jiawei Shiliang- 16:13 1/5
     Change: /
     Reason: /
     Traceability: getRemainingBudgetTest 1
