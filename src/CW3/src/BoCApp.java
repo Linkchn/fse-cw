@@ -103,13 +103,16 @@ public class BoCApp {
 	}
 
 	private static void AddTransaction(Scanner in) {
-		System.out.println("What is the title of the transaction?");
+		System.out.println("What is the title of the transaction?\r\nNOTE: It should not be blank and less than 25 characters.");
 		in.nextLine(); // to remove read-in bug
 		String title = in.nextLine();
-		System.out.println("What is the value of the transaction?");
+		System.out.println("What is the value of the transaction?\r\nNOTE: It should be greater than 0 with two decimal places e.g. 10.00.");
 		BigDecimal tvalue = new BigDecimal(in.nextLine());
+		System.out.println("What is the category of the transaction?\r\nNote: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.");
+		int tcat = Integer.parseInt(in.nextLine());
 		UserTransactions.add(new BoCTransaction(title, tvalue, 0));
-		System.out.println("[Transaction added]");
+
+		System.out.println(title + "(¥" + tvalue + ")" + " was added to " + BoCApp.UserCategories.get(tcat - 1).CategoryName());
 	}
 
 	private static void ChangeTransactionCategory(Scanner in) {
