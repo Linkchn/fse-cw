@@ -93,12 +93,28 @@ public class BoCApp {
 
 	}
 
+	/*
+	 Programmer: Hongming Ping
+	 Fix:
+	 1. The input number and serial number have been fixed to be equal.
+	 2. When print on the console, the name of Category could also been shown
+	 3. When input number out of the range of Category, there would be an error message.
+	 */
 	public static void ListTransactionsForCategory(int chosenCategory) {
-		for (int x = 0; x < UserTransactions.size(); x++) {
-			BoCTransaction temp = UserTransactions.get(x);
-			if (temp.transactionCategory() == chosenCategory) {
-				System.out.println((x + 1) + ") " + temp.toString());
+		if (chosenCategory<=UserCategories.size()) { //Check for input that is out of the range of category
+			chosenCategory--; //The no. of a category is smaller than it is printed out
+			BoCCategory copy =UserCategories.get(chosenCategory);
+			String name = copy.CategoryName(); // Get the Name of Category and print it together with transaction name
+			for (int x = 0; x < UserTransactions.size(); x++) {
+				BoCTransaction temp = UserTransactions.get(x);
+				if (temp.transactionCategory() == chosenCategory) {
+					System.out.print( name + ": " +(x + 1) + ") " + temp.toString());
+					System.out.print('\n');
+				}
 			}
+		}else{			
+			System.out.print("The Category doesn't exit"); //if out of range, then print error message
+			System.out.print('\n');
 		}
 	}
 
