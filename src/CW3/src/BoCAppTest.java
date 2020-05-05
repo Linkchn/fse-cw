@@ -96,7 +96,7 @@ class BoCAppTest {
 
     @Test
     void mainTest() {
-        String input = "X\n";
+        String input = "A\nABC\n10.00\n1\n";
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         BoCApp.main(new String[]{"X\n"});
