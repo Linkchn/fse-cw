@@ -50,7 +50,7 @@ public class BoCApp {
 
         CategoryOverview();
         System.out.println(
-                "\nWhat do you want to do?\n T = List All [T]ransactions, [num] = Show Category [num], A = [A]dd Transaction, X = E[x]it");
+        		"\nWhat do you want to do?\nO = [O]verview\nT = List All [T]ransactions\n[num] = Show Category [num]\nC = [C]hange Transaction Category\nA = [A]dd Transaction\nN = [N]ew Category\nX = E[x]it");
         Scanner in = new Scanner(System.in);
         while (in.hasNextLine()) {
             String s = in.next();
@@ -78,8 +78,8 @@ public class BoCApp {
             }
 
             System.out.println(
-                    "\nWhat do you want to do?\n O = [O]verview, T = List All [T]ransactions, [num] = Show Category [num], C = [C]hange Transaction Category, A = [A]dd Transaction, N = [N]ew Category, X = E[x]it");
-        }
+            		"\nWhat do you want to do?\nO = [O]verview\nT = List All [T]ransactions\n[num] = Show Category [num]\nC = [C]hange Transaction Category\nA = [A]dd Transaction\nN = [N]ew Category\nX = E[x]it");        
+            }
         in.close();
     }
 

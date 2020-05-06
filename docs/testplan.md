@@ -466,10 +466,22 @@ This method should not be used in this class. So it has been deleted.
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
+<<<<<<< HEAD
 | !! | PASS | mainTest1 | | | | | | | | Shiliang |
 
 | !! |  | mainTest2 |  | | | | | | | |
 | !! | | mainTest3 |  | | | | | | | |
+=======
+| !! | PASS | mainTest1 | X | | | | | | | Shiliang |
+| !! |  | mainTest2 | t | | | | | | | Daze |
+| !! |  | mainTest2 | O, X | | | | | | |  |
+| !! |  | mainTest2 | T, X | | | | | | |  |
+| !! |  | mainTest2 | 1, X | | | | | | | Daze |
+| !! | | mainTest2 | N, X | | | | | | | |
+| !! | | mainTest2 | A, X | | | | | | | |
+| !! | | mainTest2 | all function called | | | | | | | |
+| !!! | | mainTest2 | illegal input | | | | | | | |
+>>>>>>> d04874b24700961b9b8bda5d6c534d13132dfaa5
 
 #### Function 2: ArrayListofBoCTransactionobjects  - List Transactions function
 
