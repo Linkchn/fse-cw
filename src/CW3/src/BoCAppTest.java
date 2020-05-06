@@ -146,7 +146,7 @@ class BoCAppTest {
     }
     static List<Arguments> listTransactionsForCategoryTest(){
         long timeStamp = System.currentTimeMillis();
-        SimpleDateFormat sdff=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        SimpleDateFormat sdff=new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		String sd = sdff.format(new Date(timeStamp));
 		return List.of(
                 Arguments.arguments(1,"Unknown: 1) Rent - ¥850.00"+"\t\t"+ sd +"\r\nUnknown: 8) tran1 - ¥1.00"+"\t\t"+ sd +"\r\n" + "Unknown: 9) tran4 - ¥4.00"+"\t\t"+ sd+"\r\n" + "Unknown: 10) tran6 - ¥0.00"+"\t\t"+ sd+"\r\n" + "Unknown: 11) tttttrrrrraaaaannnnn10101 - ¥10.00"+"\t\t"+ sd+"\r\n"),
