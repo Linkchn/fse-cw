@@ -717,7 +717,7 @@ class BoCTransactionTest {
 		long timeStamp = System.currentTimeMillis(); 
 		SimpleDateFormat sdff=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String sd = sdff.format(new Date(timeStamp));
-		String testExceptOutput = sd + " Leo - ¥123" ;
+		String testExceptOutput = " Leo - ¥123\t\t" + sd;
 		String testOutput = null;
 		try {
 			BoCTransaction copy = new BoCTransaction();
