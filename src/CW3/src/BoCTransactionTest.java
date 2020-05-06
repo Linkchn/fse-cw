@@ -1,6 +1,9 @@
 package src;
 
 import static org.junit.jupiter.api.Assertions.*;
+import org.junit.jupiter.params.*;
+import org.junit.jupiter.params.provider.Arguments;
+import org.junit.jupiter.params.provider.MethodSource;
 
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;
@@ -8,11 +11,10 @@ import java.util.Date;
 import java.util.List;
 
 import org.junit.Ignore;
+import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.params.ParameterizedTest;
 import org.junit.jupiter.params.provider.MethodSource;
-
-import jdk.nashorn.internal.runtime.regexp.joni.constants.Arguments;
 
 class BoCTransactionTest {
 	private String testInputString, testOutputString, testInputString1, testInputString2;
@@ -28,54 +30,25 @@ class BoCTransactionTest {
 	}
 
 	/* 
-	1 – Pass – Leo - 14:25/1/5  
+	1 - Pass - Leo - 14:25/1/5  
 	Problem: 
 	Reason:
 	Traceability: setNameTest1
-	*/
-	@Test		
-	void setNameTest1() {
-		testInputString = "Leo";
-		try {
-			BoCTransaction copy = new BoCTransaction();
-			copy.setTransactionName(testInputString);
-			copy.resetCounter();
-			testOutputString = copy.transactionName();
-		}catch(Exception e) {
-			fail ("Someting wrong with catch");
-		}
-		assertEquals(testInputString, testOutputString);
-	}
 	
-	/* 
 	2 – Pass – Leo - 14:42/1/5  
 	Problem: 
 	Reason:
 	Traceability: setNameTest2
-	*/
-	@Test
-	void setNameTest2() {
-		testInputString = null;
-		try {
-			BoCTransaction copy = new BoCTransaction();
-			copy.setTransactionName(testInputString);
-			copy.resetCounter();
-			testOutputString = copy.transactionName();
-		}catch(Exception e) {
-			fail ("Someting wrong with catch");
-		}
-		assertEquals(testInputString, testOutputString);
-	}
-
-	/* 
+	
 	3 – Pass – Leo - 15:27/1/5  
 	Problem: 
 	Reason:
 	Traceability: setNameTest3
 	*/
-	@Test
-	void setNameTest3() {
-		testInputString = "QWERTYUIOPASDFGHJKLZXCVBNM";
+    @DisplayName("setNameTest")
+	@ParameterizedTest
+	@MethodSource	
+	void setNameTest(String testInputString, String testExpectOutputString) throws Exception {
 		try {
 			BoCTransaction copy = new BoCTransaction();
 			copy.setTransactionName(testInputString);
@@ -84,7 +57,14 @@ class BoCTransactionTest {
 		}catch(Exception e) {
 			fail ("Someting wrong with catch");
 		}
-		assertEquals("QWERTYUIOPASDFGHJKLZXCVBN", testOutputString);
+		assertEquals(testExpectOutputString, testOutputString);
+	}
+	static List<Arguments> setNameTest(){
+		return List.of(
+				Arguments.arguments("LEO", "LEO"),
+				Arguments.arguments(null, null),
+				Arguments.arguments("QWERTYUIOPASDFGHJKLZXCVBNM", "QWERTYUIOPASDFGHJKLZXCVBN")
+		);
 	}
 
 	/* 
@@ -92,53 +72,21 @@ class BoCTransactionTest {
 	Problem: 
 	Reason:
 	Traceability: setNameTest4
-	*/
-	@Test
-	void setNameTest4() {
-		testInputString1 = null;
-		testInputString2 = "Leo";
-		try {
-			BoCTransaction copy = new BoCTransaction();
-			copy.setTransactionName(testInputString1);
-			copy.setTransactionName(testInputString2);
-			testOutputString = copy.transactionName();
-		}catch(Exception e) {
-			fail ("Someting wrong with catch");
-		}
-		assertEquals("Leo", testOutputString);
-	}
-
-	/* 
+	
 	5 – Pass – Leo - 23:26/1/5  
 	Problem: 
 	Reason:
 	Traceability: setNameTest5
-	*/
-	@Test
-	void setNameTest5() {
-		testInputString1 = "Leo";
-		testInputString2 = "Leopard";
-		try {
-			BoCTransaction copy = new BoCTransaction();
-			copy.setTransactionName(testInputString1);
-			copy.setTransactionName(testInputString2);
-			testOutputString = copy.transactionName();
-		}catch(Exception e) {
-			fail ("Someting wrong with catch");
-		}
-		assertEquals("Leo", testOutputString);
-	}
-
-	/* 
+	
 	6 – Pass – Leo - 23:37/1/5  
 	Problem: 
 	Reason:
 	Traceability: setNameTest6
 	*/
-	@Test
-	void setNameTest6() {
-		testInputString1 = "Leo";
-		testInputString2 = null;
+	@DisplayName("setNameTestD")
+	@ParameterizedTest
+	@MethodSource	
+	void setNameTestD(String testInputString1, String testInputString2, String testExpectOutputString) throws Exception {
 		try {
 			BoCTransaction copy = new BoCTransaction();
 			copy.setTransactionName(testInputString1);
@@ -147,17 +95,41 @@ class BoCTransactionTest {
 		}catch(Exception e) {
 			fail ("Someting wrong with catch");
 		}
-		assertEquals("Leo", testOutputString);
+		assertEquals(testExpectOutputString, testOutputString);
 	}
-	
+	static List<Arguments> setNameTestD(){
+		return List.of(
+				Arguments.arguments(null, "LEO", "LEO"),
+				Arguments.arguments("Leo", "Leopard", "Leo"),
+				Arguments.arguments("Leo", null, "Leo")
+		);
+	}
+
 	/* 
 	7 – Pass – Leo - 15:50/1/5  
 	Problem: 
 	Reason:
 	Traceability: setValueTest1
+	
+	8 – Pass – Leo - 16:55/1/5  
+	Problem: 
+	Reason:
+	Traceability: setValueTest2
+	
+	9 – Pass – Leo - 17:19/1/5  
+	Problem: 
+	Reason:
+	Traceability: setValueTest3
+	
+	10 – Pass – Leo - 18:28/1/5  
+	Problem: 
+	Reason:
+	Traceability: setValueTest4
 	*/
-	@Test
-	void setValueTest1(){
+	@DisplayName("setValueTest")
+	@ParameterizedTest
+	@MethodSource
+	void setValueTest(BigDecimal testInputBudget, BigDecimal testExceptOutputBudget) throws Exception {
 		testInputBudget = new BigDecimal(123);
 		testExceptOutputBudget = new BigDecimal("123");
 		try {
@@ -170,68 +142,13 @@ class BoCTransactionTest {
 		}
 		assertEquals(testExceptOutputBudget, testOutputBudget);
 	}
-
-	/* 
-	8 – Pass – Leo - 16:55/1/5  
-	Problem: 
-	Reason:
-	Traceability: setValueTest2
-	*/
-	@Test
-	void setValueTest2(){
-		testInputBudget = new BigDecimal("123.12");
-		testExceptOutputBudget = new BigDecimal("123.12");
-		try {
-			BoCTransaction copy = new BoCTransaction();
-			copy.setTransactionValue(testInputBudget);
-			copy.resetCounter();
-			testOutputBudget = copy.transactionValue();
-		}catch(Exception e) {
-			fail ("Someting wrong with catch");
-		}
-		assertEquals(testExceptOutputBudget, testOutputBudget);
-	}
-
-	/* 
-	9 – Pass – Leo - 17:19/1/5  
-	Problem: 
-	Reason:
-	Traceability: setValueTest3
-	*/
-	@Test
-	void setValueTest3(){
-		testInputBudget = new BigDecimal("123.123");
-		testExceptOutputBudget = null;
-		try {
-			BoCTransaction copy = new BoCTransaction();
-			copy.setTransactionValue(testInputBudget);
-			copy.resetCounter();
-			testOutputBudget = copy.transactionValue();
-		}catch(Exception e) {
-			fail ("Someting wrong with catch");
-		}
-		assertEquals(testExceptOutputBudget, testOutputBudget);
-	}
-
-	/* 
-	10 – Pass – Leo - 18:28/1/5  
-	Problem: 
-	Reason:
-	Traceability: setValueTest4
-	*/
-	@Test
-	void setValueTest4(){
-		testInputBudget = new BigDecimal("-123.12");
-		testExceptOutputBudget = null;
-		try {
-			BoCTransaction copy = new BoCTransaction();
-			copy.setTransactionValue(testInputBudget);
-			copy.resetCounter();
-			testOutputBudget = copy.transactionValue();
-		}catch(Exception e) {
-			fail ("Someting wrong with catch");
-		}
-		assertEquals(testExceptOutputBudget, testOutputBudget);
+	static List<Arguments> setValueTest(){
+		return List.of(
+				Arguments.arguments(new BigDecimal(123), new BigDecimal("123")),
+				Arguments.arguments(new BigDecimal("123.12"), new BigDecimal("123.12")),
+				Arguments.arguments(new BigDecimal("123.123"), null),
+				Arguments.arguments(new BigDecimal("-123.123"), null)
+		);
 	}
 
 	/* 
@@ -239,9 +156,16 @@ class BoCTransactionTest {
 	Problem: 
 	Reason:
 	Traceability: setValueTest5
+	
+	12 – Pass – Leo - 00:55/2/5  
+	Problem: 
+	Reason:
+	Traceability: setValueTest6
 	*/
-	@Test
-	void setValueTest5(){
+	@DisplayName("setValueTestD")
+	@ParameterizedTest
+	@MethodSource
+	void setValueTestD(BigDecimal testInputBudget1,BigDecimal testInputBudget2, BigDecimal testExceptOutputBudget) throws Exception {
 		testInputBudget1 = new BigDecimal("-123.12");
 		testInputBudget2 = new BigDecimal("123.13");
 		testExceptOutputBudget = new BigDecimal("123.13");
@@ -255,27 +179,11 @@ class BoCTransactionTest {
 		}
 		assertEquals(testExceptOutputBudget, testOutputBudget);
 	}
-
-	/* 
-	12 – Pass – Leo - 00:55/2/5  
-	Problem: 
-	Reason:
-	Traceability: setValueTest6
-	*/
-	@Test
-	void setValueTest6(){
-		testInputBudget1 = new BigDecimal("123.13");
-		testInputBudget2 = new BigDecimal("123.14");
-		testExceptOutputBudget = new BigDecimal("123.13");
-		try {
-			BoCTransaction copy = new BoCTransaction();
-			copy.setTransactionValue(testInputBudget1);
-			copy.setTransactionValue(testInputBudget2);
-			testOutputBudget = copy.transactionValue();
-		}catch(Exception e) {
-			fail ("Someting wrong with catch");
-		}
-		assertEquals(testExceptOutputBudget, testOutputBudget);
+	static List<Arguments> setValueTestD(){
+		return List.of(
+				Arguments.arguments(new BigDecimal("-123.12"), new BigDecimal("123.13"), new BigDecimal("123.13")),
+				Arguments.arguments(new BigDecimal("123.12"), new BigDecimal("123.14"), new BigDecimal("123.13"))
+		);
 	}
 	
 	/* 
@@ -283,12 +191,16 @@ class BoCTransactionTest {
 	Problem: 
 	Reason:
 	Traceability: setCatTest1
+	
+	14 – Pass – Leo - 19:05/1/5  
+	Problem: 
+	Reason:
+	Traceability: setCatTest2
 	*/
-	@Test
-	void setCatTest1(){
-		int testInput = 10;
-		int testExceptOutput = 10;
-		int testOutput = 0;
+	@DisplayName("setCatTest")
+	@ParameterizedTest
+	@MethodSource
+	void setCatTest(int testInput, int testExceptOutput, int testOutput) throws Exception {
 		try {
 			BoCTransaction copy = new BoCTransaction();
 			copy.setTransactionCategory(testInput);
@@ -299,27 +211,11 @@ class BoCTransactionTest {
 		}
 		assertEquals(testExceptOutput, testOutput);
 	}
-
-	/* 
-	14 – Pass – Leo - 19:05/1/5  
-	Problem: 
-	Reason:
-	Traceability: setCatTest2
-	*/
-	@Test
-	void setCatTest2(){
-		int testInput = -10;
-		int testExceptOutput = 0;
-		int testOutput = 0;
-		try {
-			BoCTransaction copy = new BoCTransaction();
-			copy.setTransactionCategory(testInput);
-			copy.resetCounter();
-			testOutput = copy.transactionCategory();
-		}catch(Exception e) {
-			fail ("Someting wrong with catch");
-		}
-		assertEquals(testExceptOutput, testOutput);
+	static List<Arguments> setCatTest(){
+		return List.of(
+				Arguments.arguments(10, 10, 0),
+				Arguments.arguments(-10, 0, 0)
+		);
 	}
 
 	/* 
