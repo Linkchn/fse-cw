@@ -132,7 +132,7 @@ class BoCAppTest {
 	}
 
 	/* 
-	1 – Pass – Leo - 00:46/6/5  
+	1 - Pass - Leo - 00:46/6/5  
 	Problem: /
 	Reason:/
 	Traceability: ChangeTransactionCategoryTest1,2,3,4,5,6

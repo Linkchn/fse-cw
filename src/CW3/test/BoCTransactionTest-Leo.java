@@ -28,7 +28,7 @@ class BoCTransactionTest {
 	}
 
 	/* 
-	1 – Pass – Leo - 14:25/1/5  
+	1 - Pass - Leo - 14:25/1/5  
 	Problem: 
 	Reason:
 	Traceability: setNameTest1
@@ -48,7 +48,7 @@ class BoCTransactionTest {
 	}
 	
 	/* 
-	2 – Pass – Leo - 14:42/1/5  
+	2 - Pass - Leo - 14:42/1/5  
 	Problem: 
 	Reason:
 	Traceability: setNameTest2
@@ -68,7 +68,7 @@ class BoCTransactionTest {
 	}
 
 	/* 
-	3 – Pass – Leo - 15:27/1/5  
+	3 - Pass - Leo - 15:27/1/5  
 	Problem: 
 	Reason:
 	Traceability: setNameTest3
@@ -88,7 +88,7 @@ class BoCTransactionTest {
 	}
 
 	/* 
-	4 – Pass – Leo - 23:21/1/5  
+	4 - Pass - Leo - 23:21/1/5  
 	Problem: 
 	Reason:
 	Traceability: setNameTest4
@@ -109,7 +109,7 @@ class BoCTransactionTest {
 	}
 
 	/* 
-	5 – Pass – Leo - 23:26/1/5  
+	5 - Pass - Leo - 23:26/1/5  
 	Problem: 
 	Reason:
 	Traceability: setNameTest5
@@ -130,7 +130,7 @@ class BoCTransactionTest {
 	}
 
 	/* 
-	6 – Pass – Leo - 23:37/1/5  
+	6 - Pass - Leo - 23:37/1/5  
 	Problem: 
 	Reason:
 	Traceability: setNameTest6
@@ -151,7 +151,7 @@ class BoCTransactionTest {
 	}
 	
 	/* 
-	7 – Pass – Leo - 15:50/1/5  
+	7 - Pass - Leo - 15:50/1/5  
 	Problem: 
 	Reason:
 	Traceability: setValueTest1
@@ -172,7 +172,7 @@ class BoCTransactionTest {
 	}
 
 	/* 
-	8 – Pass – Leo - 16:55/1/5  
+	8 - Pass - Leo - 16:55/1/5  
 	Problem: 
 	Reason:
 	Traceability: setValueTest2
@@ -193,7 +193,7 @@ class BoCTransactionTest {
 	}
 
 	/* 
-	9 – Pass – Leo - 17:19/1/5  
+	9 - Pass - Leo - 17:19/1/5  
 	Problem: 
 	Reason:
 	Traceability: setValueTest3
@@ -214,7 +214,7 @@ class BoCTransactionTest {
 	}
 
 	/* 
-	10 – Pass – Leo - 18:28/1/5  
+	10 - Pass - Leo - 18:28/1/5  
 	Problem: 
 	Reason:
 	Traceability: setValueTest4
@@ -235,7 +235,7 @@ class BoCTransactionTest {
 	}
 
 	/* 
-	11 – Pass – Leo - 23:48/1/5  
+	11 - Pass - Leo - 23:48/1/5  
 	Problem: 
 	Reason:
 	Traceability: setValueTest5
@@ -257,7 +257,7 @@ class BoCTransactionTest {
 	}
 
 	/* 
-	12 – Pass – Leo - 00:55/2/5  
+	12 - Pass - Leo - 00:55/2/5  
 	Problem: 
 	Reason:
 	Traceability: setValueTest6
@@ -279,7 +279,7 @@ class BoCTransactionTest {
 	}
 	
 	/* 
-	13 – Pass – Leo - 19:03/1/5  
+	13 - Pass - Leo - 19:03/1/5  
 	Problem: 
 	Reason:
 	Traceability: setCatTest1
@@ -301,7 +301,7 @@ class BoCTransactionTest {
 	}
 
 	/* 
-	14 – Pass – Leo - 19:05/1/5  
+	14 - Pass - Leo - 19:05/1/5  
 	Problem: 
 	Reason:
 	Traceability: setCatTest2
@@ -323,7 +323,7 @@ class BoCTransactionTest {
 	}
 
 	/* 
-	15 – Pass – Leo - 00:59/2/5  
+	15 - Pass - Leo - 00:59/2/5  
 	Problem: 
 	Reason:
 	Traceability: setCatTest3
@@ -346,7 +346,7 @@ class BoCTransactionTest {
 	}
 	
 	/* 
-	16 – Pass – Leo - 22:21/1/5  
+	16 - Pass - Leo - 22:21/1/5  
 	Problem: 
 	Reason:
 	Traceability: toStringTest1
@@ -367,7 +367,7 @@ class BoCTransactionTest {
 	}
 
 	/* 
-	17 – Pass – Leo - 22:23/1/5  
+	17 - Pass - Leo - 22:23/1/5  
 	Problem: 
 	Reason:
 	Traceability: toStringTest2
@@ -388,7 +388,7 @@ class BoCTransactionTest {
 	}
 
 	/* 
-	18 – Pass – Leo - 22:37/1/5  
+	18 - Pass - Leo - 22:37/1/5  
 	Problem: 
 	Reason:
 	Traceability: toStringTest3
