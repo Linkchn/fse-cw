@@ -129,33 +129,33 @@ class BoCAppTest {
     
     
     /*
-     1. Failed Hongming Ping 22:14/4/5
-     Reason: The output doesn't include the name of Category as required.
-     If a number larger than bound is input, no tips is output. 
-     2. Failed Hongming Ping 17:48/5/5
-     Reason: The output doesn't include the name of Category as required.
-     Change: The problem of out of bound has been solved.
-     3. Passed Hongming Ping 20:45/5/5
-     
-     */
-    @ParameterizedTest
-    @MethodSource
-    void listTransactionsForCategoryTest(int CategoryNum, String ExpectedOutput) throws Exception {
-        BoCApp.ListTransactionsForCategory(CategoryNum);
-        assertEquals(ExpectedOutput, outContent.toString());
-    }
-    static List<Arguments> listTransactionsForCategoryTest(){
-        long timeStamp = System.currentTimeMillis();
-        SimpleDateFormat sdff=new SimpleDateFormat("yyyy-MM-dd HH:mm");
+    1. Failed Hongming Ping 22:14/4/5
+    Reason: The output doesn't include the name of Category as required.
+    If a number larger than bound is input, no tips is output. 
+    2. Failed Hongming Ping 17:48/5/5
+    Reason: The output doesn't include the name of Category as required.
+    Change: The problem of out of bound has been solved.
+    3. Passed Hongming Ping 20:45/5/5
+    Traceability: listTransactionsForCategoryTest
+    */
+   @ParameterizedTest
+   @MethodSource
+   void listTransactionsForCategoryTest(int CategoryNum, String ExpectedOutput) throws Exception {
+       BoCApp.ListTransactionsForCategory(CategoryNum);
+       assertEquals(ExpectedOutput, outContent.toString());
+   }
+   static List<Arguments> listTransactionsForCategoryTest(){
+		long timeStamp = System.currentTimeMillis(); 
+		SimpleDateFormat sdff=new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		String sd = sdff.format(new Date(timeStamp));
 		return List.of(
-                Arguments.arguments(1,"Unknown: 1) Rent - ¥850.00"+"\t\t"+ sd +"\r\nUnknown: 8) tran1 - ¥1.00"+"\t\t"+ sd +"\r\n" + "Unknown: 9) tran4 - ¥4.00"+"\t\t"+ sd+"\r\n" + "Unknown: 10) tran6 - ¥0.00"+"\t\t"+ sd+"\r\n" + "Unknown: 11) tttttrrrrraaaaannnnn10101 - ¥10.00"+"\t\t"+ sd+"\r\n"),
-                Arguments.arguments(2,"Bills: 2) Phone Bill - ¥37.99"+"\t\t"+ sd+"\r"+'\n'+"Bills: 3) Electricity Bill - ¥75.00"+"\t\t"+ sd+"\r"+'\n'),
-                Arguments.arguments(3,"Groceries: 4) Sainsbury's Checkout - ¥23.76"+"\t\t"+ sd+"\r"+'\n'+"Groceries: 5) Tesco's Checkout - ¥7.24"+"\t\t"+ sd+"\r"+'\n'),
-                Arguments.arguments(4,"Social: 6) RockCity Drinks - ¥8.50"+"\t\t"+ sd +"\r"+'\n'+"Social: 7) The Mooch - ¥13.99" +"\t\t"+ sd +"\r"+'\n'),
-                Arguments.arguments(5,"The Category doesn't exit\r"+'\n')
-        );
-    }
+               Arguments.arguments(1,"Unknown: 1) "+sd+" Rent - ¥850.00\r\nUnknown: 8) "+sd+" tran1 - ¥1.00\r\n" + "Unknown: 9) "+sd+" tran4 - ¥4.00\r\n" + "Unknown: 10) "+sd+" tran6 - ¥0.00\r\n" + "Unknown: 11) "+sd+" tttttrrrrraaaaannnnn10101 - ¥10.00\r\n"),
+               Arguments.arguments(2,"Bills: 2) "+sd+" Phone Bill - ¥37.99\r"+'\n'+"Bills: 3) "+sd+" Electricity Bill - ¥75.00\r"+'\n'),
+               Arguments.arguments(3,"Groceries: 4) "+sd+" Sainsbury's Checkout - ¥23.76\r"+'\n'+"Groceries: 5) "+sd+" Tesco's Checkout - ¥7.24\r"+'\n'),
+               Arguments.arguments(4,"Social: 6) "+sd+" RockCity Drinks - ¥8.50\r"+'\n'+"Social: 7) "+sd+" The Mooch - ¥13.99\r"+'\n'),
+               Arguments.arguments(5,"The Category doesn't exit\r"+'\n')
+       );
+   }
 
     /*
     1 - FAIL - Shiliang - 23:15 4/5

@@ -68,7 +68,18 @@ public class BoCApp {
                 } else if (s.equals("X")) {
                     System.out.println("Goodbye!");
                     break;
-                } else if (Integer.parseInt(s) != -1) {
+                } else if ((s.matches("[0-9]+"))&&(Integer.parseInt(s) != -1)) {
+                	/*
+                    1. Failed - Hongming - 20:55 6/5
+                    Reason: If there is an unknown input, the method Integer.parseInt(s) would lead to
+                    	crash and the program throws an exception, but not output the "Command not recognised".
+                    Change: Add a if statement to lead the program to output "Command not recognised", 
+                    	if the input is noit completely constructed by numbers, the statement return false and 
+                    	the program output "Command not recognised".
+                    2. Passed - Hongming - 21:25 6/5
+                    
+                    Traceability:  BoCAppmainTest2
+                    */
                     ListTransactionsForCategory((int) Integer.parseInt(s));
                 } else {
                     System.out.println("Command not recognised");
@@ -99,14 +110,21 @@ public class BoCApp {
     }
 
     /*
-     Programmer: Hongming Ping
-     Fix:
-     1. The input number and serial number have been fixed to be equal.
-     2. When print on the console, the name of Category could also been shown
-     3. When input number out of the range of Category, there would be an error message.
-     */
+    1. Failed Hongming Ping 22:14/4/5
+    Reason: The output doesn't include the name of Category as required.
+    If a number larger than bound is input, no tips is output. 
+    2. Failed Hongming Ping 17:48/5/5
+    Reason: The output doesn't include the name of Category as required.
+    Change: The problem of out of bound has been solved.
+    3. Passed Hongming Ping 20:45/5/5
+    Fix:
+    1. The input number and serial number have been fixed to be equal.
+    2. When print on the console, the name of Category could also been shown
+    3. When input number out of the range of Category, there would be an error message.
+    Traceability: listTransactionsForCategoryTest
+    */
     public static void ListTransactionsForCategory(int chosenCategory) {
-        if (chosenCategory<=UserCategories.size()) { //Check for input that is out of the range of category
+    	 if ((chosenCategory<=UserCategories.size())&&(chosenCategory>0)) { //Check for input that is out of the range of category
             chosenCategory--; //The no. of a category is smaller than it is printed out
             BoCCategory copy =UserCategories.get(chosenCategory);
             String name = copy.CategoryName(); // Get the Name of Category and print it together with transaction name
