@@ -35,7 +35,6 @@ class BoCCategoryTest {
 
 	// Declare BigDecimals for tests
 	static BigDecimal bd1;
-	static BigDecimal sum;
 
 	@BeforeAll
 	static void set() {
@@ -58,42 +57,44 @@ class BoCCategoryTest {
 		bignum2 = new BigDecimal("1200.85");
 		bignum3 = new BigDecimal("3000");
 		bignum4 = new BigDecimal("4500.45");
-		BoCCategory shopping = new BoCCategory(string3);
-		BoCCategory transport = new BoCCategory(string2);
 
 		// Define expected result
 		toStringResult1 = new String ( "testToStringName(¥5.00) - Est. ¥6.00 (¥1.00 Overspent)");
 		toStringResult2 = new String ( "testToStringName(¥7.00) - Est. ¥6.00 (¥1.00 Remaining)");
 
 		bd1 = new BigDecimal("100");
-		sum = new BigDecimal("0.00");
 
 	}
 
 	/* DEFAULT CONSTRUCTOR TEST******************************************************************
-    1 -Fail- Yuxiang Zhang - 17:30/01/05       
+    1 -Fail- Yuxiang Zhang, Haonan CEHN- 17:30/01/05       
     Problem: The categoryName is not same as the expected outcome.
 	Reason:
 	Traceability:
 	*/
 	@Test 			//Test of the default constructor by Yuxiang Zhang
-	void Default_Constructor_test1() throws Exception {
-			BoCCategory test1 = new BoCCategory();
-			assertEquals(expected CategoryName,CategoryName,); 
+	void DefaultConstructortest1() throws Exception {
+		BigDecimal sum = new BigDecimal("0.00");
+		BoCCategory test1 = new BoCCategory();
+		assertEquals("New Category"+ BoCApp.defaultCategoryNum,test1.CategoryName()); 
+		assertEquals(sum,test1.CategoryBudget());
+		assertEquals(sum,test1.CategorySpend());
 	}
 		
 	/* MAIN CONSTRUCTOR TEST**********************************************************************
-	1 -Fail- Yuxiang Zhang - 20:05/01/05  
+	1 -Fail- Yuxiang Zhang, Haonan CHEN - 20:05/01/05  
 	Problem: The numbers of parameters and input is not matching
 	Reason: the constructor BoCCategory(string,bigdecimal,bigdecimal) is undefined.
 	Traceability:Main Constructors Test 2; Main Constructors Test 2;Main Constructors Test 2;
 	*/
-	@Disabled 			
-	void Main_Constructor_test2() throws Exception {
-		BigDecimal transport = new BigDecimal("transport");
+	@Test 			
+	void MainConstructortest1() throws Exception {
+		BigDecimal sum = new BigDecimal("0.00");
 		try {
-			BoCCategory transport = new BoCCategory(string1);
-			assertEquals("transport",transport.CategoryName()); 
+			BoCCategory test2 = new BoCCategory(string1);
+			assertEquals("5",test2.CategoryName());
+			assertEquals(sum,test2.CategoryBudget());
+			assertEquals(sum,test2.CategorySpend());
 		}catch(Exception e) {
 			fail ("Something wrong with catch");
 		}
@@ -106,11 +107,13 @@ class BoCCategoryTest {
 	Traceability:Main Constructors Test 3
 	*/
 	@Test 
-	void Main_Constructor_test3() throws Exception {
-		BigDecimal transport = new BigDecimal("transport");
+	void MainConstructortest2() throws Exception {
+		BigDecimal sum = new BigDecimal("0.00");
 		try {
-			BoCCategory transport = new BoCCategory(string2);
-			assertEquals("transport",transport.CategoryName()); 
+			BoCCategory test3 = new BoCCategory(string2);
+			assertEquals("transport",test3.CategoryName()); 
+			assertEquals(sum,test3.CategoryBudget());
+			assertEquals(sum,test3.CategorySpend());
 		}catch(Exception e) {
 			fail ("Something wrong with catch");
 		}
@@ -120,19 +123,21 @@ class BoCCategoryTest {
 	3 -Pass- Yuxiang Zhang - 21:40/01/05  
 	Problem: 
 	Reason:
-	Traceability:Main Constructors Test 3
+	Traceability:Main Constructors Test 4
 	*/
 	@Test 
-	void Main_Constructor_test3() throws Exception {
-		BigDecimal shopping = new BigDecimal("shopping");
+	void MainConstructortest3() throws Exception {
+		BigDecimal sum = new BigDecimal("0.00");
 		try {
-			BoCCategory shopping = new BoCCategory(string3);
-			assertEquals("shopping",shopping.CategoryName()); 
+			BoCCategory test4 = new BoCCategory(string3);
+			assertEquals("shopping",test4.CategoryName()); 
+			assertEquals(sum,test4.CategoryBudget());
+			assertEquals(sum,test4.CategorySpend());
 		}catch(Exception e) {
 			fail ("Something wrong with catch");
 		}
 	}
-}
+
 
 	/* CATEGORY NAME TEST*******************************************************************
 	1 – Pass – Yuxiang Zhang - 21:30/02/05  

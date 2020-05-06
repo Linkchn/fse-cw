@@ -5,12 +5,16 @@ import java.util.Scanner;
 public class BoCApp {
     public static ArrayList<BoCTransaction> UserTransactions;
     public static ArrayList<BoCCategory> UserCategories;
-
+    /*
+    Programmer: Haonan CHEN
+    Fix:
+    1.Add a static int to record the number of default categoryName.
+    */
+    public static int defaultCategoryNum = 0;
     public static void main(String[] args) {
         UserCategories = new ArrayList<BoCCategory>();
         UserTransactions = new ArrayList<BoCTransaction>();
 
-        public static defaultCategoryNum = 1;
         // SETUP EXAMPLE DATA //
         UserCategories.add(new BoCCategory("Unknown"));
 
