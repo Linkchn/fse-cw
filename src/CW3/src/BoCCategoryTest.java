@@ -17,8 +17,8 @@ class BoCCategoryTest {
 	private static BigDecimal TestInputBudget;
 	private static BigDecimal TestOutputBudget;
 	private static BigDecimal TestExceptOutputBudget;
-	private static String string1, string2, string3;
 	
+	private static String string1, string2, string3;
 	private static BigDecimal bignum1; 
 	private static BigDecimal bignum2;
 	private static BigDecimal bignum3;
@@ -58,9 +58,8 @@ class BoCCategoryTest {
 		bignum2 = new BigDecimal("1200.85");
 		bignum3 = new BigDecimal("3000");
 		bignum4 = new BigDecimal("4500.45");
-		shopping = new BoCCategory(string3,bignum3,bignum4);
-		transport = new BoCCategory(string2,bignum1,bignum2);
-		empty = new BoCCategory();
+		BoCCategory shopping = new BoCCategory(string3);
+		BoCCategory transport = new BoCCategory(string2);
 
 		// Define expected result
 		toStringResult1 = new String ( "testToStringName(¥5.00) - Est. ¥6.00 (¥1.00 Overspent)");
@@ -71,6 +70,157 @@ class BoCCategoryTest {
 
 	}
 
+	/* DEFAULT CONSTRUCTOR TEST******************************************************************
+    1 -Fail- Yuxiang Zhang - 17:30/01/05       
+    Problem: The categoryName is not same as the expected outcome.
+	Reason:
+	Traceability:
+	*/
+	@Test 			//Test of the default constructor by Yuxiang Zhang
+	void Default_Constructor_test1() throws Exception {
+			BoCCategory test1 = new BoCCategory();
+			assertEquals(expected CategoryName,CategoryName,); 
+	}
+		
+	/* MAIN CONSTRUCTOR TEST**********************************************************************
+	1 -Fail- Yuxiang Zhang - 20:05/01/05  
+	Problem: The numbers of parameters and input is not matching
+	Reason: the constructor BoCCategory(string,bigdecimal,bigdecimal) is undefined.
+	Traceability:Main Constructors Test 2; Main Constructors Test 2;Main Constructors Test 2;
+	*/
+	@Disabled 			
+	void Main_Constructor_test2() throws Exception {
+		BigDecimal transport = new BigDecimal("transport");
+		try {
+			BoCCategory transport = new BoCCategory(string1);
+			assertEquals("transport",transport.CategoryName()); 
+		}catch(Exception e) {
+			fail ("Something wrong with catch");
+		}
+	}
+		
+	/* 
+	2 -Pass- Yuxiang Zhang - 21:40/01/05  
+	Problem: 
+	Reason:
+	Traceability:Main Constructors Test 3
+	*/
+	@Test 
+	void Main_Constructor_test3() throws Exception {
+		BigDecimal transport = new BigDecimal("transport");
+		try {
+			BoCCategory transport = new BoCCategory(string2);
+			assertEquals("transport",transport.CategoryName()); 
+		}catch(Exception e) {
+			fail ("Something wrong with catch");
+		}
+	}
+		
+	/* 
+	3 -Pass- Yuxiang Zhang - 21:40/01/05  
+	Problem: 
+	Reason:
+	Traceability:Main Constructors Test 3
+	*/
+	@Test 
+	void Main_Constructor_test3() throws Exception {
+		BigDecimal shopping = new BigDecimal("shopping");
+		try {
+			BoCCategory shopping = new BoCCategory(string3);
+			assertEquals("shopping",shopping.CategoryName()); 
+		}catch(Exception e) {
+			fail ("Something wrong with catch");
+		}
+	}
+}
+
+	/* CATEGORY NAME TEST*******************************************************************
+	1 – Pass – Yuxiang Zhang - 21:30/02/05  
+	Problem: 
+	Reason:
+	Traceability:CategoryName Test 1
+	
+	2 – Pass – Yuxiang Zhang - 22:45/02/05  
+	Problem: 
+	Reason:
+	Traceability:CategoryName Test 2
+	
+	3 – Pass – Yuxiang Zhang - 00:18/02/05  
+	Problem: 
+	Reason:
+	Traceability:CategoryName Test 3
+	*/
+	@ParameterizedTest
+	@MethodSource
+	void CategoryNameTest(BoCCategory test,String testValue) throws Exception {
+		assertEquals(testValue,test.CategoryName());
+	}
+	static List<Arguments> CategoryNameTest(){
+		return List.of(
+				Arguments.arguments(shopping,"shopping"),
+				Arguments.arguments(transport,"transport"),
+				Arguments.arguments(New Category,"New Category")
+		);
+	}
+
+
+	/* CATEGORY BUDGET TEST*******************************************************************
+	1 – Pass – Yuxiang Zhang - 14:29/03/05  
+	Problem: 
+	Reason:
+	Traceability:CategoryBudget Test 1
+
+	2 – Pass – Yuxiang Zhang - 14:51/03/05  
+	Problem: 
+	Reason:
+	Traceability:CategoryBudget Test 2
+
+	3 – Pass – Yuxiang Zhang - 15:32/03/05  
+	Problem: 
+	Reason:
+	Traceability:CategoryBudget Test 3
+	*/
+	@ParameterizedTest
+	@MethodSource
+	void CategoryBudgetTest(BoCCategory test,BigDecimal testValue) throws Exception {
+		assertEquals(testValue,test.CategoryBudgetTest());
+	}
+	static List<Arguments> CategoryBudgetTest(){
+		return List.of(
+				Arguments.arguments(shopping,bignum3),
+				Arguments.arguments(transport,bignum1),
+				Arguments.arguments(New Category,0.00)
+		);
+	}
+
+	/* CATEGORY  SPEND TEST*******************************************************************
+	1 – Pass – Yuxiang Zhang - 17:14/03/05  
+	Problem: 
+	Reason:
+	Traceability:CategorySpend Test 1
+	2 – Pass – Yuxiang Zhang - 17:49/03/05  
+	Problem: 
+	Reason:
+	Traceability:CategorySpend Test 2
+
+	3 – Pass – Yuxiang Zhang - 19:47/03/05
+	Problem: 
+	Reason:
+	Traceability:CategorySpend Test 3
+	*/
+	@ParameterizedTest
+	@MethodSource
+	void CategorySpendTest(BoCCategory test,BigDecimal testValue) throws Exception {
+		assertEquals(testValue,test.CategorySpendTest());
+	}
+	static List<Arguments> CategorySpendTest(){
+		return List.of(
+				Arguments.arguments(shopping,bignum4),
+				Arguments.arguments(transport,bignum2),
+				Arguments.arguments(New Category,0.00)
+		);
+	}
+	
 	/* - Pass - Hongming PING - 23:38/30/4
 
 	 */

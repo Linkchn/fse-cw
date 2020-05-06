@@ -10,6 +10,7 @@ public class BoCApp {
         UserCategories = new ArrayList<BoCCategory>();
         UserTransactions = new ArrayList<BoCTransaction>();
 
+        public static defaultCategoryNum = 1;
         // SETUP EXAMPLE DATA //
         UserCategories.add(new BoCCategory("Unknown"));
 
