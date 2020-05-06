@@ -233,17 +233,40 @@ public class BoCApp {
 		}
 	}
 
-	private static void AddCategory(Scanner in) {
-		System.out.println("What is the title of the category?");
-		in.nextLine(); // to remove read-in bug
-		String title = in.nextLine();
-		System.out.println("What is the budget for this category?");
-		BigDecimal cbudget = new BigDecimal(in.nextLine());
-		BoCCategory temp = new BoCCategory(title);
-		temp.setCategoryBudget(cbudget);
-		UserCategories.add(temp);
-		System.out.println("[Category added]");
-		CategoryOverview();
-	}
+	private static void AddCategory(Scanner in)throws Exception {
+        System.out.println("What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters.");
+        in.nextLine(); // to remove read-in bug
+        String title = in.nextLine();
+        for (int x = 0; x < UserCategories.size(); x++) {
+            BoCCategory temp1 = UserCategories.get(x);
+            if (title == temp1.CategoryName()) {
+                throw new Exception("Wrong title! It should not be the same as the existed name.");
+            }
+        }
+        if (title.replaceAll(" ", "").equals("")) {
+            throw new Exception("Wrong title! It should not be blank.");
+        }
+        else if(title.length()>15) {
+            throw new Exception("Wrong title! It should be at most 15 characters.");
+        }
+        System.out.println("What is the budget for this category?\r\nNote:It should be a pisitive decimal number with exact two decimal places.");
+        String budget = in.nextLine();
+        if(budget.replaceAll(" ", "").equals("")) {
+            throw new Exception("Wrong budget! It should not be blank.");
+        }
+        else if(budget.matches("[0-9]+.[0-9]{2}") != true ) {
+            throw new Exception("Wrong budget! It should be a positive decimal number with exact two decimal places.");
+        }
+        
+        BigDecimal cbudget = new BigDecimal(budget);
+        if (cbudget.compareTo(BigDecimal.ZERO) != 1) {
+            throw new Exception("Wrong budget! It should be a positive decimal number with exact two decimal places.");
+        }
+        BoCCategory temp = new BoCCategory(title);
+        temp.setCategoryBudget(cbudget);
+        UserCategories.add(temp);
+        System.out.println("[Category added]");
+        CategoryOverview();
+    }
 
 }

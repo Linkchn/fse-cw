@@ -13,136 +13,153 @@ import java.util.List;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class BoCCategoryTest {
 
-    private static String TestInputString, TestOutputString;
-    private static BigDecimal TestInputBudget;
-    private static BigDecimal TestOutputBudget;
-    private static BigDecimal TestExceptOutputBudget;
+	private static String TestInputString, TestOutputString;
+	private static BigDecimal TestInputBudget;
+	private static BigDecimal TestOutputBudget;
+	private static BigDecimal TestExceptOutputBudget;
+	private static String string1, string2, string3;
+	
+	private static BigDecimal bignum1; 
+	private static BigDecimal bignum2;
+	private static BigDecimal bignum3;
+	private static BigDecimal bignum4;
 
-    // Declare BoCCategories for tests
-    static BoCCategory cat1;
-    static BoCCategory cat2;
-    static BoCCategory cat3;
+	// Declare BoCCategories for tests
+	static BoCCategory cat1;
+	static BoCCategory cat2;
+	static BoCCategory cat3;
 
-    // Declare result Strings for tests
-    static String toStringResult1;
-    static String toStringResult2;
+	// Declare result Strings for tests
+	static String toStringResult1;
+	static String toStringResult2;
 
-    // Declare BigDecimals for tests
-    static BigDecimal bd1;
-    static BigDecimal sum;
+	// Declare BigDecimals for tests
+	static BigDecimal bd1;
+	static BigDecimal sum;
 
-    @BeforeAll
-    static void set() {
-        cat1 = new BoCCategory();
-        cat2 = new BoCCategory();
-        cat3 = new BoCCategory();
+	@BeforeAll
+	static void set() {
+		cat1 = new BoCCategory();
+		cat2 = new BoCCategory();
+		cat3 = new BoCCategory();
 
-        // Set data for tests
-        cat2.setCategoryName("testToStringName");
-        cat2.setCategoryBudget(new BigDecimal ("5.00"));
-        cat2.addExpense(new BigDecimal ("6.00"));
-        cat3.setCategoryName("testToStringName");
-        cat3.setCategoryBudget(new BigDecimal ("7.00"));
-        cat3.addExpense(new BigDecimal ("6.00"));
+		// Set data for tests
+		cat2.setCategoryName("testToStringName");
+		cat2.setCategoryBudget(new BigDecimal ("5.00"));
+		cat2.addExpense(new BigDecimal ("6.00"));
+		cat3.setCategoryName("testToStringName");
+		cat3.setCategoryBudget(new BigDecimal ("7.00"));
+		cat3.addExpense(new BigDecimal ("6.00"));
+		
+		string1 = "5";
+		string2 = "transport";
+		string3 = "shopping";
+		bignum1 = new BigDecimal("1000");
+		bignum2 = new BigDecimal("1200.85");
+		bignum3 = new BigDecimal("3000");
+		bignum4 = new BigDecimal("4500.45");
+		shopping = new BoCCategory(string3,bignum3,bignum4);
+		transport = new BoCCategory(string2,bignum1,bignum2);
+		empty = new BoCCategory();
 
-        // Define expected result
-        toStringResult1 = new String ( "testToStringName(¥5.00) - Est. ¥6.00 (¥1.00 Overspent)");
-        toStringResult2 = new String ( "testToStringName(¥7.00) - Est. ¥6.00 (¥1.00 Remaining)");
+		// Define expected result
+		toStringResult1 = new String ( "testToStringName(¥5.00) - Est. ¥6.00 (¥1.00 Overspent)");
+		toStringResult2 = new String ( "testToStringName(¥7.00) - Est. ¥6.00 (¥1.00 Remaining)");
 
-        bd1 = new BigDecimal("100");
-        sum = new BigDecimal("0.00");
+		bd1 = new BigDecimal("100");
+		sum = new BigDecimal("0.00");
 
-    }
+	}
 
-    /* - Pass - Hongming PING - 23:38/30/4
+	/* - Pass - Hongming PING - 23:38/30/4
 
-     */
-    @Test
-    void setCNTest1() throws Exception {
-        TestInputString="YTB";
-        try {
-            BoCCategory copy = new BoCCategory();
-            copy.setCategoryName(TestInputString);
-            TestOutputString = copy.CategoryName();
-        }catch(Exception e) {
-            fail ("Someting wrong with catch");
-        }
-        assertEquals(TestInputString, TestOutputString);
-    }
+	 */
+	@Test
+	void setCNTest1() throws Exception {
+		TestInputString="YTB";
+		try {
+			BoCCategory copy = new BoCCategory();
+			copy.setCategoryName(TestInputString);
+			TestOutputString = copy.CategoryName();
+		}catch(Exception e) {
+			fail ("Someting wrong with catch");
+		}
+		assertEquals(TestInputString, TestOutputString);
+	}
 
-    /*1. - Fail - Hongming PING - 21:38/2/5
-    Problem: If newName is sapce only or empty, the result still returns the value of
-    newName, which is Unknown name.
-    2. - Pass - 22:57/2/5
-    Reason: Fixed the Method with adding an "if" statement to assign null to String
-    while whose newName is empty or sapce
-    */
-    @ParameterizedTest
-    @ValueSource(strings = {" " ,""})
-    void setCNTest23(String TestInputString) throws Exception {
-        try {
-            BoCCategory copy = new BoCCategory();
-            copy.setCategoryName(TestInputString);
-            TestOutputString = copy.CategoryName();
-        }catch(Exception e) {
-            fail ("Someting wrong with catch");
-        }
-        assertNull(TestOutputString);
-    }
+	/*1. - Fail - Hongming PING - 21:38/2/5
+	Problem: If newName is sapce only or empty, the result still returns the value of
+	newName, which is Unknown name.
+	2. - Pass - 22:57/2/5
+	Reason: Fixed the Method with adding an "if" statement to assign null to String
+	while whose newName is empty or sapce
+	*/
+	@ParameterizedTest
+	@ValueSource(strings = {" " ,""})
+	void setCNTest23(String TestInputString) throws Exception {
+		try {
+			BoCCategory copy = new BoCCategory();
+			copy.setCategoryName(TestInputString);
+			TestOutputString = copy.CategoryName();
+		}catch(Exception e) {
+			fail ("Someting wrong with catch");
+		}
+		assertNull(TestOutputString);
+	}
 
-    /* - Pass - Hongming PING - 16:52/1/5
+	/* - Pass - Hongming PING - 16:52/1/5
 
-     */
-    @Test
-    void setCBTest1(){
-        TestInputBudget = new BigDecimal("0");
-        TestExceptOutputBudget = new BigDecimal("0.00");
-        try {
-            BoCCategory copy = new BoCCategory();
-            copy.setCategoryBudget(TestInputBudget);
-            TestOutputBudget = copy.CategoryBudget();
-        }catch(Exception e) {
-            fail ("Someting wrong with catch");
-        }
-        assertEquals(TestExceptOutputBudget, TestOutputBudget);
-    }
+	 */
+	@Test
+	void setCBTest1(){
+		TestInputBudget = new BigDecimal("0");
+		TestExceptOutputBudget = new BigDecimal("0.00");
+		try {
+			BoCCategory copy = new BoCCategory();
+			copy.setCategoryBudget(TestInputBudget);
+			TestOutputBudget = copy.CategoryBudget();
+		}catch(Exception e) {
+			fail ("Someting wrong with catch");
+		}
+		assertEquals(TestExceptOutputBudget, TestOutputBudget);
+	}
 
-    /* - Pass - Hongming PING - 16:52/1/5
+	/* - Pass - Hongming PING - 16:52/1/5
 
-     */
-    @Test
-    void setCBTest2(){
-        TestInputBudget = new BigDecimal("-100");
-        TestExceptOutputBudget = new BigDecimal("0.00");
-        try {
-            BoCCategory copy = new BoCCategory();
-            copy.setCategoryBudget(TestInputBudget);
-            TestOutputBudget = copy.CategoryBudget();
-        }catch(Exception e) {
-            fail ("Someting wrong with catch");
-        }
-        assertEquals(TestExceptOutputBudget, TestOutputBudget);
-    }
+	 */
+	@Test
+	void setCBTest2(){
+		TestInputBudget = new BigDecimal("-100");
+		TestExceptOutputBudget = new BigDecimal("0.00");
+		try {
+			BoCCategory copy = new BoCCategory();
+			copy.setCategoryBudget(TestInputBudget);
+			TestOutputBudget = copy.CategoryBudget();
+		}catch(Exception e) {
+			fail ("Someting wrong with catch");
+		}
+		assertEquals(TestExceptOutputBudget, TestOutputBudget);
+	}
 
-    /* - Pass - Hongming PING - 16:52/1/5
+	/* - Pass - Hongming PING - 16:52/1/5
 
-     */
-    @Test
-    void setCBTest3(){
-        TestInputBudget = new BigDecimal("11.20");
-        TestExceptOutputBudget = new BigDecimal("11.20");
-        try {
-            BoCCategory copy = new BoCCategory();
-            copy.setCategoryBudget(TestInputBudget);
-            TestOutputBudget = copy.CategoryBudget();
-        }catch(Exception e) {
-            fail ("Someting wrong with catch");
-        }
-        assertEquals(TestExceptOutputBudget, TestOutputBudget);
-    }
+	 */
+	@Test
+	void setCBTest3(){
+		TestInputBudget = new BigDecimal("11.20");
+		TestExceptOutputBudget = new BigDecimal("11.20");
+		try {
+			BoCCategory copy = new BoCCategory();
+			copy.setCategoryBudget(TestInputBudget);
+			TestOutputBudget = copy.CategoryBudget();
+		}catch(Exception e) {
+			fail ("Someting wrong with catch");
+		}
+		assertEquals(TestExceptOutputBudget, TestOutputBudget);
+	}
 
 
-    /*
+	/*
     1 - FAIL - Shiliang - 21:43 30/5
     Problem: Decimals are different
     Reason: There might be something wrong with the input type
