@@ -209,7 +209,8 @@ class BoCCategoryTest {
 
         }
         catch (Exception e){
-            assertThrows(Exception.class, ()->{cat1.removeExpense(bd1);System.out.println(cat1.CategorySpend());});
+            assertThrows(Exception.class, ()->{cat1.removeExpense(bd1);});
+            assertEquals("Expense should not be less than 0!", e.getMessage());
         }
     }
 
