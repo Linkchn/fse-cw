@@ -11,6 +11,7 @@ import java.io.PrintStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -141,6 +142,9 @@ class BoCAppTest {
     @MethodSource
     void listTransactionsForCategoryTest(int CategoryNum, String ExpectedOutput) throws Exception {
         BoCApp.ListTransactionsForCategory(CategoryNum);
+        long timeStamp = System.currentTimeMillis();
+        SimpleDateFormat sdff=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String sd = sdff.format(new Date(timeStamp));
         assertEquals(ExpectedOutput, outContent.toString());
     }
     static List<Arguments> listTransactionsForCategoryTest(){
