@@ -462,14 +462,13 @@ This method should not be used in this class. So it has been deleted.
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
 | !! | PASS | mainTest1 | X | All accessible options line by line, and "Goodbye" in the end. | All accessible options line by line, and "Goodbye" in the end. | The options could not be shown line by line. | Change each comma into "\n". And change the first time output to show all possible options. | / | 21:25 6/5 | Shiliang,  Daze |
 | !! | PASS | mainTest2 | t, X | The message "Command not recognised" should be shown. | The message "Command not recognised" shows. | the method Integer.parseInt(s) crashes and the program throws an exception | Add a if statement to lead the program to output "Command not recognised", <br/>                    	if the input is noit completely constructed by numbers, the statement return false and <br/>                    	the program output "Command not recognised" | If there is an unknown input, the method Integer.parseInt(s) would lead to<br/>                    	crash and the program throws an exception | 21:25 6/5 | Daze |
-| !! |  | mainTest3 | O, X | | | | | | |  |
-| !! |  | mainTest4 | T, X | | | | | | |  |
-| !! | PASS | mainTest5 | 1, X | All transaction in Category 1, with their dates, names and budgets. | All transaction in Category 1, with their dates, names and budgets. | / | / | / | 22:33 6/5 | Daze |
-| !! | PASS | mainTest6 | C, 1 , 3, X | changeTransactionCategory method has been called | changeTransactionCategory method has been called | / | / | / | 22:46 6/5 | Leo |
-| !! | PASS | mainTest7 | N, X | add a new category to whole categories and display them | add a new category to whole categories and display them | / | / | / | 23:34 6/5 | Jiawei |
-| !! | | mainTest8 | A, X | | | | | |  | |
-| !! | | mainTest9 | all function called | | | | | | | |
-| !!! | | mainTest10 | illegal input | | | | | | | |
+| !! | PASS | mainTest3 | O, X | All the existing category lists print | All the existing category lists print | / | / | / | 23:46 | Haonan CHEN |
+| !! | PASS | mainTest4 | 1, X | All transaction in Category 1, with their dates, names and budgets. | All transaction in Category 1, with their dates, names and budgets. | / | / | / | 22:33 6/5 | Daze |
+| !! | PASS | mainTest5 | C, 1 , 3, X | changeTransactionCategory method has been called | changeTransactionCategory method has been called | / | / | / | 22:46 6/5 | Leo |
+| !! | PASS | mainTest6 | N, X | add a new category to whole categories and display them | add a new category to whole categories and display them | / | / | / | 23:34 6/5 | Jiawei |
+| !! | PASS | mainTest7 | A, X | add a name, category title and spend, then give the result of adding transaction | add a name, category title and spend, then give the result of adding transaction | /                                                            | / | / | 23:34 6/5 | Shiliang |
+| !! | | mainTest8 | all function called |  | | | | | | |
+| !!! | | mainTest9 | illegal input | | | | | | | |
 #### Function 2: ArrayListofBoCTransactionobjects  - List Transactions function
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
