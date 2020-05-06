@@ -28,7 +28,6 @@ Branches will be made once pair work has begun.
 
 - Deep into the process, team is managed by several useful GitLab features. We use issues with labels to raise questions, distribute tasks, alert bugs, show what is ToDo, Doing and Done. Along with Boards, a very clear visible feature for managing tasks while clearly showing the whole process, Milestones are also used for make stage-based objectives with due time to control the productivity. Meetings are organised in period of three to five days, for the purpose of reporting works done, what to do next, work distribution, stategy adjustment etc. As pairs are devided, works will be distributed during the meeting and issued in GitLab.
 
-- 
 
 - #### Planned time line
 
@@ -159,33 +158,32 @@ Branches will be made once pair work has begun.
   | 5/6  | Fix Main Class                     | Main         | M 5               |          |
   | 5/7  | Final check and Tag                |              |                   |          |
 
-
   **Plan of Pair 3**
 
-| Date | What to do                         | Shiliang | Jiawei | Status |
-| ---- | ---------------------------------- | ---- | ---- | ------ |
-| 5/2  | Finish Tests of first two classes with fixed code| √ | √ | √ |
-| 5/3  | Start plan for main 6, 7 and write test code| M 6 | M 7 | × |
-| 5/4  | Work on main 6, 7                  | M 6 | M 7 |        |
-| 5/5  | Work on main 6, 7                  |      |      |        |
-| 5/6  | Work on main 6, 7                  |      |      |        |
-| 5/7  | Final check and Tag                |      |      |        |
+  | Date | What to do                         | Shiliang | Jiawei | Status |
+  | ---- | ---------------------------------- | ---- | ---- | ------ |
+  | 5/2  | Finish Tests of first two classes with fixed code| √ | √ | √ |
+  | 5/3  | Start plan for main 6, 7 and write test code| M 6 | M 7 | × |
+  | 5/4  | Work on main 6, 7                  | M 6 | M 7 |        |
+  | 5/5  | Work on main 6, 7                  |      |      |        |
+  | 5/6  | Work on main 6, 7                  |      |      |        |
+  | 5/7  | Final check and Tag                |      |      |        |
 
     Forth meeting, discussed about further plan and merge problems
-    
+  
     Work together fixing issues
 
-  - 3/5 issues: 5/19
+- 3/5 issues: 5/19
 
-    Keep working on main
+  Keep working on main
 
-  - 4/5 issues: 6/20
+- 4/5 issues: 6/20
 
-    work on tests for main
+  work on tests for main
 
-  - 5/5 issues: 4/20
+- 5/5 issues: 4/20
 
-    work on tests and code fixing
+  work on tests and code fixing
 
 
 
@@ -237,7 +235,15 @@ Branches will be made once pair work has begun.
      | 5/6  |                                                              | Finish coding, tag, conclude                                 |
      | 5/7  |                                                              |                                                              |
   
+- #### Fifth meeting - 06/05
 
+  1. Check the progress of everyone's and team's work, whether it follows the plan.
+  2. Make sure most of the programming work would terminate today.
+  3. Ask Haonan Chen to check the Test of Category and Pair 1's work.
+  4. Ask Colin to check methods in  Category and Transaction.
+  5. Ask Leo and Colin to fix all possible bugs.
+  6. Ask Daze to check the .md file of test plan and record for the meeting.
+  7. Ask Jiawei and Haonan to composite conclusion.
 ### V. Conclusion
 
 
