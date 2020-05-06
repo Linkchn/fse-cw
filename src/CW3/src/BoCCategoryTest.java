@@ -13,136 +13,303 @@ import java.util.List;
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class BoCCategoryTest {
 
-    private static String TestInputString, TestOutputString;
-    private static BigDecimal TestInputBudget;
-    private static BigDecimal TestOutputBudget;
-    private static BigDecimal TestExceptOutputBudget;
+	private static String TestInputString, TestOutputString;
+	private static BigDecimal TestInputBudget;
+	private static BigDecimal TestOutputBudget;
+	private static BigDecimal TestExceptOutputBudget;
+	
+	private static String string1, string2, string3;
+	private static BigDecimal bignum1; 
+	private static BigDecimal bignum2;
+	private static BigDecimal bignum3;
+	private static BigDecimal bignum4;
 
-    // Declare BoCCategories for tests
-    static BoCCategory cat1;
-    static BoCCategory cat2;
-    static BoCCategory cat3;
+	// Declare BoCCategories for tests
+	static BoCCategory cat1;
+	static BoCCategory cat2;
+	static BoCCategory cat3;
 
-    // Declare result Strings for tests
-    static String toStringResult1; 
-    static String toStringResult2; 
+	// Declare result Strings for tests
+	static String toStringResult1;
+	static String toStringResult2;
 
-    // Declare BigDecimals for tests
-    static BigDecimal bd1;
-    static BigDecimal sum;
-    
-    @BeforeAll
-    static void set() {    
-        cat1 = new BoCCategory();
-        cat2 = new BoCCategory();
-        cat3 = new BoCCategory();
+	// Declare BigDecimals for tests
+	static BigDecimal bd1;
+	static BigDecimal sum;
 
-        // Set data for tests
-        cat2.setCategoryName("testToStringName");
-        cat2.setCategoryBudget(new BigDecimal ("5.00"));
-        cat2.addExpense(new BigDecimal ("6.00"));
-        cat3.setCategoryName("testToStringName");
-        cat3.setCategoryBudget(new BigDecimal ("7.00"));
-        cat3.addExpense(new BigDecimal ("6.00"));
+	@BeforeAll
+	static void set() {
+		cat1 = new BoCCategory();
+		cat2 = new BoCCategory();
+		cat3 = new BoCCategory();
 
-        // Define expected result
-        toStringResult1 = new String ( "testToStringName(¥5.00) - Est. ¥6.00 (¥1.00 Overspent)");
-        toStringResult2 = new String ( "testToStringName(¥7.00) - Est. ¥6.00 (¥1.00 Remaining)");
-        
-        bd1 = new BigDecimal("100");
-        sum = new BigDecimal("0.00");
-        
-    }
-    
-    /* - Pass - Hongming PING - 23:38/30/4  
-    
-    */
-    @Test
-    void setCNTest1() throws Exception {
-        TestInputString="YTB";
-        try {
-            BoCCategory copy = new BoCCategory();
-            copy.setCategoryName(TestInputString);
-            TestOutputString = copy.CategoryName();
-        }catch(Exception e) {
-            fail ("Someting wrong with catch");
-        }
-        assertEquals(TestInputString, TestOutputString);
-    }
-    
-    /*1. - Fail - Hongming PING - 21:38/2/5
-    Problem: If newName is sapce only or empty, the result still returns the value of
-    newName, which is Unknown name.
-    2. - Pass - 22:57/2/5
-    Reason: Fixed the Method with adding an "if" statement to assign null to String 
-    while whose newName is empty or sapce
-    */
-    @ParameterizedTest
-    @ValueSource(strings = {" " ,""})
-    void setCNTest23(String TestInputString) throws Exception {
-        try {
-            BoCCategory copy = new BoCCategory();
-            copy.setCategoryName(TestInputString);
-            TestOutputString = copy.CategoryName();
-        }catch(Exception e) {
-            fail ("Someting wrong with catch");
-        }
-        assertNull(TestOutputString);
-    }
-    
-    /* - Pass - Hongming PING - 16:52/1/5  
-    
-    */
-    @Test
-    void setCBTest1(){
-        TestInputBudget = new BigDecimal("0");
-        TestExceptOutputBudget = new BigDecimal("0.00");
-        try {
-            BoCCategory copy = new BoCCategory();
-            copy.setCategoryBudget(TestInputBudget);
-            TestOutputBudget = copy.CategoryBudget();
-        }catch(Exception e) {
-            fail ("Someting wrong with catch");
-        }
-        assertEquals(TestExceptOutputBudget, TestOutputBudget);
-    }
-    
-    /* - Pass - Hongming PING - 16:52/1/5  
-    
-    */
-    @Test
-    void setCBTest2(){
-        TestInputBudget = new BigDecimal("-100");
-        TestExceptOutputBudget = new BigDecimal("0.00");
-        try {
-            BoCCategory copy = new BoCCategory();
-            copy.setCategoryBudget(TestInputBudget);
-            TestOutputBudget = copy.CategoryBudget();
-        }catch(Exception e) {
-            fail ("Someting wrong with catch");
-        }
-        assertEquals(TestExceptOutputBudget, TestOutputBudget);
-    }
-    
-    /* - Pass - Hongming PING - 16:52/1/5  
-    
-    */
-    @Test
-    void setCBTest3(){
-        TestInputBudget = new BigDecimal("11.20");
-        TestExceptOutputBudget = new BigDecimal("11.20");
-        try {
-            BoCCategory copy = new BoCCategory();
-            copy.setCategoryBudget(TestInputBudget);
-            TestOutputBudget = copy.CategoryBudget();
-        }catch(Exception e) {
-            fail ("Someting wrong with catch");
-        }
-        assertEquals(TestExceptOutputBudget, TestOutputBudget);
-    }
+		// Set data for tests
+		cat2.setCategoryName("testToStringName");
+		cat2.setCategoryBudget(new BigDecimal ("5.00"));
+		cat2.addExpense(new BigDecimal ("6.00"));
+		cat3.setCategoryName("testToStringName");
+		cat3.setCategoryBudget(new BigDecimal ("7.00"));
+		cat3.addExpense(new BigDecimal ("6.00"));
+		
+		string1 = "5";
+		string2 = "transport";
+		string3 = "shopping";
+		bignum1 = new BigDecimal("1000");
+		bignum2 = new BigDecimal("1200.85");
+		bignum3 = new BigDecimal("3000");
+		bignum4 = new BigDecimal("4500.45");
+		BoCCategory shopping = new BoCCategory(string3);
+		BoCCategory transport = new BoCCategory(string2);
 
-    
-    /* 
+		// Define expected result
+		toStringResult1 = new String ( "testToStringName(¥5.00) - Est. ¥6.00 (¥1.00 Overspent)");
+		toStringResult2 = new String ( "testToStringName(¥7.00) - Est. ¥6.00 (¥1.00 Remaining)");
+
+		bd1 = new BigDecimal("100");
+		sum = new BigDecimal("0.00");
+
+	}
+
+	/* DEFAULT CONSTRUCTOR TEST******************************************************************
+    1 -Fail- Yuxiang Zhang - 17:30/01/05       
+    Problem: The categoryName is not same as the expected outcome.
+	Reason:
+	Traceability:
+	*/
+	@Test 			//Test of the default constructor by Yuxiang Zhang
+	void Default_Constructor_test1() throws Exception {
+			BoCCategory test1 = new BoCCategory();
+			assertEquals(expected CategoryName,CategoryName,); 
+	}
+		
+	/* MAIN CONSTRUCTOR TEST**********************************************************************
+	1 -Fail- Yuxiang Zhang - 20:05/01/05  
+	Problem: The numbers of parameters and input is not matching
+	Reason: the constructor BoCCategory(string,bigdecimal,bigdecimal) is undefined.
+	Traceability:Main Constructors Test 2; Main Constructors Test 2;Main Constructors Test 2;
+	*/
+	@Disabled 			
+	void Main_Constructor_test2() throws Exception {
+		BigDecimal transport = new BigDecimal("transport");
+		try {
+			BoCCategory transport = new BoCCategory(string1);
+			assertEquals("transport",transport.CategoryName()); 
+		}catch(Exception e) {
+			fail ("Something wrong with catch");
+		}
+	}
+		
+	/* 
+	2 -Pass- Yuxiang Zhang - 21:40/01/05  
+	Problem: 
+	Reason:
+	Traceability:Main Constructors Test 3
+	*/
+	@Test 
+	void Main_Constructor_test3() throws Exception {
+		BigDecimal transport = new BigDecimal("transport");
+		try {
+			BoCCategory transport = new BoCCategory(string2);
+			assertEquals("transport",transport.CategoryName()); 
+		}catch(Exception e) {
+			fail ("Something wrong with catch");
+		}
+	}
+		
+	/* 
+	3 -Pass- Yuxiang Zhang - 21:40/01/05  
+	Problem: 
+	Reason:
+	Traceability:Main Constructors Test 3
+	*/
+	@Test 
+	void Main_Constructor_test3() throws Exception {
+		BigDecimal shopping = new BigDecimal("shopping");
+		try {
+			BoCCategory shopping = new BoCCategory(string3);
+			assertEquals("shopping",shopping.CategoryName()); 
+		}catch(Exception e) {
+			fail ("Something wrong with catch");
+		}
+	}
+}
+
+	/* CATEGORY NAME TEST*******************************************************************
+	1 – Pass – Yuxiang Zhang - 21:30/02/05  
+	Problem: 
+	Reason:
+	Traceability:CategoryName Test 1
+	
+	2 – Pass – Yuxiang Zhang - 22:45/02/05  
+	Problem: 
+	Reason:
+	Traceability:CategoryName Test 2
+	
+	3 – Pass – Yuxiang Zhang - 00:18/02/05  
+	Problem: 
+	Reason:
+	Traceability:CategoryName Test 3
+	*/
+	@ParameterizedTest
+	@MethodSource
+	void CategoryNameTest(BoCCategory test,String testValue) throws Exception {
+		assertEquals(testValue,test.CategoryName());
+	}
+	static List<Arguments> CategoryNameTest(){
+		return List.of(
+				Arguments.arguments(shopping,"shopping"),
+				Arguments.arguments(transport,"transport"),
+				Arguments.arguments(New Category,"New Category")
+		);
+	}
+
+
+	/* CATEGORY BUDGET TEST*******************************************************************
+	1 – Pass – Yuxiang Zhang - 14:29/03/05  
+	Problem: 
+	Reason:
+	Traceability:CategoryBudget Test 1
+
+	2 – Pass – Yuxiang Zhang - 14:51/03/05  
+	Problem: 
+	Reason:
+	Traceability:CategoryBudget Test 2
+
+	3 – Pass – Yuxiang Zhang - 15:32/03/05  
+	Problem: 
+	Reason:
+	Traceability:CategoryBudget Test 3
+	*/
+	@ParameterizedTest
+	@MethodSource
+	void CategoryBudgetTest(BoCCategory test,BigDecimal testValue) throws Exception {
+		assertEquals(testValue,test.CategoryBudgetTest());
+	}
+	static List<Arguments> CategoryBudgetTest(){
+		return List.of(
+				Arguments.arguments(shopping,bignum3),
+				Arguments.arguments(transport,bignum1),
+				Arguments.arguments(New Category,0.00)
+		);
+	}
+
+	/* CATEGORY  SPEND TEST*******************************************************************
+	1 – Pass – Yuxiang Zhang - 17:14/03/05  
+	Problem: 
+	Reason:
+	Traceability:CategorySpend Test 1
+	2 – Pass – Yuxiang Zhang - 17:49/03/05  
+	Problem: 
+	Reason:
+	Traceability:CategorySpend Test 2
+
+	3 – Pass – Yuxiang Zhang - 19:47/03/05
+	Problem: 
+	Reason:
+	Traceability:CategorySpend Test 3
+	*/
+	@ParameterizedTest
+	@MethodSource
+	void CategorySpendTest(BoCCategory test,BigDecimal testValue) throws Exception {
+		assertEquals(testValue,test.CategorySpendTest());
+	}
+	static List<Arguments> CategorySpendTest(){
+		return List.of(
+				Arguments.arguments(shopping,bignum4),
+				Arguments.arguments(transport,bignum2),
+				Arguments.arguments(New Category,0.00)
+		);
+	}
+	
+	/* - Pass - Hongming PING - 23:38/30/4
+
+	 */
+	@Test
+	void setCNTest1() throws Exception {
+		TestInputString="YTB";
+		try {
+			BoCCategory copy = new BoCCategory();
+			copy.setCategoryName(TestInputString);
+			TestOutputString = copy.CategoryName();
+		}catch(Exception e) {
+			fail ("Someting wrong with catch");
+		}
+		assertEquals(TestInputString, TestOutputString);
+	}
+
+	/*1. - Fail - Hongming PING - 21:38/2/5
+	Problem: If newName is sapce only or empty, the result still returns the value of
+	newName, which is Unknown name.
+	2. - Pass - 22:57/2/5
+	Reason: Fixed the Method with adding an "if" statement to assign null to String
+	while whose newName is empty or sapce
+	*/
+	@ParameterizedTest
+	@ValueSource(strings = {" " ,""})
+	void setCNTest23(String TestInputString) throws Exception {
+		try {
+			BoCCategory copy = new BoCCategory();
+			copy.setCategoryName(TestInputString);
+			TestOutputString = copy.CategoryName();
+		}catch(Exception e) {
+			fail ("Someting wrong with catch");
+		}
+		assertNull(TestOutputString);
+	}
+
+	/* - Pass - Hongming PING - 16:52/1/5
+
+	 */
+	@Test
+	void setCBTest1(){
+		TestInputBudget = new BigDecimal("0");
+		TestExceptOutputBudget = new BigDecimal("0.00");
+		try {
+			BoCCategory copy = new BoCCategory();
+			copy.setCategoryBudget(TestInputBudget);
+			TestOutputBudget = copy.CategoryBudget();
+		}catch(Exception e) {
+			fail ("Someting wrong with catch");
+		}
+		assertEquals(TestExceptOutputBudget, TestOutputBudget);
+	}
+
+	/* - Pass - Hongming PING - 16:52/1/5
+
+	 */
+	@Test
+	void setCBTest2(){
+		TestInputBudget = new BigDecimal("-100");
+		TestExceptOutputBudget = new BigDecimal("0.00");
+		try {
+			BoCCategory copy = new BoCCategory();
+			copy.setCategoryBudget(TestInputBudget);
+			TestOutputBudget = copy.CategoryBudget();
+		}catch(Exception e) {
+			fail ("Someting wrong with catch");
+		}
+		assertEquals(TestExceptOutputBudget, TestOutputBudget);
+	}
+
+	/* - Pass - Hongming PING - 16:52/1/5
+
+	 */
+	@Test
+	void setCBTest3(){
+		TestInputBudget = new BigDecimal("11.20");
+		TestExceptOutputBudget = new BigDecimal("11.20");
+		try {
+			BoCCategory copy = new BoCCategory();
+			copy.setCategoryBudget(TestInputBudget);
+			TestOutputBudget = copy.CategoryBudget();
+		}catch(Exception e) {
+			fail ("Someting wrong with catch");
+		}
+		assertEquals(TestExceptOutputBudget, TestOutputBudget);
+	}
+
+
+	/*
     1 - FAIL - Shiliang - 21:43 30/5
     Problem: Decimals are different
     Reason: There might be something wrong with the input type
@@ -177,7 +344,7 @@ class BoCCategoryTest {
     }
 
 
-    /* 
+    /*
     1 - PASS - Shiliang - 23:44 30/4
     Problem: /
     Reason: /
@@ -209,15 +376,14 @@ class BoCCategoryTest {
 
         }
         catch (Exception e){
-            assertThrows(Exception.class, ()->{cat1.removeExpense(bd1);});
-            assertEquals("Expense should not be less than 0!", e.getMessage());
+            assertThrows(Exception.class, ()->{cat1.removeExpense(bd1);System.out.println(cat1.CategorySpend());});
         }
     }
 
 
     /*
     1- FAIL - Jiawei - 16:44 1/5
-    Problem: The Test is failed. 
+    Problem: The Test is failed.
     Reason: The code does not run the resetBudgetSpendTest method in the first test. Therefore,
             the output is not match with the expected output.
     Traceability: resetBudgetSpendTest 1
@@ -235,7 +401,7 @@ class BoCCategoryTest {
         bd1 = new BigDecimal(num1);
         cat1.resetBudgetSpend();
         assertEquals(bd1, cat1.CategorySpend());
-        
+
     }
 
 
@@ -257,13 +423,13 @@ class BoCCategoryTest {
     /*
     1 - FAIL - Jiawei - 15:55 2/5
     Problem: Does not set a specific parameter in the test Therefore two conditions will not test either
-    Reason: the parameter needs to be a value in the test plan 
+    Reason: the parameter needs to be a value in the test plan
     Traceability: testToString(previous version)
 
     2 - ERROR - Jiawei Shiliang-19:13 2/5
-    Problem: Does not use Parameterized Test 
+    Problem: Does not use Parameterized Test
     Reason: Parameterized Test is more standard
-    Traceability: testToString1, testToString 2 
+    Traceability: testToString1, testToString 2
 
     3 - PASS - Jiawei - 21:20 2/5
     Problem:/

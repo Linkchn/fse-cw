@@ -30,17 +30,17 @@ class BoCCategoryTest_p3 {
     static BigDecimal sum;
 
     @BeforeAll
-    static void set() {    
-        cat1 = new BoCCategory();
+    static void set() {	
+    	cat1 = new BoCCategory();
         cat2 = new BoCCategory();
         cat3 = new BoCCategory();
 
         // Set data for tests
-        cat2.setCategoryName("testToStringName");
-        cat2.setCategoryBudget(new BigDecimal ("5.00"));
-        cat2.addExpense(new BigDecimal ("6.00"));
-        cat3.setCategoryName("testToStringName");
-        cat3.setCategoryBudget(new BigDecimal ("7.00"));
+    	cat2.setCategoryName("testToStringName");
+    	cat2.setCategoryBudget(new BigDecimal ("5.00"));
+		cat2.addExpense(new BigDecimal ("6.00"));
+    	cat3.setCategoryName("testToStringName");
+    	cat3.setCategoryBudget(new BigDecimal ("7.00"));
         cat3.addExpense(new BigDecimal ("6.00"));
 
         // Define expected result
@@ -120,6 +120,7 @@ class BoCCategoryTest_p3 {
     void removeExpenseTest(String num) {
         bd1 = new BigDecimal(num);
         sum = cat1.CategorySpend();
+        BigDecimal temp = sum.subtract(bd1);
 
         try {
             sum = sum.subtract(bd1);
@@ -141,20 +142,20 @@ class BoCCategoryTest_p3 {
             the output is not match with the expected output.
     Traceability: resetBudgetSpendTest 1
 
-    2 - PASS -Jiawei - 18:23 1/5
-    Problem: /
-    Reason:/
-    Traceability: resetBudgetSpendTest 2
+	2 - PASS -Jiawei - 18:23 1/5
+	Problem: /
+	Reason:/
+	Traceability: resetBudgetSpendTest 2
      */
     @Order(4)
     @DisplayName("resetBudgetSpendTest")
     @ParameterizedTest
     @ValueSource(strings = {"0.00"})
     void resetBudgetSpendTest(String num1) {
-        bd1 = new BigDecimal(num1);
-        cat1.resetBudgetSpend();
-        assertEquals(bd1, cat1.CategorySpend());
-        
+    	bd1 = new BigDecimal(num1);
+    	cat1.resetBudgetSpend();
+    	assertEquals(bd1, cat1.CategorySpend());
+    	
     }
 
 
@@ -194,13 +195,13 @@ class BoCCategoryTest_p3 {
     @ParameterizedTest
     @MethodSource
     void testToString(BoCCategory cat, String string1 ) {
-        if(cat.getRemainingBudget().compareTo(BigDecimal.ZERO) != -1 )
-        {
-            assertEquals( string1, cat.toString());
-        }
-        else {
-            assertEquals( string1, cat.toString());
-        }
+    	if(cat.getRemainingBudget().compareTo(BigDecimal.ZERO) != -1 )
+    	{
+    		assertEquals( string1, cat.toString());
+    	}
+    	else {
+    		assertEquals( string1, cat.toString());
+    	}
     }
 
     static List<Arguments> testToString() {

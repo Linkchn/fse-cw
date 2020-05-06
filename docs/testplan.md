@@ -15,16 +15,16 @@
 
 ## Team Management
 
-Report here, by the end of the assignment, how the team has managed the project, e.g.: used version control, organised meetings, divided work, used labels, milestones, issues, etc. etc.
+Report here, by the end of the assignment, how the team has managed the project, e.g.: used version control, organised meetings, divided work, used labels, milestones, issues, etc.
 
 ### I. Team stategy
 
 - Overall, **Agile Software Development** using **Test Driven Development** based on the document and codes with **pair programming**.
-  First analyse Class Description seperately.
-  Second devide members in pairs and distribute works to pairs.
-  Third build Tests Plan Table according to the Class Description analysis in pairs.
-  Then adjust codes and plan throughout the whole process of development to achieve the requirements.
-  Branches will be made once pair work has begun.
+First analyse Class Description seperately.
+Second devide members in pairs and distribute works to pairs.
+Third build Tests Plan Table according to the Class Description analysis in pairs.
+Then adjust codes and plan throughout the whole process of development to achieve the requirements.
+Branches will be made once pair work has begun.
   Group meeting will be organised 3 - 4 days once.
 
 - Since this BoCAPP is a small-sized business system, agile method allows us to focus on the software itself rather than on its design and documentation, which is exactly what we need. As is required and recommended, we use JUnit to do TDD process. Although the whole development process is not so heavy that every one can do their own small piece of job to finish the task, we consider pair programming could be a good method which fits us well. Most importantly, it will act as an informal review process because each line of code is looked at by at least one person. It largly reduces the risk of more errors with cheap program inspections. Secondly, it is recommended that we can do refactoring to improve the software structure. Different from normal development environment, pair programming provide a more friendly environment for refactoring to happen as others could benifit immediately from that. Thirdly, it obviously widens the mind of the way making tests and improves the ability of each other's programming skills.
@@ -94,73 +94,82 @@ Report here, by the end of the assignment, how the team has managed the project,
 
 ### III. Timeline & decisions
 
-  - 23/4
+- 23/4
+
+  stage 0: First meeting, discuss about the overall stategy.
+
+- 24/4 issues: 3/8
+
+  Read class description carefully, and finish planned tests tables.
+
+- 25/4 issues: 6/12
+
+  Second meeting, share information from the class description, ask for understanding of git version control, uniform the format of coding and commenting, devide pairs and distribute work.
+
+  Work has been distributed to pairs and issued in gitlab
+
+- 26/4 issues: 4/12
+
+  Start doing tests plans
+- 27/4 issues: 4/12
+
+  Work with plan table
+
+- 28/4 issues: 4/15
   
-    stage 0: First meeting, discuss about the overall stategy.
+  Work with plan table
 
-  - 24/4 issues: 3/8
+  Branches are made by pairs: master for Pair1, daze for Pair2, Pair3 for Pair3
 
-    Read class description carefully, and finish planned tests tables.
+- 29/4 issues: 4/15
 
-  - 25/4 issues: 6/12
+  Work with plan table and tests coding
+
+- 30/4 issues: 5/16
+
+  Work with plan table and tests coding
+
+- 1/5 issues: 6/17
+
+  Second meeting, discuss about current problems and efficiency improvement, talk about further plans.
+
+  Keep working on tests of first two classes
+
+- 2/5 issues: 4/18
   
-    Second meeting, share information from the class description, ask for understanding of git version control, uniform the format of coding and commenting, devide pairs and distribute work.
-
-    Work has been distributed to pairs and issued in gitlab
-
-  - 26/4 issues: 4/12
-
-    Start doing tests plans
-
-  - 27/4 issues: 4/12
-
-    Work with plan table
-
-  - 28/4 issues: 4/15
+  Plans of the rest of the days release by pairs:
   
-    Work with plan table
+  **Plan of Pair 1**
 
-    Branches are made by pairs: master for Pair1, daze for Pair2, Pair3 for Pair3
-
-  - 29/4 issues: 4/15
-
-    Work with plan table and tests coding
-
-  - 30/4 issues: 5/16
-
-    Work with plan table and tests coding
-
-  - 1/5 issues: 6/17
-
-    Second meeting, discuss about current problems and efficiency improvement, talk about further plans.
-
-    Keep working on tests of first two classes
-
-  - 2/5 issues: 4/18
-  
-    Plans of the rest of the days release by pairs:
+  | Date | What to do                         |Link          | Yuxiang     | Status   |
+  | ---- | ---------------------------------- |------------- | ----------- | -------- |
+  | 5/2  | Finish Test                        | C 1,2,3,45,6 | T 1,2,3,4,5 | Finished |
+  | 5/3  | Fix Category and Transaction Class | C 1,2,3,45,6 | T 1,2,3,4,5 | Finished |
+  | 5/4  | Set Test for Main Class 4,5        | M 23         | /           | Finished |
+  | 5/5  | Fix Main Class                     | M 23         | /           | Finished |
+  | 5/7  | Final check and Tag               |               |             |          |
     
-    **Plan of Pair 2**
-
-    | Date | What to do                         | Daze   | Leo               | Status   |
-    | ---- | ---------------------------------- | ------ | ----------------- | -------- |
-    | 5/2  | Finish Test                        | C 6, 7 | T 7, 8, 9, 10, 12 | Finished |
-    | 5/3  | Fix Category and Transaction Class | C 6, 7 | T 7, 8, 9, 10, 12 | Finished |
-    | 5/4  | Set Test for Main Class 4,5        | M 4    | M 5               |          |
-    | 5/5  | Fix Main Class                     |        |                   |          |
-    | 5/6  | Fix Main Class                     |        |                   |          |
-    | 5/7  | Final check and Tag                |        |                   |          |
-
-    **Plan of Pair 3**
-
-    | Date | What to do                         | Shiliang | Jiawei | Status |
-    | ---- | ---------------------------------- | ---- | ---- | ------ |
-    | 5/2  | Finish Tests of first two classes with fixed code| √ | √ | √ |
-    | 5/3  | Start plan for main 6, 7 and write test code| M 6 | M 7 | × |
-    | 5/4  | Work on main 6, 7                  | M 6 | M 7 |        |
-    | 5/5  | Work on main 6, 7                  |      |      |        |
-    | 5/6  | Work on main 6, 7                  |      |      |        |
-    | 5/7  | Final check and Tag                |      |      |        |
+  **Plan of Pair 2**
+    
+  | Date | What to do                         | Daze   | Leo               | Status   |
+  | ---- | ---------------------------------- | ------ | ----------------- | -------- |
+  | 5/2  | Finish Test                        | C 6, 7 | T 7, 8, 9, 10, 12 | Finished |
+  | 5/3  | Fix Category and Transaction Class | C 6, 7 | T 7, 8, 9, 10, 12 | Finished |
+  | 5/4  | Set Test for Main Class 4,5        | M 4    | M 5               |          |
+  | 5/5  | Fix Main Class                     |        |                   |          |
+  | 5/6  | Fix Main Class                     |        |                   |          |
+  | 5/7  | Final check and Tag                |        |                   |          |
+  
+  **Plan of Pair 3**
+  
+  | Date | What to do                         | Shiliang | Jiawei | Status |
+  | ---- | ---------------------------------- | ---- | ---- | ------ |
+  | 5/2  | Finish Tests of first two classes with fixed code| √ | √ | √ |
+  | 5/3  | Start plan for main 6, 7 and write test code| M 6 | M 7 | × |
+  | 5/4  | Work on main 6, 7                  | M 6 | M 7 |        |
+  | 5/5  | Work on main 6, 7                  |      |      |        |
+  | 5/6  | Work on main 6, 7                  |      |      |        |
+  | 5/7  | Final check and Tag                |      |      |        |
 
     Forth meeting, discussed about further plan and merge problems
 
@@ -228,9 +237,8 @@ Report here, by the end of the assignment, how the team has managed the project,
      | 5/6  |                                                              | Finish coding, tag, conclude                                 |
      | 5/7  |                                                              |                                                              |
   
-     
-### V. Conclusion
 
+### V. Conclusion
 
 
 ## Test Plan
@@ -346,47 +354,47 @@ This method should not be used in this class. So it has been deleted.
 
 ### Class: BoCCategory
 
-#### Function 1: BoCCatogory() - Default Constructor (no parameters)       
+#### Function 1: BoCCategory() - Default Constructor (no parameters)
 
 | Importance | Status | Test                       | Inputs | Expected Outcome   | Test Outcome       | Problem                                                 | Change                                                   | Reason                                   | Time | Author       |
 | ---------- | ------ | -------------------------- | ------ | ------------------ | ------------------ | ------------------------------------------------------- | -------------------------------------------------------- | ---------------------------------------- | ---- | ------------ |
-| !!!        | Fail   | Default Constructor test 1 | void   | [Pending Category] | Fail the test      | The CatogoryBudget is not same as the expected outcome. | change the "CatogoryBudget"   to "[Pending Category]" | The default constructor gives null value |      | YuxiangZhang |
-| !!!        | Pass   | Default Constructor test 2 | void   | [Pending Category] | [Pending Category] | No                                                      |                                                          |                                          |      | YuxiangZhang |
+| !!!        | Pass   | Default Constructor test 1 | void   | "New Category","0.00","0.00" | "New Category","0.00","0.00" |  No | / | / |   17:30/01/05 | YuxiangZhang |
+| !!!        | Pass   | Default Constructor test 2 | void   | "New Category","0.00","0.00" | "New Category","0.00","0.00" |  No | / | / |   19:50/01/05 | YuxiangZhang |
 
-#### Function 2: BoCCatogory(String cName, BigDecimal cbudget, BigDecimal cSpend) - Main Constructors       
+#### Function 2: BoCCategory(String newTitle) - Main Constructors
 
 | Importance | Status | Test                     | Inputs             | Expected Outcome                                    | Test Outcome | Problem | Change | Reason | Time | Author       |
 | ---------- | ------ | ------------------------ | ------------------ | --------------------------------------------------- | ------------ | ------- | ------ | ------ | ---- | ------------ |
-| !!!        |        | Main Constructors Test 1 | 5                  | The numbers of parameters and input is not matching |              |         |        |        |      | YuxiangZhang |
-| !!!        |        | Main Constructors Test 2 | "transport",1000,1 | build successfully                                  |              |         |        |        |      | YuxiangZhang |
-| !!!        |        | Main Constructors Test 3 | "shopping",3000,1  | build successfully                                  |              |         |        |        |      | YuxiangZhang |
+| !!!        |    Fail    | Main Constructors Test 1 | 5                  | The numbers of parameters and input is not matching |       Error       |    the constructor BoCCategory(BigDecimal) is undefined.     |    Ignore the test    |    The compile error can't be solved in the method    |    20:05/01/05  | YuxiangZhang |
+| !!!        |    Pass    | Main Constructors Test 2 | "transport" | build successfully                                  |       "transport"       |    /     |    /    |    /    |    21:40/01/05  | YuxiangZhang |
+| !!!        |    Pass    | Main Constructors Test 3 | "shopping"  | build successfully                                  |       "shopping"       |    /     |    /    |    /    |    21:40/01/05  | YuxiangZhang |
 
-#### Function 3: CatogoryName() - Get Category Name       
+#### Function 3: CategoryName() - Get Category Name
 
 | Importance | Status | Test                     | Inputs                         | Expected Outcome | Test Outcome | Problem | Change | Reason | Time | Author       |
 | ---------- | ------ | ------------------------ | ------------------------------ | ---------------- | ------------ | ------- | ------ | ------ | ---- | ------------ |
-| !          |        | get_Category Name test 1 | void (in class shopping)       | "shopping"       |              |         |        |        |      | YuxiangZhang |
-| !          |        | get_Category Name test 2 | void (in class transport)      | "transport"      |              |         |        |        |      | YuxiangZhang |
-| !          |        | get_Category Name test 2 | void(in [Pending Category]) | null             |              |         |        |        |      | YuxiangZhang |
+| !          |   Pass     | get_Category Name test 1 | void (in class shopping)       | "shopping"       |  "shopping"           |     /     |   /      |     /    |    21:30/02/05  | YuxiangZhang |
+| !          |   Pass     | get_Category Name test 2 | void (in class transport)      | "transport"      |    "transport"          |      /    |    /     |     /    |    22:45/02/05  | YuxiangZhang |
+| !          |   Pass     | get_Category Name test 2 | void(in New Category) |       "New Category"       |     "New Category"        |       /   |     /    |     /    |   00:18/02/05   | YuxiangZhang |
 
-#### Function 4: CatogoryBudget() - Get Category Budget       
+#### Function 4: CategoryBudget() - Get Category Budget
 
 | Importance | Status | Test                       | Inputs                         | Expected Outcome | Test Outcome | Problem | Change | Reason | Time | Author       |
 | ---------- | ------ | -------------------------- | ------------------------------ | ---------------- | ------------ | ------- | ------ | ------ | ---- | ------------ |
-| !          |        | get_Category Budget test 1 | void (in class shopping)3000   | 3000             |              |         |        |        |      | YuxiangZhang |
-| !          |        | get_Category Budget test 2 | void (in class transport)      | 1000             |              |         |        |        |      | YuxiangZhang |
-| !          |        | get_Category Budget test 3 | void(in [Pending Category]) | null             |              |         |        |        |      | YuxiangZhang |
+| !          |   Pass     | get_Category Budget test 1 | void (in class shopping)3000   | 3000             |     3000         |        /   |    /      |    /      |  14:29/03/05   | YuxiangZhang |
+| !          |   Pass    | get_Category Budget test 2 | void (in class transport)      | 1000             |     1000         |        /   |      /    |   /       |   14:51/03/05   | YuxiangZhang |
+| !          |   Pass     | get_Category Budget test 3 | void(in New Category) | 0.00             |       0.00       |       /    |     /     |       /   |    15:32/03/05  | YuxiangZhang |
 
-#### Function 5:  CatogorySpend() - Get Category Spend       
+#### Function 5:  CategorySpend() - Get Category Spend
 
 | Importance | Status | Test                      | Inputs                         | Expected Outcome | Test Outcome | Problem | Change | Reason | Time | Author       |
 | ---------- | ------ | ------------------------- | ------------------------------ | ---------------- | ------------ | ------- | ------ | ------ | ---- | ------------ |
-| !          |        | get_Category Spend test 1 | void (in class shopping)       | 4500.45          |              |         |        |        |      | YuxiangZhang |
-| !          |        | get_Category Spend test 2 | void (in class transport)      | 1200.85          |              |         |        |        |      | YuxiangZhang |
-| !          |        | get_Category Spend test 3 | void(in [Pending Category]) | null             |              |         |        |        |      | YuxiangZhang |
+| !          |   Pass     | get_Category Spend test 1 | void (in class shopping)       | 4500.45          |     4500.45         |     /     |     /    |    /     |   17:14/03/05   | YuxiangZhang |
+| !          |   Pass     | get_Category Spend test 2 | void (in class transport)      | 1200.85          |     1200.85         |    /      |     /    |    /     |   17:49/03/05   | YuxiangZhang |
+| !          |   Pass     | get_Category Spend test 3 | void(in New Category) | 0.00             |        0.00      |      /    |     /    |     /    |   19:47/03/05   | YuxiangZhang |
 
 
-#### Function 6:  setCatogoryName(String cName) - Set Category Name       
+#### Function 6:  setCategoryName(String cName) - Set Category Name
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|------------|------------|------------|------------|
@@ -394,7 +402,7 @@ This method should not be used in this class. So it has been deleted.
 | ! | FAIL | setCNTest2 | blank space: " " | null | blank space: " " | If newName is sapce only or empty, the result still returns the value of<br/>	newName, which is Unknown name. | Fixed the Method with adding an "if" statement to assign null to String <br/>	while whose newName is empty or sapce | 22:57/2/5 | Hongming Ping |
 | ! | FAIL | setCNTest3 | empty string: "" | null | empty string: "" | If newName is sapce only or empty, the result still returns the value of<br/>	newName, which is Unknown name. | Fixed the Method with adding an "if" statement to assign null to String <br/>	while whose newName is empty or sapce | 22:57/2/5 | Hongming Ping |
 
-#### Function 7: setCatogoryBudget(BigDecimal cBudget) - Set Category Budget       
+#### Function 7: setCategoryBudget(BigDecimal cBudget) - Set Category Budget
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|------------|------------|------------|------------|------------|
@@ -402,7 +410,7 @@ This method should not be used in this class. So it has been deleted.
 | !! | PASS | setCBTest2 | -100 | 0.00             | 0.00 | | | | 16:52/1/5 | Hongming Ping |
 | !! | PASS | setCBTest3 | 11.2 | 11.20 | 11.20 | | | | 16:52/1/5 | Hongming Ping |
 
-#### Function 8: addExpense(BigDecimal ) - add Expense function       
+#### Function 8: addExpense(BigDecimal ) - add Expense function
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
@@ -415,7 +423,7 @@ This method should not be used in this class. So it has been deleted.
 |! |  |addExpenseTest 7* |(String)-11.5 |Throw an exception, remain (BigDecimal)10000000211.5 | | | | | | |
 |! | |addExpenseTest 6* |(String)-100 |Throw an exception, remain (BigDecimal)10000000211.5 | | | | | | |
 
-#### Function 9: removeExpense(BigDecimal ) - remove Expense function       
+#### Function 9: removeExpense(BigDecimal ) - remove Expense function
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
@@ -427,21 +435,21 @@ This method should not be used in this class. So it has been deleted.
 |! | PASS |removeExpenseTest 6 |new BigDecimal("100.00") |Exception: expense should not be negative |Exception: expense should not be negative | / | Add exception throw in the function, throw exception if the expense would be negative | The source code should throw exception for main to handle  anormaly | 16:25 1/5 | Shiliang |
 |! | |removeExpenseTest 7* |-100 | | | | | | | |
 
-#### Function 10: resetBudgetSpend() - reset Spend Total Function       
+#### Function 10: resetBudgetSpend() - reset Spend Total Function
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
 |! | |resetBudgetSpendTest 1|NONE |spend == 0 | spend==0 | / | / | / | 16:37 | Eddie |
 | | | | | | | | | | ||
 
-#### Function 11: getRemainingBudget() - Calculate Remaining Budget function    
+#### Function 11: getRemainingBudget() - Calculate Remaining Budget function
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
 | ！ | PASS |getRemainingBudgetTest 1 |NONE |CategoryBudget == BigDecimal("-10.00") |CategoryBudget == BigDecimal("-10.00") | / | / | / | 16:13 1/5 | Shiliang Jiawei |
 | | | | | | | | | | ||
 
-#### Function 12: toString()       
+#### Function 12: toString()
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
@@ -464,29 +472,34 @@ This method should not be used in this class. So it has been deleted.
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+| ！ | PASS | ListTransactions test | void | print all the transaction | same as expected | / | / | / | 19:41/5/5 | Haonan CHEN |
 
 #### Function 3: CategoryOverview - Category Overview function
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+| ！         | PASS | ListTransactions test | void | print all the transaction | same as expected | / | / | / | 19:45/5/5 | Haonan CHEN |
 
 #### Function 4: ArrayListofBoCCategoryobjects - List Transactions in Category function
 
-|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
-|----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Reason|Problem|Change|Time|Author|
+|----------|------|----|------|----------------|------------|------|-------|------|----|------|
+|!|PASS|listTransactionsForCategoryTest1|1|"Unknown: 1)  Rent - ¥850.00"+'\n'|"Unknown: 1)  Rent - ¥850.00"+'\n'|there isn't a output operation for output of Category name|*The output doesn't include the name of Category as required.*|get the name and print it before print the information of transaction|20:45/5/5|Daze|
+|!|PASS|listTransactionsForCategoryTest2|2|"Bills: 2)  Phone Bill - ¥37.99"+'\n'+"Bills: 3)  Electricity Bill - ¥75.00"+'\n'|"Bills: 2)  Phone Bill - ¥37.99"+'\n'+"Bills: 3)  Electricity Bill - ¥75.00"+'\n'|same as above|*The output doesn't include the name of Category as required.*|same as above|20:45/5/5|Daze|
+| ! | PASS | listTransactionsForCategoryTest3 | 3 | "Groceries: 4)  Sainsbury's Checkout - ¥23.76"+'\n'+"Groceries: 5)  Tesco's Checkout - ¥7.24"+'\n' | "Groceries: 4)  Sainsbury's Checkout - ¥23.76"+'\n'+"Groceries: 5)  Tesco's Checkout - ¥7.24"+'\n' | same as above | *The output doesn't include the name of Category as required.* | same as above | *20:45/5/5* | Daze |
+| ! | PASS | listTransactionsForCategoryTest4 | 4 | "Social: 6)  RockCity Drinks - ¥8.50"+'\n'+"Social: 7)  The Mooch - ¥13.99"+'\n' | "Social: 6)  RockCity Drinks - ¥8.50"+'\n'+"Social: 7)  The Mooch - ¥13.99"+'\n' | same as above | *The output doesn't include the name of Category as required.* | same as above | *20:45/5/5* | Daze |
+| ! | PASS | listTransactionsForCategoryTest5 | 5 | "The Category doesn't exit"+'\n' | "The Category doesn't exit"+'\n' | there isn't a output operation for invalid input | *If a number larger than bound is input, no tips is output.* | Add a statement  to check if out of range | 17:48/5/5 | Daze |
 
 #### Function 5: TransactionCategory - Change Transaction Category function
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+| !! | Pass | ChangeTransactionCategoryTest1 | "1","3" | Rent to Groceries | Rent to Groceries | / | / | / | 6th/May 00:17 | Leo |
+| !! | Pass | ChangeTransactionCategoryTest2 | "3","1" | Electricity Bill to Unknown | Electricity Bill to Unknown | / | / | / | 6th/May 00:17 | Leo |
+| !! | Pass | ChangeTransactionCategoryTest3 | "4","2" | Sainsbury's Checkout to Bills | Sainsbury's Checkout to Bills | / | / | / | 6th/May 00:17 | Leo |
+| !! | Pass | ChangeTransactionCategoryTest4 | "7","4" | The Mooch to Social | The Mooch to Social | / | / | / | 6th/May 00:18 | Leo |
+| !!! | Pass | ChangeTransactionCategoryTest5 | "8","4" | "Please input valid transaction value!" | "Please input valid transaction value!" | / | / | / | 6th/May 00:46 | Leo |
+| !!! | Pass | ChangeTransactionCategoryTest6 | "5","-1" | "Please input valid category!" | "Please input valid category!" | / | / | / | 6th/May 00:48 | Leo |
 
 #### Function 6: addTransaction(Scanner in) - Add Transaction function
 
@@ -521,6 +534,7 @@ This method should not be used in this class. So it has been deleted.
 | !! | PASS | addTransactionTest 13' | "  \n", "12.00\n", "1\n" | nothing is set actually, shows "Wrong name. It should not be blank!", then exit back | Category is  set to "   ". value is set to13.00. category is set to Unknown, prompt "[Transaction added]" | 1. allow blank input | add if for "   " situation | blank input has not been banned | 16:15 5/5 | Shiliang |
 | !! | PASS | addTransactionTest 14' | "tran14\n", "  \n", "1\n" | Wrong value. It should not be blank! | InvocationException | 1. BigDecimal went wrong | add if for "   " situation | blank input has not been banned | 16:15 5/5 | Shiliang |
 | !! | PASS | addTransactionTest 4'' | "tran4\n", "4.00\n", "\n" | name is set to tran4, value is set to 4.00, category is set to 0, shows "tran1(¥1) was added to Unknown" | InvocationException | 1. the third argument went wrong | add if for "" situation | haven't handled \n | 16:31 5/5 | Shiliang |
+
 #### FAILFunction 7: addCategory(Scanner in) - Add Category function
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|

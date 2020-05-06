@@ -6,7 +6,8 @@ public class BoCCategory {
     private BigDecimal CategorySpend;
 
     public BoCCategory() {
-        CategoryName = "New Category";
+        CategoryName = "New Category"+ defaultCategoryNum;
+        defaultCategoryNum++;
         CategoryBudget = new BigDecimal("0.00");
         CategorySpend = new BigDecimal("0.00");
     }
