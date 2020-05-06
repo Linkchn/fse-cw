@@ -188,12 +188,12 @@ public class BoCApp {
 	}
 
 	/* 
-	1 – Pass – Leo - 00:18/6/5  
+	1 - Pass - Leo - 00:18/6/5  
 	Problem: /
 	Reason:/
 	Traceability: ChangeTransactionCategoryTest1,2,3,4
 	
-	2 – Pass – Leo - 00:48/6/5  
+	2 - Pass - Leo - 00:48/6/5  
 	Problem: /
 	Reason:/
 	Traceability: ChangeTransactionCategoryTest5，6

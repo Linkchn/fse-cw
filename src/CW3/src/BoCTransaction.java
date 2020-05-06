@@ -9,7 +9,7 @@ public class BoCTransaction {
 	private Date transactionTime;
 
 	/*
-	1 – Pass – Haonan CHEN – 23:58/40/3
+	1 - Pass - Haonan CHEN - 23:58/40/3
 	Change:Initiate the transactionName to [Pending Transaction]
 	Reason:keep same as requirement
 	Tracabiliy:Default_Constructor_test1 
@@ -91,7 +91,7 @@ public class BoCTransaction {
 
 
 	/*
-	1 – ERROR – Shiliang – 21:43 1/5
+	1 - ERROR - Shiliang - 21:43 1/5
     Change: /
     Reason: isComplete is needed in class description
     Traceability: isCompleteTest 1

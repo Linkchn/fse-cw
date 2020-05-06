@@ -36,12 +36,12 @@ class BoCTransactionTest_p3 {
 
 
     /*
-    1 – ERROR – Shiliang – 21:43 1/5
+    1 - ERROR - Shiliang - 21:43 1/5
     Problem: isComplete () does not exist
     Reason: java reported error, cant invoke a non-exist method
     Traceability: isCompleteTest 1
 
-    2 – PASS – Shiliang – 22:37 1/5
+    2 - PASS - Shiliang - 22:37 1/5
     Problem: /
     Reason: /
     Traceability: isCompleteTest 2

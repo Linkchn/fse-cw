@@ -149,7 +149,7 @@ class BoCAppTest {
         SimpleDateFormat sdff=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 		String sd = sdff.format(new Date(timeStamp));
 		return List.of(
-                Arguments.arguments(1,"Unknown: 1) Rent - ¥850.00\r\nUnknown: 8) tran1 - ¥1.00"+"\t\t"+ sd +" \r\n" + "Unknown: 9) tran4 - ¥4.00"+"\t\t"+ sd+"\r\n" + "Unknown: 10) tran6 - ¥0.00"+"\t\t"+ sd+"\r\n" + "Unknown: 11) tttttrrrrraaaaannnnn10101 - ¥10.00"+"\t\t"+ sd+"\r\n"),
+                Arguments.arguments(1,"Unknown: 1) Rent - ¥850.00"+"\t\t"+ sd +"\r\nUnknown: 8) tran1 - ¥1.00"+"\t\t"+ sd +"\r\n" + "Unknown: 9) tran4 - ¥4.00"+"\t\t"+ sd+"\r\n" + "Unknown: 10) tran6 - ¥0.00"+"\t\t"+ sd+"\r\n" + "Unknown: 11) tttttrrrrraaaaannnnn10101 - ¥10.00"+"\t\t"+ sd+"\r\n"),
                 Arguments.arguments(2,"Bills: 2) Phone Bill - ¥37.99"+"\t\t"+ sd+"\r"+'\n'+"Bills: 3) Electricity Bill - ¥75.00"+"\t\t"+ sd+"\r"+'\n'),
                 Arguments.arguments(3,"Groceries: 4) Sainsbury's Checkout - ¥23.76"+"\t\t"+ sd+"\r"+'\n'+"Groceries: 5) Tesco's Checkout - ¥7.24"+"\t\t"+ sd+"\r"+'\n'),
                 Arguments.arguments(4,"Social: 6) RockCity Drinks - ¥8.50"+"\t\t"+ sd +"\r"+'\n'+"Social: 7) The Mooch - ¥13.99" +"\t\t"+ sd +"\r"+'\n'),
@@ -255,18 +255,17 @@ class BoCAppTest {
 	
 	
     /* 
-	1 – Pass – Leo - 00:18/6/5  
+	1 - Pass - Leo - 00:18/6/5  
 	Problem: /
 	Reason:/
 	Traceability: ChangeTransactionCategoryTest1,2,3,4
 	
-	2 – Pass – Leo - 00:48/6/5  
+	2 - Pass - Leo - 00:48/6/5  
 	Problem: /
 	Reason:/
 	Traceability: ChangeTransactionCategoryTest5，6
 	*/
-    @Disabled
-	@DisplayName("AddTransactionTest")
+	@DisplayName("ChangeTransactionCategoryTest")
 	@ParameterizedTest
 	@MethodSource
 	void ChangeTransactionCategoryTest(String tID, String newCat, String alert) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
@@ -277,21 +276,21 @@ class BoCAppTest {
 		    if(alert.equals("1")) {
 			    String input = "\n" + tID + "\n" + newCat + "\n";
 			    inp = new Scanner(input);
-			    catList = "1) " + a.UserCategories.get(0).toString() + "\r\n";
-		    	for (int x = 1; x < a.UserCategories.size(); x++) {
-					BoCCategory temp = a.UserCategories.get(x);
+			    catList = "1) " + BoCApp.UserCategories.get(0).toString() + "\r\n";
+		    	for (int x = 1; x < BoCApp.UserCategories.size(); x++) {
+					BoCCategory temp = BoCApp.UserCategories.get(x);
 					catList += (x+1) + ") " + temp.toString() + "\r\n";
 				}
 		    	int tIDi = Integer.parseInt( tID )-1;
 		    	int newCati = Integer.parseInt( newCat )-1;
 			    
-		    	BoCTransaction temp = a.UserTransactions.get(tIDi);
+		    	BoCTransaction temp = BoCApp.UserTransactions.get(tIDi);
 				int oldCat = temp.transactionCategory();
 		    	
 	        	ChangeTransactionCategoryTest.invoke(a, inp);
-	        	BoCCategory newCatSpend = a.UserCategories.get(newCati);
-	        	BoCCategory oldCatSpend = a.UserCategories.get(oldCat);
-	            assertEquals(prompt7 + "\t- " + a.UserTransactions.get( tIDi ).toString() + "\r\n" + prompt8 + catList + prompt9 + "Target category: " + (newCati + 1) + ") " + newCatSpend.toString() + "\r\n" + "Origin category: " + (oldCat + 1) + ") " + oldCatSpend.toString() + "\r\n", outContent.toString());
+	        	BoCCategory newCatSpend = BoCApp.UserCategories.get(newCati);
+	        	BoCCategory oldCatSpend = BoCApp.UserCategories.get(oldCat);
+	            assertEquals(prompt7 + "\t- " + BoCApp.UserTransactions.get( tIDi ).toString() + "\r\n" + prompt8 + catList + prompt9 + "Target category: " + (newCati + 1) + ") " + newCatSpend.toString() + "\r\n" + "Origin category: " + (oldCat + 1) + ") " + oldCatSpend.toString() + "\r\n", outContent.toString());
 	            assertEquals(newCati, temp.transactionCategory());
 		    }
 	    }
@@ -304,8 +303,10 @@ class BoCAppTest {
 	static List<Arguments> ChangeTransactionCategoryTest() {
         return List.of( // arguments:
                 Arguments.arguments("1", "3", "1"),
-                Arguments.arguments("3", "1", "1"),
+                Arguments.arguments("1", "1", "1"),
                 Arguments.arguments("4", "2", "1"),
+                Arguments.arguments("4", "3", "1"),
+                Arguments.arguments("7", "1", "1"),
                 Arguments.arguments("7", "4", "1"),
                 Arguments.arguments("8", "4", "Please input valid transaction value!"),
                 Arguments.arguments("5", "-1", "Please input valid category!")
