@@ -377,7 +377,7 @@ This method should not be used in this class. So it has been deleted.
 | ---------- | ------ | ------------------------ | ------------------------------ | ---------------- | ------------ | ------- | ------ | ------ | ---- | ------------ |
 | !          |   Pass     | get_Category Name test 1 | void (in class shopping)       | "shopping"       |  "shopping"           |     /     |   /      |     /    |    21:30/02/05  | YuxiangZhang |
 | !          |   Pass     | get_Category Name test 2 | void (in class transport)      | "transport"      |    "transport"          |      /    |    /     |     /    |    22:45/02/05  | YuxiangZhang |
-| !          |   Pass     | get_Category Name test 2 | void(in [Pending Category]) | null             |     "[Pending Category]"        |       /   |     /    |     /    |   00:18/02/05   | YuxiangZhang |
+| !          |   Pass     | get_Category Name test 2 | void(in [Pending Category]) |       "New Category"       |     "New Category"        |       /   |     /    |     /    |   00:18/02/05   | YuxiangZhang |
 
 #### Function 4: CategoryBudget() - Get Category Budget       
 
@@ -385,7 +385,7 @@ This method should not be used in this class. So it has been deleted.
 | ---------- | ------ | -------------------------- | ------------------------------ | ---------------- | ------------ | ------- | ------ | ------ | ---- | ------------ |
 | !          |   Pass     | get_Category Budget test 1 | void (in class shopping)3000   | 3000             |     3000         |        /   |    /      |    /      |  14:29/03/05   | YuxiangZhang |
 | !          |   Pass    | get_Category Budget test 2 | void (in class transport)      | 1000             |     1000         |        /   |      /    |   /       |   14:51/03/05   | YuxiangZhang |
-| !          |   Pass     | get_Category Budget test 3 | void(in [Pending Category]) | null             |       null       |       /    |     /     |       /   |    15:32/03/05  | YuxiangZhang |
+| !          |   Pass     | get_Category Budget test 3 | void(in [Pending Category]) | 0.00             |       0.00       |       /    |     /     |       /   |    15:32/03/05  | YuxiangZhang |
 
 #### Function 5:  CategorySpend() - Get Category Spend       
 
@@ -393,7 +393,7 @@ This method should not be used in this class. So it has been deleted.
 | ---------- | ------ | ------------------------- | ------------------------------ | ---------------- | ------------ | ------- | ------ | ------ | ---- | ------------ |
 | !          |   Pass     | get_Category Spend test 1 | void (in class shopping)       | 4500.45          |     4500.45         |     /     |     /    |    /     |   17:14/03/05   | YuxiangZhang |
 | !          |   Pass     | get_Category Spend test 2 | void (in class transport)      | 1200.85          |     1200.85         |    /      |     /    |    /     |   17:49/03/05   | YuxiangZhang |
-| !          |   Pass     | get_Category Spend test 3 | void(in [Pending Category]) | null             |        null      |      /    |     /    |     /    |   19:47/03/05   | YuxiangZhang |
+| !          |   Pass     | get_Category Spend test 3 | void(in [Pending Category]) | 0.00             |        0.00      |      /    |     /    |     /    |   19:47/03/05   | YuxiangZhang |
 
 
 #### Function 6:  setCategoryName(String cName) - Set Category Name       
