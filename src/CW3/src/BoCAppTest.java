@@ -204,8 +204,8 @@ class BoCAppTest {
     2 - PASS - 14:06 5/6 - Jiawei
     Problem:/
     Reason: 1. modify the prompt message
-    		2. throw some new exceptions the avoid illegal input
-    		3. modify the alert message
+            2. throw some new exceptions the avoid illegal input
+            3. modify the alert message
     3 - FAIL - 14:06 5/6 - Jiawei
     Problem: the code does not stop when budget is 0
     Reason: miss a test that the budget is 0
