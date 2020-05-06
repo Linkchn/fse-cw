@@ -3,10 +3,10 @@
 |Contents|
 |--------|
 |[Team Management](#team-management)|
-|[Work distributions with pairs](#work-distributions-with-pairs)|
-|[Timeline & decisions](#timeline--decisions)|
-|[Meeting record](#meeting-record)|
-|[Conclusion](#conclusion)|
+|[Work distributions with pairs](#ii-work-distributions-with-pairs)|
+|[Timeline & decisions](#iii-timeline--decisions)|
+|[Meeting record](#iv-meeting-record)|
+|[Conclusion](#v-conclusion)|
 |[Test Plan](#test-plan)|
 |[Jump to Class: BoCTransaction](#class-BoCTransaction)|
 |[Jump to Class: BoCCategory](#class-BoCCategory)|
