@@ -39,7 +39,7 @@ class BoCCategoryTest {
 	static BigDecimal sum1;
 	
 	@BeforeAll
-	static void set() {
+	static void set() throws Exception {
 		cat1 = new BoCCategory();
 		cat2 = new BoCCategory();
 		cat3 = new BoCCategory();
@@ -237,36 +237,37 @@ class BoCCategoryTest {
 	@Test
 	void setCNTest1() throws Exception {
 		TestInputString="YTB";
-		try {
-			BoCCategory copy = new BoCCategory();
-			copy.setCategoryName(TestInputString);
-			TestOutputString = copy.CategoryName();
-		}catch(Exception e) {
-			fail ("Someting wrong with catch");
-		}
+		BoCCategory copy = new BoCCategory();
+		copy.setCategoryName(TestInputString);
+		TestOutputString = copy.CategoryName();
 		assertEquals(TestInputString, TestOutputString);
 	}
 
 	/*1. - Fail - Hongming PING - 21:38/2/5
 	Problem: If newName is sapce only or empty, the result still returns the value of
-	newName, which is Unknown name.
-	Traceability: setCNTest23
-	2. - Pass - 22:57/2/5
-	Reason: Fixed the Method with adding an "if" statement to assign null to String
+	newName.
+	Change: set throw when it is empty
+	Traceability: setCNTest234
+	2. - Fail - Hongming Ping - 22:57/2/5
+	Problem: If the newName is set to be "Unknown", the result still returns "newName"
 	while whose newName is empty or sapce
-	Traceability: setCNTest23
+	change: set throw when it is "Unknown"
+	Traceability: setCNTest234
+	3. - Pass - Hongming Ping - 23:27/2/5
+	Problem:\
+	Change:\
+	Traceability: setCNTest234
 	*/
 	@ParameterizedTest
-	@ValueSource(strings = {" " ,""})
-	void setCNTest23(String TestInputString) throws Exception {
+	@ValueSource(strings = {" " ,"","Unknown"})
+	void setCNTest234(String TestInputString) throws Exception {
 		try {
 			BoCCategory copy = new BoCCategory();
 			copy.setCategoryName(TestInputString);
 			TestOutputString = copy.CategoryName();
 		}catch(Exception e) {
-			fail ("Someting wrong with catch");
+			assertEquals ("Set Failed, please set a valid name",e.getMessage());
 		}
-		assertNull(TestOutputString);
 	}
 
 	/* - Pass - Hongming PING - 16:52/1/5

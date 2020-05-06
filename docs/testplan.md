@@ -28,7 +28,6 @@ Branches will be made once pair work has begun.
 
 - Deep into the process, team is managed by several useful GitLab features. We use issues with labels to raise questions, distribute tasks, alert bugs, show what is ToDo, Doing and Done. Along with Boards, a very clear visible feature for managing tasks while clearly showing the whole process, Milestones are also used for make stage-based objectives with due time to control the productivity. Meetings are organised in period of three to five days, for the purpose of reporting works done, what to do next, work distribution, stategy adjustment etc. As pairs are devided, works will be distributed during the meeting and issued in GitLab.
 
-- 
 
 - #### Planned time line
 
@@ -159,33 +158,32 @@ Branches will be made once pair work has begun.
   | 5/6  | Fix Main Class                     | Main         | M 5               |          |
   | 5/7  | Final check and Tag                |              |                   |          |
 
-
   **Plan of Pair 3**
 
-| Date | What to do                         | Shiliang | Jiawei | Status |
-| ---- | ---------------------------------- | ---- | ---- | ------ |
-| 5/2  | Finish Tests of first two classes with fixed code| √ | √ | √ |
-| 5/3  | Start plan for main 6, 7 and write test code| M 6 | M 7 | × |
-| 5/4  | Work on main 6, 7                  | M 6 | M 7 |        |
-| 5/5  | Work on main 6, 7                  |      |      |        |
-| 5/6  | Work on main 6, 7                  |      |      |        |
-| 5/7  | Final check and Tag                |      |      |        |
+  | Date | What to do                         | Shiliang | Jiawei | Status |
+  | ---- | ---------------------------------- | ---- | ---- | ------ |
+  | 5/2  | Finish Tests of first two classes with fixed code| √ | √ | √ |
+  | 5/3  | Start plan for main 6, 7 and write test code| M 6 | M 7 | × |
+  | 5/4  | Work on main 6, 7                  | M 6 | M 7 |        |
+  | 5/5  | Work on main 6, 7                  |      |      |        |
+  | 5/6  | Work on main 6, 7                  |      |      |        |
+  | 5/7  | Final check and Tag                |      |      |        |
 
     Forth meeting, discussed about further plan and merge problems
-    
+  
     Work together fixing issues
 
-  - 3/5 issues: 5/19
+- 3/5 issues: 5/19
 
-    Keep working on main
+  Keep working on main
 
-  - 4/5 issues: 6/20
+- 4/5 issues: 6/20
 
-    work on tests for main
+  work on tests for main
 
-  - 5/5 issues: 4/20
+- 5/5 issues: 4/20
 
-    work on tests and code fixing
+  work on tests and code fixing
 
 
 
@@ -237,7 +235,15 @@ Branches will be made once pair work has begun.
      | 5/6  |                                                              | Finish coding, tag, conclude                                 |
      | 5/7  |                                                              |                                                              |
   
+- #### Fifth meeting - 06/05
 
+  1. Check the progress of everyone's and team's work, whether it follows the plan.
+  2. Make sure most of the programming work would terminate today.
+  3. Ask Haonan Chen to check the Test of Category and Pair 1's work.
+  4. Ask Colin to check methods in  Category and Transaction.
+  5. Ask Leo and Colin to fix all possible bugs.
+  6. Ask Daze to check the .md file of test plan and record for the meeting.
+  7. Ask Jiawei and Haonan to composite conclusion.
 ### V. Conclusion
 
 
@@ -396,19 +402,20 @@ This method should not be used in this class. So it has been deleted.
 
 #### Function 6:  setCategoryName(String cName) - Set Category Name
 
-|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Reason|Time|Author|
+|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Time|Author|
 |----------|------|----|------|----------------|------------|------------|------------|------------|------------|
-| ! | PASS | setCNTest1 | "YTB" | "YTB" | "YTB" |        | | 23:38/30/4 | Daze Ping |
-| ! | FAIL | setCNTest2 | blank space: " " | null | blank space: " " | If newName is sapce only or empty, the result still returns the value of<br/>	newName, which is Unknown name. | Fixed the Method with adding an "if" statement to assign null to String <br/>	while whose newName is empty or sapce | 22:57/2/5 | Daze Ping |
-| ! | FAIL | setCNTest3 | empty string: "" | null | empty string: "" | If newName is sapce only or empty, the result still returns the value of<br/>	newName, which is Unknown name. | Fixed the Method with adding an "if" statement to assign null to String <br/>	while whose newName is empty or sapce | 22:57/2/5 | Daze Ping |
+| ! | PASS | setCNTest1 | "YTB" | "YTB" | "YTB" | / | / | 23:38/30/4 | Daze Ping |
+| ! | FAIL | setCNTest2 | blank space: " " | throw exception, "Set Failed, please set a valid name | throw exception, "Set Failed, please set a valid name | If newName is sapce only or empty, the result still returns the value of<br/>	newName. | set throw when it is empty | 23:27/2/5 | Daze Ping |
+| ! | FAIL | setCNTest3 | empty string: "" | throw exception, "Set Failed, please set a valid name | throw exception, "Set Failed, please set a valid name | If newName is sapce only or empty, the result still returns the value of<br/>	newName. | set throw when it is empty | 23:27/2/5 | Daze Ping |
+|  |  | setCNTest4 | "Unknown" | throw exception, "Set Failed, please set a valid name | throw exception, "Set Failed, please set a valid name | If newName is sapce only or empty, the result still returns the value of<br/>	newName. | set throw when it is "Unknown" | 23:27/2/5 | Daze Ping |
 
 #### Function 7: setCategoryBudget(BigDecimal cBudget) - Set Category Budget
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|------------|------------|------------|------------|------------|
-| !! | PASS | setCBTest1 | 0 | 0.00 | 0.00 | | | | 16:52/1/5 | Daze Ping |
-| !! | PASS | setCBTest2 | -100 | 0.00             | 0.00 | | | | 16:52/1/5 | Daze Ping |
-| !! | PASS | setCBTest3 | 11.2 | 11.20 | 11.20 | | | | 16:52/1/5 | Daze Ping |
+| !! | PASS | setCBTest1 | 0 | 0.00 | 0.00 | / | / | / | 16:52/1/5 | Daze Ping |
+| !! | PASS | setCBTest2 | -100 | 0.00             | 0.00 | / | / | / | 16:52/1/5 | Daze Ping |
+| !! | PASS | setCBTest3 | 11.2 | 11.20 | 11.20 | / | / | / | 16:52/1/5 | Daze Ping |
 
 #### Function 8: addExpense(BigDecimal ) - add Expense function
 
@@ -420,8 +427,6 @@ This method should not be used in this class. So it has been deleted.
 |! | PASS |addExpenseTest 4 |new BigDecimal("100.00") |(BigDecimal)100.00 | (BigDecimal)100.00 | / | / | / | 22:35 30/5 | Shiliang |
 |! | PASS |addExpenseTest 5 |new BigDecimal("111.50") |(BigDecimal)211.50 | (BigDecimal)211.50 | / | / | / | 22:35 30/5 | Shiliang |
 |! | PASS |addExpenseTest 6 |new BigDecimal("10000000000.00") |(BigDecimal)10000000211.50 |(BigDecimal)10000000211.50 | / | / | / | 22:35 30/5 | Shiliang |
-|! |  |addExpenseTest 7* |(String)-11.5 |Throw an exception, remain (BigDecimal)10000000211.5 | | | | | | |
-|! | |addExpenseTest 6* |(String)-100 |Throw an exception, remain (BigDecimal)10000000211.5 | | | | | | |
 
 #### Function 9: removeExpense(BigDecimal ) - remove Expense function
 
@@ -433,21 +438,18 @@ This method should not be used in this class. So it has been deleted.
 |! | PASS |removeExpenseTest 4 |new BigDecimal("90.00") |(BigDecimal)10.00 |(BigDecimal)10.00 | / | / | / | 23:44 30/4 | Shiliang |
 |!! | FAIL |removeExpenseTest 5 |new BigDecimal("100.00") |Exception: expense should not be negative |Nothing was thrown | Nothing was thrown | / | The source code does not handle this problem | 23:44 30/4 | Shiliang |
 |! | PASS |removeExpenseTest 6 |new BigDecimal("100.00") |Exception: expense should not be negative |Exception: expense should not be negative | / | Add exception throw in the function, throw exception if the expense would be negative | The source code should throw exception for main to handle  anormaly | 16:25 1/5 | Shiliang |
-|! | |removeExpenseTest 7* |-100 | | | | | | | |
 
 #### Function 10: resetBudgetSpend() - reset Spend Total Function
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
 |! | |resetBudgetSpendTest 1|NONE |spend == 0 | spend==0 | / | / | / | 16:37 | Jiawei |
-| | | | | | | | | | ||
 
 #### Function 11: getRemainingBudget() - Calculate Remaining Budget function
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
 | ！ | PASS |getRemainingBudgetTest 1 |NONE |CategoryBudget == BigDecimal("-10.00") |CategoryBudget == BigDecimal("-10.00") | / | / | / | 16:13 1/5 | Shiliang Jiawei |
-| | | | | | | | | | ||
 
 #### Function 12: toString()
 
@@ -465,18 +467,15 @@ This method should not be used in this class. So it has been deleted.
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| !! | PASS | mainTest1 | X | | | | | | | Shiliang |
-| !! |  | mainTest2 | t | | | | | | | Daze |
-| !! |  | mainTest2 | O, X | | | | | | |  |
-| !! |  | mainTest2 | T, X | | | | | | |  |
-| !! |  | mainTest2 | 1, X | | | | | | | Daze |
+| !! | PASS | mainTest1 | X | All accessible options line by line, and "Goodbye" in the end. | All accessible options line by line, and "Goodbye" in the end. | The options could not be shown line by line. | Change each comma into "\n". And change the first time output to show all possible options. | / | 21:25 6/5 | Shiliang,  Daze |
+| !! | PASS | mainTest2 | t, X | The message "Command not recognised" should be shown. | The message "Command not recognised" shows. | the method Integer.parseInt(s) crashes and the program throws an exception | Add a if statement to lead the program to output "Command not recognised", <br/>                    	if the input is noit completely constructed by numbers, the statement return false and <br/>                    	the program output "Command not recognised" | If there is an unknown input, the method Integer.parseInt(s) would lead to<br/>                    	crash and the program throws an exception | 21:25 6/5 | Daze |
+| !! | PASS | mainTest3 | O, X | All the existing category lists print | All the existing category lists print | / | / | / | 23:46 | Haonan CHEN |
+| !! | PASS | mainTest4 | 1, X | All transaction in Category 1, with their dates, names and budgets. | All transaction in Category 1, with their dates, names and budgets. | / | / | / | 22:33 6/5 | Daze |
 | !! | PASS | mainTest5 | C, 1 , 3, X | changeTransactionCategory method has been called | changeTransactionCategory method has been called | / | / | / | 22:46 6/5 | Leo |
-| !! | | mainTest2 | N, X | | | | | | | |
-| !! | | mainTest2 | A, X | | | | | | | |
-| !! | | mainTest2 | all function called | | | | | | | |
-| !!! | | mainTest2 | illegal input | | | | | | | |
->>>>>>> d04874b24700961b9b8bda5d6c534d13132dfaa5
-
+| !! | PASS | mainTest6 | N, X | add a new category to whole categories and display them | add a new category to whole categories and display them | / | / | / | 23:34 6/5 | Jiawei |
+| !! | PASS | mainTest7 | A, X | add a name, category title and spend, then give the result of adding transaction | add a name, category title and spend, then give the result of adding transaction | /                                                            | / | / | 23:34 6/5 | Shiliang |
+| !! | | mainTest8 | all function called |  | | | | | | |
+| !!! | | mainTest9 | illegal input | | | | | | | |
 #### Function 2: ArrayListofBoCTransactionobjects  - List Transactions function
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
@@ -548,26 +547,26 @@ This method should not be used in this class. So it has been deleted.
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| !! | FAIL | AddCategoryTest1 | “cat1Name\n”, "6.23\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a pisitive decimal number with exact two decimal places.\r\n", "[Category added]" | "What is the title of the category?\r\n","What is the budget for this category?\r\n", "[Category added]" |the prompts that guide users to input is not detial|/|without specific prompt, users are easily to enter illegal input|15:01 5/6|Jiawei|
-| !!! | FAIL | AddCategoryTest2 | "cat2Name123456789\n"   ,"6.00\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n" Alert "Wrong title! It should be at most 15 characters." | "What is the title of the category?\r\n" |the alert lost and does not stop runing|/|without specific prompt, users are easily to enter illegal input,and  expected exception will not throw|15:01 5/6|Jiawei|
-| !!! | FAIL | AddCategoryTest3 | "cat1Name\n", "7.45\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n" Alert "Wrong title! It should not be the same as the existed name." | "What is the title of the category?\r\n" |the alert lost and does not stop runing|/| without specific prompt, users are easily to enter illegal input,and  expected exception will not throw |15:01 5/6|Jiawei|
-| !!! | FAIL | AddCategoryTest4 | "cat4Name\n","6\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n", "What is the budget for this category?\r\nNote:It should be a poistive decimal number with exact two decimal places.\r\n" Alert"Wrong budget! It should be a positive decimal number with exact two decimal places." | "What is the title of the category?\r\n" |the alert lost and does not stop runing|/| without specific prompt, users are easily to enter illegal input,and  expected exception will not throw |15:01 5/6|Jiawei|
-| !!! | FAIL | AddCategoryTest5 | "cat5Name\n", "6.1\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a positive decimal number with exact two decimal places.\r\n" Alert "Wrong budget! It should be a positive decimal number with exact two decimal places." | "What is the title of the category?\r\n","What is the budget for this category?\r\n" |the alert lost and does not stop runing|/|without specific prompt, users are easily to enter illegal input,and  expected exception will not throw|15:01 5/6|Jiawei|
-| !!! | FAIL | AddCategoryTest6 | "cat6Name\n", "-7.23\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a positive decimal number with exact two decimal places.\r\n" Alert"Wrong budget! It should be a positive decimal number with exact two decimal places." | "What is the title of the category?\r\n","What is the budget for this category?\r\n" |the alert lost and does not stop runing|/| without specific prompt, users are easily to enter illegal input,and  expected exception will not throw |15:01 5/6|Jiawei|
-| !!! | FAIL | AddCategoryTest7 | "\n", "6.34\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n" Alert "Wrong title! It should not be blank." | "What is the title of the category?\r\n","What is the budget for this category?\r\n" |the alert lost and does not stop runing|/| without specific prompt, users are easily to enter illegal input,and  expected exception will not throw |15:01 5/6|Jiawei|
-| !!! | FAIL | AddCategoryTest8 | "   \n", "6.34\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n" Alert "Wrong title! It should not be blank." | "What is the title of the category?\r\n","What is the budget for this category?\r\n" |the alert lost and does not stop runing|/| without specific prompt, users are easily to enter illegal input,and  expected exception will not throw |15:01 5/6|Jiawei|
-| !!! | FAIL | AddCategoryTest9 | "cat9Name\n", "\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a positive decimal number with exact two decimal places.\r\n", Alert "Wrong budget! It should not be blank." | "What is the title of the category?\r\n","What is the budget for this category?\r\n" |the alert lost and does not stop runing|/| without specific prompt, users are easily to enter illegal input,and  expected exception will not throw |15:01 5/6|Jiawei|
-| !!! | FAIL | AddCategoryTest10 | "cat10Name\n", "   \n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a positive decimal number with exact two decimal places.\r\n", Alert "Wrong budget! It should not be blank." | "What is the title of the category?\r\n","What is the budget for this category?\r\n" |the alert lost and does not stop runing|/| without specific prompt, users are easily to enter illegal input,and  expected exception will not throw |15:01 5/6|Jiawei|
-| !!! | FAIL | AddCategoryTest11 | "cat11Name\n", "0.00\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a positive decimal number with exact two decimal places.\r\n" Alert"Wrong budget! It should be a positive decimal number with exact two decimal places." | "What is the title of the category?\r\n","What is the budget for this category?\r\n" |the alert lost and does not stop runing|/| without specific prompt, users are easily to enter illegal input,and  expected exception will not throw |15:01 5/6|Jiawei|
-| !!! | PASS | AddCategoryTest12 | "cat1Name\n", "7.45\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a pisitive decimal number with exact two decimal places.\r\n", "[Category added]" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a pisitive decimal number with exact two decimal places.\r\n", "[Category added]" |/|modify prompt,  add exceptions and alert| /                                                            |15:01 5/6|Jiawei|
-| !!! | PASS | AddCategoryTest13 | "cat2Name123456789\n"   ,"6.00\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n" Alert "Wrong title! It should be at most 15 characters." | What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n" Alert "Wrong title! It should be at most 15 characters." |/|modify prompt,  add exceptions and alert|/|15:01 5/6|Jiawei|
-| !!! | PASS | AddCategoryTest14 | "cat1Name\n", "7.45\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n" Alert "Wrong title! It should not be the same as the existed name." | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n" Alert "Wrong title! It should not be the same as the existed name." |/|modify prompt,  add exceptions and alert| /                                                            |Jiawei|Jiawei|
-| !!! | PASS | AddCategoryTest15 | "cat4Name\n","6\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n", "What is the budget for this category?\r\nNote:It should be a poistive decimal number with exact two decimal places.\r\n" Alert"Wrong budget! It should be a positive decimal number with exact two decimal places." | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n", "What is the budget for this category?\r\nNote:It should be a poistive decimal number with exact two decimal places.\r\n" Alert"Wrong budget! It should be a positive decimal number with exact two decimal places." |/|modify prompt,  add exceptions and alert|/|15:01 5/6|Jiawei|
-| !!! | PASS | AddCategoryTest16 | "cat5Name\n", "6.1\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n", "What is the budget for this category?\r\nNote:It should be a poistive decimal number with exact two decimal places.\r\n" Alert"Wrong budget! It should be a positive decimal number with exact two decimal places." | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n", "What is the budget for this category?\r\nNote:It should be a poistive decimal number with exact two decimal places.\r\n" Alert"Wrong budget! It should be a positive decimal number with exact two decimal places." |/|modify prompt,  add exceptions and alert|/|15:01 5/6|Jiawei|
-| !!! | PASS | AddCategoryTest17 | "cat6Name\n", "-7.23\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n", "What is the budget for this category?\r\nNote:It should be a poistive decimal number with exact two decimal places.\r\n" Alert"Wrong budget! It should be a positive decimal number with exact two decimal places." | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n", "What is the budget for this category?\r\nNote:It should be a poistive decimal number with exact two decimal places.\r\n" Alert"Wrong budget! It should be a positive decimal number with exact two decimal places." |/|modify prompt,  add exceptions and alert|/|15:01 5/6|Jiawei|
-| !!! | PASS | AddCategoryTest18 | "\n", "6.34\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n" Alert "Wrong title! It should not be blank." | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n" Alert "Wrong title! It should not be blank." |/|modify prompt,  add exceptions and alert|/|15:01 5/6|Jiawei|
-| !!! | PASS | AddCategoryTest19 | "   \n", "6.34\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n" Alert "Wrong title! It should not be blank." | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n" Alert "Wrong title! It should not be blank." |/|modify prompt,  add exceptions and alert|/|15:01 5/6|Jiawei|
-| !!! | PASS | AddCategoryTest20 | "cat9Name\n", "\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a positive decimal number with exact two decimal places.\r\n", Alert "Wrong budget! It should not be blank." | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a positive decimal number with exact two decimal places.\r\n", Alert "Wrong budget! It should not be blank." |/|modify prompt,  add exceptions and alert|/|15:01 5/6|Jiawei|
-| !!! | PASS | AddCategoryTest21 | "cat10Name\n", "   \n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a positive decimal number with exact two decimal places.\r\n", Alert "Wrong budget! It should not be blank." | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a positive decimal number with exact two decimal places.\r\n", Alert "Wrong budget! It should not be blank." |/|modify prompt,  add exceptions and alert|/|15:01 5/6|Jiawei|
-| !!! | PASS | AddCategoryTest22 | "cat11Name\n", "0.00\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a positive decimal number with exact two decimal places.\r\n" Alert"Wrong budget! It should be a positive decimal number with exact two decimal places." | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a positive decimal number with exact two decimal places.\r\n" Alert"Wrong budget! It should be a positive decimal number with exact two decimal places." |/|modify prompt,  add exceptions and alert|/|15:01 5/6|Jiawei|
+| !! | FAIL | AddCategoryTest1 | “cat1Name\n”, "6.23\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a pisitive decimal number with exact two decimal places.\r\n", "[Category added]" | "What is the title of the category?\r\n","What is the budget for this category?\r\n", "[Category added]" |the prompts that guide users to input is not detial|/|without specific prompt, users are easily to enter illegal input| 15:01 6/5 |Jiawei|
+| !!! | FAIL | AddCategoryTest2 | "cat2Name123456789\n"   ,"6.00\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n" Alert "Wrong title! It should be at most 15 characters." | "What is the title of the category?\r\n" |the alert lost and does not stop runing|/|without specific prompt, users are easily to enter illegal input,and  expected exception will not throw15:01 6/5| 15:01 6/5 |Jiawei|
+| !!! | FAIL | AddCategoryTest3 | "cat1Name\n", "7.45\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n" Alert "Wrong title! It should not be the same as the existed name." | "What is the title of the category?\r\n" |the alert lost and does not stop runing|/| without specific prompt, users are easily to enter illegal input,and  expected exception will not throw |15:01 6/5|Jiawei|
+| !!! | FAIL | AddCategoryTest4 | "cat4Name\n","6\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n", "What is the budget for this category?\r\nNote:It should be a poistive decimal number with exact two decimal places.\r\n" Alert"Wrong budget! It should be a positive decimal number with exact two decimal places." | "What is the title of the category?\r\n" |the alert lost and does not stop runing|/| without specific prompt, users are easily to enter illegal input,and  expected exception will not throw |15:01 6/5|Jiawei|
+| !!! | FAIL | AddCategoryTest5 | "cat5Name\n", "6.1\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a positive decimal number with exact two decimal places.\r\n" Alert "Wrong budget! It should be a positive decimal number with exact two decimal places." | "What is the title of the category?\r\n","What is the budget for this category?\r\n" |the alert lost and does not stop runing|/|without specific prompt, users are easily to enter illegal input,and  expected exception will not throw|15:01 6/5|Jiawei|
+| !!! | FAIL | AddCategoryTest6 | "cat6Name\n", "-7.23\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a positive decimal number with exact two decimal places.\r\n" Alert"Wrong budget! It should be a positive decimal number with exact two decimal places." | "What is the title of the category?\r\n","What is the budget for this category?\r\n" |the alert lost and does not stop runing|/| without specific prompt, users are easily to enter illegal input,and  expected exception will not throw |15:01 6/5|Jiawei|
+| !!! | FAIL | AddCategoryTest7 | "\n", "6.34\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n" Alert "Wrong title! It should not be blank." | "What is the title of the category?\r\n","What is the budget for this category?\r\n" |the alert lost and does not stop runing|/| without specific prompt, users are easily to enter illegal input,and  expected exception will not throw |15:01 6/5|Jiawei|
+| !!! | FAIL | AddCategoryTest8 | "   \n", "6.34\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n" Alert "Wrong title! It should not be blank." | "What is the title of the category?\r\n","What is the budget for this category?\r\n" |the alert lost and does not stop runing|/| without specific prompt, users are easily to enter illegal input,and  expected exception will not throw |15:01 6/5|Jiawei|
+| !!! | FAIL | AddCategoryTest9 | "cat9Name\n", "\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a positive decimal number with exact two decimal places.\r\n", Alert "Wrong budget! It should not be blank." | "What is the title of the category?\r\n","What is the budget for this category?\r\n" |the alert lost and does not stop runing|/| without specific prompt, users are easily to enter illegal input,and  expected exception will not throw |15:01 6/5|Jiawei|
+| !!! | FAIL | AddCategoryTest10 | "cat10Name\n", "   \n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a positive decimal number with exact two decimal places.\r\n", Alert "Wrong budget! It should not be blank." | "What is the title of the category?\r\n","What is the budget for this category?\r\n" |the alert lost and does not stop runing|/| without specific prompt, users are easily to enter illegal input,and  expected exception will not throw |15:01 6/5|Jiawei|
+| !!! | FAIL | AddCategoryTest11 | "cat11Name\n", "0.00\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a positive decimal number with exact two decimal places.\r\n" Alert"Wrong budget! It should be a positive decimal number with exact two decimal places." | "What is the title of the category?\r\n","What is the budget for this category?\r\n" |the alert lost and does not stop runing|/| without specific prompt, users are easily to enter illegal input,and  expected exception will not throw |15:01 6/5|Jiawei|
+| !!! | PASS | AddCategoryTest12 | "cat1Name\n", "7.45\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a pisitive decimal number with exact two decimal places.\r\n", "[Category added]" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a pisitive decimal number with exact two decimal places.\r\n", "[Category added]" |/|modify prompt,  add exceptions and alert| /                                                            |15:01 6/5|Jiawei|
+| !!! | PASS | AddCategoryTest13 | "cat2Name123456789\n"   ,"6.00\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n" Alert "Wrong title! It should be at most 15 characters." | What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n" Alert "Wrong title! It should be at most 15 characters." |/|modify prompt,  add exceptions and alert|/|15:01 6/5|Jiawei|
+| !!! | PASS | AddCategoryTest14 | "cat1Name\n", "7.45\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n" Alert "Wrong title! It should not be the same as the existed name." | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n" Alert "Wrong title! It should not be the same as the existed name." |/|modify prompt,  add exceptions and alert| /                                                            |15:01 6/5|Jiawei|
+| !!! | PASS | AddCategoryTest15 | "cat4Name\n","6\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n", "What is the budget for this category?\r\nNote:It should be a poistive decimal number with exact two decimal places.\r\n" Alert"Wrong budget! It should be a positive decimal number with exact two decimal places." | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n", "What is the budget for this category?\r\nNote:It should be a poistive decimal number with exact two decimal places.\r\n" Alert"Wrong budget! It should be a positive decimal number with exact two decimal places." |/|modify prompt,  add exceptions and alert|/| 15:01 6/5 |Jiawei|
+| !!! | PASS | AddCategoryTest16 | "cat5Name\n", "6.1\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n", "What is the budget for this category?\r\nNote:It should be a poistive decimal number with exact two decimal places.\r\n" Alert"Wrong budget! It should be a positive decimal number with exact two decimal places." | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n", "What is the budget for this category?\r\nNote:It should be a poistive decimal number with exact two decimal places.\r\n" Alert"Wrong budget! It should be a positive decimal number with exact two decimal places." |/|modify prompt,  add exceptions and alert|/|15:01 6/5|Jiawei|
+| !!! | PASS | AddCategoryTest17 | "cat6Name\n", "-7.23\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n", "What is the budget for this category?\r\nNote:It should be a poistive decimal number with exact two decimal places.\r\n" Alert"Wrong budget! It should be a positive decimal number with exact two decimal places." | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n", "What is the budget for this category?\r\nNote:It should be a poistive decimal number with exact two decimal places.\r\n" Alert"Wrong budget! It should be a positive decimal number with exact two decimal places." |/|modify prompt,  add exceptions and alert|/|15:01 6/5|Jiawei|
+| !!! | PASS | AddCategoryTest18 | "\n", "6.34\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n" Alert "Wrong title! It should not be blank." | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n" Alert "Wrong title! It should not be blank." |/|modify prompt,  add exceptions and alert|/|15:01 6/5|Jiawei|
+| !!! | PASS | AddCategoryTest19 | "   \n", "6.34\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n" Alert "Wrong title! It should not be blank." | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n" Alert "Wrong title! It should not be blank." |/|modify prompt,  add exceptions and alert|/|15:01 6/5|Jiawei|
+| !!! | PASS | AddCategoryTest20 | "cat9Name\n", "\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a positive decimal number with exact two decimal places.\r\n", Alert "Wrong budget! It should not be blank." | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a positive decimal number with exact two decimal places.\r\n", Alert "Wrong budget! It should not be blank." |/|modify prompt,  add exceptions and alert|/|15:01 6/5|Jiawei|
+| !!! | PASS | AddCategoryTest21 | "cat10Name\n", "   \n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a positive decimal number with exact two decimal places.\r\n", Alert "Wrong budget! It should not be blank." | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a positive decimal number with exact two decimal places.\r\n", Alert "Wrong budget! It should not be blank." |/|modify prompt,  add exceptions and alert|/|15:01 6/5|Jiawei|
+| !!! | PASS | AddCategoryTest22 | "cat11Name\n", "0.00\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a positive decimal number with exact two decimal places.\r\n" Alert"Wrong budget! It should be a positive decimal number with exact two decimal places." | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a positive decimal number with exact two decimal places.\r\n" Alert"Wrong budget! It should be a positive decimal number with exact two decimal places." |/|modify prompt,  add exceptions and alert|/|15:01 6/5|Jiawei|
 
