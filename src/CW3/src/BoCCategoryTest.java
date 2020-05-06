@@ -19,10 +19,6 @@ class BoCCategoryTest {
 	private static BigDecimal TestExceptOutputBudget;
 	
 	private static String string1, string2, string3;
-	private static BigDecimal bignum1; 
-	private static BigDecimal bignum2;
-	private static BigDecimal bignum3;
-	private static BigDecimal bignum4;
 
 	// Declare BoCCategories for tests
 	static BoCCategory cat1;
@@ -41,6 +37,7 @@ class BoCCategoryTest {
 	// Declare BigDecimals for tests
 	static BigDecimal bd1;
 	static BigDecimal sum;
+	static BigDecimal sum1;
 	
 	@BeforeAll
 	static void set() {
@@ -48,6 +45,9 @@ class BoCCategoryTest {
 		cat2 = new BoCCategory();
 		cat3 = new BoCCategory();
 
+		shopping = new BoCCategory("shopping");
+		transport = new BoCCategory("transport");
+		newCategory = new BoCCategory();
 		// Set data for tests
 		cat2.setCategoryName("testToStringName");
 		cat2.setCategoryBudget(new BigDecimal ("5.00"));
@@ -59,10 +59,7 @@ class BoCCategoryTest {
 		string1 = "5";
 		string2 = "transport";
 		string3 = "shopping";
-		bignum1 = new BigDecimal("1000");
-		bignum2 = new BigDecimal("1200.85");
-		bignum3 = new BigDecimal("3000");
-		bignum4 = new BigDecimal("4500.45");
+		sum1 = new BigDecimal("0.00");
 
 		// Define expected result
 		toStringResult1 = new String ( "testToStringName(¥5.00) - Est. ¥6.00 (¥1.00 Overspent)");
@@ -168,9 +165,9 @@ class BoCCategoryTest {
 	}
 	static List<Arguments> CategoryNameTest(){
 		return List.of(
-				Arguments.arguments(shopping,string2),
-				Arguments.arguments(transport,string3),
-				Arguments.arguments(newCategory,"New Category1")
+				Arguments.arguments(shopping,string3),
+				Arguments.arguments(transport,string2),
+				Arguments.arguments(newCategory,"New Category4")
 		);
 	}
 
@@ -198,9 +195,9 @@ class BoCCategoryTest {
 	}
 	static List<Arguments> CategoryBudgetTest(){
 		return List.of(
-				Arguments.arguments(shopping,bignum3),
-				Arguments.arguments(transport,bignum1),
-				Arguments.arguments(newCategory,0.00)
+				Arguments.arguments(cat1,new BigDecimal("0.00")),
+				Arguments.arguments(cat2,new BigDecimal("5.00")),
+				Arguments.arguments(cat3,new BigDecimal("7.00"))
 		);
 	}
 
@@ -226,9 +223,9 @@ class BoCCategoryTest {
 	}
 	static List<Arguments> CategorySpendTest(){
 		return List.of(
-				Arguments.arguments(shopping,bignum4),
-				Arguments.arguments(transport,bignum2),
-				Arguments.arguments(newCategory,0.00)
+				Arguments.arguments(cat1,new BigDecimal("0.00")),
+				Arguments.arguments(cat2,new BigDecimal("6.00")),
+				Arguments.arguments(cat3,new BigDecimal("6.00"))
 		);
 	}
 	
