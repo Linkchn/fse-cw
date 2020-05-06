@@ -390,8 +390,6 @@ class BoCCategoryTest {
             sum1 = sum1.subtract(bd1);
             cat1.removeExpense(bd1);
             assertEquals(sum1, cat1.CategorySpend());
-            System.out.println(cat1.CategorySpend());
-
         }
         catch (Exception e){
             assertThrows(Exception.class, ()->{cat1.removeExpense(bd1);System.out.println(cat1.CategorySpend());});
@@ -433,7 +431,6 @@ class BoCCategoryTest {
     @DisplayName("getRemainingBudgetTest")
     @Test
     void getRemainingBudgetTest() {
-        System.out.println(cat1.CategorySpend());
         assertEquals(new BigDecimal("-10.00"), cat1.getRemainingBudget());
     }
 

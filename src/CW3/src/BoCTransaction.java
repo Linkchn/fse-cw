@@ -110,7 +110,7 @@ public class BoCTransaction {
 
 	 */
 	public boolean isComplete() {
-		if (transactionName == null || transactionValue == null) {
+		if (transactionName == null || transactionValue == null || transactionName.equals("[Pending Transaction]")) {
 			return false;
 		}
 		else {
