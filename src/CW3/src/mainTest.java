@@ -48,6 +48,9 @@ class mainTest {
         assertEquals(b, outContent.toString());
     }
     static List<Arguments> BoCAppmainTest() {
+    	long timeStamp = System.currentTimeMillis(); 
+		SimpleDateFormat sdff=new SimpleDateFormat("yyyy-MM-dd HH:mm");
+		String sd = sdff.format(new Date(timeStamp));
         return List.of( // arguments:
                 Arguments.arguments("X\n", "1) Unknown(¥0.00) - Est. ¥850.00 (¥850.00 Overspent)\r\n" +
                         "2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)\r\n" +
@@ -81,10 +84,11 @@ class mainTest {
                 		),
                 /*
                  1. Failed - Hongming - 20:55 6/5
-                 
+                 Reason: If there is an unknown input, the method Integer.parseInt(s) would lead to
+                 crash and the program throws an exception
                  2. Passed - Hongming - 21:25 6/5
                  
-                 Traceability:  BoCAppmainTest
+                 Traceability:  BoCAppmainTest2
                  */
                 Arguments.arguments("t\nX\n",
                 		"1) Unknown(¥0.00) - Est. ¥850.00 (¥850.00 Overspent)\r\n" + 
@@ -111,23 +115,27 @@ class mainTest {
                 		"N = [N]ew Category\n" + 
                 		"X = E[x]it\r\n" + 
                 		"Goodbye!\r\n"),
+                /*
+                 1. Passed - Hongming Ping - 22:33 6/5
+                 Traceability: BoCAppmainTest5 
+                 */
                 Arguments.arguments("1\nX\n",
-                		"1) Unknown(¥0.00) - Est. ¥850.00 (¥850.00 Overspent)\n" + 
-                		"2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)\n" + 
-                		"3) Groceries(¥75.00) - Est. ¥31.00 (¥44.00 Remaining)\n" + 
-                		"4) Social(¥100.00) - Est. ¥22.49 (¥77.51 Remaining)\r\n" + 
+                		"1) Unknown(¥0.00) - Est. ¥850.00 (¥850.00 Overspent)\r\n" + 
+                        "2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)\r\n" + 
+                        "3) Groceries(¥75.00) - Est. ¥31.00 (¥44.00 Remaining)\r\n" + 
+                        "4) Social(¥100.00) - Est. ¥22.49 (¥77.51 Remaining)\r\n" + 
                 		"\n" + 
-                		"What do you want to do?\r\n" + 
+                		"What do you want to do?\n" + 
                 		"O = [O]verview\n" + 
                 		"T = List All [T]ransactions\n" + 
                 		"[num] = Show Category [num]\n" + 
                 		"C = [C]hange Transaction Category\n" + 
                 		"A = [A]dd Transaction\n" + 
-                		"N = [N]ew Category\r\n" + 
+                		"N = [N]ew Category\n" + 
                 		"X = E[x]it\r\n" + 
-                		"Unknown: 1) Rent - ¥850.00		2020-05-06 21:59:00\r\n" + 
+                		"Unknown: 1) Rent - ¥850.00"+"\t\t"+sd+"\r\n" + 
                 		"\n" + 
-                		"What do you want to do?\r\n" + 
+                		"What do you want to do?\n" + 
                 		"O = [O]verview\n" + 
                 		"T = List All [T]ransactions\n" + 
                 		"[num] = Show Category [num]\n" + 
