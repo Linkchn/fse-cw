@@ -69,11 +69,11 @@ class BoCAppTest {
         prompt4 = new String("What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters.\r\n");
         prompt5 = new String("What is the budget for this category?\r\nNote:It should be a pisitive decimal number with exact two decimal places.\r\n");
         prompt6 = new String("[Category added]");
-        allCategory = new String("1) Unknown(¥0.00) - Est. ¥0.00 (¥0.00 Remaining)\r\n" + 
-                "2) Bills(¥120.00) - Est. ¥0.00 (¥120.00 Remaining)\r\n" + 
-                "3) Groceries(¥75.00) - Est. ¥0.00 (¥75.00 Remaining)\r\n" + 
-                "4) Social(¥100.00) - Est. ¥0.00 (¥100.00 Remaining)\r\n" + 
-                "5) cat1Name(¥6.23) - Est. ¥0.00 (¥6.23 Remaining)\r\n" 
+        allCategory = new String("1) Unknown(¥0.00) - Est. ¥850.00 (¥850.00 Overspent)\r\n"+
+                "2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)\r\n"+
+                "3) Groceries(¥75.00) - Est. ¥31.00 (¥44.00 Remaining)\r\n"+
+                "4) Social(¥100.00) - Est. ¥22.49 (¥77.51 Remaining)\r\n"+
+                "5) cat1Name(¥6.23) - Est. ¥0.00 (¥6.23 Remaining)\r\n"
                 );
                 
         for (int x = 0; x < BoCApp.UserTransactions.size(); x++) {
