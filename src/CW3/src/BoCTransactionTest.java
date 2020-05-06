@@ -118,7 +118,8 @@ class BoCTransactionTest {
 	Reason:
 	Traceability:
 	*/
-	@Test 			//Test of the default constructor by Haonan CHEN
+	@Test 			
+	//Test of the default constructor by Haonan CHEN
 	void Main_Constructor_test1() throws Exception {
 		Date current = new Date();
 		BigDecimal value = new BigDecimal("10000");

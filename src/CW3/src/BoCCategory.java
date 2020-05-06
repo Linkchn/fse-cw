@@ -5,9 +5,16 @@ public class BoCCategory {
     private BigDecimal CategoryBudget;
     private BigDecimal CategorySpend;
 
+    /*
+    1 - PASS - Haonan CHEN - 16:13 1/5
+    Change: add the static int to record the number of default categoryName
+    Reason: unique name of the categoryName
+    Traceability: default constructor test
+   
+     */
     public BoCCategory() {
-        CategoryName = "New Category"+ defaultCategoryNum;
-        defaultCategoryNum++;
+    	BoCApp.defaultCategoryNum++;
+    	CategoryName = "New Category"+ BoCApp.defaultCategoryNum;
         CategoryBudget = new BigDecimal("0.00");
         CategorySpend = new BigDecimal("0.00");
     }
