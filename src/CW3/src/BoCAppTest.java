@@ -42,29 +42,29 @@ class BoCAppTest {
 
 
         BoCApp.UserCategories = new ArrayList<BoCCategory>();
-		BoCApp.UserTransactions = new ArrayList<BoCTransaction>();
+        BoCApp.UserTransactions = new ArrayList<BoCTransaction>();
 
-		// SETUP EXAMPLE DATA //
-		BoCApp.UserCategories.add(new BoCCategory("Unknown"));
+        // SETUP EXAMPLE DATA //
+        BoCApp.UserCategories.add(new BoCCategory("Unknown"));
 
-		BoCCategory BillsCategory = new BoCCategory("Bills");
-		BillsCategory.setCategoryBudget(new BigDecimal("120.00"));
-		BoCApp.UserCategories.add(BillsCategory);
+        BoCCategory BillsCategory = new BoCCategory("Bills");
+        BillsCategory.setCategoryBudget(new BigDecimal("120.00"));
+        BoCApp.UserCategories.add(BillsCategory);
 
-		BoCCategory Groceries = new BoCCategory("Groceries");
-		Groceries.setCategoryBudget(new BigDecimal("75.00"));
-		BoCApp.UserCategories.add(Groceries);
+        BoCCategory Groceries = new BoCCategory("Groceries");
+        Groceries.setCategoryBudget(new BigDecimal("75.00"));
+        BoCApp.UserCategories.add(Groceries);
 
-		BoCCategory SocialSpending = new BoCCategory("Social");
-		SocialSpending.setCategoryBudget(new BigDecimal("100.00"));
-		BoCApp.UserCategories.add(SocialSpending);
+        BoCCategory SocialSpending = new BoCCategory("Social");
+        SocialSpending.setCategoryBudget(new BigDecimal("100.00"));
+        BoCApp.UserCategories.add(SocialSpending);
 
-		BoCApp.UserTransactions.add(new BoCTransaction("Rent", new BigDecimal("850.00"), 0));
-		BoCApp.UserTransactions.add(new BoCTransaction("Phone Bill", new BigDecimal("37.99"), 1));
-		BoCApp.UserTransactions.add(new BoCTransaction("Electricity Bill", new BigDecimal("75.00"), 1));
-		BoCApp.UserTransactions.add(new BoCTransaction("Sainsbury's Checkout", new BigDecimal("23.76"), 2));
-		BoCApp.UserTransactions.add(new BoCTransaction("Tesco's Checkout", new BigDecimal("7.24"), 2));
-		BoCApp.UserTransactions.add(new BoCTransaction("RockCity Drinks", new BigDecimal("8.50"), 3));
+        BoCApp.UserTransactions.add(new BoCTransaction("Rent", new BigDecimal("850.00"), 0));
+        BoCApp.UserTransactions.add(new BoCTransaction("Phone Bill", new BigDecimal("37.99"), 1));
+        BoCApp.UserTransactions.add(new BoCTransaction("Electricity Bill", new BigDecimal("75.00"), 1));
+        BoCApp.UserTransactions.add(new BoCTransaction("Sainsbury's Checkout", new BigDecimal("23.76"), 2));
+        BoCApp.UserTransactions.add(new BoCTransaction("Tesco's Checkout", new BigDecimal("7.24"), 2));
+        BoCApp.UserTransactions.add(new BoCTransaction("RockCity Drinks", new BigDecimal("8.50"), 3));
         BoCApp.UserTransactions.add(new BoCTransaction("The Mooch", new BigDecimal("13.99"), 3));
         
 
@@ -77,11 +77,11 @@ class BoCAppTest {
         prompt5 = new String("What is the budget for this category?\r\nNote:It should be a pisitive decimal number with exact two decimal places.\r\n");
         prompt6 = new String("[Category added]");
         allCategory = new String("1) Unknown(¥0.00) - Est. ¥850.00 (¥850.00 Overspent)\r\n"+
-        		"2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)\r\n"+
+                "2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)\r\n"+
         "3) Groceries(¥75.00) - Est. ¥31.00 (¥44.00 Remaining)\r\n"+
         "4) Social(¥100.00) - Est. ¥22.49 (¥77.51 Remaining)\r\n"+
         "5) cat1Name(¥6.23) - Est. ¥0.00 (¥6.23 Remaining)\r\n"
-        		);
+                );
     }
 
     @BeforeEach
@@ -104,7 +104,7 @@ class BoCAppTest {
 
 
     /*
-	1 - FAIL - Shiliang - 23:15 4/5
+    1 - FAIL - Shiliang - 23:15 4/5
     Problem:1. Category cant be correctly set up 
             2. prompt message is different 
             3. Confirmation message is different
@@ -119,9 +119,9 @@ class BoCAppTest {
             4. Exception catcher has not been created yet
             5. BigDecimal get a ""
             6. blank input has not been banned
-	Traceability: addTransactionTest 1 - 14
-	
-	2 - PASS - Jiawei Shiliang- 16:15 5/5
+    Traceability: addTransactionTest 1 - 14
+    
+    2 - PASS - Jiawei Shiliang- 16:15 5/5
     Problem: /
     Reason: 1. Add a module for category setup, updated the prompt message string, reconstructed confirmation message
             2. Add if statement for exception throw
@@ -135,11 +135,11 @@ class BoCAppTest {
     Reason: haven't handled \n
     Traceability: addTransactionTest 4'
 
-	4 - PASS - Shiliang- 16:31 5/5
+    4 - PASS - Shiliang- 16:31 5/5
     Problem: /
     Reason: add if for "" situation (blank input)
-	Traceability: addTransactionTest 4''
-	 */
+    Traceability: addTransactionTest 4''
+     */
     @DisplayName("AddTransactionTest")
     @ParameterizedTest
     @MethodSource
@@ -239,26 +239,25 @@ class BoCAppTest {
             assertEquals(alert, e.getCause().getMessage());
 
         }
-    	
-    	
+        
+        
         outContent.reset(); 
-    	 
+         
 
     }
     static List<Arguments> AddCategoryTest() {
-    	return List.of( // arguments:
-    			Arguments.arguments("cat1Name\n","6.23\n","1"),
-    			Arguments.arguments("cat2Name123456789\n","6.23\n", "Wrong title! It should be at most 15 characters."),
-    			Arguments.arguments("cat1Name\n", "7.45\n", "Wrong title! It should not be the same as the existed name."),
-    			Arguments.arguments("cat4Name\n", "6\n", "Wrong budget! It should be a positive decimal number with exact two decimal places."),
-    			Arguments.arguments("cat5Name\n", "6.1\n", "Wrong budget! It should be a positive decimal number with exact two decimal places."),
-    			Arguments.arguments("cat6Name\n", "-7.23\n", "Wrong budget! It should be a positive decimal number with exact two decimal places."),
-    			Arguments.arguments("\n", "6.34\n", "Wrong title! It should not be blank."),
-    			Arguments.arguments("   \n", "6.34\n", "Wrong title! It should not be blank."),
-    			Arguments.arguments("cat9Name\n", "\n", "Wrong budget! It should not be blank."),
-    			Arguments.arguments("cat10Name\n", "   \n", "Wrong budget! It should not be blank."),
-    			Arguments.arguments("cat11Name\n", "0.00\n", "Wrong budget! It should be a positive decimal number with exact two decimal places.")
-    			
+        return List.of( // arguments:
+                Arguments.arguments("cat1Name\n","6.23\n","1"),
+                Arguments.arguments("cat2Name123456789\n","6.23\n", "Wrong title! It should be at most 15 characters."),
+                Arguments.arguments("cat1Name\n", "7.45\n", "Wrong title! It should not be the same as the existed name."),
+                Arguments.arguments("cat4Name\n", "6\n", "Wrong budget! It should be a positive decimal number with exact two decimal places."),
+                Arguments.arguments("cat5Name\n", "6.1\n", "Wrong budget! It should be a positive decimal number with exact two decimal places."),
+                Arguments.arguments("cat6Name\n", "-7.23\n", "Wrong budget! It should be a positive decimal number with exact two decimal places."),
+                Arguments.arguments("\n", "6.34\n", "Wrong title! It should not be blank."),
+                Arguments.arguments("   \n", "6.34\n", "Wrong title! It should not be blank."),
+                Arguments.arguments("cat9Name\n", "\n", "Wrong budget! It should not be blank."),
+                Arguments.arguments("cat10Name\n", "   \n", "Wrong budget! It should not be blank."),
+                Arguments.arguments("cat11Name\n", "0.00\n", "Wrong budget! It should be a positive decimal number with exact two decimal places.")
         );
     }
     
