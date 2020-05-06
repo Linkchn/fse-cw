@@ -467,11 +467,14 @@ This method should not be used in this class. So it has been deleted.
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
 <<<<<<< HEAD
+<<<<<<< HEAD
 | !! | PASS | mainTest1 | | | | | | | | Shiliang |
 
 | !! |  | mainTest2 |  | | | | | | | |
 | !! | | mainTest3 |  | | | | | | | |
 =======
+=======
+>>>>>>> 88dc0b2d89a381d981ad2d2fb788abbe5854a0be
 | !! | PASS | mainTest1 | X | | | | | | | Shiliang |
 | !! |  | mainTest2 | t | | | | | | | Daze |
 | !! |  | mainTest2 | O, X | | | | | | |  |
