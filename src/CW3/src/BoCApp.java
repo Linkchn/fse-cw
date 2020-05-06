@@ -186,6 +186,9 @@ public class BoCApp {
         }
         
         BigDecimal cbudget = new BigDecimal(budget);
+        if (cbudget.compareTo(BigDecimal.ZERO) != 1) {
+            throw new Exception("Wrong budget! It should be a positive decimal number with exact two decimal places.");
+        }
         BoCCategory temp = new BoCCategory(title);
         temp.setCategoryBudget(cbudget);
         UserCategories.add(temp);

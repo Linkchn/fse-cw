@@ -190,7 +190,32 @@ class BoCAppTest {
                 Arguments.arguments("tran14\n", "   \n", "2\n", "Wrong value. It should not be blank!")
         );
     }
-
+    /*
+    1 - FAIL - 14:06 5/6 - Jiawei
+    Problem:1. prompt message is different 
+            2. It does not alert and stop
+            3. an invocation exception
+            4. no exception thrown
+    Reason: 1. The original message does not match new expected one 
+            2. Confirmation message has not been created yet
+            3. Exception catcher has not been created yet
+            4. blank input has not been banned
+    Traceability: AddCategoryTest
+    2 - PASS - 14:06 5/6 - Jiawei
+    Problem:/
+    Reason: 1. modify the prompt message
+    		2. throw some new exceptions the avoid illegal input
+    		3. modify the alert message
+    3 - FAIL - 14:06 5/6 - Jiawei
+    Problem: the code does not stop when budget is 0
+    Reason: miss a test that the budget is 0
+    TraceabilityL AddCategoryTest
+    4 - PASS - 14:06 5/6 - Jiawei
+    Problem: /
+    Reason: /
+    Traceability: AddCategoryTest
+    
+     */
     @DisplayName("AddCategoryTest")
     @ParameterizedTest
     @MethodSource
@@ -231,7 +256,8 @@ class BoCAppTest {
                 Arguments.arguments("\n", "6.34\n", "Wrong title! It should not be blank."),
                 Arguments.arguments("   \n", "6.34\n", "Wrong title! It should not be blank."),
                 Arguments.arguments("cat9Name\n", "\n", "Wrong budget! It should not be blank."),
-                Arguments.arguments("cat10Name\n", "   \n", "Wrong budget! It should not be blank.")
+                Arguments.arguments("cat10Name\n", "   \n", "Wrong budget! It should not be blank."),
+                Arguments.arguments("cat11Name\n", "0.00\n", "Wrong budget! It should be a positive decimal number with exact two decimal places.")
         );
     }
     
