@@ -358,8 +358,8 @@ This method should not be used in this class. So it has been deleted.
 | Importance | Status | Test                     | Inputs             | Expected Outcome                                    | Test Outcome | Problem | Change | Reason | Time | Author       |
 | ---------- | ------ | ------------------------ | ------------------ | --------------------------------------------------- | ------------ | ------- | ------ | ------ | ---- | ------------ |
 | !!!        |    Fail    | Main Constructors Test 1 | 5                  | The numbers of parameters and input is not matching |       Error       |    the constructor BoCCategory(BigDecimal) is undefined.     |    Ignore the test    |    The compile error can't be solved in the method    |    20:05/01/05  | YuxiangZhang |
-| !!!        |    Pass    | Main Constructors Test 2 | "transport",1000,1200.85 | build successfully                                  |       "transport",1000,1200.85       |    /     |    /    |    /    |    21:40/01/05  | YuxiangZhang |
-| !!!        |    Pass    | Main Constructors Test 3 | "shopping",3000,4500.45  | build successfully                                  |       "shopping",3000,4500.45       |    /     |    /    |    /    |    21:40/01/05  | YuxiangZhang |
+| !!!        |    Pass    | Main Constructors Test 2 | "transport" | build successfully                                  |       "transport"       |    /     |    /    |    /    |    21:40/01/05  | YuxiangZhang |
+| !!!        |    Pass    | Main Constructors Test 3 | "shopping"  | build successfully                                  |       "shopping"       |    /     |    /    |    /    |    21:40/01/05  | YuxiangZhang |
 
 #### Function 3: CategoryName() - Get Category Name       
 
