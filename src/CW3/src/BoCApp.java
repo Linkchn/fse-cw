@@ -10,7 +10,6 @@ public class BoCApp {
         UserCategories = new ArrayList<BoCCategory>();
         UserTransactions = new ArrayList<BoCTransaction>();
 
-        public static defaultCategoryNum = 1;
         // SETUP EXAMPLE DATA //
         UserCategories.add(new BoCCategory("Unknown"));
 
@@ -265,7 +264,7 @@ public class BoCApp {
         String title = in.nextLine();
         for (int x = 0; x < UserCategories.size(); x++) {
             BoCCategory temp1 = UserCategories.get(x);
-            if (title == temp1.CategoryName()) {
+            if (title.equals(temp1.CategoryName())) {
                 throw new Exception("Wrong title! It should not be the same as the existed name.");
             }
         }
