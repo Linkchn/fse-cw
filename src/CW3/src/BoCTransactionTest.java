@@ -349,50 +349,21 @@ class BoCTransactionTest {
 	Problem: 
 	Reason:
 	Traceability: setNameTest1
-	*/
-	@Test		
-	void setNameTest1() {
-		testInputString = "Leo";
-		try {
-			BoCTransaction copy = new BoCTransaction();
-			copy.setTransactionName(testInputString);
-			copy.resetCounter();
-			testOutputString = copy.transactionName();
-		}catch(Exception e) {
-			fail ("Someting wrong with catch");
-		}
-		assertEquals(testInputString, testOutputString);
-	}
 	
-	/* 
-	2 - Pass - Leo - 14:42/1/5  
+	2 – Pass – Leo - 14:42/1/5  
 	Problem: 
 	Reason:
 	Traceability: setNameTest2
-	*/
-	@Test
-	void setNameTest2() {
-		testInputString = null;
-		try {
-			BoCTransaction copy = new BoCTransaction();
-			copy.setTransactionName(testInputString);
-			copy.resetCounter();
-			testOutputString = copy.transactionName();
-		}catch(Exception e) {
-			fail ("Someting wrong with catch");
-		}
-		assertEquals(testInputString, testOutputString);
-	}
-
-	/* 
-	3 - Pass - Leo - 15:27/1/5  
+	
+	3 – Pass – Leo - 15:27/1/5  
 	Problem: 
 	Reason:
 	Traceability: setNameTest3
 	*/
-	@Test
-	void setNameTest3() {
-		testInputString = "QWERTYUIOPASDFGHJKLZXCVBNM";
+    @DisplayName("setNameTest")
+	@ParameterizedTest
+	@MethodSource	
+	void setNameTest(String testInputString, String testExpectOutputString) throws Exception {
 		try {
 			BoCTransaction copy = new BoCTransaction();
 			copy.setTransactionName(testInputString);
@@ -401,7 +372,14 @@ class BoCTransactionTest {
 		}catch(Exception e) {
 			fail ("Someting wrong with catch");
 		}
-		assertEquals("QWERTYUIOPASDFGHJKLZXCVBN", testOutputString);
+		assertEquals(testExpectOutputString, testOutputString);
+	}
+	static List<Arguments> setNameTest(){
+		return List.of(
+				Arguments.arguments("LEO", "LEO"),
+				Arguments.arguments(null, null),
+				Arguments.arguments("QWERTYUIOPASDFGHJKLZXCVBNM", "QWERTYUIOPASDFGHJKLZXCVBN")
+		);
 	}
 
 	/* 

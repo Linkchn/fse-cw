@@ -261,7 +261,7 @@ class BoCAppTest {
 	Reason:/
 	Traceability: ChangeTransactionCategoryTest5，6
 	*/
-	@DisplayName("AddTransactionTest")
+	@DisplayName("ChangeTransactionCategoryTest")
 	@ParameterizedTest
 	@MethodSource
 	void ChangeTransactionCategoryTest(String tID, String newCat, String alert) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
@@ -299,8 +299,10 @@ class BoCAppTest {
 	static List<Arguments> ChangeTransactionCategoryTest() {
         return List.of( // arguments:
                 Arguments.arguments("1", "3", "1"),
-                Arguments.arguments("3", "1", "1"),
+                Arguments.arguments("1", "1", "1"),
                 Arguments.arguments("4", "2", "1"),
+                Arguments.arguments("4", "3", "1"),
+                Arguments.arguments("7", "1", "1"),
                 Arguments.arguments("7", "4", "1"),
                 Arguments.arguments("8", "4", "Please input valid transaction value!"),
                 Arguments.arguments("5", "-1", "Please input valid category!")
