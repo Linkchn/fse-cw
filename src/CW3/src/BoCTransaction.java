@@ -113,7 +113,7 @@ public class BoCTransaction {
 
 	@Override
 	public String toString() {
-		if ((transactionName != null) && (transactionValue != null)) {
+		if ((transactionName != "[Pending Transaction]") && (transactionValue != null)) {
 			transactionTime = new Date();
 			long timeStamp = System.currentTimeMillis(); 
 			SimpleDateFormat sdff=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
