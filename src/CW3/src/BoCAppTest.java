@@ -37,7 +37,7 @@ class BoCAppTest {
     private static String prompt9;
     private static String allCategory;
     private static String catList;
-	
+
     @BeforeAll 
     static void setup() {
         BoCApp.UserCategories = new ArrayList<BoCCategory>();
@@ -109,24 +109,8 @@ class BoCAppTest {
         outContent.reset();
     }
 
-    @Disabled
-    @DisplayName("mainTest")
-    @ParameterizedTest
-    @MethodSource
-    void mainTest(String a) {
-        String input = "A\nABC\n10.00\n1\n";
-        InputStream in = new ByteArrayInputStream(input.getBytes());
-        System.setIn(in);
-        BoCApp.main(new String[]{"X\n"});
-    }
-    static List<Arguments> mainTest() {
-        return List.of( // arguments:
-                Arguments.arguments(""),
-                Arguments.arguments(""),
-                Arguments.arguments("")
-        );
-    }
-    
+
+
     
     /*
     1. Failed Hongming Ping 22:14/4/5

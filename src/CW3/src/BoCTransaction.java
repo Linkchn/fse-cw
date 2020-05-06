@@ -52,8 +52,8 @@ public class BoCTransaction {
 			counter = 0;
 		}
 		
-		public void setTransactionName(String tName) {
-			if (counter == 0) {
+		public void setTransactionName(String tName) throws Exception {
+			if (transactionName == null) {
 				if (tName == null) {
 					transactionName = null;
 				}else {
@@ -66,10 +66,13 @@ public class BoCTransaction {
 					}			
 				}
 			}
+			else {
+				throw new Exception("Set failed. This transaction name has already been set.");
+			}
 		}
 
-		public void setTransactionValue(BigDecimal tValue) {
-			if (counter == 0) {
+		public void setTransactionValue(BigDecimal tValue) throws Exception {
+			if (transactionValue == null) {
 				if (tValue.compareTo(new BigDecimal("0.00")) == 1) {
 					// 1 means bigger, -1 means smaller, 0 means same
 					transactionValue = tValue;
@@ -78,6 +81,10 @@ public class BoCTransaction {
 				if (tValue.scale()>2) {
 					transactionValue = null;
 				}
+			}
+			else {
+				throw new Exception("Set failed. This transaction value has already been set.");
+
 			}
 		}
 
