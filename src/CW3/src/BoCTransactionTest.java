@@ -1,5 +1,3 @@
-package src;
-
 import static org.junit.jupiter.api.Assertions.*;
 import org.junit.jupiter.params.*;
 import org.junit.jupiter.params.provider.Arguments;
