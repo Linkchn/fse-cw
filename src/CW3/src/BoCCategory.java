@@ -39,17 +39,25 @@ public class BoCCategory {
 
     /*1. - Fail - Hongming PING - 21:38/2/5
 	Problem: If newName is sapce only or empty, the result still returns the value of
-	newName, which is Unknown name.
-	Traceability: setCNTest1,2,3
-	2. - Pass - 22:57/2/5
-	Reason: Fixed the Method with adding an "if" statement to assign null to String
+	newName.
+	Change: set throw when it is empty
+	Traceability: setCNTest234
+	2. - Fail - Hongming Ping - 22:57/2/5
+	Problem: If the newName is set to be "Unknown", the result still returns "newName"
 	while whose newName is empty or sapce
-	Traceability: setCNTest1,2,3
+	change: set throw when it is "Unknown"
+	Traceability: setCNTest234
+	3. - Pass - Hongming Ping - 23:27/2/5
+	Problem:\
+	Change:\
+	Traceability: setCNTest234
 	*/
-    public void setCategoryName(String newName) {
-        newName = newName.trim();
-        if (newName.length()!=0) CategoryName = newName;
-        else CategoryName=null;
+    public void setCategoryName(String newName) throws Exception {
+        newName = newName.trim();   
+        if ((newName.length()!=0)&&(!(newName.equals("Unknown")))) CategoryName = newName;
+        else {
+        	throw new Exception("Set Failed, please set a valid name"); 
+        }
     }
     
     /* - Pass - Hongming PING - 16:52/1/5

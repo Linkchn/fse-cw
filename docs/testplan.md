@@ -402,11 +402,12 @@ This method should not be used in this class. So it has been deleted.
 
 #### Function 6:  setCategoryName(String cName) - Set Category Name
 
-|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Reason|Time|Author|
+|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Time|Author|
 |----------|------|----|------|----------------|------------|------------|------------|------------|------------|
-| ! | PASS | setCNTest1 | "YTB" | "YTB" | "YTB" |        | | 23:38/30/4 | Daze Ping |
-| ! | FAIL | setCNTest2 | blank space: " " | null | blank space: " " | If newName is sapce only or empty, the result still returns the value of<br/>	newName, which is Unknown name. | Fixed the Method with adding an "if" statement to assign null to String <br/>	while whose newName is empty or sapce | 22:57/2/5 | Daze Ping |
-| ! | FAIL | setCNTest3 | empty string: "" | null | empty string: "" | If newName is sapce only or empty, the result still returns the value of<br/>	newName, which is Unknown name. | Fixed the Method with adding an "if" statement to assign null to String <br/>	while whose newName is empty or sapce | 22:57/2/5 | Daze Ping |
+| ! | PASS | setCNTest1 | "YTB" | "YTB" | "YTB" | / | / | 23:38/30/4 | Daze Ping |
+| ! | FAIL | setCNTest2 | blank space: " " | throw exception, "Set Failed, please set a valid name | throw exception, "Set Failed, please set a valid name | If newName is sapce only or empty, the result still returns the value of<br/>	newName. | set throw when it is empty | 23:27/2/5 | Daze Ping |
+| ! | FAIL | setCNTest3 | empty string: "" | throw exception, "Set Failed, please set a valid name | throw exception, "Set Failed, please set a valid name | If newName is sapce only or empty, the result still returns the value of<br/>	newName. | set throw when it is empty | 23:27/2/5 | Daze Ping |
+|  |  | setCNTest4 | "Unknown" | throw exception, "Set Failed, please set a valid name | throw exception, "Set Failed, please set a valid name | If newName is sapce only or empty, the result still returns the value of<br/>	newName. | set throw when it is "Unknown" | 23:27/2/5 | Daze Ping |
 
 #### Function 7: setCategoryBudget(BigDecimal cBudget) - Set Category Budget
 
