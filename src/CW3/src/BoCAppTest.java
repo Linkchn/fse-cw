@@ -251,12 +251,12 @@ class BoCAppTest {
 	
 	
     /* 
-	1 – Pass – Leo - 00:18/6/5  
+	1 - Pass - Leo - 00:18/6/5  
 	Problem: /
 	Reason:/
 	Traceability: ChangeTransactionCategoryTest1,2,3,4
 	
-	2 – Pass – Leo - 00:48/6/5  
+	2 - Pass - Leo - 00:48/6/5  
 	Problem: /
 	Reason:/
 	Traceability: ChangeTransactionCategoryTest5，6
@@ -272,21 +272,21 @@ class BoCAppTest {
 		    if(alert.equals("1")) {
 			    String input = "\n" + tID + "\n" + newCat + "\n";
 			    inp = new Scanner(input);
-			    catList = "1) " + a.UserCategories.get(0).toString() + "\r\n";
-		    	for (int x = 1; x < a.UserCategories.size(); x++) {
-					BoCCategory temp = a.UserCategories.get(x);
+			    catList = "1) " + BoCApp.UserCategories.get(0).toString() + "\r\n";
+		    	for (int x = 1; x < BoCApp.UserCategories.size(); x++) {
+					BoCCategory temp = BoCApp.UserCategories.get(x);
 					catList += (x+1) + ") " + temp.toString() + "\r\n";
 				}
 		    	int tIDi = Integer.parseInt( tID )-1;
 		    	int newCati = Integer.parseInt( newCat )-1;
 			    
-		    	BoCTransaction temp = a.UserTransactions.get(tIDi);
+		    	BoCTransaction temp = BoCApp.UserTransactions.get(tIDi);
 				int oldCat = temp.transactionCategory();
 		    	
 	        	ChangeTransactionCategoryTest.invoke(a, inp);
-	        	BoCCategory newCatSpend = a.UserCategories.get(newCati);
-	        	BoCCategory oldCatSpend = a.UserCategories.get(oldCat);
-	            assertEquals(prompt7 + "\t- " + a.UserTransactions.get( tIDi ).toString() + "\r\n" + prompt8 + catList + prompt9 + "Target category: " + (newCati + 1) + ") " + newCatSpend.toString() + "\r\n" + "Origin category: " + (oldCat + 1) + ") " + oldCatSpend.toString() + "\r\n", outContent.toString());
+	        	BoCCategory newCatSpend = BoCApp.UserCategories.get(newCati);
+	        	BoCCategory oldCatSpend = BoCApp.UserCategories.get(oldCat);
+	            assertEquals(prompt7 + "\t- " + BoCApp.UserTransactions.get( tIDi ).toString() + "\r\n" + prompt8 + catList + prompt9 + "Target category: " + (newCati + 1) + ") " + newCatSpend.toString() + "\r\n" + "Origin category: " + (oldCat + 1) + ") " + oldCatSpend.toString() + "\r\n", outContent.toString());
 	            assertEquals(newCati, temp.transactionCategory());
 		    }
 	    }
