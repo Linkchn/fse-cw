@@ -30,7 +30,7 @@ class BoCAppTest {
     private static final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
     private static BoCApp a = null;
     private static Scanner inp;
-    private static String prompt1, prompt2, prompt3, prompt4, prompt5, catList;
+    private static String prompt7, prompt8, prompt9, prompt4, prompt5, catList;
 
     @BeforeAll 
     static void setup() {
@@ -69,9 +69,10 @@ class BoCAppTest {
 		}
 		
 		a = new BoCApp();
-		prompt1 = new String("Which transaction ID?\r\n");
-        prompt2 = new String("Which category will it move to?\r\n");
-        prompt3 = new String("Change complete!\r\n");
+		
+		prompt7 = new String("Which transaction ID?\r\n");
+        prompt8 = new String("Which category will it move to?\r\n");
+        prompt9 = new String("Change complete!\r\n");
     }
 
     @BeforeEach
@@ -161,7 +162,7 @@ class BoCAppTest {
 	        	ChangeTransactionCategoryTest.invoke(a, inp);
 	        	BoCCategory newCatSpend = a.UserCategories.get(newCati);
 	        	BoCCategory oldCatSpend = a.UserCategories.get(oldCat);
-	            assertEquals(prompt1 + "\t- " + a.UserTransactions.get( tIDi ).toString() + "\r\n" + prompt2 + catList + prompt3 + "Target category: " + (newCati + 1) + ") " + newCatSpend.toString() + "\r\n" + "Origin category: " + (oldCat + 1) + ") " + oldCatSpend.toString() + "\r\n", outContent.toString());
+	            assertEquals(prompt7 + "\t- " + a.UserTransactions.get( tIDi ).toString() + "\r\n" + prompt8 + catList + prompt9 + "Target category: " + (newCati + 1) + ") " + newCatSpend.toString() + "\r\n" + "Origin category: " + (oldCat + 1) + ") " + oldCatSpend.toString() + "\r\n", outContent.toString());
 	            assertEquals(newCati, temp.transactionCategory());
 		    }
 	    }
