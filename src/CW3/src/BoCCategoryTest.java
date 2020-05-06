@@ -180,21 +180,21 @@ class BoCCategoryTest {
     Reason: /
     Traceability: addExpenseTest 4, 5, 6
     */
-	@Order(1)
-	@DisplayName("addExpenseTest")
-	@ParameterizedTest
-	@ValueSource(strings = {"0.00", "100.00", "111.50", "10000000000.00"})
-	void addExpenseTest(String num) {
+    @Order(1)
+    @DisplayName("addExpenseTest")
+    @ParameterizedTest
+    @ValueSource(strings = {"0.00", "100.00", "111.50", "10000000000.00"})
+    void addExpenseTest(String num) {
 
-		bd1 = new BigDecimal(num);
-		sum = sum.add(bd1);
-		cat1.addExpense(bd1);
-		assertEquals(sum, cat1.CategorySpend());
+        bd1 = new BigDecimal(num);
+        sum = sum.add(bd1);
+        cat1.addExpense(bd1);
+        assertEquals(sum, cat1.CategorySpend());
 
-	}
+    }
 
 
-	/*
+    /*
     1 - PASS - Shiliang - 23:44 30/4
     Problem: /
     Reason: /
@@ -210,28 +210,28 @@ class BoCCategoryTest {
     Reason: /
     Traceability: removeExpenseTest 6
     */
-	@Order(2)
-	@DisplayName("removeExpenseTest")
-	@ParameterizedTest
-	@ValueSource(strings = {"0.00", "10000000000.00", "111.50", "90.00", "100.00"})
-	void removeExpenseTest(String num) {
-		bd1 = new BigDecimal(num);
-		sum = cat1.CategorySpend();
+    @Order(2)
+    @DisplayName("removeExpenseTest")
+    @ParameterizedTest
+    @ValueSource(strings = {"0.00", "10000000000.00", "111.50", "90.00", "100.00"})
+    void removeExpenseTest(String num) {
+        bd1 = new BigDecimal(num);
+        sum = cat1.CategorySpend();
 
-		try {
-			sum = sum.subtract(bd1);
-			cat1.removeExpense(bd1);
-			assertEquals(sum, cat1.CategorySpend());
-			System.out.println(cat1.CategorySpend());
+        try {
+            sum = sum.subtract(bd1);
+            cat1.removeExpense(bd1);
+            assertEquals(sum, cat1.CategorySpend());
+            System.out.println(cat1.CategorySpend());
 
-		}
-		catch (Exception e){
-			assertThrows(Exception.class, ()->{cat1.removeExpense(bd1);System.out.println(cat1.CategorySpend());});
-		}
-	}
+        }
+        catch (Exception e){
+            assertThrows(Exception.class, ()->{cat1.removeExpense(bd1);System.out.println(cat1.CategorySpend());});
+        }
+    }
 
 
-	/*
+    /*
     1- FAIL - Jiawei - 16:44 1/5
     Problem: The Test is failed.
     Reason: The code does not run the resetBudgetSpendTest method in the first test. Therefore,
@@ -243,34 +243,34 @@ class BoCCategoryTest {
     Reason:/
     Traceability: resetBudgetSpendTest 2
      */
-	@Order(4)
-	@DisplayName("resetBudgetSpendTest")
-	@ParameterizedTest
-	@ValueSource(strings = {"0.00"})
-	void resetBudgetSpendTest(String num1) {
-		bd1 = new BigDecimal(num1);
-		cat1.resetBudgetSpend();
-		assertEquals(bd1, cat1.CategorySpend());
+    @Order(4)
+    @DisplayName("resetBudgetSpendTest")
+    @ParameterizedTest
+    @ValueSource(strings = {"0.00"})
+    void resetBudgetSpendTest(String num1) {
+        bd1 = new BigDecimal(num1);
+        cat1.resetBudgetSpend();
+        assertEquals(bd1, cat1.CategorySpend());
 
-	}
+    }
 
 
-	/*
+    /*
     1- PASS - Shiliang Jiawei- 16:13 1/5
     Problem: /
     Reason:  /
     Traceability: getRemainingBudgetTest 1
      */
-	@Order(3)
-	@DisplayName("getRemainingBudgetTest")
-	@Test
-	void getRemainingBudgetTest() {
-		System.out.println(cat1.CategorySpend());
-		assertEquals(new BigDecimal("-10.00"), cat1.getRemainingBudget());
-	}
+    @Order(3)
+    @DisplayName("getRemainingBudgetTest")
+    @Test
+    void getRemainingBudgetTest() {
+        System.out.println(cat1.CategorySpend());
+        assertEquals(new BigDecimal("-10.00"), cat1.getRemainingBudget());
+    }
 
 
-	/*
+    /*
     1 - FAIL - Jiawei - 15:55 2/5
     Problem: Does not set a specific parameter in the test Therefore two conditions will not test either
     Reason: the parameter needs to be a value in the test plan
@@ -286,25 +286,25 @@ class BoCCategoryTest {
     Reason:/
     Traceability: testToString 3, 4
      */
-	@Order(5)
-	@DisplayName("testToString")
-	@ParameterizedTest
-	@MethodSource
-	void testToString(BoCCategory cat, String string1 ) {
-		if(cat.getRemainingBudget().compareTo(BigDecimal.ZERO) != -1 )
-		{
-			assertEquals( string1, cat.toString());
-		}
-		else {
-			assertEquals( string1, cat.toString());
-		}
-	}
+    @Order(5)
+    @DisplayName("testToString")
+    @ParameterizedTest
+    @MethodSource
+    void testToString(BoCCategory cat, String string1 ) {
+        if(cat.getRemainingBudget().compareTo(BigDecimal.ZERO) != -1 )
+        {
+            assertEquals( string1, cat.toString());
+        }
+        else {
+            assertEquals( string1, cat.toString());
+        }
+    }
 
-	static List<Arguments> testToString() {
-		return List.of( // arguments:
-				Arguments.arguments(cat2,toStringResult1),
-				Arguments.arguments(cat3,toStringResult2)
-		);
-	}
+    static List<Arguments> testToString() {
+        return List.of( // arguments:
+                Arguments.arguments(cat2,toStringResult1),
+                Arguments.arguments(cat3,toStringResult2)
+        );
+    }
 }
 

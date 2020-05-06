@@ -3,10 +3,10 @@
 |Contents|
 |--------|
 |[Team Management](#team-management)|
-|[Work distributions with pairs](#work-distributions-with-pairs)|
-|[Timeline & decisions](#timeline--decisions)|
-|[Meeting record](#meeting-record)|
-|[Conclusion](#conclusion)|
+|[Work distributions with pairs](#ii-work-distributions-with-pairs)|
+|[Timeline & decisions](#iii-timeline--decisions)|
+|[Meeting record](#iv-meeting-record)|
+|[Conclusion](#v-conclusion)|
 |[Test Plan](#test-plan)|
 |[Jump to Class: BoCTransaction](#class-BoCTransaction)|
 |[Jump to Class: BoCCategory](#class-BoCCategory)|
@@ -15,7 +15,7 @@
 
 ## Team Management
 
-Report here, by the end of the assignment, how the team has managed the project, e.g.: used version control, organised meetings, divided work, used labels, milestones, issues, etc. etc.
+Report here, by the end of the assignment, how the team has managed the project, e.g.: used version control, organised meetings, divided work, used labels, milestones, issues, etc.
 
 ### I. Team stategy
 
@@ -25,6 +25,7 @@ Second devide members in pairs and distribute works to pairs.
 Third build Tests Plan Table according to the Class Description analysis in pairs.
 Then adjust codes and plan throughout the whole process of development to achieve the requirements.
 Branches will be made once pair work has begun.
+  Group meeting will be organised 3 - 4 days once.
 
 - Since this BoCAPP is a small-sized business system, agile method allows us to focus on the software itself rather than on its design and documentation, which is exactly what we need. As is required and recommended, we use JUnit to do TDD process. Although the whole development process is not so heavy that every one can do their own small piece of job to finish the task, we consider pair programming could be a good method which fits us well. Most importantly, it will act as an informal review process because each line of code is looked at by at least one person. It largly reduces the risk of more errors with cheap program inspections. Secondly, it is recommended that we can do refactoring to improve the software structure. Different from normal development environment, pair programming provide a more friendly environment for refactoring to happen as others could benifit immediately from that. Thirdly, it obviously widens the mind of the way making tests and improves the ability of each other's programming skills.
 
@@ -164,12 +165,28 @@ Branches will be made once pair work has begun.
     
     | Date | What to do                         | Shiliang | Jiawei | Status |
     | ---- | ---------------------------------- | ---- | ---- | ------ |
-    | 5/2  | Finish Tests of first two classes with fixed code|      |      |        |
-    | 5/3  | Start plan for main 6, 7 and write test code|      |      |        |
-    | 5/4  | Work on main 6, 7                  |      |      |        |
+    | 5/2  | Finish Tests of first two classes with fixed code| √ | √ | √ |
+    | 5/3  | Start plan for main 6, 7 and write test code| M 6 | M 7 | × |
+    | 5/4  | Work on main 6, 7                  | M 6 | M 7 |        |
     | 5/5  | Work on main 6, 7                  |      |      |        |
     | 5/6  | Work on main 6, 7                  |      |      |        |
     | 5/7  | Final check and Tag                |      |      |        |
+
+    Forth meeting, discussed about further plan and merge problems
+
+    Work together fixing issues
+
+  - 3/5 issues: 5/19
+
+    Keep working on main
+
+  - 4/5 issues: 6/20
+
+    work on tests for main
+
+  - 5/5 issues: 4/20
+
+    work on tests and code fixing
 
 
 
@@ -343,10 +360,10 @@ This method should not be used in this class. So it has been deleted.
 
 | Importance | Status | Test                       | Inputs | Expected Outcome   | Test Outcome       | Problem                                                 | Change                                                   | Reason                                   | Time | Author       |
 | ---------- | ------ | -------------------------- | ------ | ------------------ | ------------------ | ------------------------------------------------------- | -------------------------------------------------------- | ---------------------------------------- | ---- | ------------ |
-| !!!        | Pass   | Default Constructor test 1 | void   | CategoryName,0,0 | CategoryName,0,0 |  No | / | / |   17:30/01/05 | YuxiangZhang |
-| !!!        | Pass   | Default Constructor test 2 | void   | CategoryName,0,0 | CategoryName,0,0 |  No | / | / |   19:50/01/05 | YuxiangZhang |
+| !!!        | Pass   | Default Constructor test 1 | void   | "New Category","0.00","0.00" | "New Category","0.00","0.00" |  No | / | / |   17:30/01/05 | YuxiangZhang |
+| !!!        | Pass   | Default Constructor test 2 | void   | "New Category","0.00","0.00" | "New Category","0.00","0.00" |  No | / | / |   19:50/01/05 | YuxiangZhang |
 
-#### Function 2: BoCCategory(String cTitle) - Main Constructors       
+#### Function 2: BoCCategory(String newTitle) - Main Constructors       
 
 | Importance | Status | Test                     | Inputs             | Expected Outcome                                    | Test Outcome | Problem | Change | Reason | Time | Author       |
 | ---------- | ------ | ------------------------ | ------------------ | --------------------------------------------------- | ------------ | ------- | ------ | ------ | ---- | ------------ |
@@ -490,16 +507,46 @@ This method should not be used in this class. So it has been deleted.
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| ! | | addTransactionTest 1 | "tran1", 1, 0 | name is set to tran1, value is set to 1, category is set to 0, shows "tran1(¥1) was added to Unknown" | | | | | | |
-| !! | | addTransactionTest 2 | \n, "tran2",  2, 0 | Alert "Transaction name should not be blank!", then ask for a new one, value is set to 5, category is set to 0, shows "tran2(¥) was added to Unknown" | | | | | | |
-| !! | | addTransactionTest 3 | \n, "tran3", \n, 3, 0 | Alert "Transaction name should not be blank!", then ask for a new one. For the number, alert "Transaction value should not be blank!", then ask for a new one, the category is set to 0, shows "tran3(¥3) was added to Unknown" | | | | | | |
-| !! | | addTransactionTest 4 | \n, "tran4", \n, 4, \n | Alert "Transaction name should not be blank!", then ask for a new one. For the number, alert "Transaction value should not be blank!", then ask for a new one, the category is set to 0, shows "tran4(¥4) was added to Unknown" | | | | | | |
-| !! | | addTransactionTest 5 | "tran1", 1, 1 (where 1 is not yet created) | name is set to tran1, value is set to 5, category is set to 0, shows "This category is not yet created, please add enough new categories first." | | | | | | |
-| !! | | addTransactionTest 6 |  |  | | | | | | |
+| !! | FAIL | addTransactionTest 1 | "tran1\n", "1.00\n", "1\n" | name is set to tran1, value is set to 1.00, category is set to 0, shows "tran1(¥1) was added to Unknown" | Category is not set. prompt "[Transaction added]" | 1. Category cant be correctly set up 2. prompt message is different 3. Confirmation message is different | / | 1. No category input is set up 2. The original message does not match new expected one 3. Confirmation message has not been created yet | 23:15 4/5 | Shiliang |
+| !! | FAIL | addTransactionTest 2 | "\n",  "2.00", "1" | Nothing is actually set up. Alert "Wrong name. It should not be blank!" and stop | Category is  set to "". prompt "[Transaction added]" | 1. It does not alert and stop | / | 1. Exception catcher has not been created yet | 23:15 4/5 | Shiliang |
+| !! | FAIL | addTransactionTest 3 | "tran3\n", "\n", "1\n" | Nothing is actually set up. Alert "Wrong value. It should not be blank!" and stop | InvocationException | 1. It does not alert the right message and stop 2. alert an invocation exception | / | 1. Exception catcher has not been created yet 2. BigDecimal get a "" | 23:15 4/5 | Shiliang |
+| !! | FAIL | addTransactionTest 4 | "tran4\n", "4.00\n", "\n" | name is set to tran4, value is set to 4.00, category is set to 0, shows "tran1(¥1) was added to Unknown" | Category is  set to "tran4". value is set to 4.00. category is  set to Unknown, prompt "[Transaction added]" | 1. It does not alert the right message and stop 2. confirmation message is not right | / | the prompt and confirmation message are not reset yet | 23:15 4/5 | Shiliang |
+| !! | FAIL | addTransactionTest 5 | "tran5\n", "5.00\n", "6\n" (where 6 is not yet created) | nothing is set actually, shows "Wrong category. It should be an integer between 1 - 4", then exit back | Category is  set to "tran5". value is set to 5.00. category is set to Unknown, prompt "[Transaction added]" | 1. no exception thrown | / | exception throw has not been created | 23:15 4/5 | Shiliang |
+| !! | FAIL | addTransactionTest 6 | "tran6\n", "0.00\n", "1\n" | nothing is set actually, shows "Wrong value. It should be a number greater than 0!", then exit back | Category is  set to "tran6". value is set to 0.00. category is set to Unknown, prompt "[Transaction added]" | 1. no exception thrown | / | exception throw has not been created | 23:15 4/5 | Shiliang |
+| !! | FAIL | addTransactionTest 7 | "tran7\n", "-5.00\n", "1\n" | nothing is set actually, shows "Wrong value. It should be a number greater than 0!", then exit back | Category is  set to "tran7". value is set to -5.00. category is set to Unknown, prompt "[Transaction added]" | 1. no exception thrown | / | exception throw has not been created | 23:15 4/5 | Shiliang |
+| !! | FAIL | addTransactionTest 8 | "tran8\n", "8.00\n", "1\n" | nothing is set actually, shows "Wrong category. It should be a number between 1 - 4", then exit back | Category is  set to "tran8". value is set to -5.00. category is set to Unknown, prompt "[Transaction added]" | 1. no exception thrown | / | exception throw has not been created | 23:15 4/5 | Shiliang |
+| !! | FAIL | addTransactionTest 9 | "tran9\n", "9.00\n", "-1\n" | nothing is set actually, shows "Wrong category. It should be a number between 1 - 4", then exit back | Category is  set to "tran9". value is set to 9.00. category is set to Unknown, prompt "[Transaction added]" | 1. no exception thrown | / | exception throw has not been created | 23:15 4/5 | Shiliang |
+| !! | FAIL | addTransactionTest 10 | "tttttrrrrraaaaannnnn10101\n", "10.00\n", "1\n" | name is set to tttttrrrrraaaaannnnn10101, value is set to 10.00, category is set to 1, shows "tttttrrrrraaaaannnnn10101(¥10.00) was added to Bills" | Category is  set to "tttttrrrrraaaaannnnn10101". value is set to10.00. category is set to Unknown, prompt "[Transaction added]" | 1. category set is wrong 2. prompt message is wrong | / | the prompt and confirmation message are not reset yet. | 23:15 4/5 | Shiliang |
+| !! | FAIL | addTransactionTest 11 | "tttttrrrrraaaaannnnn111111111111\n", "11.00\n", "1\n" | nothing is set actually, shows "Wrong name. It should not be more than 25 characters!", then exit back | Category is  set to "tttttrrrrraaaaannnnn111111111111". value is set to11.00. category is set to Unknown, prompt "[Transaction added]" | 1. no exception thrown | / | exception throw has not been created | 23:15 4/5 | Shiliang |
+| !! | FAIL | addTransactionTest 12 | "tran12\n", "12\n", "1\n" | nothing is set actually, shows "Wrong value. It should have two decimal places e.g. 10.00!", then exit back | Category is  set to "tran12". value is set to12. category is set to Unknown, prompt "[Transaction added]" | 1. no exception thrown | / | exception throw has not been created | 23:15 4/5 | Shiliang |
+| !! | FAIL | addTransactionTest 13 | "  \n", "12.00\n", "1\n" | nothing is set actually, shows "Wrong name. It should not be blank!", then exit back | Category is  set to "   ". value is set to13.00. category is set to Unknown, prompt "[Transaction added]" | 1. allow blank input | / | blank input has not been banned | 15:11 5/5 | Shiliang |
+| !! | FAIL | addTransactionTest 14 | "tran14\n", "  \n", "1\n" | Wrong value. It should not be blank! | InvocationException | 1. BigDecimal went wrong | / | blank input has not been banned | 15:11 5/5 | Shiliang |
+| !! | PASS | addTransactionTest 1' | "tran1\n", "1.00\n", "1\n" | name is set to tran1, value is set to 1.00, category is set to 0, shows "tran1(¥1) was added to Unknown" | name is set to tran1, value is set to 1.00, category is set to 0, shows "tran1(¥1) was added to Unknown" | 1. Category cant be correctly set up 2. prompt message is different 3. Confirmation message is different | Add a module for category setup, updated the prompt message string, reconstructed confirmation message | 1. No category input is set up 2. The original message does not match new expected one 3. Confirmation message has not been created yet | 16:15 5/5 | Shiliang |
+| !! | PASS | addTransactionTest 2' | "\n",  "2.00", "1" | Nothing is actually set up. Alert "Wrong name. It should not be blank!" and stop | Nothing is actually set up. Alert "Wrong name. It should not be blank!" and stop | 1. It does not alert and stop | Add if statement for exception throw | 1. Exception catcher has not been created yet | 16:15 5/5 | Shiliang |
+| !! | PASS | addTransactionTest 3' | "tran3\n", "\n", "1\n" | Nothing is actually set up. Alert "Wrong value. It should not be blank!" and stop | InvocationException | 1. It does not alert the right message and stop 2. alert an invocation exception | Adjust \n to proper places | 1. Exception catcher has not been created yet 2. BigDecimal get a "" | 16:15 5/5 | Shiliang |
+| !! | FAIL | addTransactionTest 4' | "tran4\n", "4.00\n", "\n" | name is set to tran4, value is set to 4.00, category is set to 0, shows "tran1(¥1) was added to Unknown" | InvocationException | 1. the third argument went wrong | / | haven't handled \n | 16:15 5/5 | Shiliang |
+| !! | PASS | addTransactionTest 5' | "tran5\n", "5.00\n", "6\n" (where 6 is not yet created) | nothing is set actually, shows "Wrong category. It should be an integer between 1 - 4", then exit back | nothing is set actually, shows "Wrong category. It should be an integer between 1 - 4", then exit back | 1. no exception thrown | Add if statement for exception throw                         | exception throw has not been created | 16:15 5/5 | Shiliang |
+| !! | PASS | addTransactionTest 6' | "tran6\n", "0.00\n", "1\n" | nothing is set actually, shows "Wrong value. It should be a number greater than 0!", then exit back | nothing is set actually, shows "Wrong value. It should be a number greater than 0!", then exit back | 1. no exception thrown | Add if statement for exception throw | exception throw has not been created | 16:15 5/5 | Shiliang |
+| !! | PASS | addTransactionTest 7' | "tran7\n", "-5.00\n", "1\n" | nothing is set actually, shows "Wrong value. It should be a number greater than 0!", then exit back | Category is  set to "tran7". value is set to -5.00. category is set to Unknown, prompt "[Transaction added]" | 1. no exception thrown | Add if statement for exception throw | exception throw has not been created | 16:15 5/5 | Shiliang |
+| !! | PASS | addTransactionTest 8' | "tran8\n", "8.00\n", "0\n" | nothing is set actually, shows "Wrong category. It should be a number between 1 - 4", then exit back | Category is  set to "tran8". value is set to -5.00. category is set to Unknown, prompt "[Transaction added]" | 1. no exception thrown | Add if statement for exception throw | exception throw has not been created | 16:15 5/5 | Shiliang |
+| !! | PASS | addTransactionTest 9' | "tran9\n", "9.00\n", "-1\n" | nothing is set actually, shows "Wrong category. It should be a number between 1 - 4", then exit back | Category is  set to "tran9". value is set to 9.00. category is set to Unknown, prompt "[Transaction added]" | 1. no exception thrown | Add if statement for exception throw | exception throw has not been created | 16:15 5/5 | Shiliang |
+| !! | PASS | addTransactionTest 10' | "tttttrrrrraaaaannnnn10101\n", "10.00\n", "1\n" | name is set to tttttrrrrraaaaannnnn10101, value is set to 10.00, category is set to 1, shows "tttttrrrrraaaaannnnn10101(¥10.00) was added to Bills" | Category is  set to "tttttrrrrraaaaannnnn10101". value is set to10.00. category is set to Unknown, prompt "[Transaction added]" | 1. category set is wrong 2. prompt message is wrong | modified category setup and messages | the prompt and confirmation message are not reset yet. | 16:15 5/5 | Shiliang |
+| !! | PASS | addTransactionTest 11' | "tttttrrrrraaaaannnnn111111111111\n", "11.00\n", "1\n" | nothing is set actually, shows "Wrong name. It should not be more than 25 characters!", then exit back | Category is  set to "tttttrrrrraaaaannnnn111111111111". value is set to11.00. category is set to Unknown, prompt "[Transaction added]" | 1. no exception thrown | Add if statement for exception throw | exception throw has not been created | 16:15 5/5 | Shiliang |
+| !! | PASS | addTransactionTest 12' | "tran12\n", "12\n", "1\n" | nothing is set actually, shows "Wrong value. It should have two decimal places e.g. 10.00!", then exit back | Category is  set to "tran12". value is set to12. category is set to Unknown, prompt "[Transaction added]" | 1. no exception thrown | Add if statement for exception throw | exception throw has not been created | 16:15 5/5 | Shiliang |
+| !! | PASS | addTransactionTest 13' | "  \n", "12.00\n", "1\n" | nothing is set actually, shows "Wrong name. It should not be blank!", then exit back | Category is  set to "   ". value is set to13.00. category is set to Unknown, prompt "[Transaction added]" | 1. allow blank input | add if for "   " situation | blank input has not been banned | 16:15 5/5 | Shiliang |
+| !! | PASS | addTransactionTest 14' | "tran14\n", "  \n", "1\n" | Wrong value. It should not be blank! | InvocationException | 1. BigDecimal went wrong | add if for "   " situation | blank input has not been banned | 16:15 5/5 | Shiliang |
+| !! | PASS | addTransactionTest 4'' | "tran4\n", "4.00\n", "\n" | name is set to tran4, value is set to 4.00, category is set to 0, shows "tran1(¥1) was added to Unknown" | InvocationException | 1. the third argument went wrong | add if for "" situation | haven't handled \n | 16:31 5/5 | Shiliang |
+#### FAILFunction 7: addCategory(Scanner in) - Add Category function
 
-#### Function 7: addCategory(Scanner in) - Add Category function
-
-|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
-|----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+|Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|
+|----------|------|----|------|----------------|------------|
+| !! | | AddCategoryTest1 | “cat1Name\n”, "6.23\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a pisitive decimal number with exact two decimal places.\r\n", "[Category added]" | |
+| !!! | | AddCategoryTest2 | "cat2Name123456789\n"   ,"6.00\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n" Alert "Wrong title! It should be at most 15 characters." |  |
+| !!! | | AddCategoryTest3 | "cat1Name\n", "7.45\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n" Alert "Wrong title! It should not be the same as the existed name." |  |
+| !!! | | AddCategoryTest4 | "cat4Name\n","6\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n", "What is the budget for this category?\r\nNote:It should be a poistive decimal number with exact two decimal places.\r\n" Alert"Wrong budget! It should be a positive decimal number with exact two decimal places." |  |
+| !!! | | AddCategoryTest5 | "cat5Name\n", "6.1\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a positive decimal number with exact two decimal places.\r\n" Alert "Wrong budget! It should be a positive decimal number with exact two decimal places." |  |
+|  | | AddCategoryTest6 | "cat6Name\n", "-7.23\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a positive decimal number with exact two decimal places.\r\n" Alert"Wrong budget! It should be a positive decimal number with exact two decimal places." |  |
+| | | AddCategoryTest7 | "\n", "6.34\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a positive decimal number with exact two decimal places.\r\n" Alert "Wrong title! It should not be blank." | |
+| | | AddCategoryTest8 | "   \n", "6.34\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a positive decimal number with exact two decimal places.\r\n" Alert"Wrong title! It should not be blank." | |
+| | | AddCategoryTest9 | "cat9Name", "\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a positive decimal number with exact two decimal places.\r\n", Alert "Wrong budget! It should not be blank." | |
+| | | AddCategoryTest10 | "cat10Name", "  \n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a positive decimal number with exact two decimal places.\r\n", Alert"Wrong budget! It should not be blank." | |

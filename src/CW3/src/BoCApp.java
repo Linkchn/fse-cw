@@ -3,122 +3,122 @@ import java.util.ArrayList;
 import java.util.Scanner;
 
 public class BoCApp {
-	public static ArrayList<BoCTransaction> UserTransactions;
-	public static ArrayList<BoCCategory> UserCategories;
+    public static ArrayList<BoCTransaction> UserTransactions;
+    public static ArrayList<BoCCategory> UserCategories;
 
-	public static void main(String[] args) {
-		UserCategories = new ArrayList<BoCCategory>();
-		UserTransactions = new ArrayList<BoCTransaction>();
+    public static void main(String[] args) {
+        UserCategories = new ArrayList<BoCCategory>();
+        UserTransactions = new ArrayList<BoCTransaction>();
 
-		// SETUP EXAMPLE DATA //
-		UserCategories.add(new BoCCategory("Unknown"));
+        // SETUP EXAMPLE DATA //
+        UserCategories.add(new BoCCategory("Unknown"));
 
-		BoCCategory BillsCategory = new BoCCategory("Bills");
-		BillsCategory.setCategoryBudget(new BigDecimal("120.00"));
-		UserCategories.add(BillsCategory);
+        BoCCategory BillsCategory = new BoCCategory("Bills");
+        BillsCategory.setCategoryBudget(new BigDecimal("120.00"));
+        UserCategories.add(BillsCategory);
 
-		BoCCategory Groceries = new BoCCategory("Groceries");
-		Groceries.setCategoryBudget(new BigDecimal("75.00"));
-		UserCategories.add(Groceries);
+        BoCCategory Groceries = new BoCCategory("Groceries");
+        Groceries.setCategoryBudget(new BigDecimal("75.00"));
+        UserCategories.add(Groceries);
 
-		BoCCategory SocialSpending = new BoCCategory("Social");
-		SocialSpending.setCategoryBudget(new BigDecimal("100.00"));
-		UserCategories.add(SocialSpending);
+        BoCCategory SocialSpending = new BoCCategory("Social");
+        SocialSpending.setCategoryBudget(new BigDecimal("100.00"));
+        UserCategories.add(SocialSpending);
 
-		UserTransactions.add(new BoCTransaction("Rent", new BigDecimal("850.00"), 0));
-		UserTransactions.add(new BoCTransaction("Phone Bill", new BigDecimal("37.99"), 1));
-		UserTransactions.add(new BoCTransaction("Electricity Bill", new BigDecimal("75.00"), 1));
-		UserTransactions.add(new BoCTransaction("Sainsbury's Checkout", new BigDecimal("23.76"), 2));
-		UserTransactions.add(new BoCTransaction("Tesco's Checkout", new BigDecimal("7.24"), 2));
-		UserTransactions.add(new BoCTransaction("RockCity Drinks", new BigDecimal("8.50"), 3));
-		UserTransactions.add(new BoCTransaction("The Mooch", new BigDecimal("13.99"), 3));
+        UserTransactions.add(new BoCTransaction("Rent", new BigDecimal("850.00"), 0));
+        UserTransactions.add(new BoCTransaction("Phone Bill", new BigDecimal("37.99"), 1));
+        UserTransactions.add(new BoCTransaction("Electricity Bill", new BigDecimal("75.00"), 1));
+        UserTransactions.add(new BoCTransaction("Sainsbury's Checkout", new BigDecimal("23.76"), 2));
+        UserTransactions.add(new BoCTransaction("Tesco's Checkout", new BigDecimal("7.24"), 2));
+        UserTransactions.add(new BoCTransaction("RockCity Drinks", new BigDecimal("8.50"), 3));
+        UserTransactions.add(new BoCTransaction("The Mooch", new BigDecimal("13.99"), 3));
 
-		for (int x = 0; x < UserTransactions.size(); x++) {
-			BoCTransaction temp = UserTransactions.get(x);
-			int utCat = temp.transactionCategory();
-			BoCCategory temp2 = UserCategories.get(utCat);
-			temp2.addExpense(temp.transactionValue());
-			UserCategories.set(utCat, temp2);
-		}
+        for (int x = 0; x < UserTransactions.size(); x++) {
+            BoCTransaction temp = UserTransactions.get(x);
+            int utCat = temp.transactionCategory();
+            BoCCategory temp2 = UserCategories.get(utCat);
+            temp2.addExpense(temp.transactionValue());
+            UserCategories.set(utCat, temp2);
+        }
 
-		// MAIN FUNCTION LOOP
+        // MAIN FUNCTION LOOP
 
-		CategoryOverview();
-		System.out.println(
-				"\nWhat do you want to do?\n T = List All [T]ransactions, [num] = Show Category [num], A = [A]dd Transaction, X = E[x]it");
-		Scanner in = new Scanner(System.in);
-		while (in.hasNextLine()) {
-			String s = in.next();
-			try {
-				if (s.equals("T")) {
-					ListTransactions();
-				} else if (s.equals("O")) {
-					CategoryOverview();
-				} else if (s.equals("C")) {
-					ChangeTransactionCategory(in);
-				} else if (s.equals("N")) {
-					AddCategory(in);
-				} else if (s.equals("A")) {
-					AddTransaction(in);
-				} else if (s.equals("X")) {
-					System.out.println("Goodbye!");
-					break;
-				} else if (Integer.parseInt(s) != -1) {
-					ListTransactionsForCategory((int) Integer.parseInt(s));
-				} else {
-					System.out.println("Command not recognised");
-				}
-			} catch (Exception e) {
-				System.out.println("Something went wrong: " + e.toString() + "\n");
-			}
+        CategoryOverview();
+        System.out.println(
+                "\nWhat do you want to do?\n T = List All [T]ransactions, [num] = Show Category [num], A = [A]dd Transaction, X = E[x]it");
+        Scanner in = new Scanner(System.in);
+        while (in.hasNextLine()) {
+            String s = in.next();
+            try {
+                if (s.equals("T")) {
+                    ListTransactions();
+                } else if (s.equals("O")) {
+                    CategoryOverview();
+                } else if (s.equals("C")) {
+                    ChangeTransactionCategory(in);
+                } else if (s.equals("N")) {
+                    AddCategory(in);
+                } else if (s.equals("A")) {
+                    AddTransaction(in);
+                } else if (s.equals("X")) {
+                    System.out.println("Goodbye!");
+                    break;
+                } else if (Integer.parseInt(s) != -1) {
+                    ListTransactionsForCategory((int) Integer.parseInt(s));
+                } else {
+                    System.out.println("Command not recognised");
+                }
+            } catch (Exception e) {
+                System.out.println("Something went wrong: " + e.toString() + "\n");
+            }
 
-			System.out.println(
-					"\nWhat do you want to do?\n O = [O]verview, T = List All [T]ransactions, [num] = Show Category [num], C = [C]hange Transaction Category, A = [A]dd Transaction, N = [N]ew Category, X = E[x]it");
-		}
-		in.close();
-	}
+            System.out.println(
+                    "\nWhat do you want to do?\n O = [O]verview, T = List All [T]ransactions, [num] = Show Category [num], C = [C]hange Transaction Category, A = [A]dd Transaction, N = [N]ew Category, X = E[x]it");
+        }
+        in.close();
+    }
 
-	public static void ListTransactions() {
-		for (int x = 0; x < UserTransactions.size(); x++) {
-			BoCTransaction temp = UserTransactions.get(x);
-			System.out.println((x + 1) + ") " + temp.toString());
-		}
-	}
+    public static void ListTransactions() {
+        for (int x = 0; x < UserTransactions.size(); x++) {
+            BoCTransaction temp = UserTransactions.get(x);
+            System.out.println((x + 1) + ") " + temp.toString());
+        }
+    }
 
-	public static void CategoryOverview() {
-		for (int x = 0; x < UserCategories.size(); x++) {
-			BoCCategory temp = UserCategories.get(x);
-			System.out.println((x + 1) + ") " + temp.toString());
-		}
+    public static void CategoryOverview() {
+        for (int x = 0; x < UserCategories.size(); x++) {
+            BoCCategory temp = UserCategories.get(x);
+            System.out.println((x + 1) + ") " + temp.toString());
+        }
 
-	}
+    }
 
-	/*
-	 Programmer: Hongming Ping
-	 Fix:
-	 1. The input number and serial number have been fixed to be equal.
-	 2. When print on the console, the name of Category could also been shown
-	 3. When input number out of the range of Category, there would be an error message.
-	 */
-	public static void ListTransactionsForCategory(int chosenCategory) {
-		if (chosenCategory<=UserCategories.size()) { //Check for input that is out of the range of category
-			chosenCategory--; //The no. of a category is smaller than it is printed out
-			BoCCategory copy =UserCategories.get(chosenCategory);
-			String name = copy.CategoryName(); // Get the Name of Category and print it together with transaction name
-			for (int x = 0; x < UserTransactions.size(); x++) {
-				BoCTransaction temp = UserTransactions.get(x);
-				if (temp.transactionCategory() == chosenCategory) {
-					System.out.println( name + ": " +(x + 1) + ") " + temp.toString());
-				}
-			}
-		}else{			
-			System.out.println("The Category doesn't exit"); //if out of range, then print error message
-		}
-	}
+    /*
+     Programmer: Hongming Ping
+     Fix:
+     1. The input number and serial number have been fixed to be equal.
+     2. When print on the console, the name of Category could also been shown
+     3. When input number out of the range of Category, there would be an error message.
+     */
+    public static void ListTransactionsForCategory(int chosenCategory) {
+        if (chosenCategory<=UserCategories.size()) { //Check for input that is out of the range of category
+            chosenCategory--; //The no. of a category is smaller than it is printed out
+            BoCCategory copy =UserCategories.get(chosenCategory);
+            String name = copy.CategoryName(); // Get the Name of Category and print it together with transaction name
+            for (int x = 0; x < UserTransactions.size(); x++) {
+                BoCTransaction temp = UserTransactions.get(x);
+                if (temp.transactionCategory() == chosenCategory) {
+                    System.out.println( name + ": " +(x + 1) + ") " + temp.toString());
+                }
+            }
+        }else{            
+            System.out.println("The Category doesn't exit"); //if out of range, then print error message
+        }
+    }
 
 
-	/*
-	1 - FAIL - Shiliang - 23:15 4/5
+    /*
+    1 - FAIL - Shiliang - 23:15 4/5
     Change: /
     Reason: 1. No category input is set up
             2. The original message does not match new expected one
@@ -126,9 +126,9 @@ public class BoCApp {
             4. Exception catcher has not been created yet
             5. BigDecimal get a ""
             6. blank input has not been banned
-	Traceability: addTransactionTest 1 - 14
+    Traceability: addTransactionTest 1 - 14
 
-	2 - PASS - Jiawei Shiliang- 16:15 5/5
+    2 - PASS - Jiawei Shiliang- 16:15 5/5
     Change: 1. Add a module for category setup, updated the prompt message string, reconstructed confirmation message
             2. Add if statement for exception throw
             3. Adjust \n to proper places
@@ -142,7 +142,7 @@ public class BoCApp {
     Reason: the third argument went wrong, haven't handled \n
     Traceability: addTransactionTest 4'
 
-	4 - PASS - Shiliang- 16:31 5/5
+    4 - PASS - Shiliang- 16:31 5/5
     Change: add if for "" situation (blank input)
     Reason: /
 	Traceability: addTransactionTest 4''
@@ -187,20 +187,50 @@ public class BoCApp {
 		System.out.println(title + "(¥" + tvalue + ")" + " was added to " + UserCategories.get(tcat).CategoryName());
 	}
 
-	private static void ChangeTransactionCategory(Scanner in) {
+	/* 
+	1 – Pass – Leo - 00:18/6/5  
+	Problem: /
+	Reason:/
+	Traceability: ChangeTransactionCategoryTest1,2,3,4
+	
+	2 – Pass – Leo - 00:48/6/5  
+	Problem: /
+	Reason:/
+	Traceability: ChangeTransactionCategoryTest5，6
+	*/
+	private static void ChangeTransactionCategory(Scanner in) throws Exception {
 		System.out.println("Which transaction ID?");
 		in.nextLine();
-		int tID = Integer.parseInt(in.nextLine());
-		System.out.println("\t- " + UserTransactions.get(tID - 1).toString());
-		System.out.println("Which category will it move to?");
-		CategoryOverview();
-		int newCat = Integer.parseInt(in.nextLine());
-		BoCTransaction temp = UserTransactions.get(tID);
-		temp.setTransactionCategory(newCat);
-		UserTransactions.set(tID, temp);
-		BoCCategory temp2 = UserCategories.get(newCat);
-		temp2.addExpense(temp.transactionValue());
-		UserCategories.set(newCat, temp2);
+		int tID = Integer.parseInt(in.nextLine())-1;
+		if(tID<0||tID>UserTransactions.size()) {
+			throw new Exception("Please input valid transaction value!");
+		}
+		else {
+			System.out.println("\t- " + UserTransactions.get(tID).toString());
+			System.out.println("Which category will it move to?");
+			CategoryOverview();
+			int newCat = Integer.parseInt(in.nextLine())-1;
+			if(newCat<0||newCat>UserCategories.size()) {
+				throw new Exception("Please input valid category!");
+			}
+			BoCTransaction temp = UserTransactions.get(tID);
+			int oldCat = temp.transactionCategory();
+			temp.setTransactionCategory(newCat);
+			UserTransactions.set(tID, temp);
+			if(oldCat != newCat) {
+				BoCCategory temp2 = UserCategories.get(newCat);
+				temp2.addExpense(temp.transactionValue());
+				UserCategories.set(newCat, temp2);
+				BoCCategory temp3 = UserCategories.get(oldCat);
+				temp3.removeExpense(temp.transactionValue());
+				UserCategories.set(oldCat, temp3);
+			}
+			System.out.println("Change complete!");
+			BoCCategory newCatSpend = UserCategories.get(newCat);
+			System.out.println("Target category: " + (newCat + 1) + ") " + newCatSpend.toString());
+			BoCCategory oldCatSpend = UserCategories.get(oldCat);
+			System.out.println("Origin category: " + (oldCat + 1) + ") " + oldCatSpend.toString());
+		}
 	}
 
 	private static void AddCategory(Scanner in) {
