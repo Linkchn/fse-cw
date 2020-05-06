@@ -5,6 +5,7 @@ import org.junit.jupiter.params.provider.Arguments;
 import org.junit.jupiter.params.provider.MethodSource;
 
 import java.io.InputStream;
+import java.io.ByteArrayInputStream;
 import java.io.ByteArrayOutputStream;
 import java.io.PrintStream;
 import java.lang.reflect.InvocationTargetException;
@@ -25,7 +26,11 @@ class BoCAppTest {
     private static Scanner inp;
     private static String prompt1;
     private static String prompt2;
-	private static String prompt3;
+    private static String prompt3;
+    private static String prompt4;
+    private static String prompt5;
+    private static String prompt6;
+    private static String allCategory;
 	
     @BeforeAll 
     static void setup() {
@@ -60,7 +65,16 @@ class BoCAppTest {
         prompt1 = new String("What is the title of the transaction?\r\nNOTE: It should not be blank and less than 25 characters.\r\n");
         prompt2 = new String("What is the value of the transaction?\r\nNOTE: It should be greater than 0 with two decimal places e.g. 10.00.\r\n");
         prompt3 = new String("What is the category of the transaction?\r\nNote: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.\r\n");
-		
+		prompt4 = new String("What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters.\r\n");
+        prompt5 = new String("What is the budget for this category?\r\nNote:It should be a pisitive decimal number with exact two decimal places.\r\n");
+        prompt6 = new String("[Category added]");
+        allCategory = new String("1) Unknown(¥0.00) - Est. ¥0.00 (¥0.00 Remaining)\r\n" + 
+        		"2) Bills(¥120.00) - Est. ¥0.00 (¥120.00 Remaining)\r\n" + 
+        		"3) Groceries(¥75.00) - Est. ¥0.00 (¥75.00 Remaining)\r\n" + 
+        		"4) Social(¥100.00) - Est. ¥0.00 (¥100.00 Remaining)\r\n" + 
+        		"5) cat1Name(¥6.23) - Est. ¥0.00 (¥6.23 Remaining)\r\n" 
+                );
+                
 		for (int x = 0; x < BoCApp.UserTransactions.size(); x++) {
 			BoCTransaction temp = BoCApp.UserTransactions.get(x);
 			int utCat = temp.transactionCategory();
@@ -85,6 +99,25 @@ class BoCAppTest {
     	System.setOut(null);
     	outContent.reset();
     }
+
+    @Disabled
+    @DisplayName("mainTest")
+    @ParameterizedTest
+    @MethodSource
+    void mainTest(String a) {
+        String input = "A\nABC\n10.00\n1\n";
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        BoCApp.main(new String[]{"X\n"});
+    }
+    static List<Arguments> mainTest() {
+    	return List.of( // arguments:
+    			Arguments.arguments(""),
+                Arguments.arguments(""),
+                Arguments.arguments("")
+        );
+    }
+    
     
     /*
      1. Failed Hongming Ping 22:14/4/5
@@ -112,16 +145,35 @@ class BoCAppTest {
 		);
 	}
 
-	    /*
-	1 - FAIL - Shiliang - 16:13 1/5
-    Change: /
-    Reason: Decimals are different
-	Traceability: getRemainingBudgetTest 1
+	/*
+	1 - FAIL - Shiliang - 23:15 4/5
+    Problem: /
+    Reason: 1. No category input is set up 
+            2. The original message does not match new expected one 
+            3. Confirmation message has not been created yet
+            4. Exception catcher has not been created yet
+            5. BigDecimal get a ""
+            6. blank input has not been banned
+	Traceability: addTransactionTest 1 - 14
 	
-	2 - PASS - Jiawei Shiliang- 22:35 1/5
-    Change: /
+	2 - PASS - Jiawei Shiliang- 16:15 5/5
+    Problem: 1. Add a module for category setup, updated the prompt message string, reconstructed confirmation message
+            2. Add if statement for exception throw
+            3. Adjust \n to proper places
+            4. modified category setup and messages
+            5. add if for "   " situation
     Reason: /
-	Traceability: getRemainingBudgetTest 3, 4, 5, 6
+    Traceability: addTransactionTest 1' - 3', 5' - 14'
+
+    3 - FAIL - Jiawei Shiliang- 16:15 5/5
+    Problem: /
+    Reason: the third argument went wrong, haven't handled \n
+    Traceability: addTransactionTest 4'
+
+	4 - PASS - Shiliang- 16:31 5/5
+    Problem: add if for "" situation (blank input)
+    Reason: /
+	Traceability: addTransactionTest 4''
 	 */
     @DisplayName("AddTransactionTest")
     @ParameterizedTest
@@ -147,12 +199,13 @@ class BoCAppTest {
             }
         }
         catch (Exception e) {
+            assertThrows(InvocationTargetException.class, () -> {
+                AddTransactionTest.invoke(a, inp);
+            });
             assertEquals(alert, e.getCause().getMessage());
 
         }
-        
-
-        outContent.reset(); 
+    outContent.reset(); 
     }
 
     static List<Arguments> AddTransactionTest() {
@@ -180,8 +233,43 @@ class BoCAppTest {
 
     }
 
-    @Disabled
-    void AddCategoryTest() {
+    @DisplayName("AddCategoryTest")
+    @ParameterizedTest
+    @MethodSource
+    void AddCategoryTest(String name, String budget, String alert) throws IllegalAccessException, 
+    IllegalArgumentException, InvocationTargetException, 
+    NoSuchMethodException, SecurityException {
+        Method AddCategoryTest = a.getClass().getDeclaredMethod("AddCategory", Scanner.class);
+        AddCategoryTest.setAccessible(true);
+        String input = "\n" + name + budget;
+        inp = new Scanner(input);
+        try {
+            AddCategoryTest.invoke(a, inp);
+            BoCCategory tr = BoCApp.UserCategories.get(BoCApp.UserCategories.size()-1);
+            if (alert.equals("1")) {
+                assertEquals(prompt4 + prompt5 + prompt6 + "\r\n" + allCategory, outContent.toString());
+                assertEquals(name.replace("\n", "") ,tr.CategoryName());
+                assertEquals(new BigDecimal(budget.replace("\n", "")) ,tr.CategoryBudget());
+            }
+        }
+        catch (Exception e) {
+            assertEquals(alert, e.getCause().getMessage());
 
+        }
+        outContent.reset(); 
+    }
+    static List<Arguments> AddCategoryTest() {
+    	return List.of( // arguments:
+    			Arguments.arguments("cat1Name\n","6.23\n","1"),
+    			Arguments.arguments("cat2Name123456789\n","6.23\n", "Wrong title! It should be at most 15 characters."),
+    			Arguments.arguments("cat1Name\n", "7.45\n", "Wrong title! It should not be the same as the existed name."),
+    			Arguments.arguments("cat4Name\n", "6\n", "Wrong budget! It should be a positive decimal number with exact two decimal places."),
+    			Arguments.arguments("cat5Name\n", "6.1\n", "Wrong budget! It should be a positive decimal number with exact two decimal places."),
+    			Arguments.arguments("cat6Name\n", "-7.23\n", "Wrong budget! It should be a positive decimal number with exact two decimal places."),
+    			Arguments.arguments("\n", "6.34\n", "Wrong title! It should not be blank."),
+    			Arguments.arguments("   \n", "6.34\n", "Wrong title! It should not be blank."),
+    			Arguments.arguments("cat9Name\n", "\n", "Wrong budget! It should not be blank."),
+    			Arguments.arguments("cat10Name\n", "   \n", "Wrong budget! It should not be blank.")
+        );
     }
 }
