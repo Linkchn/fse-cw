@@ -466,12 +466,6 @@ This method should not be used in this class. So it has been deleted.
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-<<<<<<< HEAD
-| !! | PASS | mainTest1 | | | | | | | | Shiliang |
-
-| !! |  | mainTest2 |  | | | | | | | |
-| !! | | mainTest3 |  | | | | | | | |
-=======
 | !! | PASS | mainTest1 | X | | | | | | | Shiliang |
 | !! |  | mainTest2 | t | | | | | | | Daze |
 | !! |  | mainTest2 | O, X | | | | | | |  |
