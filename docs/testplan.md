@@ -251,8 +251,10 @@ Branches will be made once pair work has begun.
   5. Ask Leo and Colin to fix all possible bugs.
   6. Ask Daze to check the .md file of test plan and record for the meeting.
   7. Ask Jiawei and Haonan to composite conclusion.
+
 ### V. Conclusion
 
+In the whole test, we have the first meeting in 23/4, we discuss about the overall stategy. Task of whole report has been assigned to everyone and each of us write down the test plan of our task. Firstly we need to test BoCCategory and BoCTransaction. We found that constructor time is not same as the expected value. Therefore, a new method called getSecondTimestamp is created to get the timestamp until seconds to basically avoid deviation of timing. The next trouble is that when we firstly use default strategy constructor method, it creates a strategy named “NewStrategy”. However, when we use it again, the second strategy has the same name as the first one, which is illegal to description. So we use a public static integer to record the number of default strategies. According to the category class description, there should be two possibilities that budget is greater than spend or less than spend, while the original code only consider the first situation. So it is necessary to add an if condition to include both possibilities. We also frequently use parameterize test to keep test code tidy. In the app class, we realize that the original code cannot deal with illegal input, which is not match with class description. Therefore, we need to throw some exceptions through the whole class. Moreover, in the main method, users will automatically catch exception and then input again. But the requirement indicates that users only input again without catching exception. Therefore, if statement should modify to a condition that it will not throw a exception. Finally we add comment to each function to shows the changes and reason. Here is the end of the report.
 
 ## Test Plan
 
