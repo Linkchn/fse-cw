@@ -1,3 +1,5 @@
+package src;
+
 import static org.junit.jupiter.api.Assertions.*;
 import java.math.BigDecimal;
 import java.text.SimpleDateFormat;

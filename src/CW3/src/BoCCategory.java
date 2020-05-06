@@ -1,13 +1,16 @@
+package src;
+
 import java.math.BigDecimal;
 
 public class BoCCategory {
     private String CategoryName;
     private BigDecimal CategoryBudget;
     private BigDecimal CategorySpend;
+	private String defaultCategoryNum;
 
     public BoCCategory() {
         CategoryName = "New Category"+ defaultCategoryNum;
-        defaultCategoryNum++;
+        defaultCategoryNum += 1;
         CategoryBudget = new BigDecimal("0.00");
         CategorySpend = new BigDecimal("0.00");
     }
