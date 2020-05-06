@@ -148,9 +148,9 @@ Branches will be made once pair work has begun.
   | 5/4  | Set Test for Main Class 4,5        | M 23         | /           | Finished |
   | 5/5  | Fix Main Class                     | M 23         | /           | Finished |
   | 5/7  | Final check and Tag               |               |             |          |
-    
+  
   **Plan of Pair 2**
-    
+  
   | Date | What to do                         | Daze   | Leo               | Status   |
   | ---- | ---------------------------------- | ------ | ----------------- | -------- |
   | 5/2  | Finish Test                        | C 6, 7 | T 7, 8, 9, 10, 12 | Finished |
@@ -272,7 +272,7 @@ Branches will be made once pair work has begun.
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
 | ！ | PASS | get_Transaction Name test 1 | void (in class food) | "food" | "food" | / | / | / | 18:51/01/05 | Haonan CHEN |
 | ! | PASS | get_Transaction Name test 2 | void(in class trip) | "trip" | "trip" | / | / | / | 19:03/01/05 | Haonan CHEN |
-| ! | | get_Transaction Name test 3 | void(in [Pending Transaction]) | null | [Pending Transaction] | / | / | / | 19:04/01/05 | Haonan CHEN |
+| ! | PASS | get_Transaction Name test 3 | void(in [Pending Transaction]) | null | [Pending Transaction] | / | / | / | 19:04/01/05 | Haonan CHEN |
 
 #### Function 4: transactionValue() - Get Method for Transaction Value
 
@@ -406,9 +406,9 @@ This method should not be used in this class. So it has been deleted.
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|------------|------------|------------|------------|------------|
-| !! | PASS | setCBTest1 | 0 | 0.00 | 0.00 | | | | 16:52/1/5 | Hongming Ping |
-| !! | PASS | setCBTest2 | -100 | 0.00             | 0.00 | | | | 16:52/1/5 | Hongming Ping |
-| !! | PASS | setCBTest3 | 11.2 | 11.20 | 11.20 | | | | 16:52/1/5 | Hongming Ping |
+| !! | PASS | setCBTest1 | 0 | 0.00 | 0.00 | / | / | / | 16:52/1/5 | Hongming Ping |
+| !! | PASS | setCBTest2 | -100 | 0.00             | 0.00 | / | / | / | 16:52/1/5 | Hongming Ping |
+| !! | PASS | setCBTest3 | 11.2 | 11.20 | 11.20 | / | / | / | 16:52/1/5 | Hongming Ping |
 
 #### Function 8: addExpense(BigDecimal ) - add Expense function
 
