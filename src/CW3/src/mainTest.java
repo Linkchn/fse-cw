@@ -54,7 +54,7 @@ class mainTest {
                         "3) Groceries(¥75.00) - Est. ¥31.00 (¥44.00 Remaining)\r\n" +
                         "4) Social(¥100.00) - Est. ¥22.49 (¥77.51 Remaining)\r\n" +
                         "\nWhat do you want to do?\n" +
-                        " T = List All [T]ransactions, [num] = Show Category [num], A = [A]dd Transaction, X = E[x]it\r\n" +
+                        "O = [O]verview\nT = List All [T]ransactions\n[num] = Show Category [num]\nC = [C]hange Transaction Category\nA = [A]dd Transaction\nN = [N]ew Category\nX = E[x]it\r\n" +
                         "Goodbye!\r\n")
 //                Arguments.arguments(""),
 //                Arguments.arguments("")
