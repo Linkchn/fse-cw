@@ -118,7 +118,7 @@ public class BoCTransaction {
 			long timeStamp = System.currentTimeMillis(); 
 			SimpleDateFormat sdff=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 			String sd = sdff.format(new Date(timeStamp));
-			return sd + " " + transactionName + " - ¥" + transactionValue.toString();
+			return transactionName + " - ¥" + transactionValue.toString() + "\t\t" + sd;
 		}else {
 			return null;
 		}
