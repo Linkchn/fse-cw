@@ -201,7 +201,7 @@ public class BoCApp {
 	2 - Pass - Leo - 00:48/6/5  
 	Problem: /
 	Reason:/
-	Traceability: ChangeTransactionCategoryTest5，6
+	Traceability: ChangeTransactionCategoryTest5, 6
 	*/
 	private static void ChangeTransactionCategory(Scanner in) throws Exception {
 		System.out.println("Which transaction ID?");
