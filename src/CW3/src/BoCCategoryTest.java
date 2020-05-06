@@ -28,6 +28,11 @@ class BoCCategoryTest {
 	static BoCCategory cat1;
 	static BoCCategory cat2;
 	static BoCCategory cat3;
+	
+	static BoCCategory shopping;
+	static BoCCategory transport;
+	static BoCCategory newCategory;
+	
 
 	// Declare result Strings for tests
 	static String toStringResult1;
@@ -35,7 +40,8 @@ class BoCCategoryTest {
 
 	// Declare BigDecimals for tests
 	static BigDecimal bd1;
-
+	static BigDecimal sum;
+	
 	@BeforeAll
 	static void set() {
 		cat1 = new BoCCategory();
@@ -162,9 +168,9 @@ class BoCCategoryTest {
 	}
 	static List<Arguments> CategoryNameTest(){
 		return List.of(
-				Arguments.arguments(shopping,"shopping"),
-				Arguments.arguments(transport,"transport"),
-				Arguments.arguments(New Category,"New Category")
+				Arguments.arguments(shopping,string2),
+				Arguments.arguments(transport,string3),
+				Arguments.arguments(newCategory,"New Category1")
 		);
 	}
 
@@ -188,13 +194,13 @@ class BoCCategoryTest {
 	@ParameterizedTest
 	@MethodSource
 	void CategoryBudgetTest(BoCCategory test,BigDecimal testValue) throws Exception {
-		assertEquals(testValue,test.CategoryBudgetTest());
+		assertEquals(testValue,test.CategoryBudget());
 	}
 	static List<Arguments> CategoryBudgetTest(){
 		return List.of(
 				Arguments.arguments(shopping,bignum3),
 				Arguments.arguments(transport,bignum1),
-				Arguments.arguments(New Category,0.00)
+				Arguments.arguments(newCategory,0.00)
 		);
 	}
 
@@ -216,13 +222,13 @@ class BoCCategoryTest {
 	@ParameterizedTest
 	@MethodSource
 	void CategorySpendTest(BoCCategory test,BigDecimal testValue) throws Exception {
-		assertEquals(testValue,test.CategorySpendTest());
+		assertEquals(testValue,test.CategorySpend());
 	}
 	static List<Arguments> CategorySpendTest(){
 		return List.of(
 				Arguments.arguments(shopping,bignum4),
 				Arguments.arguments(transport,bignum2),
-				Arguments.arguments(New Category,0.00)
+				Arguments.arguments(newCategory,0.00)
 		);
 	}
 	
