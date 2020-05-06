@@ -76,7 +76,7 @@ Branches will be made once pair work has begun.
 
   - BoCApp Main Class: 1, 2, 3
 
-- #### Pair2 - Hongming Ping & Yukai Lu
+- #### Pair2 - Daze (Hongming PING) & Yukai Lu
 
   - BoC Transaction Class: 7, 8, 9, 10, 12
 
@@ -148,31 +148,32 @@ Branches will be made once pair work has begun.
   | 5/4  | Set Test for Main Class 4,5        | M 23         | /           | Finished |
   | 5/5  | Fix Main Class                     | M 23         | /           | Finished |
   | 5/7  | Final check and Tag               |               |             |          |
-    
+  
   **Plan of Pair 2**
-    
-  | Date | What to do                         | Daze   | Leo               | Status   |
-  | ---- | ---------------------------------- | ------ | ----------------- | -------- |
-  | 5/2  | Finish Test                        | C 6, 7 | T 7, 8, 9, 10, 12 | Finished |
-  | 5/3  | Fix Category and Transaction Class | C 6, 7 | T 7, 8, 9, 10, 12 | Finished |
-  | 5/4  | Set Test for Main Class 4,5        | M 4    | M 5               |          |
-  | 5/5  | Fix Main Class                     |        |                   |          |
-  | 5/6  | Fix Main Class                     |        |                   |          |
-  | 5/7  | Final check and Tag                |        |                   |          |
-  
+
+  | Date | What to do                         | Daze         | Leo               | Status   |
+  | ---- | ---------------------------------- | ------------ | ----------------- | -------- |
+  | 5/2  | Finish Test                        | C 6, 7       | T 7, 8, 9, 10, 12 | Finished |
+  | 5/3  | Fix Category and Transaction Class | C 6, 7       | T 7, 8, 9, 10, 12 | Finished |
+  | 5/4  | Set Test for Main Class 4,5        | M 4 Finished | M 5 Unfinshed     |          |
+  | 5/5  | Fix Main Class                     | M 4 Finished | M 5 Test Finished |          |
+  | 5/6  | Fix Main Class                     | Main         | M 5               |          |
+  | 5/7  | Final check and Tag                |              |                   |          |
+
+
   **Plan of Pair 3**
-  
-  | Date | What to do                         | Shiliang | Jiawei | Status |
-  | ---- | ---------------------------------- | ---- | ---- | ------ |
-  | 5/2  | Finish Tests of first two classes with fixed code| √ | √ | √ |
-  | 5/3  | Start plan for main 6, 7 and write test code| M 6 | M 7 | × |
-  | 5/4  | Work on main 6, 7                  | M 6 | M 7 |        |
-  | 5/5  | Work on main 6, 7                  |      |      |        |
-  | 5/6  | Work on main 6, 7                  |      |      |        |
-  | 5/7  | Final check and Tag                |      |      |        |
+
+| Date | What to do                         | Shiliang | Jiawei | Status |
+| ---- | ---------------------------------- | ---- | ---- | ------ |
+| 5/2  | Finish Tests of first two classes with fixed code| √ | √ | √ |
+| 5/3  | Start plan for main 6, 7 and write test code| M 6 | M 7 | × |
+| 5/4  | Work on main 6, 7                  | M 6 | M 7 |        |
+| 5/5  | Work on main 6, 7                  |      |      |        |
+| 5/6  | Work on main 6, 7                  |      |      |        |
+| 5/7  | Final check and Tag                |      |      |        |
 
     Forth meeting, discussed about further plan and merge problems
-
+    
     Work together fixing issues
 
   - 3/5 issues: 5/19
@@ -360,7 +361,7 @@ This method should not be used in this class. So it has been deleted.
 | ---------- | ------ | -------------------------- | ------ | ------------------ | ------------------ | ------------------------------------------------------- | -------------------------------------------------------- | ---------------------------------------- | ---- | ------------ |
 | !!!        | Pass   | Default Constructor test 1 | void   | "New Category","0.00","0.00" | "New Category","0.00","0.00" |  No | / | / |   17:30/01/05 | YuxiangZhang |
 | !!!        | Fail   | Default Constructor test 2 | void   | "New Category","0.00","0.00" | Fail the test | The CategoryName is not same as the expected outcome.  | add a global variable to the class | The default constructor gives null value. |   19:50/01/05 | YuxiangZhang |
-| !!!        | Pass   | Default Constructor test 3 | void   | "New Category","0.00","0.00" | "New Category","0.00","0.00" |  No | / | / |   19:50/01/05 | YuxiangZhang | 
+| !!!        | Pass   | Default Constructor test 3 | void   | "New Category","0.00","0.00" | "New Category","0.00","0.00" |  No | / | / |   19:50/01/05 | YuxiangZhang |
 #### Function 2: BoCCategory(String newTitle) - Main Constructors
 
 | Importance | Status | Test                     | Inputs             | Expected Outcome                                    | Test Outcome | Problem | Change | Reason | Time | Author       |
@@ -398,17 +399,17 @@ This method should not be used in this class. So it has been deleted.
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|------------|------------|------------|------------|
-| ! | PASS | setCNTest1 | "YTB" | "YTB" | "YTB" |        | | 23:38/30/4 | Hongming Ping |
-| ! | FAIL | setCNTest2 | blank space: " " | null | blank space: " " | If newName is sapce only or empty, the result still returns the value of<br/>	newName, which is Unknown name. | Fixed the Method with adding an "if" statement to assign null to String <br/>	while whose newName is empty or sapce | 22:57/2/5 | Hongming Ping |
-| ! | FAIL | setCNTest3 | empty string: "" | null | empty string: "" | If newName is sapce only or empty, the result still returns the value of<br/>	newName, which is Unknown name. | Fixed the Method with adding an "if" statement to assign null to String <br/>	while whose newName is empty or sapce | 22:57/2/5 | Hongming Ping |
+| ! | PASS | setCNTest1 | "YTB" | "YTB" | "YTB" |        | | 23:38/30/4 | Daze Ping |
+| ! | FAIL | setCNTest2 | blank space: " " | null | blank space: " " | If newName is sapce only or empty, the result still returns the value of<br/>	newName, which is Unknown name. | Fixed the Method with adding an "if" statement to assign null to String <br/>	while whose newName is empty or sapce | 22:57/2/5 | Daze Ping |
+| ! | FAIL | setCNTest3 | empty string: "" | null | empty string: "" | If newName is sapce only or empty, the result still returns the value of<br/>	newName, which is Unknown name. | Fixed the Method with adding an "if" statement to assign null to String <br/>	while whose newName is empty or sapce | 22:57/2/5 | Daze Ping |
 
 #### Function 7: setCategoryBudget(BigDecimal cBudget) - Set Category Budget
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|------------|------------|------------|------------|------------|
-| !! | PASS | setCBTest1 | 0 | 0.00 | 0.00 | | | | 16:52/1/5 | Hongming Ping |
-| !! | PASS | setCBTest2 | -100 | 0.00             | 0.00 | | | | 16:52/1/5 | Hongming Ping |
-| !! | PASS | setCBTest3 | 11.2 | 11.20 | 11.20 | | | | 16:52/1/5 | Hongming Ping |
+| !! | PASS | setCBTest1 | 0 | 0.00 | 0.00 | | | | 16:52/1/5 | Daze Ping |
+| !! | PASS | setCBTest2 | -100 | 0.00             | 0.00 | | | | 16:52/1/5 | Daze Ping |
+| !! | PASS | setCBTest3 | 11.2 | 11.20 | 11.20 | | | | 16:52/1/5 | Daze Ping |
 
 #### Function 8: addExpense(BigDecimal ) - add Expense function
 
@@ -439,7 +440,7 @@ This method should not be used in this class. So it has been deleted.
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-|! | |resetBudgetSpendTest 1|NONE |spend == 0 | spend==0 | / | / | / | 16:37 | Eddie |
+|! | |resetBudgetSpendTest 1|NONE |spend == 0 | spend==0 | / | / | / | 16:37 | Jiawei |
 | | | | | | | | | | ||
 
 #### Function 11: getRemainingBudget() - Calculate Remaining Budget function
@@ -453,11 +454,11 @@ This method should not be used in this class. So it has been deleted.
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-|!!!|FAIL|toStringTest (previous one)|/| testToStringName(¥x.xx) - Est. ¥y.yy (¥z.zz Overspent) == toString() or testToStringName(¥x.xx) - Est. ¥y.yy (¥z.zz Remaining) == toString() |testToStringName(¥x.xx) - Est. ¥y.yy (¥z.zz Overspent) == toString() or testToStringName(¥x.xx) - Est. ¥y.yy (¥z.zz Remaining) == toString()|Does not set a specific parameter in the test Therefore two conditions will not test either|add an if condition to implement the negative remaining budget|the parameter needs to be a value in next test plan|19;26 2/5|Eddie|
-| !!! | R |toStringTest 1|catName=testToString Name; catBudget=5.00; catSpend=6.00; |testToStringName(¥5.00) - Est. ¥6.00 (¥1.00 Overspent) == toString() | testToStringName(¥5.00) - Est. ¥6.00 (¥1.00 Overspent) == toString | Does not use Parameterized Test | Set a specific value to ensure that two condition can | Parameterized Test is more standart | 19:26 2/5 | Eddie |
-| !!! | ERROR | toStringTest2 | catName=testToString Name; catBudget=7.00; catSpend=6.00; | testToStringName(¥5.00) - Est. ¥6.00 (¥1.00 Remaining) == toString() | testToStringName(¥5.00) - Est. ¥6.00 (¥1.00 Remaining) == toString() | Does not use Parameterized Test | add an if condition to implement the negative remaining budget | Parameterized Test is more standart | 19:26 2/5 |Eddie|
-| !!! | PASS | teStringTest 3| cat2, toStringResult1 | toStringResult1 == cat.toString() | toStringResult1 == cat.toString() | / | use Parameterized Test | / | 21:20 2/5 |Eddie Shiliang|
-| !!! | PASS | teStringTest 4| cat3, toStringResult2 | toStringResult1 == cat.toString() | toStringResult1 == cat.toString() | / | use Parameterized Test | / | 21:20 2/5 |Eddie Shiliang|
+|!!!|FAIL|toStringTest (previous one)|/| testToStringName(¥x.xx) - Est. ¥y.yy (¥z.zz Overspent) == toString() or testToStringName(¥x.xx) - Est. ¥y.yy (¥z.zz Remaining) == toString() |testToStringName(¥x.xx) - Est. ¥y.yy (¥z.zz Overspent) == toString() or testToStringName(¥x.xx) - Est. ¥y.yy (¥z.zz Remaining) == toString()|Does not set a specific parameter in the test Therefore two conditions will not test either|add an if condition to implement the negative remaining budget|the parameter needs to be a value in next test plan|19;26 2/5|Jiawei|
+| !!! | R |toStringTest 1|catName=testToString Name; catBudget=5.00; catSpend=6.00; |testToStringName(¥5.00) - Est. ¥6.00 (¥1.00 Overspent) == toString() | testToStringName(¥5.00) - Est. ¥6.00 (¥1.00 Overspent) == toString | Does not use Parameterized Test | Set a specific value to ensure that two condition can | Parameterized Test is more standart | 19:26 2/5 | Jiawei |
+| !!! | ERROR | toStringTest2 | catName=testToString Name; catBudget=7.00; catSpend=6.00; | testToStringName(¥5.00) - Est. ¥6.00 (¥1.00 Remaining) == toString() | testToStringName(¥5.00) - Est. ¥6.00 (¥1.00 Remaining) == toString() | Does not use Parameterized Test | add an if condition to implement the negative remaining budget | Parameterized Test is more standart | 19:26 2/5 |Jiawei|
+| !!! | PASS | teStringTest 3| cat2, toStringResult1 | toStringResult1 == cat.toString() | toStringResult1 == cat.toString() | / | use Parameterized Test | / | 21:20 2/5 |Jiawei Shiliang|
+| !!! | PASS | teStringTest 4| cat3, toStringResult2 | toStringResult1 == cat.toString() | toStringResult1 == cat.toString() | / | use Parameterized Test | / | 21:20 2/5 |Jiawei Shiliang|
 
 ### Class: BoCApp
 
@@ -465,7 +466,7 @@ This method should not be used in this class. So it has been deleted.
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
+| !! | PASS | mainTest1 | | | | | | | | Shiliang |
 | | | | | | | | | | | |
 
 #### Function 2: ArrayListofBoCTransactionobjects  - List Transactions function
