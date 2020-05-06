@@ -407,9 +407,9 @@ This method should not be used in this class. So it has been deleted.
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|------------|------------|------------|------------|------------|
-| !! | PASS | setCBTest1 | 0 | 0.00 | 0.00 | | | | 16:52/1/5 | Daze Ping |
-| !! | PASS | setCBTest2 | -100 | 0.00             | 0.00 | | | | 16:52/1/5 | Daze Ping |
-| !! | PASS | setCBTest3 | 11.2 | 11.20 | 11.20 | | | | 16:52/1/5 | Daze Ping |
+| !! | PASS | setCBTest1 | 0 | 0.00 | 0.00 | / | / | / | 16:52/1/5 | Daze Ping |
+| !! | PASS | setCBTest2 | -100 | 0.00             | 0.00 | / | / | / | 16:52/1/5 | Daze Ping |
+| !! | PASS | setCBTest3 | 11.2 | 11.20 | 11.20 | / | / | / | 16:52/1/5 | Daze Ping |
 
 #### Function 8: addExpense(BigDecimal ) - add Expense function
 
@@ -421,8 +421,6 @@ This method should not be used in this class. So it has been deleted.
 |! | PASS |addExpenseTest 4 |new BigDecimal("100.00") |(BigDecimal)100.00 | (BigDecimal)100.00 | / | / | / | 22:35 30/5 | Shiliang |
 |! | PASS |addExpenseTest 5 |new BigDecimal("111.50") |(BigDecimal)211.50 | (BigDecimal)211.50 | / | / | / | 22:35 30/5 | Shiliang |
 |! | PASS |addExpenseTest 6 |new BigDecimal("10000000000.00") |(BigDecimal)10000000211.50 |(BigDecimal)10000000211.50 | / | / | / | 22:35 30/5 | Shiliang |
-|! |  |addExpenseTest 7* |(String)-11.5 |Throw an exception, remain (BigDecimal)10000000211.5 | | | | | | |
-|! | |addExpenseTest 6* |(String)-100 |Throw an exception, remain (BigDecimal)10000000211.5 | | | | | | |
 
 #### Function 9: removeExpense(BigDecimal ) - remove Expense function
 
@@ -434,21 +432,18 @@ This method should not be used in this class. So it has been deleted.
 |! | PASS |removeExpenseTest 4 |new BigDecimal("90.00") |(BigDecimal)10.00 |(BigDecimal)10.00 | / | / | / | 23:44 30/4 | Shiliang |
 |!! | FAIL |removeExpenseTest 5 |new BigDecimal("100.00") |Exception: expense should not be negative |Nothing was thrown | Nothing was thrown | / | The source code does not handle this problem | 23:44 30/4 | Shiliang |
 |! | PASS |removeExpenseTest 6 |new BigDecimal("100.00") |Exception: expense should not be negative |Exception: expense should not be negative | / | Add exception throw in the function, throw exception if the expense would be negative | The source code should throw exception for main to handle  anormaly | 16:25 1/5 | Shiliang |
-|! | |removeExpenseTest 7* |-100 | | | | | | | |
 
 #### Function 10: resetBudgetSpend() - reset Spend Total Function
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
 |! | |resetBudgetSpendTest 1|NONE |spend == 0 | spend==0 | / | / | / | 16:37 | Jiawei |
-| | | | | | | | | | ||
 
 #### Function 11: getRemainingBudget() - Calculate Remaining Budget function
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
 | ！ | PASS |getRemainingBudgetTest 1 |NONE |CategoryBudget == BigDecimal("-10.00") |CategoryBudget == BigDecimal("-10.00") | / | / | / | 16:13 1/5 | Shiliang Jiawei |
-| | | | | | | | | | ||
 
 #### Function 12: toString()
 
@@ -466,18 +461,16 @@ This method should not be used in this class. So it has been deleted.
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| !! | PASS | mainTest1 | X | | | | | | | Shiliang |
-| !! |  | mainTest2 | t | | | | | | | Daze |
-| !! |  | mainTest2 | O, X | | | | | | |  |
-| !! |  | mainTest2 | T, X | | | | | | |  |
-| !! |  | mainTest2 | 1, X | | | | | | | Daze |
-| !! | PASS | mainTest5 | C, 1 , 3, X | changeTransactionCategory method has been called | changeTransactionCategory method has been called | / | / | / | 22:46 6/5 | Leo |
-| !! | | mainTest2 | N, X | | | | | | | |
-| !! | | mainTest2 | A, X | | | | | | | |
-| !! | | mainTest2 | all function called | | | | | | | |
-| !!! | | mainTest2 | illegal input | | | | | | | |
->>>>>>> d04874b24700961b9b8bda5d6c534d13132dfaa5
-
+| !! | PASS | mainTest1 | X | All accessible options line by line, and "Goodbye" in the end. | All accessible options line by line, and "Goodbye" in the end. | The options could not be shown line by line. | Change each comma into "\n". And change the first time output to show all possible options. | / | 21:25 6/5 | Shiliang,  Daze |
+| !! | PASS | mainTest2 | t, X | The message "Command not recognised" should be shown. | The message "Command not recognised" shows. | the method Integer.parseInt(s) crashes and the program throws an exception | Add a if statement to lead the program to output "Command not recognised", <br/>                    	if the input is noit completely constructed by numbers, the statement return false and <br/>                    	the program output "Command not recognised" | If there is an unknown input, the method Integer.parseInt(s) would lead to<br/>                    	crash and the program throws an exception | 21:25 6/5 | Daze |
+| !! |  | mainTest3 | O, X | | | | | | |  |
+| !! |  | mainTest4 | T, X | | | | | | |  |
+| !! | PASS | mainTest5 | 1, X | All transaction in Category 1, with their dates, names and budgets. | All transaction in Category 1, with their dates, names and budgets. | / | / | / | 22:33 6/5 | Daze |
+| !! | PASS | mainTest6 | C, 1 , 3, X | changeTransactionCategory method has been called | changeTransactionCategory method has been called | / | / | / | 22:46 6/5 | Leo |
+| !! | | mainTest7 | N, X | | | | | | | |
+| !! | | mainTest8 | A, X | | | | | | | |
+| !! | | mainTest9 | all function called | | | | | | | |
+| !!! | | mainTest10 | illegal input | | | | | | | |
 #### Function 2: ArrayListofBoCTransactionobjects  - List Transactions function
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
