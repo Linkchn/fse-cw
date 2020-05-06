@@ -40,7 +40,7 @@ class BoCCategoryTest {
 
 	// Declare BigDecimals for tests
 	static BigDecimal bd1;
-	static BigDecimal sum;
+	static BigDecimal sum1;
 	
 	@BeforeAll
 	static void set() {
@@ -69,6 +69,7 @@ class BoCCategoryTest {
 		toStringResult2 = new String ( "testToStringName(¥7.00) - Est. ¥6.00 (¥1.00 Remaining)");
 
 		bd1 = new BigDecimal("100");
+		sum1 = new BigDecimal("0.00");
 
 	}
 
@@ -348,9 +349,9 @@ class BoCCategoryTest {
     void addExpenseTest(String num) {
 
         bd1 = new BigDecimal(num);
-        sum = sum.add(bd1);
+        sum1 = sum1.add(bd1);
         cat1.addExpense(bd1);
-        assertEquals(sum, cat1.CategorySpend());
+        assertEquals(sum1, cat1.CategorySpend());
 
     }
 
@@ -377,12 +378,12 @@ class BoCCategoryTest {
     @ValueSource(strings = {"0.00", "10000000000.00", "111.50", "90.00", "100.00"})
     void removeExpenseTest(String num) {
         bd1 = new BigDecimal(num);
-        sum = cat1.CategorySpend();
+        sum1 = cat1.CategorySpend();
 
         try {
-            sum = sum.subtract(bd1);
+            sum1 = sum1.subtract(bd1);
             cat1.removeExpense(bd1);
-            assertEquals(sum, cat1.CategorySpend());
+            assertEquals(sum1, cat1.CategorySpend());
             System.out.println(cat1.CategorySpend());
 
         }
@@ -399,7 +400,7 @@ class BoCCategoryTest {
             the output is not match with the expected output.
     Traceability: resetBudgetSpendTest 1
 
-    2 - PASS -Jiawei - 18:23 1/5
+    2 - PASS - Jiawei - 18:23 1/5
     Problem: /
     Reason:/
     Traceability: resetBudgetSpendTest 2
@@ -437,7 +438,7 @@ class BoCCategoryTest {
     Reason: the parameter needs to be a value in the test plan
     Traceability: testToString(previous version)
 
-    2 - ERROR - Jiawei Shiliang-19:13 2/5
+    2 - ERROR - Jiawei Shiliang - 19:13 2/5
     Problem: Does not use Parameterized Test
     Reason: Parameterized Test is more standard
     Traceability: testToString1, testToString 2
