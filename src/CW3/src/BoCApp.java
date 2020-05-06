@@ -187,20 +187,50 @@ public class BoCApp {
 		System.out.println(title + "(¥" + tvalue + ")" + " was added to " + UserCategories.get(tcat).CategoryName());
 	}
 
-	private static void ChangeTransactionCategory(Scanner in) {
+	/* 
+	1 – Pass – Leo - 00:18/6/5  
+	Problem: /
+	Reason:/
+	Traceability: ChangeTransactionCategoryTest1,2,3,4
+	
+	2 – Pass – Leo - 00:48/6/5  
+	Problem: /
+	Reason:/
+	Traceability: ChangeTransactionCategoryTest5，6
+	*/
+	private static void ChangeTransactionCategory(Scanner in) throws Exception {
 		System.out.println("Which transaction ID?");
 		in.nextLine();
-		int tID = Integer.parseInt(in.nextLine());
-		System.out.println("\t- " + UserTransactions.get(tID - 1).toString());
-		System.out.println("Which category will it move to?");
-		CategoryOverview();
-		int newCat = Integer.parseInt(in.nextLine());
-		BoCTransaction temp = UserTransactions.get(tID);
-		temp.setTransactionCategory(newCat);
-		UserTransactions.set(tID, temp);
-		BoCCategory temp2 = UserCategories.get(newCat);
-		temp2.addExpense(temp.transactionValue());
-		UserCategories.set(newCat, temp2);
+		int tID = Integer.parseInt(in.nextLine())-1;
+		if(tID<0||tID>UserTransactions.size()) {
+			throw new Exception("Please input valid transaction value!");
+		}
+		else {
+			System.out.println("\t- " + UserTransactions.get(tID).toString());
+			System.out.println("Which category will it move to?");
+			CategoryOverview();
+			int newCat = Integer.parseInt(in.nextLine())-1;
+			if(newCat<0||newCat>UserCategories.size()) {
+				throw new Exception("Please input valid category!");
+			}
+			BoCTransaction temp = UserTransactions.get(tID);
+			int oldCat = temp.transactionCategory();
+			temp.setTransactionCategory(newCat);
+			UserTransactions.set(tID, temp);
+			if(oldCat != newCat) {
+				BoCCategory temp2 = UserCategories.get(newCat);
+				temp2.addExpense(temp.transactionValue());
+				UserCategories.set(newCat, temp2);
+				BoCCategory temp3 = UserCategories.get(oldCat);
+				temp3.removeExpense(temp.transactionValue());
+				UserCategories.set(oldCat, temp3);
+			}
+			System.out.println("Change complete!");
+			BoCCategory newCatSpend = UserCategories.get(newCat);
+			System.out.println("Target category: " + (newCat + 1) + ") " + newCatSpend.toString());
+			BoCCategory oldCatSpend = UserCategories.get(oldCat);
+			System.out.println("Origin category: " + (oldCat + 1) + ") " + oldCatSpend.toString());
+		}
 	}
 
 	private static void AddCategory(Scanner in) {

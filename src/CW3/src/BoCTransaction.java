@@ -1,10 +1,11 @@
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class BoCTransaction {
 	private String transactionName;
 	private BigDecimal transactionValue;
-	private int transactionCategory;
+	private int transactionCategory, counter;
 	private Date transactionTime;
 
 	/*
@@ -43,30 +44,50 @@ public class BoCTransaction {
 		return transactionTime;
 	}
 
-	public void setTransactionName(String tName) {
-		if (tName != null) {
-			transactionName = tName;
+	public void resetCounter() {
+		/*
+		 * method that count the times the content has been successfully filled
+		 * can be used to achieve that name and value can be only set once 
+		 */
+			counter = 0;
 		}
-	}
+		
+		public void setTransactionName(String tName) {
+			if (counter == 0) {
+				if (tName == null) {
+					transactionName = null;
+				}else {
+					transactionName = tName;
+					counter += 1;
+					if (transactionName.length()>25) {
+						int start = 0;
+						int finish = 25;
+						transactionName = transactionName.substring(start, finish);
+					}			
+				}
+			}
+		}
 
-	public void setTransactionValue(BigDecimal tValue) {
-		if (tValue.compareTo(new BigDecimal("0.00")) == 1) {
-			// 1 means bigger, -1 means smaller, 0 means same
-			transactionValue = tValue;
+		public void setTransactionValue(BigDecimal tValue) {
+			if (counter == 0) {
+				if (tValue.compareTo(new BigDecimal("0.00")) == 1) {
+					// 1 means bigger, -1 means smaller, 0 means same
+					transactionValue = tValue;
+					counter += 1;
+				}
+				if (tValue.scale()>2) {
+					transactionValue = null;
+				}
+			}
 		}
-	}
 
-	public void setTransactionCategory(int tCat) {
-		if (tCat > 0) {
-			transactionCategory = tCat;
+		public void setTransactionCategory(int tCat) {
+			if (counter == 0) {
+				if (tCat >= 0) {
+					transactionCategory = tCat;
+				}
+			}
 		}
-	}
-
-	public void setTransactionTime(Date tTime) {
-		if (tTime != null) {
-			transactionTime = tTime;
-		}
-	}
 
 
 	/*
@@ -92,7 +113,14 @@ public class BoCTransaction {
 
 	@Override
 	public String toString() {
-		return transactionName + " - ¥" + transactionValue.toString();
+		if ((transactionName != null) && (transactionValue != null)) {
+			transactionTime = new Date();
+			long timeStamp = System.currentTimeMillis(); 
+			SimpleDateFormat sdff=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			String sd = sdff.format(new Date(timeStamp));
+			return sd + " " + transactionName + " - ¥" + transactionValue.toString();
+		}else {
+			return null;
+		}
 	}
-
 }
