@@ -25,7 +25,6 @@ class BoCAppTest {
     private static final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     private static BoCApp a = null;
-    static BoCApp addCat1;
     private static Scanner inp;
     private static String prompt1;
     private static String prompt2;
@@ -41,6 +40,8 @@ class BoCAppTest {
 
     @BeforeAll 
     static void setup() {
+        a = new BoCApp();
+
         BoCApp.UserCategories = new ArrayList<BoCCategory>();
         BoCApp.UserTransactions = new ArrayList<BoCTransaction>();
 
@@ -67,7 +68,6 @@ class BoCAppTest {
         BoCApp.UserTransactions.add(new BoCTransaction("RockCity Drinks", new BigDecimal("8.50"), 3));
         BoCApp.UserTransactions.add(new BoCTransaction("The Mooch", new BigDecimal("13.99"), 3));
     
-        a = new BoCApp();
 
         prompt1 = new String("What is the title of the transaction?\r\nNOTE: It should not be blank and less than 25 characters.\r\n");
         prompt2 = new String("What is the value of the transaction?\r\nNOTE: It should be greater than 0 with two decimal places e.g. 10.00.\r\n");
@@ -95,6 +95,7 @@ class BoCAppTest {
         }
     }
 
+    // redirect outstream
     @BeforeEach
     void setUp() {
         System.setOut(new PrintStream(outContent));
@@ -102,14 +103,15 @@ class BoCAppTest {
     
     @AfterAll
     public static void cleanUpStreams() {
-        
     }
-    
+
+    // reset outstream
     @AfterEach
     void tearDown() {
         System.setOut(null);
         outContent.reset();
     }
+
     @Order(5)
     @DisplayName("mainTest")
     @ParameterizedTest
@@ -126,6 +128,12 @@ class BoCAppTest {
         SimpleDateFormat sdff=new SimpleDateFormat("yyyy-MM-dd HH:mm");
         String sd = sdff.format(new Date(timeStamp));
         return List.of( // arguments:
+                /*
+                1 - PASS - Shiliang - 20:55 6/5
+                Problem: /
+                Reason: /
+                Traceability: mainTest1
+                 */
                 Arguments.arguments("X\n", "1) Unknown(¥0.00) - Est. ¥850.00 (¥850.00 Overspent)\r\n" +
                         "2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)\r\n" +
                         "3) Groceries(¥75.00) - Est. ¥31.00 (¥44.00 Remaining)\r\n" +
@@ -133,6 +141,12 @@ class BoCAppTest {
                         "\nWhat do you want to do?\n" +
                         "O = [O]verview\nT = List All [T]ransactions\n[num] = Show Category [num]\nC = [C]hange Transaction Category\nA = [A]dd Transaction\nN = [N]ew Category\nX = E[x]it\r\n" +
                         "Goodbye!\r\n"),
+                /*
+                1 - PASS - Jiawei - 20:55 6/5
+                Problem: /
+                Reason: /
+                Traceability: mainTest6
+                 */
                 Arguments.arguments("N\nTestTitle\n6.23\nX\n",
                         "1) Unknown(¥0.00) - Est. ¥850.00 (¥850.00 Overspent)\r\n" +
                                 "2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)\r\n" +
@@ -156,7 +170,12 @@ class BoCAppTest {
                                 "O = [O]verview\nT = List All [T]ransactions\n[num] = Show Category [num]\nC = [C]hange Transaction Category\nA = [A]dd Transaction\nN = [N]ew Category\nX = E[x]it\r\n" +
                                 "Goodbye!\r\n"
                 ),
-
+                /*
+                1 - PASS - Shiliang - 20:55 6/5
+                Problem: /
+                Reason: /
+                Traceability: mainTest7
+                 */
                 Arguments.arguments("A\nTestTitle\n6.23\nX\n",
                         "1) Unknown(¥0.00) - Est. ¥850.00 (¥850.00 Overspent)\r\n" +
                                 "2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)\r\n" +

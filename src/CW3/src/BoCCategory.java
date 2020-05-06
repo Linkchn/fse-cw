@@ -10,7 +10,6 @@ public class BoCCategory {
     Change: add the static int to record the number of default categoryName
     Reason: unique name of the categoryName
     Traceability: default constructor test
-   
      */
     public BoCCategory() {
     	BoCApp.defaultCategoryNum++;
@@ -83,7 +82,6 @@ public class BoCCategory {
     Change: /
     Reason: /
     Traceability: getRemainingBudgetTest 3, 4, 5, 6
-
      */
     public void addExpense(BigDecimal valueToAdd) {
         CategorySpend = CategorySpend.add(valueToAdd);
@@ -138,7 +136,6 @@ public class BoCCategory {
      */
     @Override
     public String toString() {
-            
         if(CategoryBudget.compareTo(CategorySpend) != -1)
             return CategoryName + "(¥" + CategoryBudget.toPlainString() + ") - Est. ¥" + CategorySpend.toPlainString()
                 + " (¥" + getRemainingBudget().toPlainString() + " Remaining)";

@@ -109,6 +109,7 @@ Branches will be made once pair work has begun.
 - 26/4 issues: 4/12
 
   Start doing tests plans
+  
 - 27/4 issues: 4/12
 
   Work with plan table
@@ -164,9 +165,9 @@ Branches will be made once pair work has begun.
   | ---- | ---------------------------------- | ---- | ---- | ------ |
   | 5/2  | Finish Tests of first two classes with fixed code| √ | √ | √ |
   | 5/3  | Start plan for main 6, 7 and write test code| M 6 | M 7 | × |
-  | 5/4  | Work on main 6, 7                  | M 6 | M 7 |        |
-  | 5/5  | Work on main 6, 7                  |      |      |        |
-  | 5/6  | Work on main 6, 7                  |      |      |        |
+  | 5/4  | Work on main 6, 7                  | M 6 | M 7 | × |
+  | 5/5  | Work on main 6, 7                  | M 6 | M 7 | ×/√ |
+  | 5/6  | Work on main 6, 7                  | M 6 | M 7 | ×/√ |
   | 5/7  | Final check and Tag                |      |      |        |
 
     Forth meeting, discussed about further plan and merge problems
@@ -184,6 +185,12 @@ Branches will be made once pair work has begun.
 - 5/5 issues: 4/20
 
   work on tests and code fixing
+  
+- 6/5 issues: 2/20
+
+  work on bug fixes
+
+- 7/5 issues: 
 
 
 

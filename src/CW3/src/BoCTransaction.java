@@ -95,7 +95,6 @@ public class BoCTransaction {
     Change: Create a new method which check whether transaction name and value are complete
     Reason: /
 	Traceability: isCompleteTest 2
-
 	 */
 	public boolean isComplete() {
 		if (transactionName == null || transactionValue == null || transactionName.equals("[Pending Transaction]")) {
