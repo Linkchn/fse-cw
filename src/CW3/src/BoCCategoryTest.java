@@ -80,11 +80,11 @@ class BoCCategoryTest {
 	*/
 	@Test 			//Test of the default constructor by Yuxiang Zhang
 	void DefaultConstructortest1() throws Exception {
-		BigDecimal sum = new BigDecimal("0.00");
+		BigDecimal sum1 = new BigDecimal("0.00");
 		BoCCategory test1 = new BoCCategory();
 		assertEquals("New Category"+ BoCApp.defaultCategoryNum,test1.CategoryName()); 
-		assertEquals(sum,test1.CategoryBudget());
-		assertEquals(sum,test1.CategorySpend());
+		assertEquals(sum1,test1.CategoryBudget());
+		assertEquals(sum1,test1.CategorySpend());
 	}
 		
 	/* MAIN CONSTRUCTOR TEST**********************************************************************
@@ -95,12 +95,12 @@ class BoCCategoryTest {
 	*/
 	@Test 			
 	void MainConstructortest1() throws Exception {
-		BigDecimal sum = new BigDecimal("0.00");
+		BigDecimal sum1 = new BigDecimal("0.00");
 		try {
 			BoCCategory test2 = new BoCCategory(string1);
 			assertEquals("5",test2.CategoryName());
-			assertEquals(sum,test2.CategoryBudget());
-			assertEquals(sum,test2.CategorySpend());
+			assertEquals(sum1,test2.CategoryBudget());
+			assertEquals(sum1,test2.CategorySpend());
 		}catch(Exception e) {
 			fail ("Something wrong with catch");
 		}
@@ -114,12 +114,12 @@ class BoCCategoryTest {
 	*/
 	@Test 
 	void MainConstructortest2() throws Exception {
-		BigDecimal sum = new BigDecimal("0.00");
+		BigDecimal sum1 = new BigDecimal("0.00");
 		try {
 			BoCCategory test3 = new BoCCategory(string2);
 			assertEquals("transport",test3.CategoryName()); 
-			assertEquals(sum,test3.CategoryBudget());
-			assertEquals(sum,test3.CategorySpend());
+			assertEquals(sum1,test3.CategoryBudget());
+			assertEquals(sum1,test3.CategorySpend());
 		}catch(Exception e) {
 			fail ("Something wrong with catch");
 		}
@@ -133,12 +133,12 @@ class BoCCategoryTest {
 	*/
 	@Test 
 	void MainConstructortest3() throws Exception {
-		BigDecimal sum = new BigDecimal("0.00");
+		BigDecimal sum1 = new BigDecimal("0.00");
 		try {
 			BoCCategory test4 = new BoCCategory(string3);
 			assertEquals("shopping",test4.CategoryName()); 
-			assertEquals(sum,test4.CategoryBudget());
-			assertEquals(sum,test4.CategorySpend());
+			assertEquals(sum1,test4.CategoryBudget());
+			assertEquals(sum1,test4.CategorySpend());
 		}catch(Exception e) {
 			fail ("Something wrong with catch");
 		}
