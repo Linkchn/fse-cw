@@ -181,11 +181,14 @@ public class BoCApp {
 		if(budget.replaceAll(" ", "").equals("")) {
 			throw new Exception("Wrong budget! It should not be blank.");
 		}
-		else if(budget.matches("[0-9]+.[0-9]{2}") != true) {
+		else if(budget.matches("[0-9]+.[0-9]{2}") != true ) {
 			throw new Exception("Wrong budget! It should be a positive decimal number with exact two decimal places.");
 		}
 		
 		BigDecimal cbudget = new BigDecimal(budget);
+		if (cbudget.compareTo(BigDecimal.ZERO) <= 0) {
+			throw new Exception("Wrong budget! It should be a positive decimal number with exact two decimal places.");
+		}
 		BoCCategory temp = new BoCCategory(title);
 		temp.setCategoryBudget(cbudget);
 		UserCategories.add(temp);
