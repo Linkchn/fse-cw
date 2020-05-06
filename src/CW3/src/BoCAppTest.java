@@ -17,10 +17,11 @@ import java.util.Date;
 import java.util.List;
 import java.util.Scanner;
 
-
+// define the order of tests
 @TestMethodOrder(MethodOrderer.OrderAnnotation.class)
 class BoCAppTest {
-    
+
+    // set output
     private static final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
 
     private static BoCApp a = null;
@@ -77,6 +78,7 @@ class BoCAppTest {
         prompt7 = new String("Which transaction ID?\r\n");
         prompt8 = new String("Which category will it move to?\r\n");
         prompt9 = new String("Change complete!\r\n");
+
         allCategory = new String("1) Unknown(¥0.00) - Est. ¥850.00 (¥850.00 Overspent)\r\n"+
                 "2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)\r\n"+
                 "3) Groceries(¥75.00) - Est. ¥31.00 (¥44.00 Remaining)\r\n"+
@@ -108,8 +110,183 @@ class BoCAppTest {
         System.setOut(null);
         outContent.reset();
     }
+    @Order(5)
+    @DisplayName("mainTest")
+    @ParameterizedTest
+    @MethodSource
+    void mainTest(String a, String b) {
+        String input = a;
+        InputStream in = new ByteArrayInputStream(input.getBytes());
+        System.setIn(in);
+        BoCApp.main(new String[]{""});
+        assertEquals(b, outContent.toString());
+    }
+    static List<Arguments> mainTest() {
+        long timeStamp = System.currentTimeMillis();
+        SimpleDateFormat sdff=new SimpleDateFormat("yyyy-MM-dd HH:mm");
+        String sd = sdff.format(new Date(timeStamp));
+        return List.of( // arguments:
+                Arguments.arguments("X\n", "1) Unknown(¥0.00) - Est. ¥850.00 (¥850.00 Overspent)\r\n" +
+                        "2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)\r\n" +
+                        "3) Groceries(¥75.00) - Est. ¥31.00 (¥44.00 Remaining)\r\n" +
+                        "4) Social(¥100.00) - Est. ¥22.49 (¥77.51 Remaining)\r\n" +
+                        "\nWhat do you want to do?\n" +
+                        "O = [O]verview\nT = List All [T]ransactions\n[num] = Show Category [num]\nC = [C]hange Transaction Category\nA = [A]dd Transaction\nN = [N]ew Category\nX = E[x]it\r\n" +
+                        "Goodbye!\r\n"),
+                Arguments.arguments("N\nTestTitle\n6.23\nX\n",
+                        "1) Unknown(¥0.00) - Est. ¥850.00 (¥850.00 Overspent)\r\n" +
+                                "2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)\r\n" +
+                                "3) Groceries(¥75.00) - Est. ¥31.00 (¥44.00 Remaining)\r\n" +
+                                "4) Social(¥100.00) - Est. ¥22.49 (¥77.51 Remaining)\r\n" +
+                                "\n" +
+                                "What do you want to do?\n" +
+                                "O = [O]verview\nT = List All [T]ransactions\n[num] = Show Category [num]\nC = [C]hange Transaction Category\nA = [A]dd Transaction\nN = [N]ew Category\nX = E[x]it\r\n" +
+                                "What is the title of the category?\r\n" +
+                                "NOTE: It should not be blank and should be at most 15 characters.\r\n" +
+                                "What is the budget for this category?\r\n" +
+                                "Note:It should be a pisitive decimal number with exact two decimal places.\r\n" +
+                                "[Category added]\r\n" +
+                                "1) Unknown(¥0.00) - Est. ¥850.00 (¥850.00 Overspent)\r\n" +
+                                "2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)\r\n" +
+                                "3) Groceries(¥75.00) - Est. ¥31.00 (¥44.00 Remaining)\r\n" +
+                                "4) Social(¥100.00) - Est. ¥22.49 (¥77.51 Remaining)\r\n" +
+                                "5) TestTitle(¥6.23) - Est. ¥0.00 (¥6.23 Remaining)\r\n" +
+                                "\n" +
+                                "What do you want to do?\n" +
+                                "O = [O]verview\nT = List All [T]ransactions\n[num] = Show Category [num]\nC = [C]hange Transaction Category\nA = [A]dd Transaction\nN = [N]ew Category\nX = E[x]it\r\n" +
+                                "Goodbye!\r\n"
+                ),
 
+                Arguments.arguments("A\nTestTitle\n6.23\nX\n",
+                        "1) Unknown(¥0.00) - Est. ¥850.00 (¥850.00 Overspent)\r\n" +
+                                "2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)\r\n" +
+                                "3) Groceries(¥75.00) - Est. ¥31.00 (¥44.00 Remaining)\r\n" +
+                                "4) Social(¥100.00) - Est. ¥22.49 (¥77.51 Remaining)\r\n" +
+                                "\n" +
+                                "What do you want to do?\n" +
+                                "O = [O]verview\n" +
+                                "T = List All [T]ransactions\n" +
+                                "[num] = Show Category [num]\n" +
+                                "C = [C]hange Transaction Category\n" +
+                                "A = [A]dd Transaction\n" +
+                                "N = [N]ew Category\n" +
+                                "X = E[x]it\r\n" +
+                                "What is the title of the transaction?\r\n" +
+                                "NOTE: It should not be blank and less than 25 characters.\r\n" +
+                                "What is the value of the transaction?\r\n" +
+                                "NOTE: It should be greater than 0 with two decimal places e.g. 10.00.\r\n" +
+                                "What is the category of the transaction?\r\n" +
+                                "Note: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.\r\n" +
+                                "Something went wrong: java.lang.Exception: Wrong category. It should be an integer between 1 - 4\n" +
+                                "\r\n" +
+                                "\n" +
+                                "What do you want to do?\n" +
+                                "O = [O]verview\n" +
+                                "T = List All [T]ransactions\n" +
+                                "[num] = Show Category [num]\n" +
+                                "C = [C]hange Transaction Category\n" +
+                                "A = [A]dd Transaction\n" +
+                                "N = [N]ew Category\n" +
+                                "X = E[x]it\r\n"),
+                Arguments.arguments("O\nX\n",
+                        "1) Unknown(¥0.00) - Est. ¥850.00 (¥850.00 Overspent)\r\n" +
+                                "2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)\r\n" +
+                                "3) Groceries(¥75.00) - Est. ¥31.00 (¥44.00 Remaining)\r\n" +
+                                "4) Social(¥100.00) - Est. ¥22.49 (¥77.51 Remaining)\r\n" +
+                                "\n" +
+                                "What do you want to do?\n" +
+                                "O = [O]verview\n" +
+                                "T = List All [T]ransactions\n" +
+                                "[num] = Show Category [num]\n" +
+                                "C = [C]hange Transaction Category\n" +
+                                "A = [A]dd Transaction\n" +
+                                "N = [N]ew Category\n" +
+                                "X = E[x]it\r\n" +
+                                "1) Unknown(¥0.00) - Est. ¥850.00 (¥850.00 Overspent)\r\n" +
+                                "2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)\r\n" +
+                                "3) Groceries(¥75.00) - Est. ¥31.00 (¥44.00 Remaining)\r\n" +
+                                "4) Social(¥100.00) - Est. ¥22.49 (¥77.51 Remaining)\r\n" +
+                                "\n" +
+                                "What do you want to do?\n" +
+                                "O = [O]verview\n" +
+                                "T = List All [T]ransactions\n" +
+                                "[num] = Show Category [num]\n" +
+                                "C = [C]hange Transaction Category\n" +
+                                "A = [A]dd Transaction\n" +
+                                "N = [N]ew Category\n" +
+                                "X = E[x]it\r\n" +
+                                "Goodbye!\r\n"),
+               /*
+               1. FAIL - Hongming - 20:55 6/5
+               Reason: If there is an unknown input, the method Integer.parseInt(s) would lead to
+               	crash and the program throws an exception, but not output the "Command not recognised".
+               Change: Add a if statement to lead the program to output "Command not recognised",
+               	if the input is noit completely constructed by numbers, the statement return false and
+               	the program output "Command not recognised".
 
+               2. PASS - Hongming - 21:25 6/5
+
+               Traceability:  BoCAppmainTest2
+               */
+                Arguments.arguments("t\nX\n",
+                        "1) Unknown(¥0.00) - Est. ¥850.00 (¥850.00 Overspent)\r\n" +
+                                "2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)\r\n" +
+                                "3) Groceries(¥75.00) - Est. ¥31.00 (¥44.00 Remaining)\r\n" +
+                                "4) Social(¥100.00) - Est. ¥22.49 (¥77.51 Remaining)\r\n" +
+                                "\n" +
+                                "What do you want to do?\n" +
+                                "O = [O]verview\n" +
+                                "T = List All [T]ransactions\n" +
+                                "[num] = Show Category [num]\n" +
+                                "C = [C]hange Transaction Category\n" +
+                                "A = [A]dd Transaction\n" +
+                                "N = [N]ew Category\n" +
+                                "X = E[x]it\r\n" +
+                                "Command not recognised\r\n" +
+                                "\n" +
+                                "What do you want to do?\n" +
+                                "O = [O]verview\n" +
+                                "T = List All [T]ransactions\n" +
+                                "[num] = Show Category [num]\n" +
+                                "C = [C]hange Transaction Category\n" +
+                                "A = [A]dd Transaction\n" +
+                                "N = [N]ew Category\n" +
+                                "X = E[x]it\r\n" +
+                                "Goodbye!\r\n"),
+              /*
+               1. Passed - Hongming Ping - 22:33 6/5
+               Reason:/
+               Change:/
+               Traceability: BoCAppmainTest5
+               */
+                Arguments.arguments("1\nX\n",
+                        "1) Unknown(¥0.00) - Est. ¥850.00 (¥850.00 Overspent)\r\n" +
+                                "2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)\r\n" +
+                                "3) Groceries(¥75.00) - Est. ¥31.00 (¥44.00 Remaining)\r\n" +
+                                "4) Social(¥100.00) - Est. ¥22.49 (¥77.51 Remaining)\r\n" +
+                                "\n" +
+                                "What do you want to do?\n" +
+                                "O = [O]verview\n" +
+                                "T = List All [T]ransactions\n" +
+                                "[num] = Show Category [num]\n" +
+                                "C = [C]hange Transaction Category\n" +
+                                "A = [A]dd Transaction\n" +
+                                "N = [N]ew Category\n" +
+                                "X = E[x]it\r\n" +
+                                "Unknown: 1) "+sd+" Rent - ¥850.00\r\n" +
+                                "\n" +
+                                "What do you want to do?\n" +
+                                "O = [O]verview\n" +
+                                "T = List All [T]ransactions\n" +
+                                "[num] = Show Category [num]\n" +
+                                "C = [C]hange Transaction Category\n" +
+                                "A = [A]dd Transaction\n" +
+                                "N = [N]ew Category\n" +
+                                "X = E[x]it\r\n" +
+                                "Goodbye!\r\n")
+
+        );
+    }
 
     
     /*
@@ -122,6 +299,7 @@ class BoCAppTest {
     3. Passed Hongming Ping 20:45/5/5
     Traceability: listTransactionsForCategoryTest
     */
+    @Order(3)
    @ParameterizedTest
    @MethodSource
    void listTransactionsForCategoryTest(int CategoryNum, String ExpectedOutput) throws Exception {
@@ -178,6 +356,7 @@ class BoCAppTest {
     Reason: add if for "" situation (blank input)
     Traceability: addTransactionTest 4''
      */
+    @Order(1)
     @DisplayName("AddTransactionTest")
     @ParameterizedTest
     @MethodSource
@@ -249,6 +428,7 @@ class BoCAppTest {
 	Reason:/
 	Traceability: ChangeTransactionCategoryTest5，6
 	*/
+    @Order(2)
 	@DisplayName("ChangeTransactionCategoryTest")
 	@ParameterizedTest
 	@MethodSource
@@ -309,6 +489,7 @@ class BoCAppTest {
             3. Exception catcher has not been created yet
             4. blank input has not been banned
     Traceability: AddCategoryTest
+
     2 - PASS - 14:06 5/6 - Jiawei
     Problem:/
     Reason: 1. modify the prompt message
@@ -318,13 +499,13 @@ class BoCAppTest {
     Problem: the code does not stop when budget is 0
     Reason: miss a test that the budget is 0
     TraceabilityL AddCategoryTest
+
     4 - PASS - 14:06 5/6 - Jiawei
     Problem: /
     Reason: /
     Traceability: AddCategoryTest
-
-    
      */
+    @Order(4)
     @DisplayName("AddCategoryTest")
     @ParameterizedTest
     @MethodSource
