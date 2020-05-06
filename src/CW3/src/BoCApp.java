@@ -145,75 +145,105 @@ public class BoCApp {
     4 - PASS - Shiliang- 16:31 5/5
     Change: add if for "" situation (blank input)
     Reason: /
-    Traceability: addTransactionTest 4''
-     */
-    private static void AddTransaction(Scanner in) throws Exception {
-        System.out.println("What is the title of the transaction?\r\nNOTE: It should not be blank and less than 25 characters.");
-        in.nextLine(); // to remove read-in bug
-        String title = in.nextLine();
+	Traceability: addTransactionTest 4''
+	 */
+	private static void AddTransaction(Scanner in) throws Exception {
+		System.out.println("What is the title of the transaction?\r\nNOTE: It should not be blank and less than 25 characters.");
+		in.nextLine(); // to remove read-in bug
+		String title = in.nextLine();
 
-        if (title.replaceAll(" ", "").equals("")) {
-            throw new Exception("Wrong name. It should not be blank!");
-        }
-        else if (title.length() > 25){
-            throw new Exception("Wrong name. It should not be more than 25 characters!");
-        }
+		if (title.replaceAll(" ", "").equals("")) {
+			throw new Exception("Wrong name. It should not be blank!");
+		}
+		else if (title.length() > 25){
+			throw new Exception("Wrong name. It should not be more than 25 characters!");
+		}
 
-        System.out.println("What is the value of the transaction?\r\nNOTE: It should be greater than 0 with two decimal places e.g. 10.00.");
-        String value = in.nextLine();
-        if (value.replaceAll(" ", "").equals("")) {
-            throw new Exception("Wrong value. It should not be blank!");
-        } else if (value.matches("[0-9]+.[0-9]{2}") != true) {
-            throw new Exception("Wrong value. It should be a positive number with two decimal places e.g. 10.00.");
-        }
-        BigDecimal tvalue = new BigDecimal(value);
+		System.out.println("What is the value of the transaction?\r\nNOTE: It should be greater than 0 with two decimal places e.g. 10.00.");
+		String value = in.nextLine();
+		if (value.replaceAll(" ", "").equals("")) {
+			throw new Exception("Wrong value. It should not be blank!");
+		} else if (value.matches("[0-9]+.[0-9]{2}") != true) {
+			throw new Exception("Wrong value. It should be a positive number with two decimal places e.g. 10.00.");
+		}
+		BigDecimal tvalue = new BigDecimal(value);
 
-        System.out.println("What is the category of the transaction?\r\nNote: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.");
-        String cat = new String(in.nextLine());
-        int range = UserCategories.size();
-        if (cat.equals("")) {
-            cat = cat.concat("1");
-        } else if (cat.matches("[0-9]*") != true) {
-            throw new Exception("Wrong category. It should be an integer between 1 - " + range);
-        } else if (Integer.parseInt(cat) < 1){
-            throw new Exception("Wrong category. It should be an integer between 1 - " + range);
-        } else if (Integer.parseInt(cat) > UserCategories.size()) {
-            throw new Exception("Wrong category. It should be an integer between 1 - " + range);
-        }
-        int tcat = Integer.parseInt(cat) - 1;
+		System.out.println("What is the category of the transaction?\r\nNote: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.");
+		String cat = new String(in.nextLine());
+		int range = UserCategories.size();
+		if (cat.equals("")) {
+			cat = cat.concat("1");
+		} else if (cat.matches("[0-9]*") != true) {
+			throw new Exception("Wrong category. It should be an integer between 1 - " + range);
+		} else if (Integer.parseInt(cat) < 1){
+			throw new Exception("Wrong category. It should be an integer between 1 - " + range);
+		} else if (Integer.parseInt(cat) > UserCategories.size()) {
+			throw new Exception("Wrong category. It should be an integer between 1 - " + range);
+		}
+		int tcat = Integer.parseInt(cat) - 1;
 
-        UserTransactions.add(new BoCTransaction(title, tvalue, tcat));
+		UserTransactions.add(new BoCTransaction(title, tvalue, tcat));
 
-        System.out.println(title + "(¥" + tvalue + ")" + " was added to " + UserCategories.get(tcat).CategoryName());
-    }
+		System.out.println(title + "(¥" + tvalue + ")" + " was added to " + UserCategories.get(tcat).CategoryName());
+	}
 
-    private static void ChangeTransactionCategory(Scanner in) {
-        System.out.println("Which transaction ID?");
-        in.nextLine();
-        int tID = Integer.parseInt(in.nextLine());
-        System.out.println("\t- " + UserTransactions.get(tID - 1).toString());
-        System.out.println("Which category will it move to?");
-        CategoryOverview();
-        int newCat = Integer.parseInt(in.nextLine());
-        BoCTransaction temp = UserTransactions.get(tID);
-        temp.setTransactionCategory(newCat);
-        UserTransactions.set(tID, temp);
-        BoCCategory temp2 = UserCategories.get(newCat);
-        temp2.addExpense(temp.transactionValue());
-        UserCategories.set(newCat, temp2);
-    }
+	/* 
+	1 – Pass – Leo - 00:18/6/5  
+	Problem: /
+	Reason:/
+	Traceability: ChangeTransactionCategoryTest1,2,3,4
+	
+	2 – Pass – Leo - 00:48/6/5  
+	Problem: /
+	Reason:/
+	Traceability: ChangeTransactionCategoryTest5，6
+	*/
+	private static void ChangeTransactionCategory(Scanner in) throws Exception {
+		System.out.println("Which transaction ID?");
+		in.nextLine();
+		int tID = Integer.parseInt(in.nextLine())-1;
+		if(tID<0||tID>UserTransactions.size()) {
+			throw new Exception("Please input valid transaction value!");
+		}
+		else {
+			System.out.println("\t- " + UserTransactions.get(tID).toString());
+			System.out.println("Which category will it move to?");
+			CategoryOverview();
+			int newCat = Integer.parseInt(in.nextLine())-1;
+			if(newCat<0||newCat>UserCategories.size()) {
+				throw new Exception("Please input valid category!");
+			}
+			BoCTransaction temp = UserTransactions.get(tID);
+			int oldCat = temp.transactionCategory();
+			temp.setTransactionCategory(newCat);
+			UserTransactions.set(tID, temp);
+			if(oldCat != newCat) {
+				BoCCategory temp2 = UserCategories.get(newCat);
+				temp2.addExpense(temp.transactionValue());
+				UserCategories.set(newCat, temp2);
+				BoCCategory temp3 = UserCategories.get(oldCat);
+				temp3.removeExpense(temp.transactionValue());
+				UserCategories.set(oldCat, temp3);
+			}
+			System.out.println("Change complete!");
+			BoCCategory newCatSpend = UserCategories.get(newCat);
+			System.out.println("Target category: " + (newCat + 1) + ") " + newCatSpend.toString());
+			BoCCategory oldCatSpend = UserCategories.get(oldCat);
+			System.out.println("Origin category: " + (oldCat + 1) + ") " + oldCatSpend.toString());
+		}
+	}
 
-    private static void AddCategory(Scanner in) {
-        System.out.println("What is the title of the category?");
-        in.nextLine(); // to remove read-in bug
-        String title = in.nextLine();
-        System.out.println("What is the budget for this category?");
-        BigDecimal cbudget = new BigDecimal(in.nextLine());
-        BoCCategory temp = new BoCCategory(title);
-        temp.setCategoryBudget(cbudget);
-        UserCategories.add(temp);
-        System.out.println("[Category added]");
-        CategoryOverview();
-    }
+	private static void AddCategory(Scanner in) {
+		System.out.println("What is the title of the category?");
+		in.nextLine(); // to remove read-in bug
+		String title = in.nextLine();
+		System.out.println("What is the budget for this category?");
+		BigDecimal cbudget = new BigDecimal(in.nextLine());
+		BoCCategory temp = new BoCCategory(title);
+		temp.setCategoryBudget(cbudget);
+		UserCategories.add(temp);
+		System.out.println("[Category added]");
+		CategoryOverview();
+	}
 
 }

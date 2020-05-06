@@ -31,8 +31,12 @@ class BoCAppTest {
     private static String prompt4;
     private static String prompt5;
     private static String prompt6;
+    private static String prompt7;
+    private static String prompt8;
+    private static String prompt9;
     private static String allCategory;
-    
+    private static String catList;
+	
     @BeforeAll 
     static void setup() {
         BoCApp.UserCategories = new ArrayList<BoCCategory>();
@@ -69,6 +73,9 @@ class BoCAppTest {
         prompt4 = new String("What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters.\r\n");
         prompt5 = new String("What is the budget for this category?\r\nNote:It should be a pisitive decimal number with exact two decimal places.\r\n");
         prompt6 = new String("[Category added]");
+        prompt7 = new String("Which transaction ID?\r\n");
+        prompt8 = new String("Which category will it move to?\r\n");
+        prompt9 = new String("Change complete!\r\n");
         allCategory = new String("1) Unknown(¥0.00) - Est. ¥850.00 (¥850.00 Overspent)\r\n"+
                 "2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)\r\n"+
                 "3) Groceries(¥75.00) - Est. ¥31.00 (¥44.00 Remaining)\r\n"+
@@ -240,14 +247,93 @@ class BoCAppTest {
                 Arguments.arguments("   \n", "13.00\n", "1\n", "Wrong name. It should not be blank!"),
                 Arguments.arguments("tran14\n", "   \n", "1\n", "Wrong value. It should not be blank!")
         );
+	}
+	
+	
+    /* 
+	1 – Pass – Leo - 00:18/6/5  
+	Problem: /
+	Reason:/
+	Traceability: ChangeTransactionCategoryTest1,2,3,4
+	
+	2 – Pass – Leo - 00:48/6/5  
+	Problem: /
+	Reason:/
+	Traceability: ChangeTransactionCategoryTest5，6
+	*/
+	@DisplayName("AddTransactionTest")
+	@ParameterizedTest
+	@MethodSource
+	void ChangeTransactionCategoryTest(String tID, String newCat, String alert) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
+	    Method ChangeTransactionCategoryTest = a.getClass().getDeclaredMethod("ChangeTransactionCategory", Scanner.class);
+	    ChangeTransactionCategoryTest.setAccessible(true);
+	    
+	    try {
+		    if(alert.equals("1")) {
+			    String input = "\n" + tID + "\n" + newCat + "\n";
+			    inp = new Scanner(input);
+			    catList = "1) " + a.UserCategories.get(0).toString() + "\r\n";
+		    	for (int x = 1; x < a.UserCategories.size(); x++) {
+					BoCCategory temp = a.UserCategories.get(x);
+					catList += (x+1) + ") " + temp.toString() + "\r\n";
+				}
+		    	int tIDi = Integer.parseInt( tID )-1;
+		    	int newCati = Integer.parseInt( newCat )-1;
+			    
+		    	BoCTransaction temp = a.UserTransactions.get(tIDi);
+				int oldCat = temp.transactionCategory();
+		    	
+	        	ChangeTransactionCategoryTest.invoke(a, inp);
+	        	BoCCategory newCatSpend = a.UserCategories.get(newCati);
+	        	BoCCategory oldCatSpend = a.UserCategories.get(oldCat);
+	            assertEquals(prompt7 + "\t- " + a.UserTransactions.get( tIDi ).toString() + "\r\n" + prompt8 + catList + prompt9 + "Target category: " + (newCati + 1) + ") " + newCatSpend.toString() + "\r\n" + "Origin category: " + (oldCat + 1) + ") " + oldCatSpend.toString() + "\r\n", outContent.toString());
+	            assertEquals(newCati, temp.transactionCategory());
+		    }
+	    }
+	    catch (Exception e) {
+            assertEquals(alert, e.getCause().getMessage());
+        }
+        
+	    outContent.reset(); 
+	}
+	static List<Arguments> ChangeTransactionCategoryTest() {
+        return List.of( // arguments:
+                Arguments.arguments("1", "3", "1"),
+                Arguments.arguments("3", "1", "1"),
+                Arguments.arguments("4", "2", "1"),
+                Arguments.arguments("7", "4", "1"),
+                Arguments.arguments("8", "4", "Please input valid transaction value!"),
+                Arguments.arguments("5", "-1", "Please input valid category!")
+        );
     }
-    
-    
-    @Disabled
-    void ChangeTransactionCategoryTest() {
 
-    }
-
+    
+    /*
+    1 - FAIL - 14:06 5/6 - Jiawei
+    Problem:1. prompt message is different 
+            2. It does not alert and stop
+            3. an invocation exception
+            4. no exception thrown
+    Reason: 1. The original message does not match new expected one 
+            2. Confirmation message has not been created yet
+            3. Exception catcher has not been created yet
+            4. blank input has not been banned
+    Traceability: AddCategoryTest
+    2 - PASS - 14:06 5/6 - Jiawei
+    Problem:/
+    Reason: 1. modify the prompt message
+            2. throw some new exceptions the avoid illegal input
+            3. modify the alert message
+    3 - FAIL - 14:06 5/6 - Jiawei
+    Problem: the code does not stop when budget is 0
+    Reason: miss a test that the budget is 0
+    TraceabilityL AddCategoryTest
+    4 - PASS - 14:06 5/6 - Jiawei
+    Problem: /
+    Reason: /
+    Traceability: AddCategoryTest
+    
+     */
     @DisplayName("AddCategoryTest")
     @ParameterizedTest
     @MethodSource
@@ -268,23 +354,24 @@ class BoCAppTest {
             }
         }
         catch (Exception e) {
-            assertEquals(alert, e.getCause().getMessage());
 
+            assertEquals(alert, e.getCause().getMessage());
         }
-        outContent.reset(); 
     }
+
     static List<Arguments> AddCategoryTest() {
         return List.of( // arguments:
-                Arguments.arguments("cat1Name\n","6.23\n","1"),
-                Arguments.arguments("cat2Name123456789\n","6.23\n", "Wrong title! It should be at most 15 characters."),
-                Arguments.arguments("cat1Name\n", "7.45\n", "Wrong title! It should not be the same as the existed name."),
-                Arguments.arguments("cat4Name\n", "6\n", "Wrong budget! It should be a positive decimal number with exact two decimal places."),
-                Arguments.arguments("cat5Name\n", "6.1\n", "Wrong budget! It should be a positive decimal number with exact two decimal places."),
-                Arguments.arguments("cat6Name\n", "-7.23\n", "Wrong budget! It should be a positive decimal number with exact two decimal places."),
-                Arguments.arguments("\n", "6.34\n", "Wrong title! It should not be blank."),
-                Arguments.arguments("   \n", "6.34\n", "Wrong title! It should not be blank."),
-                Arguments.arguments("cat9Name\n", "\n", "Wrong budget! It should not be blank."),
-                Arguments.arguments("cat10Name\n", "   \n", "Wrong budget! It should not be blank.")
+        Arguments.arguments("cat1Name\n","6.23\n","1"),
+        Arguments.arguments("cat2Name123456789\n","6.23\n", "Wrong title! It should be at most 15 characters."),
+        Arguments.arguments("cat1Name\n", "7.45\n", "Wrong title! It should not be the same as the existed name."),
+        Arguments.arguments("cat4Name\n", "6\n", "Wrong budget! It should be a positive decimal number with exact two decimal places."),
+        Arguments.arguments("cat5Name\n", "6.1\n", "Wrong budget! It should be a positive decimal number with exact two decimal places."),
+        Arguments.arguments("cat6Name\n", "-7.23\n", "Wrong budget! It should be a positive decimal number with exact two decimal places."),
+        Arguments.arguments("\n", "6.34\n", "Wrong title! It should not be blank."),
+        Arguments.arguments("   \n", "6.34\n", "Wrong title! It should not be blank."),
+        Arguments.arguments("cat9Name\n", "\n", "Wrong budget! It should not be blank."),
+        Arguments.arguments("cat10Name\n", "   \n", "Wrong budget! It should not be blank."),
+        Arguments.arguments("cat11Name\n", "0.00\n", "Wrong budget! It should be a positive decimal number with exact two decimal places.")
         );
     }
 }

@@ -140,9 +140,19 @@ Branches will be made once pair work has begun.
   
     Plans of the rest of the days release by pairs:
     
-    **Plan of Pair 2**
+    **Plan of Pair 1**
 
-    | Date | What to do                         | Daze   | Leo               | Status   |
+    | Date | What to do                         | Link          | Yuxiang     | Status   |
+    | ---- | ---------------------------------- | ------------- | ----------- | -------- |
+    | 5/2  | Finish Test                        | C 1,2,3,4,5,6 | T 1,2,3,4,5 | Finished |
+    | 5/3  | Fix Category and Transaction Class | C 1,2,3,4,5,6 | T 1,2,3,4,5 | Finished |
+    | 5/4  | Set Test for Main Class 4,5        | M 2 3         | /           | Finished |
+    | 5/5  | Fix Main Class                     | M 2 3         | /           | Finished |
+    | 5/7  | Final check and Tag                |               |             |          |
+    
+**Plan of Pair 2**
+    
+| Date | What to do                         | Daze   | Leo               | Status   |
     | ---- | ---------------------------------- | ------ | ----------------- | -------- |
     | 5/2  | Finish Test                        | C 6, 7 | T 7, 8, 9, 10, 12 | Finished |
     | 5/3  | Fix Category and Transaction Class | C 6, 7 | T 7, 8, 9, 10, 12 | Finished |
@@ -150,9 +160,9 @@ Branches will be made once pair work has begun.
     | 5/5  | Fix Main Class                     |        |                   |          |
     | 5/6  | Fix Main Class                     |        |                   |          |
     | 5/7  | Final check and Tag                |        |                   |          |
-
+    
     **Plan of Pair 3**
-
+    
     | Date | What to do                         | Shiliang | Jiawei | Status |
     | ---- | ---------------------------------- | ---- | ---- | ------ |
     | 5/2  | Finish Tests of first two classes with fixed code| √ | √ | √ |
@@ -350,16 +360,16 @@ This method should not be used in this class. So it has been deleted.
 
 | Importance | Status | Test                       | Inputs | Expected Outcome   | Test Outcome       | Problem                                                 | Change                                                   | Reason                                   | Time | Author       |
 | ---------- | ------ | -------------------------- | ------ | ------------------ | ------------------ | ------------------------------------------------------- | -------------------------------------------------------- | ---------------------------------------- | ---- | ------------ |
-| !!!        | Pass   | Default Constructor test 1 | void   | CategoryName,0,0 | CategoryName,0,0 |  No | / | / |   17:30/01/05 | YuxiangZhang |
-| !!!        | Pass   | Default Constructor test 2 | void   | CategoryName,0,0 | CategoryName,0,0 |  No | / | / |   19:50/01/05 | YuxiangZhang |
+| !!!        | Pass   | Default Constructor test 1 | void   | "New Category","0.00","0.00" | "New Category","0.00","0.00" |  No | / | / |   17:30/01/05 | YuxiangZhang |
+| !!!        | Pass   | Default Constructor test 2 | void   | "New Category","0.00","0.00" | "New Category","0.00","0.00" |  No | / | / |   19:50/01/05 | YuxiangZhang |
 
-#### Function 2: BoCCategory(String cTitle) - Main Constructors       
+#### Function 2: BoCCategory(String newTitle) - Main Constructors       
 
 | Importance | Status | Test                     | Inputs             | Expected Outcome                                    | Test Outcome | Problem | Change | Reason | Time | Author       |
 | ---------- | ------ | ------------------------ | ------------------ | --------------------------------------------------- | ------------ | ------- | ------ | ------ | ---- | ------------ |
 | !!!        |    Fail    | Main Constructors Test 1 | 5                  | The numbers of parameters and input is not matching |       Error       |    the constructor BoCCategory(BigDecimal) is undefined.     |    Ignore the test    |    The compile error can't be solved in the method    |    20:05/01/05  | YuxiangZhang |
-| !!!        |    Pass    | Main Constructors Test 2 | "transport",1000,1200.85 | build successfully                                  |       "transport",1000,1200.85       |    /     |    /    |    /    |    21:40/01/05  | YuxiangZhang |
-| !!!        |    Pass    | Main Constructors Test 3 | "shopping",3000,4500.45  | build successfully                                  |       "shopping",3000,4500.45       |    /     |    /    |    /    |    21:40/01/05  | YuxiangZhang |
+| !!!        |    Pass    | Main Constructors Test 2 | "transport" | build successfully                                  |       "transport"       |    /     |    /    |    /    |    21:40/01/05  | YuxiangZhang |
+| !!!        |    Pass    | Main Constructors Test 3 | "shopping"  | build successfully                                  |       "shopping"       |    /     |    /    |    /    |    21:40/01/05  | YuxiangZhang |
 
 #### Function 3: CategoryName() - Get Category Name       
 
@@ -464,15 +474,13 @@ This method should not be used in this class. So it has been deleted.
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+| ！ | PASS | ListTransactions test | void | print all the transaction | same as expected | / | / | / | 19:41/5/5 | Haonan CHEN |
 
 #### Function 3: CategoryOverview - Category Overview function
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| | | | | | | | | | | |
-| | | | | | | | | | | |
+| ！         | PASS | ListTransactions test | void | print all the transaction | same as expected | / | / | / | 19:45/5/5 | Haonan CHEN |
 
 #### Function 4: ArrayListofBoCCategoryobjects - List Transactions in Category function
 
