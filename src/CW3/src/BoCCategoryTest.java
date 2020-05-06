@@ -17,6 +17,12 @@ class BoCCategoryTest {
 	private static BigDecimal TestInputBudget;
 	private static BigDecimal TestOutputBudget;
 	private static BigDecimal TestExceptOutputBudget;
+	private static String string1, string2, string3;
+	
+	private static BigDecimal bignum1; 
+	private static BigDecimal bignum2;
+	private static BigDecimal bignum3;
+	private static BigDecimal bignum4;
 
 	// Declare BoCCategories for tests
 	static BoCCategory cat1;
@@ -44,6 +50,17 @@ class BoCCategoryTest {
 		cat3.setCategoryName("testToStringName");
 		cat3.setCategoryBudget(new BigDecimal ("7.00"));
 		cat3.addExpense(new BigDecimal ("6.00"));
+		
+		string1 = "5";
+		string2 = "transport";
+		string3 = "shopping";
+		bignum1 = new BigDecimal("1000");
+		bignum2 = new BigDecimal("1200.85");
+		bignum3 = new BigDecimal("3000");
+		bignum4 = new BigDecimal("4500.45");
+		shopping = new BoCCategory(string3,bignum3,bignum4);
+		transport = new BoCCategory(string2,bignum1,bignum2);
+		empty = new BoCCategory();
 
 		// Define expected result
 		toStringResult1 = new String ( "testToStringName(¥5.00) - Est. ¥6.00 (¥1.00 Overspent)");
