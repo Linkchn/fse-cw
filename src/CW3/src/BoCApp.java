@@ -233,6 +233,31 @@ public class BoCApp {
 		}
 	}
 
+	/*
+    1 - FAIL - 14:06 5/6 - Jiawei
+    Change: /
+    Reason: 1. The original message does not match new expected one 
+            2. Confirmation message has not been created yet
+            3. Exception catcher has not been created yet
+            4. blank input has not been banned
+    Traceability: AddCategoryTest
+    2 - PASS - 14:06 5/6 - Jiawei
+	Change: modify the prompts, throw some new exceptions and alert
+    Reason: 1. modify the prompt message
+            2. throw some new exceptions the avoid illegal input
+            3. modify the alert message
+    3 - FAIL - 14:06 5/6 - Jiawei
+    Change: /
+    Reason: miss a test that the budget is 0
+    TraceabilityL AddCategoryTest
+    4 - PASS - 14:06 5/6 - Jiawei
+    Change: it will alert and stop if the budget is not larger than 0
+    Reason: /
+    Traceability: AddCategoryTest
+
+    
+    
+     */
 	private static void AddCategory(Scanner in)throws Exception {
         System.out.println("What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters.");
         in.nextLine(); // to remove read-in bug
