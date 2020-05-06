@@ -104,15 +104,41 @@ class BoCAppTest {
 
 
     /*
-	1 - FAIL - Shiliang - 16:13 1/5
-    Change: /
-    Reason: Decimals are different
-	Traceability: getRemainingBudgetTest 1
+	1 - FAIL - Shiliang - 23:15 4/5
+    Problem:1. Category cant be correctly set up 
+            2. prompt message is different 
+            3. Confirmation message is different
+            4. It does not alert and stop
+            5. an invocation exception
+            6. no exception thrown
+            7. category set is wrong 
+            8. BigDecimal went wrong
+    Reason: 1. No category input is set up 
+            2. The original message does not match new expected one 
+            3. Confirmation message has not been created yet
+            4. Exception catcher has not been created yet
+            5. BigDecimal get a ""
+            6. blank input has not been banned
+	Traceability: addTransactionTest 1 - 14
 	
-	2 - PASS - Jiawei Shiliang- 22:35 1/5
-    Change: /
-    Reason: /
-	Traceability: getRemainingBudgetTest 3, 4, 5, 6
+	2 - PASS - Jiawei Shiliang- 16:15 5/5
+    Problem: /
+    Reason: 1. Add a module for category setup, updated the prompt message string, reconstructed confirmation message
+            2. Add if statement for exception throw
+            3. Adjust \n to proper places
+            4. modified category setup and messages
+            5. add if for "   " situation
+    Traceability: addTransactionTest 1' - 3', 5' - 14'
+
+    3 - FAIL - Jiawei Shiliang- 16:15 5/5
+    Problem: the third argument went wrong
+    Reason: haven't handled \n
+    Traceability: addTransactionTest 4'
+
+	4 - PASS - Shiliang- 16:31 5/5
+    Problem: /
+    Reason: add if for "" situation (blank input)
+	Traceability: addTransactionTest 4''
 	 */
     @DisplayName("AddTransactionTest")
     @ParameterizedTest
