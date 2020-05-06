@@ -350,8 +350,8 @@ This method should not be used in this class. So it has been deleted.
 
 | Importance | Status | Test                       | Inputs | Expected Outcome   | Test Outcome       | Problem                                                 | Change                                                   | Reason                                   | Time | Author       |
 | ---------- | ------ | -------------------------- | ------ | ------------------ | ------------------ | ------------------------------------------------------- | -------------------------------------------------------- | ---------------------------------------- | ---- | ------------ |
-| !!!        | Pass   | Default Constructor test 1 | void   | CategoryName,0,0 | CategoryName,0,0 |  No | / | / |   17:30/01/05 | YuxiangZhang |
-| !!!        | Pass   | Default Constructor test 2 | void   | CategoryName,0,0 | CategoryName,0,0 |  No | / | / |   19:50/01/05 | YuxiangZhang |
+| !!!        | Pass   | Default Constructor test 1 | void   | "New Category","0.00","0.00" | "New Category","0.00","0.00" |  No | / | / |   17:30/01/05 | YuxiangZhang |
+| !!!        | Pass   | Default Constructor test 2 | void   | "New Category","0.00","0.00" | "New Category","0.00","0.00" |  No | / | / |   19:50/01/05 | YuxiangZhang |
 
 #### Function 2: BoCCategory(String newTitle) - Main Constructors       
 
