@@ -22,8 +22,20 @@ import java.util.Scanner;
 import static org.junit.jupiter.api.Assertions.*;
 
 class mainTest {
-	private static final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-	
+
+    private static final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
+
+    @BeforeEach
+    void setUp() {
+        System.setOut(new PrintStream(outContent));
+    }
+
+    @AfterEach
+    void tearDown() {
+        System.setOut(null);
+        outContent.reset();
+    }
+    
     @DisplayName("mainTest5")
     @ParameterizedTest
     @MethodSource
