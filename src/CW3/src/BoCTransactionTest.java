@@ -364,22 +364,25 @@ class BoCTransactionTest {
     @DisplayName("setNameTest")
 	@ParameterizedTest
 	@MethodSource	
-	void setNameTest(String testInputString, String testExpectOutputString) throws Exception {
+	void setNameTest(String testInputString, String testExpectOutputString, int alert) throws Exception {
 		try {
 			BoCTransaction copy = new BoCTransaction();
 			copy.setTransactionName(testInputString);
-			copy.resetCounter();
 			testOutputString = copy.transactionName();
 		}catch(Exception e) {
-			fail ("Someting wrong with catch");
+			if (alert == 1 ) {
+				assertEquals("Set failed. This transaction name has already been set.", e.getMessage());
+			}else if (alert == 2) {
+				assertEquals("Set failed. Transaction name cannot be blank.", e.getMessage());
+			}
 		}
 		assertEquals(testExpectOutputString, testOutputString);
 	}
 	static List<Arguments> setNameTest(){
 		return List.of(
-				Arguments.arguments("LEO", "LEO"),
-				Arguments.arguments(null, null),
-				Arguments.arguments("QWERTYUIOPASDFGHJKLZXCVBNM", "QWERTYUIOPASDFGHJKLZXCVBN")
+				Arguments.arguments("LEO", "LEO", 2),
+				Arguments.arguments(null, null, 2),
+				Arguments.arguments("QWERTYUIOPASDFGHJKLZXCVBNM", "QWERTYUIOPASDFGHJKLZXCVBN", 2)
 		);
 	}
 
@@ -402,22 +405,27 @@ class BoCTransactionTest {
 	@DisplayName("setNameTestD")
 	@ParameterizedTest
 	@MethodSource	
-	void setNameTestD(String testInputString1, String testInputString2, String testExpectOutputString) throws Exception {
+	void setNameTestD(String testInputString1, String testInputString2, String testExpectOutputString, int alert) throws Exception {
 		try {
 			BoCTransaction copy = new BoCTransaction();
 			copy.setTransactionName(testInputString1);
+			testOutputString = copy.transactionName();
 			copy.setTransactionName(testInputString2);
 			testOutputString = copy.transactionName();
 		}catch(Exception e) {
-			fail ("Someting wrong with catch");
+			if (alert == 1 ) {
+				assertEquals("Set failed. This transaction name has already been set.", e.getMessage());
+			}else if (alert == 2) {
+				assertEquals("Set failed. Transaction name cannot be blank.", e.getMessage());
+			}
 		}
 		assertEquals(testExpectOutputString, testOutputString);
 	}
 	static List<Arguments> setNameTestD(){
 		return List.of(
-				Arguments.arguments(null, "LEO", "LEO"),
-				Arguments.arguments("Leo", "Leopard", "Leo"),
-				Arguments.arguments("Leo", null, "Leo")
+				Arguments.arguments("[Pending Transaction]", "LEO", "LEO", 2),
+				Arguments.arguments("Leo", "Leopard", "Leo", 1),
+				Arguments.arguments("Leo", null, "Leo", 1)
 		);
 	}
 
@@ -451,7 +459,6 @@ class BoCTransactionTest {
 		try {
 			BoCTransaction copy = new BoCTransaction();
 			copy.setTransactionValue(testInputBudget);
-			copy.resetCounter();
 			testOutputBudget = copy.transactionValue();
 		}catch(Exception e) {
 			fail ("Someting wrong with catch");
@@ -520,7 +527,6 @@ class BoCTransactionTest {
 		try {
 			BoCTransaction copy = new BoCTransaction();
 			copy.setTransactionCategory(testInput);
-			copy.resetCounter();
 			testOutput = copy.transactionCategory();
 		}catch(Exception e) {
 			fail ("Someting wrong with catch");
@@ -617,9 +623,7 @@ class BoCTransactionTest {
 		try {
 			BoCTransaction copy = new BoCTransaction();
 			copy.setTransactionName(tName);
-			copy.resetCounter();
 			copy.setTransactionValue(tValue);
-			copy.resetCounter();
 			testOutput = copy.toString();
 		}catch(Exception e) {
 			fail ("Someting wrong with catch");
