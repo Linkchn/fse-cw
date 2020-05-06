@@ -230,7 +230,9 @@ class BoCCategoryTest {
 	}
 	
 	/* - Pass - Hongming PING - 23:38/30/4
-
+	Change: /
+    Reason: /
+    Traceability: setCNTest1
 	 */
 	@Test
 	void setCNTest1() throws Exception {
@@ -248,9 +250,11 @@ class BoCCategoryTest {
 	/*1. - Fail - Hongming PING - 21:38/2/5
 	Problem: If newName is sapce only or empty, the result still returns the value of
 	newName, which is Unknown name.
+	Traceability: setCNTest23
 	2. - Pass - 22:57/2/5
 	Reason: Fixed the Method with adding an "if" statement to assign null to String
 	while whose newName is empty or sapce
+	Traceability: setCNTest23
 	*/
 	@ParameterizedTest
 	@ValueSource(strings = {" " ,""})
@@ -266,7 +270,9 @@ class BoCCategoryTest {
 	}
 
 	/* - Pass - Hongming PING - 16:52/1/5
-
+	Change: /
+    Reason: /
+    Traceability:setCBTest1
 	 */
 	@Test
 	void setCBTest1(){
@@ -283,7 +289,9 @@ class BoCCategoryTest {
 	}
 
 	/* - Pass - Hongming PING - 16:52/1/5
-
+	Change: /
+    Reason: /
+    Traceability:setCBTest2
 	 */
 	@Test
 	void setCBTest2(){
@@ -300,7 +308,9 @@ class BoCCategoryTest {
 	}
 
 	/* - Pass - Hongming PING - 16:52/1/5
-
+	Change: /
+    Reason: /
+    Traceability:setCBTest3
 	 */
 	@Test
 	void setCBTest3(){

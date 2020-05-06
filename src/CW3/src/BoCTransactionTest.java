@@ -610,7 +610,7 @@ class BoCTransactionTest {
 		String tName = "Leo";
 		BigDecimal tValue = new BigDecimal(123);
 		long timeStamp = System.currentTimeMillis(); 
-		SimpleDateFormat sdff=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		SimpleDateFormat sdff=new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		String sd = sdff.format(new Date(timeStamp));
 		String testExceptOutput = sd + " Leo - ¥123" ;
 		String testOutput = null;

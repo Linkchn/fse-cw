@@ -37,12 +37,26 @@ public class BoCCategory {
         return CategorySpend;
     }
 
+    /*1. - Fail - Hongming PING - 21:38/2/5
+	Problem: If newName is sapce only or empty, the result still returns the value of
+	newName, which is Unknown name.
+	Traceability: setCNTest1,2,3
+	2. - Pass - 22:57/2/5
+	Reason: Fixed the Method with adding an "if" statement to assign null to String
+	while whose newName is empty or sapce
+	Traceability: setCNTest1,2,3
+	*/
     public void setCategoryName(String newName) {
         newName = newName.trim();
         if (newName.length()!=0) CategoryName = newName;
         else CategoryName=null;
     }
-
+    
+    /* - Pass - Hongming PING - 16:52/1/5
+	Change: /
+    Reason: /
+    Traceability: setCBTest1,2,3
+	 */
     public void setCategoryBudget(BigDecimal newValue) {
         if (newValue.compareTo(new BigDecimal("0.00")) == 1) {
             CategoryBudget = newValue;
