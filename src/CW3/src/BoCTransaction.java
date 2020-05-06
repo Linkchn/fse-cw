@@ -44,6 +44,12 @@ public class BoCTransaction {
 		return transactionTime;
 	}
 	
+	/* 
+	1 – Pass – Leo - 23:37/1/5  
+	Problem: 
+	Reason:
+	Traceability: setNameTest1,2,3,4,5,6
+	*/
 	public void setTransactionName(String tName) throws Exception {
 		if (transactionName == null || transactionName == "[Pending Transaction]") {
 			if (tName == null || tName.replaceAll(" ", "").equals("")) {
@@ -62,6 +68,12 @@ public class BoCTransaction {
 		}
 	}
 
+	/* 
+	1 – Pass – Leo - 00:55/2/5  
+	Problem: 
+	Reason:
+	Traceability: setValueTest1,2,3,4,5,6
+	*/
 	public void setTransactionValue(BigDecimal tValue) throws Exception {
 		if (transactionValue == null) {
 			if (tValue.compareTo(new BigDecimal("0.00")) == 1) {
@@ -78,6 +90,12 @@ public class BoCTransaction {
 		}
 	}
 
+	/* 
+	1 – Pass – Leo - 00:59/2/5  
+	Problem: 
+	Reason:
+	Traceability: setCatTest1,2,3
+	*/
 	public void setTransactionCategory(int tCat) {
 		if (tCat >= 0) {
 			transactionCategory = tCat;
@@ -106,6 +124,12 @@ public class BoCTransaction {
 		}
 	}
 
+	/* 
+	1 – Pass – Leo - 22:37/1/5  
+	Problem: 
+	Reason:
+	Traceability: toStringTest1,2,3
+	*/
 	@Override
 	public String toString() {
 		if ((transactionName != "[Pending Transaction]") && (transactionValue != null)) {
