@@ -11,6 +11,7 @@ import java.io.PrintStream;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
 import java.math.BigDecimal;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -144,11 +145,14 @@ class BoCAppTest {
         assertEquals(ExpectedOutput, outContent.toString());
     }
     static List<Arguments> listTransactionsForCategoryTest(){
-        return List.of(
-                Arguments.arguments(1,"Unknown: 1) Rent - ¥850.00\r\nUnknown: 8) tran1 - ¥1.00\r\n" + "Unknown: 9) tran4 - ¥4.00\r\n" + "Unknown: 10) tran6 - ¥0.00\r\n" + "Unknown: 11) tttttrrrrraaaaannnnn10101 - ¥10.00\r\n"),
-                Arguments.arguments(2,"Bills: 2) Phone Bill - ¥37.99\r"+'\n'+"Bills: 3) Electricity Bill - ¥75.00\r"+'\n'),
-                Arguments.arguments(3,"Groceries: 4) Sainsbury's Checkout - ¥23.76\r"+'\n'+"Groceries: 5) Tesco's Checkout - ¥7.24\r"+'\n'),
-                Arguments.arguments(4,"Social: 6) RockCity Drinks - ¥8.50\r"+'\n'+"Social: 7) The Mooch - ¥13.99\r"+'\n'),
+        long timeStamp = System.currentTimeMillis();
+        SimpleDateFormat sdff=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		String sd = sdff.format(new Date(timeStamp));
+		return List.of(
+                Arguments.arguments(1,"Unknown: 1) Rent - ¥850.00"+"\t\t"+ sd +"\r\nUnknown: 8) tran1 - ¥1.00"+"\t\t"+ sd +"\r\n" + "Unknown: 9) tran4 - ¥4.00"+"\t\t"+ sd+"\r\n" + "Unknown: 10) tran6 - ¥0.00"+"\t\t"+ sd+"\r\n" + "Unknown: 11) tttttrrrrraaaaannnnn10101 - ¥10.00"+"\t\t"+ sd+"\r\n"),
+                Arguments.arguments(2,"Bills: 2) Phone Bill - ¥37.99"+"\t\t"+ sd+"\r"+'\n'+"Bills: 3) Electricity Bill - ¥75.00"+"\t\t"+ sd+"\r"+'\n'),
+                Arguments.arguments(3,"Groceries: 4) Sainsbury's Checkout - ¥23.76"+"\t\t"+ sd+"\r"+'\n'+"Groceries: 5) Tesco's Checkout - ¥7.24"+"\t\t"+ sd+"\r"+'\n'),
+                Arguments.arguments(4,"Social: 6) RockCity Drinks - ¥8.50"+"\t\t"+ sd +"\r"+'\n'+"Social: 7) The Mooch - ¥13.99" +"\t\t"+ sd +"\r"+'\n'),
                 Arguments.arguments(5,"The Category doesn't exit\r"+'\n')
         );
     }
@@ -261,7 +265,7 @@ class BoCAppTest {
 	Reason:/
 	Traceability: ChangeTransactionCategoryTest5，6
 	*/
-	@DisplayName("AddTransactionTest")
+	@DisplayName("ChangeTransactionCategoryTest")
 	@ParameterizedTest
 	@MethodSource
 	void ChangeTransactionCategoryTest(String tID, String newCat, String alert) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
@@ -299,8 +303,10 @@ class BoCAppTest {
 	static List<Arguments> ChangeTransactionCategoryTest() {
         return List.of( // arguments:
                 Arguments.arguments("1", "3", "1"),
-                Arguments.arguments("3", "1", "1"),
+                Arguments.arguments("1", "1", "1"),
                 Arguments.arguments("4", "2", "1"),
+                Arguments.arguments("4", "3", "1"),
+                Arguments.arguments("7", "1", "1"),
                 Arguments.arguments("7", "4", "1"),
                 Arguments.arguments("8", "4", "Please input valid transaction value!"),
                 Arguments.arguments("5", "-1", "Please input valid category!")

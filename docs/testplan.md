@@ -94,83 +94,82 @@ Branches will be made once pair work has begun.
 
 ### III. Timeline & decisions
 
-  - 23/4
+- 23/4
+
+  stage 0: First meeting, discuss about the overall stategy.
+
+- 24/4 issues: 3/8
+
+  Read class description carefully, and finish planned tests tables.
+
+- 25/4 issues: 6/12
+
+  Second meeting, share information from the class description, ask for understanding of git version control, uniform the format of coding and commenting, devide pairs and distribute work.
+
+  Work has been distributed to pairs and issued in gitlab
+
+- 26/4 issues: 4/12
+
+  Start doing tests plans
+- 27/4 issues: 4/12
+
+  Work with plan table
+
+- 28/4 issues: 4/15
   
-    stage 0: First meeting, discuss about the overall stategy.
+  Work with plan table
 
-  - 24/4 issues: 3/8
+  Branches are made by pairs: master for Pair1, daze for Pair2, Pair3 for Pair3
 
-    Read class description carefully, and finish planned tests tables.
+- 29/4 issues: 4/15
 
-  - 25/4 issues: 6/12
+  Work with plan table and tests coding
+
+- 30/4 issues: 5/16
+
+  Work with plan table and tests coding
+
+- 1/5 issues: 6/17
+
+  Second meeting, discuss about current problems and efficiency improvement, talk about further plans.
+
+  Keep working on tests of first two classes
+
+- 2/5 issues: 4/18
   
-    Second meeting, share information from the class description, ask for understanding of git version control, uniform the format of coding and commenting, devide pairs and distribute work.
-
-    Work has been distributed to pairs and issued in gitlab
-
-  - 26/4 issues: 4/12
-
-    Start doing tests plans
-
-  - 27/4 issues: 4/12
-
-    Work with plan table
-
-  - 28/4 issues: 4/15
+  Plans of the rest of the days release by pairs:
   
-    Work with plan table
+  **Plan of Pair 1**
 
-    Branches are made by pairs: master for Pair1, daze for Pair2, Pair3 for Pair3
-
-  - 29/4 issues: 4/15
-
-    Work with plan table and tests coding
-
-  - 30/4 issues: 5/16
-
-    Work with plan table and tests coding
-
-  - 1/5 issues: 6/17
-
-    Second meeting, discuss about current problems and efficiency improvement, talk about further plans.
-
-    Keep working on tests of first two classes
-
-  - 2/5 issues: 4/18
+  | Date | What to do                         |Link          | Yuxiang     | Status   |
+  | ---- | ---------------------------------- |------------- | ----------- | -------- |
+  | 5/2  | Finish Test                        | C 1,2,3,45,6 | T 1,2,3,4,5 | Finished |
+  | 5/3  | Fix Category and Transaction Class | C 1,2,3,45,6 | T 1,2,3,4,5 | Finished |
+  | 5/4  | Set Test for Main Class 4,5        | M 23         | /           | Finished |
+  | 5/5  | Fix Main Class                     | M 23         | /           | Finished |
+  | 5/7  | Final check and Tag               |               |             |          |
+    
+  **Plan of Pair 2**
+    
+  | Date | What to do                         | Daze   | Leo               | Status   |
+  | ---- | ---------------------------------- | ------ | ----------------- | -------- |
+  | 5/2  | Finish Test                        | C 6, 7 | T 7, 8, 9, 10, 12 | Finished |
+  | 5/3  | Fix Category and Transaction Class | C 6, 7 | T 7, 8, 9, 10, 12 | Finished |
+  | 5/4  | Set Test for Main Class 4,5        | M 4    | M 5               |          |
+  | 5/5  | Fix Main Class                     |        |                   |          |
+  | 5/6  | Fix Main Class                     |        |                   |          |
+  | 5/7  | Final check and Tag                |        |                   |          |
   
-    Plans of the rest of the days release by pairs:
-    
-    **Plan of Pair 1**
-
-    | Date | What to do                         | Link          | Yuxiang     | Status   |
-    | ---- | ---------------------------------- | ------------- | ----------- | -------- |
-    | 5/2  | Finish Test                        | C 1,2,3,4,5,6 | T 1,2,3,4,5 | Finished |
-    | 5/3  | Fix Category and Transaction Class | C 1,2,3,4,5,6 | T 1,2,3,4,5 | Finished |
-    | 5/4  | Set Test for Main Class 4,5        | M 2 3         | /           | Finished |
-    | 5/5  | Fix Main Class                     | M 2 3         | /           | Finished |
-    | 5/7  | Final check and Tag                |               |             |          |
-    
-**Plan of Pair 2**
-    
-| Date | What to do                         | Daze   | Leo               | Status   |
-    | ---- | ---------------------------------- | ------ | ----------------- | -------- |
-    | 5/2  | Finish Test                        | C 6, 7 | T 7, 8, 9, 10, 12 | Finished |
-    | 5/3  | Fix Category and Transaction Class | C 6, 7 | T 7, 8, 9, 10, 12 | Finished |
-    | 5/4  | Set Test for Main Class 4,5        | M 4    | M 5               |          |
-    | 5/5  | Fix Main Class                     |        |                   |          |
-    | 5/6  | Fix Main Class                     |        |                   |          |
-    | 5/7  | Final check and Tag                |        |                   |          |
-    
-    **Plan of Pair 3**
-    
-    | Date | What to do                         | Shiliang | Jiawei | Status |
-    | ---- | ---------------------------------- | ---- | ---- | ------ |
-    | 5/2  | Finish Tests of first two classes with fixed code| √ | √ | √ |
-    | 5/3  | Start plan for main 6, 7 and write test code| M 6 | M 7 | × |
-    | 5/4  | Work on main 6, 7                  | M 6 | M 7 |        |
-    | 5/5  | Work on main 6, 7                  |      |      |        |
-    | 5/6  | Work on main 6, 7                  |      |      |        |
-    | 5/7  | Final check and Tag                |      |      |        |
+  **Plan of Pair 3**
+  
+  | Date | What to do                         | Shiliang | Jiawei | Status |
+  | ---- | ---------------------------------- | ---- | ---- | ------ |
+  | 5/2  | Finish Tests of first two classes with fixed code| √ | √ | √ |
+  | 5/3  | Start plan for main 6, 7 and write test code| M 6 | M 7 | × |
+  | 5/4  | Work on main 6, 7                  | M 6 | M 7 |        |
+  | 5/5  | Work on main 6, 7                  |      |      |        |
+  | 5/6  | Work on main 6, 7                  |      |      |        |
+  | 5/7  | Final check and Tag                |      |      |        |
 
     Forth meeting, discussed about further plan and merge problems
 
@@ -238,9 +237,8 @@ Branches will be made once pair work has begun.
      | 5/6  |                                                              | Finish coding, tag, conclude                                 |
      | 5/7  |                                                              |                                                              |
   
-     
-### V. Conclusion
 
+### V. Conclusion
 
 
 ## Test Plan
