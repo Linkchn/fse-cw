@@ -116,7 +116,7 @@ public class BoCTransaction {
 		if ((transactionName != "[Pending Transaction]") && (transactionValue != null)) {
 			transactionTime = new Date();
 			long timeStamp = System.currentTimeMillis(); 
-			SimpleDateFormat sdff=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+			SimpleDateFormat sdff=new SimpleDateFormat("yyyy-MM-dd HH:mm");
 			String sd = sdff.format(new Date(timeStamp));
 			return transactionName + " - ¥" + transactionValue.toString() + "\t\t" + sd;
 		}else {
