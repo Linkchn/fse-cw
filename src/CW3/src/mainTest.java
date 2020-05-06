@@ -85,7 +85,10 @@ class mainTest {
                 /*
                  1. Failed - Hongming - 20:55 6/5
                  Reason: If there is an unknown input, the method Integer.parseInt(s) would lead to
-                 crash and the program throws an exception
+                 	crash and the program throws an exception, but not output the "Command not recognised".
+                 Change: Add a if statement to lead the program to output "Command not recognised", 
+                 	if the input is noit completely constructed by numbers, the statement return false and 
+                 	the program output "Command not recognised".
                  2. Passed - Hongming - 21:25 6/5
                  
                  Traceability:  BoCAppmainTest2
@@ -133,7 +136,7 @@ class mainTest {
                 		"A = [A]dd Transaction\n" + 
                 		"N = [N]ew Category\n" + 
                 		"X = E[x]it\r\n" + 
-                		"Unknown: 1) Rent - ¥850.00"+"\t\t"+sd+"\r\n" + 
+                		"Unknown: 1) "+sd+" Rent - ¥850.00\r\n" + 
                 		"\n" + 
                 		"What do you want to do?\n" + 
                 		"O = [O]verview\n" + 
