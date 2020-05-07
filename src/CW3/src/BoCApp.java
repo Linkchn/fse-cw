@@ -321,39 +321,74 @@ public class BoCApp {
     
      */
 	private static void AddCategory(Scanner in)throws Exception {
-        System.out.println("What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters.");
+        System.out.println("What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters or it will get first 15 charaters.");
         in.nextLine(); // to remove read-in bug
-        String title = in.nextLine();
-        for (int x = 0; x < UserCategories.size(); x++) {
-            BoCCategory temp1 = UserCategories.get(x);
-            if (title.equals(temp1.CategoryName())) {
-                throw new Exception("Wrong title! It should not be the same as the existed name.");
-            }
-        }
-        if (title.replaceAll(" ", "").equals("")) {
-            throw new Exception("Wrong title! It should not be blank.");
-        }
-        else if(title.length()>15) {
-            throw new Exception("Wrong title! It should be at most 15 characters.");
-        }
+        String title = new String();
+        int a = 0;
+        int b = a;
+        do {
+        	 if (a != 0) {
+ 	        	System.out.println("What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters or it will get first 15 charaters.");
+ 	        }
+        	b = a;
+        	title = in.nextLine();
+	        for (int x = 0; x < UserCategories.size(); x++) {
+	            BoCCategory temp1 = UserCategories.get(x);
+	            if (title.equals(temp1.CategoryName())) {
+	                System.out.println("Wrong title! It should not be the same as the existed name.");
+	                a = a + 1;
+	            }
+	        }
+	        if (a != b) {
+	        	continue;
+	        }
+	        if (title.replaceAll(" ", "").equals("")) {
+	        	System.out.println("Wrong title! It should not be blank.");
+	        	a = a + 1;
+	        	continue;
+	        }
+	        if(title.length()>15) {
+	        	title = title.substring(0, 15);
+	        	continue;
+	        }
+	       
+        }while(a != b);
         System.out.println("What is the budget for this category?\r\nNote:It should be a pisitive decimal number with exact two decimal places.");
-        String budget = in.nextLine();
-        if(budget.replaceAll(" ", "").equals("")) {
-            throw new Exception("Wrong budget! It should not be blank.");
-        }
-        else if(budget.matches("[0-9]+.[0-9]{2}") != true ) {
-            throw new Exception("Wrong budget! It should be a positive decimal number with exact two decimal places.");
-        }
-        
-        BigDecimal cbudget = new BigDecimal(budget);
-        if (cbudget.compareTo(BigDecimal.ZERO) != 1) {
-            throw new Exception("Wrong budget! It should be a positive decimal number with exact two decimal places.");
-        }
+        String budget = new String();
+        BigDecimal cbudget = new BigDecimal("0.00");
+        a = 0;
+        b = a;
+        do {
+        	if (a != 0) {
+        		System.out.println("What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters.");
+        	}
+        	b = a;
+	        budget = in.nextLine();
+	        if(budget.replaceAll(" ", "").equals("")) {
+	        	System.out.println("Wrong budget! It should not be blank.");
+	        	a = a + 1;
+	        	continue;
+	        }
+	        if(budget.matches("^[0-9]+\\.[0-9]{2}$") != true ) {
+	        	System.out.println("Wrong budget! It should be a positive decimal number with exact two decimal places.");
+	        	a = a + 1;
+	        	continue;
+	        }
+	        
+	        cbudget = new BigDecimal(budget);
+	        if (cbudget.compareTo(BigDecimal.ZERO) != 1) {
+	        	System.out.println("Wrong budget! It should be a positive decimal number with exact two decimal places.");
+	        	a = a + 1;
+	        	continue;
+	        }
+	        
+        }while(a != b);
         BoCCategory temp = new BoCCategory(title);
         temp.setCategoryBudget(cbudget);
         UserCategories.add(temp);
         System.out.println("[Category added]");
         CategoryOverview();
+    
     }
 
 }
