@@ -20,7 +20,8 @@ public class BoCTransaction {
 		transactionCategory = 0;
 		transactionTime = null;
 	}
-	
+
+	// PASS - Haonan - 23:58/40/3
 	public BoCTransaction(String tName, BigDecimal tValue, int tCat) {
 		transactionName = tName;
 		transactionValue = tValue;
@@ -28,26 +29,30 @@ public class BoCTransaction {
 		transactionTime = new Date();
 	}
 
+	// PASS - Haonan - 23:58/40/3
 	public String transactionName() {
 		return transactionName;
 	}
 
+	// PASS - Haonan - 23:58/40/3
 	public BigDecimal transactionValue() {
 		return transactionValue;
 	}
 
+	// PASS - Haonan - 23:58/40/3
 	public int transactionCategory() {
 		return transactionCategory;
 	}
 
+	// PASS - Haonan - 23:58/40/3
 	public Date transactionTime() {
 		return transactionTime;
 	}
 	
 	/* 
 	1 – Pass – Leo - 23:37/1/5  
-	Problem: 
-	Reason:
+	Change: considered situations that input is blank and only set name when no name exist before
+	Reason: Class description asks to set name only once and considered anomorlies
 	Traceability: setNameTest1,2,3,4,5,6
 	*/
 	public void setTransactionName(String tName) throws Exception {
@@ -70,8 +75,8 @@ public class BoCTransaction {
 
 	/* 
 	1 – Pass – Leo - 00:55/2/5  
-	Problem: 
-	Reason:
+	Change: added a if statement that only allow positive numbers or it will throw an exception
+	Reason: only positive numbers are allowed
 	Traceability: setValueTest1,2,3,4,5,6
 	*/
 	public void setTransactionValue(BigDecimal tValue) throws Exception {
@@ -92,7 +97,7 @@ public class BoCTransaction {
 
 	/* 
 	1 – Pass – Leo - 00:59/2/5  
-	Problem: 
+	Change:
 	Reason:
 	Traceability: setCatTest1,2,3
 	*/
@@ -125,7 +130,7 @@ public class BoCTransaction {
 
 	/* 
 	1 – Pass – Leo - 22:37/1/5  
-	Problem: 
+	Change:
 	Reason:
 	Traceability: toStringTest1,2,3
 	*/

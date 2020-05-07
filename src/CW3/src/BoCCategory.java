@@ -18,20 +18,24 @@ public class BoCCategory {
         CategorySpend = new BigDecimal("0.00");
     }
 
+    // PASS
     public BoCCategory(String newTitle) {
         CategoryName = newTitle;
         CategoryBudget = new BigDecimal("0.00");
         CategorySpend = new BigDecimal("0.00");
     }
 
+    // PASS
     public String CategoryName() {
         return CategoryName;
     }
 
+    // PASS
     public BigDecimal CategoryBudget() {
         return CategoryBudget;
     }
 
+    // PASS
     public BigDecimal CategorySpend() {
         return CategorySpend;
     }
@@ -43,17 +47,17 @@ public class BoCCategory {
 	Traceability: setCNTest234
 	2. - Fail - Hongming Ping - 22:57/2/5
 	Problem: If the newName is set to be "Unknown", the result still returns "newName"
-	while whose newName is empty or sapce
+	while whose newName is empty or sapce or more than 15
 	change: set throw when it is "Unknown"
 	Traceability: setCNTest234
 	3. - Pass - Hongming Ping - 23:27/2/5
-	Problem:\
-	Change:\
+	Problem:/
+	Change:/
 	Traceability: setCNTest234
 	*/
     public void setCategoryName(String newName) throws Exception {
         newName = newName.trim();   
-        if ((newName.length()!=0)&&(!(newName.equals("Unknown")))) CategoryName = newName;
+        if (newName.length() != 0 && newName.length() <= 15 && (!(newName.equals("Unknown")))) CategoryName = newName;
         else {
         	throw new Exception("Set Failed, please set a valid name"); 
         }
@@ -69,7 +73,6 @@ public class BoCCategory {
             CategoryBudget = newValue;
         }
     }
-
 
 
     /*
@@ -136,18 +139,17 @@ public class BoCCategory {
      */
     @Override
     public String toString() {
-        if(CategoryBudget.compareTo(CategorySpend) != -1)
+        // for the situation that has remaining
+        if(CategoryBudget.compareTo(CategorySpend) != -1) {
             return CategoryName + "(¥" + CategoryBudget.toPlainString() + ") - Est. ¥" + CategorySpend.toPlainString()
-                + " (¥" + getRemainingBudget().toPlainString() + " Remaining)";
-        else
-        {
+                    + " (¥" + getRemainingBudget().toPlainString() + " Remaining)";
+        } else {   // for the situation that overspent
             BigDecimal OverSpent = new BigDecimal("0.00");
             OverSpent = getRemainingBudget();
             OverSpent = OverSpent.abs();
             return CategoryName + "(¥" + CategoryBudget.toPlainString() + ") - Est. ¥" + CategorySpend.toPlainString()
             + " (¥" + OverSpent.toPlainString() + " Overspent)";
         }
-        
     }
 
 }
