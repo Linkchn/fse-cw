@@ -8,9 +8,9 @@
 |[Meeting record](#iv-meeting-record)|
 |[Conclusion](#v-conclusion)|
 |[Test Plan](#test-plan)|
-|[Jump to Class: BoCTransaction](#class-BoCTransaction)|
-|[Jump to Class: BoCCategory](#class-BoCCategory)|
-|[Jump to Class: BoCApp](#class-BoCApp)|
+|[Jump to Class: BoCTransaction](#class-bocapp)|
+|[Jump to Class: BoCCategory](#class-boccategory)|
+|[Jump to Class: BoCApp](#class-boctransaction)|
 
 ## Team Management
 
@@ -259,7 +259,7 @@ In the whole test, we have the first meeting in 23/4, we discuss about the overa
 
 ### Class: BoCTransaction
 
-[BoCTransaction](../src/CW3/src/BoCTransaction.java) & [BoCTransactionTest](../src/CW3/src/BoCTransactionTest.java)
+Click to src code: [BoCTransaction](../src/CW3/src/BoCTransaction.java) & [BoCTransactionTest](../src/CW3/src/BoCTransactionTest.java)
 
 #### Function 1: BoCTransaction() - Default Constructor (no parameters)
 
@@ -364,11 +364,11 @@ This method should not be used in this class. So it has been deleted.
 | ! | Pass | ToStringTest2 | transactionValue is null | converting failed, return null | null | / | / | / | 1st/May 22:23 | Leo |
 | ! | Pass | ToStringTest3 |  | converting succeeded | converting succeeded | / | / | / | 1st/May 22:37 | Leo |
 
-
+[Back to top](#test-plan--report)
 
 ### Class: BoCCategory
 
-[BoCCategory](../src/CW3/src/BoCCategory.java) & [BoCCategoryTest](../src/CW3/src/BoCCategoryTest.java)
+Click to src code: [BoCCategory](../src/CW3/src/BoCCategory.java) & [BoCCategoryTest](../src/CW3/src/BoCCategoryTest.java)
 
 #### Function 1: BoCCategory() - Default Constructor (no parameters)
 
@@ -471,7 +471,11 @@ This method should not be used in this class. So it has been deleted.
 | !!! | PASS | teStringTest 3| cat2, toStringResult1 | toStringResult1 == cat.toString() | toStringResult1 == cat.toString() | / | use Parameterized Test | / | 21:20 2/5 |Jiawei Shiliang|
 | !!! | PASS | teStringTest 4| cat3, toStringResult2 | toStringResult1 == cat.toString() | toStringResult1 == cat.toString() | / | use Parameterized Test | / | 21:20 2/5 |Jiawei Shiliang|
 
+[Back to top](#test-plan--report)
+
 ### Class: BoCApp
+
+Click to src code: [BoCApp](../src/CW3/src/BoCCategory.java) & [BoCApp](../src/CW3/src/BoCCategoryTest.java)
 
 #### Function 1: BoCAppMain - Main Method
 
@@ -580,3 +584,4 @@ This method should not be used in this class. So it has been deleted.
 | !!! | PASS | AddCategoryTest21 | "cat10Name\n", "   \n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a positive decimal number with exact two decimal places.\r\n", Alert "Wrong budget! It should not be blank." | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a positive decimal number with exact two decimal places.\r\n", Alert "Wrong budget! It should not be blank." |/|modify prompt,  add exceptions and alert|/|15:01 6/5|Jiawei|
 | !!! | PASS | AddCategoryTest22 | "cat11Name\n", "0.00\n" | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a positive decimal number with exact two decimal places.\r\n" Alert"Wrong budget! It should be a positive decimal number with exact two decimal places." | "What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters\r\n","What is the budget for this category?\r\nNote:It should be a positive decimal number with exact two decimal places.\r\n" Alert"Wrong budget! It should be a positive decimal number with exact two decimal places." |/|modify prompt,  add exceptions and alert|/|15:01 6/5|Jiawei|
 
+[Back to top](#test-plan--report)
