@@ -518,12 +518,20 @@ Click to src code: [BoCApp](../src/CW3/src/BoCCategory.java) & [BoCApp](../src/C
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
 |----------|------|----|------|----------------|------------|-------|------|------|----|------|
-| !! | Pass | ChangeTransactionCategoryTest1 | "1","3" | Rent to Groceries | Rent to Groceries | / | / | / | 6th/May 00:17 | Leo |
-| !! | Pass | ChangeTransactionCategoryTest2 | "3","1" | Electricity Bill to Unknown | Electricity Bill to Unknown | / | / | / | 6th/May 00:17 | Leo |
-| !! | Pass | ChangeTransactionCategoryTest3 | "4","2" | Sainsbury's Checkout to Bills | Sainsbury's Checkout to Bills | / | / | / | 6th/May 00:17 | Leo |
-| !! | Pass | ChangeTransactionCategoryTest4 | "7","4" | The Mooch to Social | The Mooch to Social | / | / | / | 6th/May 00:18 | Leo |
-| !!! | Pass | ChangeTransactionCategoryTest5 | "8","4" | "Please input valid transaction value!" | "Please input valid transaction value!" | / | / | / | 6th/May 00:46 | Leo |
-| !!! | Pass | ChangeTransactionCategoryTest6 | "5","-1" | "Please input valid category!" | "Please input valid category!" | / | / | / | 6th/May 00:48 | Leo |
+| !! | Pass | ChangeTransactionCategoryTest1 | "1","3" | Rent to Groceries | Rent to Groceries | / | / | / | 00:17/6/5 | Leo |
+| !! | Pass | ChangeTransactionCategoryTest2 | "1","1" | Rent to Unknown | Rent to Unknown | / | / | / | 00:17/6/5 | Leo |
+| !! | Pass | ChangeTransactionCategoryTest3 | "4","2" | Sainsbury's Checkout to Bills | Sainsbury's Checkout to Bills | / | / | / | 00:17/6/5 | Leo |
+| !! | Pass | ChangeTransactionCategoryTest4 | "4","3" | Sainsbury's Checkout to Groceries | Sainsbury's Checkout to Groceries | / | / | / | 00:17/6/5 | Leo |
+| !! | Pass | ChangeTransactionCategoryTest5 | "7","1" | The Mooch to Unknown | The Mooch to Unknown | / | / | / | 00:17/6/5 | Leo |
+| !! | Pass | ChangeTransactionCategoryTest6 | "7","4" | The Mooch to Social | The Mooch to Social | / | / | / | 00:18/6/5 | Leo |
+| !!! | Pass | ChangeTransactionCategoryTest7 | "100", "1", "3", "1" | Rent to Groceries | Rent to Groceries | / | / | / | 11:38/6/5 | Leo |
+| !!! | Pass | ChangeTransactionCategoryTest8 | " ", "1", "1", "1" | Rent to Unknown | Rent to Unknown | / | / | / | 11:38/6/5 | Leo |
+| !!! | Pass | ChangeTransactionCategoryTest9 | "-5", "7", "2", "1" | The Mooch to Bills | The Mooch to Bills | / | / | / | 11:38/6/5 | Leo |
+| !!! | Pass | ChangeTransactionCategoryTest10 | "", "7", "4", "1" | The Mooch to Social | The Mooch to Social | / | / | / | 11:38/6/5 | Leo |
+| !!! | Pass | ChangeTransactionCategoryTest11 | "1", "100", "3", "1" | Rent to Groceries | Rent to Groceries |  |  |  |  |  |
+| !!! | Pass | ChangeTransactionCategoryTest12 | "1", " ", "1", "1" | Rent to Unknown | Rent to Unknown |  |  |  |  |  |
+| !!! | Pass | ChangeTransactionCategoryTest13 | "7", "-5", "2", "1" | The Mooch to Bills | The Mooch to Bills |  |  |  |  |  |
+| !!! | Pass | ChangeTransactionCategoryTest14 | "7", "", "4", "1" | The Mooch to Social | The Mooch to Social |  |  |  |  |  |
 
 #### Function 6: addTransaction(Scanner in) - Add Transaction function
 
