@@ -487,24 +487,26 @@ class BoCTransactionTest {
 	@DisplayName("setValueTestD")
 	@ParameterizedTest
 	@MethodSource
-	void setValueTestD(BigDecimal testInputBudget1,BigDecimal testInputBudget2, BigDecimal testExceptOutputBudget) throws Exception {
-		testInputBudget1 = new BigDecimal("-123.12");
-		testInputBudget2 = new BigDecimal("123.13");
-		testExceptOutputBudget = new BigDecimal("123.13");
+	void setValueTestD(BigDecimal testInputBudget1,BigDecimal testInputBudget2, BigDecimal testExceptOutputBudget, int alert) throws Exception {
 		try {
 			BoCTransaction copy = new BoCTransaction();
 			copy.setTransactionValue(testInputBudget1);
+			testOutputBudget = copy.transactionValue();
 			copy.setTransactionValue(testInputBudget2);
 			testOutputBudget = copy.transactionValue();
 		}catch(Exception e) {
-			fail ("Someting wrong with catch");
+			if (alert == 1 ) {
+				assertEquals("Set failed. It should be greater than 0!", e.getMessage());
+			}else if (alert == 2) {
+				assertEquals("Set failed. This transaction value has already been set.", e.getMessage());
+			}
 		}
 		assertEquals(testExceptOutputBudget, testOutputBudget);
 	}
 	static List<Arguments> setValueTestD(){
 		return List.of(
-				Arguments.arguments(new BigDecimal("-123.12"), new BigDecimal("123.13"), new BigDecimal("123.13")),
-				Arguments.arguments(new BigDecimal("123.12"), new BigDecimal("123.14"), new BigDecimal("123.13"))
+				Arguments.arguments(new BigDecimal("-123.12"), new BigDecimal("123.13"), null, 1),
+				Arguments.arguments(new BigDecimal("123.12"), new BigDecimal("123.14"), new BigDecimal("123.12"), 2)
 		);
 	}
 	
