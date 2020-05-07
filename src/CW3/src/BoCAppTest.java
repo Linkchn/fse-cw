@@ -322,10 +322,10 @@ class BoCAppTest {
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
         long timeStamp = System.currentTimeMillis(); 
-		SimpleDateFormat sdff=new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+		SimpleDateFormat sdff=new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		String sd = sdff.format(new Date(timeStamp));
         BoCApp.main(new String[]{""});
-        assertEquals(b + sd + "\r\n" + c, outContent.toString());
+        assertEquals(b + sd + c, outContent.toString());
     }
     static List<Arguments> mainTest5() {
         return List.of( // arguments:
@@ -335,9 +335,10 @@ class BoCAppTest {
                 		"4) Social(¥100.00) - Est. ¥22.49 (¥77.51 Remaining)\r\n" + 
                 		"\n" + 
                 		"What do you want to do?\n" + 
-                		" T = List All [T]ransactions, [num] = Show Category [num], A = [A]dd Transaction, X = E[x]it\r\n" +
+                		"O = [O]verview\nT = List All [T]ransactions\n[num] = Show Category [num]\nC = [C]hange Transaction Category\nA = [A]dd Transaction\nN = [N]ew Category\nX = E[x]it\r\n" +
                 		"Which transaction ID?\r\n" + 
-                		"	- Rent - ¥850.00		", 
+                		"	- ", 
+                		" Rent - ¥850.00\r\n" + 
                 		"Which category will it move to?\r\n" + 
                 		"1) Unknown(¥0.00) - Est. ¥850.00 (¥850.00 Overspent)\r\n" + 
                 		"2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)\r\n" + 
@@ -348,7 +349,7 @@ class BoCAppTest {
                 		"Origin category: 1) Unknown(¥0.00) - Est. ¥0.00 (¥0.00 Remaining)\r\n" + 
                 		"\n" + 
                 		"What do you want to do?\n" + 
-                		" O = [O]verview, T = List All [T]ransactions, [num] = Show Category [num], C = [C]hange Transaction Category, A = [A]dd Transaction, N = [N]ew Category, X = E[x]it\r\n" + 
+                		"O = [O]verview\nT = List All [T]ransactions\n[num] = Show Category [num]\nC = [C]hange Transaction Category\nA = [A]dd Transaction\nN = [N]ew Category\nX = E[x]it\r\n" + 
                 		"Goodbye!\r\n")
         );
     }
