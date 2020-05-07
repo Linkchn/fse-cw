@@ -101,7 +101,7 @@ public class BoCTransaction {
 	Traceability: setCatTest1,2,3
 	*/
 	public void setTransactionCategory(int tCat) {
-		if (tCat > 0) {
+		if (tCat >= 0) {
 			transactionCategory = tCat;
 		}
 	}

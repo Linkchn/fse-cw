@@ -50,14 +50,25 @@ public class BoCCategory {
 	while whose newName is empty or sapce or more than 15
 	change: set throw when it is "Unknown"
 	Traceability: setCNTest234
-	3. - Pass - Hongming Ping - 23:27/2/5
-	Problem:/
+	3. - Fail - Hongming PING - 11:10 7/5
+	Problem: If newName contains more than 15 letters, ite length would be remained.
+	Change: add a condition in if statement, which checks the length of newName
+			Keep its former 15 letters
+	Traceability: setCNTest5
+	4. - Pass - Hongming Ping - 11:13 7/5
 	Change:/
-	Traceability: setCNTest234
+	Problem:/
+	Traceability: setCNTest2345
 	*/
     public void setCategoryName(String newName) throws Exception {
         newName = newName.trim();   
         if (newName.length() != 0 && newName.length() <= 15 && (!(newName.equals("Unknown")))) CategoryName = newName;
+        else if (newName.length()>15) 
+        {
+			int start = 0;
+			int finish = 15;
+			CategoryName = newName.substring(start, finish);			
+        }
         else {
         	throw new Exception("Set Failed, please set a valid name"); 
         }
