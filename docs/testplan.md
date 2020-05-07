@@ -153,10 +153,10 @@ Branches will be made once pair work has begun.
   | ---- | ---------------------------------- | ------------ | ----------------- | -------- |
   | 5/2  | Finish Test                        | C 6, 7       | T 7, 8, 9, 10, 12 | Finished |
   | 5/3  | Fix Category and Transaction Class | C 6, 7       | T 7, 8, 9, 10, 12 | Finished |
-  | 5/4  | Set Test for Main Class 4,5        | M 4 Finished | M 5 Unfinshed     |          |
-  | 5/5  | Fix Main Class                     | M 4 Finished | M 5 Test Finished |          |
-  | 5/6  | Fix Main Class                     | Main         | M 5               |          |
-  | 5/7  | Final check and Tag                |              |                   |          |
+  | 5/4  | Set Test for Main Class 4,5        | M 4 Finished | M 5 Unfinshed     | Finished |
+  | 5/5  | Fix Main Class                     | M 4 Finished | M 5 Test Finished | Finished |
+  | 5/6  | Fix Main Class                     | Main         | M 5               | Finished |
+  | 5/7  | Final check and Tag                |              |                   | Finished |
 
   **Plan of Pair 3**
 
@@ -256,6 +256,8 @@ Branches will be made once pair work has begun.
 In the whole test, we had the first meeting in 23/4, we discussed about the overall stategy. Task of whole report had been assigned to everyone and each of us wrote down the test plan of our task. Firstly we needed to test BoCCategory and BoCTransaction. We found that constructor time is not same as the expected value. Therefore, a new method called getSecondTimestamp was created to get the timestamp until seconds to basically avoid deviation of timing. The next trouble was that when we firstly used default strategy constructor method, it creates a strategy named “NewStrategy”. However, when we used it again, the second strategy had the same name as the first one, which was illegal to description. So we used a public static integer to record the number of default strategies. According to the category class description, there should be two possibilities that budget was greater than spend or less than spend, while the original code only consider the first situation. So it is necessary to add an if condition to include both possibilities. We also frequently used parameterize test to keep test code tidy. In the app class, we realized that the original code cannot deal with illegal input, which didn't match with class description. Therefore, we needed to throw some exceptions through the whole class. Moreover, in the main method, users will automatically catch exception and then input again. But the requirement indicates that users only input again without catching exception. Therefore, if statement should modify to a condition that it will not throw a exception. Finally we added comment to each function to shows the changes and reason. Here is the end of the report.
 
 ## Test Plan
+
+Click to src code: [BoCApp Project](../src/CW3/src/)
 
 ### Class: BoCTransaction
 
