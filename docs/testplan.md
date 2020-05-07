@@ -415,9 +415,10 @@ Click to src code: [BoCCategory](../src/CW3/src/BoCCategory.java) & [BoCCategory
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Time|Author|
 |----------|------|----|------|----------------|------------|------------|------------|------------|------------|
 | ! | PASS | setCNTest1 | "YTB" | "YTB" | "YTB" | / | / | 23:38/30/4 | Daze Ping |
-| ! | FAIL | setCNTest2 | blank space: " " | throw exception, "Set Failed, please set a valid name | throw exception, "Set Failed, please set a valid name | If newName is sapce only or empty, the result still returns the value of<br/>	newName. | set throw when it is empty | 23:27/2/5 | Daze Ping |
-| ! | FAIL | setCNTest3 | empty string: "" | throw exception, "Set Failed, please set a valid name | throw exception, "Set Failed, please set a valid name | If newName is sapce only or empty, the result still returns the value of<br/>	newName. | set throw when it is empty | 23:27/2/5 | Daze Ping |
-|  |  | setCNTest4 | "Unknown" | throw exception, "Set Failed, please set a valid name | throw exception, "Set Failed, please set a valid name | If newName is sapce only or empty, the result still returns the value of<br/>	newName. | set throw when it is "Unknown" | 23:27/2/5 | Daze Ping |
+| ! | PASS | setCNTest2 | blank space: " " | throw exception, "Set Failed, please set a valid name | throw exception, "Set Failed, please set a valid name | If newName is sapce only or empty, the result still returns the value of<br/>	newName. | set throw when it is empty | 23:27/2/5 | Daze Ping |
+| ! | PASS | setCNTest3 | empty string: "" | throw exception, "Set Failed, please set a valid name | throw exception, "Set Failed, please set a valid name | If newName is sapce only or empty, the result still returns the value of<br/>	newName. | set throw when it is empty | 23:27/2/5 | Daze Ping |
+| ! | PASS | setCNTest4 | "Unknown" | throw exception, "Set Failed, please set a valid name | throw exception, "Set Failed, please set a valid name | If newName is sapce only or empty, the result still returns the value of<br/>	newName. | set throw when it is "Unknown" | 23:27/2/5 | Daze Ping |
+| ! | PASS | setCNTest5 | "qazxswedcvfrtgbnhy" | "qazxswedcvfrtgb" | "qazxswedcvfrtgb" | If newName contains more than 15 letters, ite length would be remained. | add a condition in if statement, which checks the length of newName<br/>			Keep its former 15 letters | 11:13 7/5 | Daze Ping |
 
 #### Function 7: setCategoryBudget(BigDecimal cBudget) - Set Category Budget
 
