@@ -181,7 +181,7 @@ class BoCAppTest {
                 Reason: /
                 Traceability: mainTest7
                  */
-                Arguments.arguments("A\nTestTitle\n6.23\nX\n",
+                Arguments.arguments("A\nTestTitle\n1\n6.23\nX\n",
                         "1) Unknown(¥0.00) - Est. ¥850.00 (¥850.00 Overspent)\r\n" +
                                 "2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)\r\n" +
                                 "3) Groceries(¥75.00) - Est. ¥31.00 (¥44.00 Remaining)\r\n" +
