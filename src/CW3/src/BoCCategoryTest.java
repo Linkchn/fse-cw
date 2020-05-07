@@ -48,10 +48,10 @@ class BoCCategoryTest {
 		transport = new BoCCategory("transport");
 		newCategory = new BoCCategory();
 		// Set data for tests
-		cat2.setCategoryName("testToStringName");
+		cat2.setCategoryName("testToStringNa");
 		cat2.setCategoryBudget(new BigDecimal ("5.00"));
 		cat2.addExpense(new BigDecimal ("6.00"));
-		cat3.setCategoryName("testToStringName");
+		cat3.setCategoryName("testToStringNa");
 		cat3.setCategoryBudget(new BigDecimal ("7.00"));
 		cat3.addExpense(new BigDecimal ("6.00"));
 		
@@ -61,8 +61,8 @@ class BoCCategoryTest {
 		sum1 = new BigDecimal("0.00");
 
 		// Define expected result
-		toStringResult1 = new String ( "testToStringName(¥5.00) - Est. ¥6.00 (¥1.00 Overspent)");
-		toStringResult2 = new String ( "testToStringName(¥7.00) - Est. ¥6.00 (¥1.00 Remaining)");
+		toStringResult1 = new String ( "testToStringNa(¥5.00) - Est. ¥6.00 (¥1.00 Overspent)");
+		toStringResult2 = new String ( "testToStringNa(¥7.00) - Est. ¥6.00 (¥1.00 Remaining)");
 
 		bd1 = new BigDecimal("100");
 		sum1 = new BigDecimal("0.00");
@@ -73,7 +73,7 @@ class BoCCategoryTest {
     1 -Fail- Yuxiang Zhang, Haonan CEHN- 17:30/01/05       
     Problem: The categoryName is not same as the expected outcome.
 	Reason:
-	Traceability:
+	Traceability:Default Constructors Test
 	*/
 	@Test 			//Test of the default constructor by Yuxiang Zhang
 	void DefaultConstructortest1() throws Exception {
@@ -105,8 +105,8 @@ class BoCCategoryTest {
 		
 	/* 
 	2 -Pass- Yuxiang Zhang - 21:40/01/05  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason:/
 	Traceability:Main Constructors Test 3
 	*/
 	@Test 
@@ -124,8 +124,8 @@ class BoCCategoryTest {
 		
 	/* 
 	3 -Pass- Yuxiang Zhang - 21:40/01/05  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason:/
 	Traceability:Main Constructors Test 4
 	*/
 	@Test 
@@ -144,18 +144,18 @@ class BoCCategoryTest {
 
 	/* CATEGORY NAME TEST*******************************************************************
 	1 – Pass – Yuxiang Zhang - 21:30/02/05  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason:/
 	Traceability:CategoryName Test 1
 	
 	2 – Pass – Yuxiang Zhang - 22:45/02/05  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason:/
 	Traceability:CategoryName Test 2
 	
 	3 – Pass – Yuxiang Zhang - 00:18/02/05  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason:/
 	Traceability:CategoryName Test 3
 	*/
 	@ParameterizedTest
@@ -174,18 +174,18 @@ class BoCCategoryTest {
 
 	/* CATEGORY BUDGET TEST*******************************************************************
 	1 – Pass – Yuxiang Zhang - 14:29/03/05  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason:/
 	Traceability:CategoryBudget Test 1
 
 	2 – Pass – Yuxiang Zhang - 14:51/03/05  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason:/
 	Traceability:CategoryBudget Test 2
 
 	3 – Pass – Yuxiang Zhang - 15:32/03/05  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason:/
 	Traceability:CategoryBudget Test 3
 	*/
 	@ParameterizedTest
@@ -203,17 +203,17 @@ class BoCCategoryTest {
 
 	/* CATEGORY  SPEND TEST*******************************************************************
 	1 – Pass – Yuxiang Zhang - 17:14/03/05  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason:/
 	Traceability:CategorySpend Test 1
 	2 – Pass – Yuxiang Zhang - 17:49/03/05  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason:/
 	Traceability:CategorySpend Test 2
 
 	3 – Pass – Yuxiang Zhang - 19:47/03/05
-	Problem: 
-	Reason:
+	Problem: /
+	Reason:/
 	Traceability:CategorySpend Test 3
 	*/
 	@ParameterizedTest

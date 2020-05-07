@@ -112,6 +112,9 @@ class BoCAppTest {
         outContent.reset();
     }
 
+    // main test aims to test the functionality of while loop and the if statement
+    // it is tested via comparing the expected output to the actual output which in the out put stream
+    // if they are same, then every expected function is called successfully and loop, if work well
     @Order(5)
     @DisplayName("mainTest")
     @ParameterizedTest
@@ -120,7 +123,9 @@ class BoCAppTest {
         String input = a;
         InputStream in = new ByteArrayInputStream(input.getBytes());
         System.setIn(in);
+        // call main for test
         BoCApp.main(new String[]{""});
+        // compare output to show if they are successfully called and whether the loop is correct
         assertEquals(b, outContent.toString());
     }
     static List<Arguments> mainTest() {
