@@ -179,7 +179,7 @@ public class BoCApp {
 			throw new Exception("Wrong name. It should not be blank!");
 		}
 		else if (title.length() > 25){
-			throw new Exception("Wrong name. It should not be more than 25 characters!");
+			title = title.substring(0, 25);
 		}
 
 		System.out.println("What is the value of the transaction?\r\nNOTE: It should be greater than 0 with two decimal places e.g. 10.00.");
@@ -295,7 +295,7 @@ public class BoCApp {
             throw new Exception("Wrong title! It should not be blank.");
         }
         else if(title.length()>15) {
-            throw new Exception("Wrong title! It should be at most 15 characters.");
+            title = title.substring(0, 15);
         }
         System.out.println("What is the budget for this category?\r\nNote:It should be a pisitive decimal number with exact two decimal places.");
         String budget = in.nextLine();
