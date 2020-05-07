@@ -171,41 +171,77 @@ public class BoCApp {
 	Traceability: addTransactionTest 4''
 	 */
 	private static void AddTransaction(Scanner in) throws Exception {
-		System.out.println("What is the title of the transaction?\r\nNOTE: It should not be blank and less than 25 characters.");
-		in.nextLine(); // to remove read-in bug
-		String title = in.nextLine();
+        in.nextLine(); // to remove read-in bug
+        String title;
+        String value;
+        String cat;
+        int flag1 = 0;
+        BoCTransaction temp = new BoCTransaction();
+        while (flag1 == 0) {
+            System.out.println("What is the title of the transaction?\r\nNOTE: It should not be blank and less than 25 characters.");
+            title = in.nextLine();
 
-		if (title.replaceAll(" ", "").equals("")) {
-			throw new Exception("Wrong name. It should not be blank!");
-		}
-		else if (title.length() > 25){
-			throw new Exception("Wrong name. It should not be more than 25 characters!");
-		}
+            if (title.replaceAll(" ", "").equals("")) {
+                System.out.println("Wrong name. It should not be blank!");
+                continue;
+            }
+            else if (title.length() > 25){
+                System.out.println("Wrong name. It should not be more than 25 characters!");
+                continue;
+            }
+            try {
+                temp.setTransactionName(title);
+            } catch (Exception e) {
+                System.out.println("Wrong name. It should not be blank!");
+                continue;
+            }
+            
+            flag1 = 1;
 
-		System.out.println("What is the value of the transaction?\r\nNOTE: It should be greater than 0 with two decimal places e.g. 10.00.");
-		String value = in.nextLine();
-		if (value.replaceAll(" ", "").equals("")) {
-			throw new Exception("Wrong value. It should not be blank!");
-		} else if (value.matches("[0-9]+.[0-9]{2}") != true) {
-			throw new Exception("Wrong value. It should be a positive number with two decimal places e.g. 10.00.");
-		}
-		BigDecimal tvalue = new BigDecimal(value);
+        }
 
-		System.out.println("What is the category of the transaction?\r\nNote: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.");
-		String cat = new String(in.nextLine());
-		int range = UserCategories.size();
-		if (cat.equals("")) {
-			cat = cat.concat("1");
-		} else if (cat.matches("[0-9]*") != true) {
-			throw new Exception("Wrong category. It should be an integer between 1 - " + range);
-		} else if (Integer.parseInt(cat) < 1){
-			throw new Exception("Wrong category. It should be an integer between 1 - " + range);
-		} else if (Integer.parseInt(cat) > UserCategories.size()) {
-			throw new Exception("Wrong category. It should be an integer between 1 - " + range);
-		}
-		int tcat = Integer.parseInt(cat) - 1;
+        BigDecimal tvalue;
+		while (flag1 == 1) {
+            System.out.println("What is the value of the transaction?\r\nNOTE: It should be greater than 0 with two decimal places e.g. 10.00.");
+            value = in.nextLine();
+            if (value.replaceAll(" ", "").equals("")) {
+                System.out.println("Wrong value. It should not be blank!");
+                continue;
+            } else if (value.matches("[0-9]+.[0-9]{2}") != true) {
+                System.out.println("Wrong value. It should be a positive number with two decimal places e.g. 10.00.");
+                continue;
+            }
+            tvalue = new BigDecimal(value);
+            try {
+                temp.setTransactionValue(tvalue);
+            } catch (Exception e) {
+                System.out.println("Set failed. This transaction value has already been set.");
+                continue;
+            }
+            flag1 = 2;
+        }
 
-		UserTransactions.add(new BoCTransaction(title, tvalue, tcat));
+		while (flag1 == 2) {
+            System.out.println("What is the category of the transaction?\r\nNote: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.");
+            cat = in.nextLine();
+            int range = UserCategories.size();
+            if (cat.equals("")) {
+                cat = cat.concat("1");
+            } else if (cat.matches("[0-9]*") != true) {
+                System.out.println("Wrong category. It should be an integer between 1 - " + range);
+                continue;
+            } else if (Integer.parseInt(cat) < 1){
+                System.out.println("Wrong category. It should be an integer between 1 - " + range);
+                continue;
+            } else if (Integer.parseInt(cat) > UserCategories.size()) {
+                cat = cat.substring(0, 25);
+            }
+            int tcat = Integer.parseInt(cat) - 1;
+            temp.setTransactionCategory(tcat);
+            flag1 = 3;
+        }
+
+		UserTransactions.add(temp);
 
 		System.out.println(title + "(¥" + tvalue + ")" + " was added to " + UserCategories.get(tcat).CategoryName());
 	}
@@ -318,3 +354,5 @@ public class BoCApp {
     }
 
 }
+
+
