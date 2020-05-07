@@ -58,11 +58,14 @@ class BoCTransactionTest {
 		string2 = "trip";
 		integer1 = 1;
 		integer2 = 2;
+
 		bignum1 = new BigDecimal("10000");
 		bignum3 = new BigDecimal("20000.15");
 		bignum4 = new BigDecimal("20000.151");
+
 		food = new BoCTransaction(string1,bignum1,integer2);
 		trip = new BoCTransaction(string2,bignum3,integer1);
+
 		empty = new BoCTransaction();
 		
 		tran1 = new BoCTransaction();
@@ -76,8 +79,8 @@ class BoCTransactionTest {
     }
 	
 	/*
-	 * method of get the timestamp until seconds
-	 * author:Haonan CHEN
+	 * help method: method of get the timestamp until seconds
+	 * author: Haonan CHEN
 	 */
 	public static int getSecondTimestamp(Date date){  
 	    if (null == date) {  
@@ -92,16 +95,13 @@ class BoCTransactionTest {
 	    }  
 	}  
 
-	@Disabled
-	void test() {
-		fail("Not yet implemented");
-	}
+
 
 	/* DEFAULT CONSTRUCTOR TEST******************************************************************
 	1 - Fail - Haonan CHEN - 23:38/30/4  
 	Problem: The transactionName is not same as the expected outcome.
-	Reason:
-	Traceability:
+	Reason: /
+	Traceability: Default_Constructor_test1
 	*/
 	@Test 			//Test of the default constructor by Haonan CHEN
 	void Default_Constructor_test1() throws Exception {
@@ -114,9 +114,9 @@ class BoCTransactionTest {
 	
 	/* MAIN CONSTRUCTOR TEST**********************************************************************
 	1 - Pass - Haonan CHEN - 00:09/01/05  
-	Problem: 
-	Reason:
-	Traceability:
+	Problem: /
+	Reason:/
+	Traceability: Main_Constructor_test1
 	*/
 	@Test 			
 	//Test of the default constructor by Haonan CHEN
@@ -201,18 +201,18 @@ class BoCTransactionTest {
 	
 	/* TRANSACTION NAME TEST*******************************************************************
 	1 - Pass - Haonan CHEN - 18:51/01/05  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason: /
 	Traceability:transactionName Test 1
 	
 	2 - Pass - Haonan CHEN - 19:03/01/05  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason: /
 	Traceability:transactionName Test 2
 	
 	3 - Pass - Haonan CHEN - 19:04/01/05  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason: /
 	Traceability:transactionName Test 3
 	*/
 	@ParameterizedTest
@@ -231,18 +231,18 @@ class BoCTransactionTest {
 	
 	/* TRANSACTION VALUE TEST*******************************************************************
 	1 - Pass - Haonan CHEN - 19:07/01/05  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason: /
 	Traceability:transactionValue Test 1
 	
 	2 - Pass - Haonan CHEN - 19:12/01/05  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason: /
 	Traceability:transactionValue Test 2
 	
 	3 - Pass - Haonan CHEN - 19:16/01/05  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason: /
 	Traceability:transactionValue Test 3
 	*/
 	@ParameterizedTest
@@ -260,18 +260,18 @@ class BoCTransactionTest {
 	
 	/* TRANSACTION CATEGORY TEST*******************************************************************
 	1 - Pass - Haonan CHEN - 19:20/01/05  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason: /
 	Traceability:transactionCategory Test 1
 	
 	2 - Pass - Haonan CHEN - 19:30/01/05  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason: /
 	Traceability:transactionCategory Test 2
 	
 	3 - Pass - Haonan CHEN - 19:42/01/05  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason: /
 	Traceability:transactionCategory Test 3
 	*/
 	@ParameterizedTest
@@ -290,18 +290,18 @@ class BoCTransactionTest {
 	
 	/* TRANSACTION TIME TEST*******************************************************************
 	1 - Pass - Haonan CHEN - 19:45/01/05  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason: /
 	Traceability:transactionTime Test 1
 	
 	2 - Pass - Haonan CHEN - 19:51/01/05  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason: /
 	Traceability:transactionTime Test 2
 	
 	3 - Pass - Haonan CHEN - 20:03/01/05  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason: /
 	Traceability:transactionTime Test 3
 	*/
 	@ParameterizedTest
@@ -327,13 +327,12 @@ class BoCTransactionTest {
     Problem: /
     Reason: /
     Traceability: isCompleteTest 2
-
      */
     @DisplayName("isCompleteTest")
     @ParameterizedTest
     @MethodSource
     void isCompleteTest(BoCTransaction tran) {
-    assertEquals((tran.transactionName()) != null && (tran.transactionValue() != null), tran.isComplete());
+    assertEquals((tran.transactionName()) != null && (tran.transactionValue() != null && !tran.transactionName().equals("[Pending Transaction]") ), tran.isComplete());
     }
 
     static List<Arguments> isCompleteTest() {
@@ -347,18 +346,18 @@ class BoCTransactionTest {
     
     /* 
 	1 - Pass - Leo - 14:25/1/5  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason:/
 	Traceability: setNameTest1
 	
 	2 – Pass – Leo - 14:42/1/5  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason:/
 	Traceability: setNameTest2
 	
 	3 – Pass – Leo - 15:27/1/5  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason:/
 	Traceability: setNameTest3
 	*/
     @DisplayName("setNameTest")
@@ -388,18 +387,18 @@ class BoCTransactionTest {
 
 	/* 
 	4 – Pass – Leo - 23:21/1/5  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason:/
 	Traceability: setNameTest4
 	
 	5 – Pass – Leo - 23:26/1/5  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason:/
 	Traceability: setNameTest5
 	
-	6 – Pass – Leo - 23:37/1/5  
-	Problem: 
-	Reason:
+	6 – Pass – Leo - 23:37/1/5
+	Problem: /
+	Reason:/
 	Traceability: setNameTest6
 	*/
 	@DisplayName("setNameTestD")
@@ -431,23 +430,23 @@ class BoCTransactionTest {
 
 	/* 
 	7 – Pass – Leo - 15:50/1/5  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason:/
 	Traceability: setValueTest1
 	
 	8 – Pass – Leo - 16:55/1/5  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason:/
 	Traceability: setValueTest2
 	
 	9 – Pass – Leo - 17:19/1/5  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason:/
 	Traceability: setValueTest3
 	
 	10 – Pass – Leo - 18:28/1/5  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason:/
 	Traceability: setValueTest4
 	*/
 	@DisplayName("setValueTest")
@@ -476,13 +475,13 @@ class BoCTransactionTest {
 
 	/* 
 	11 – Pass – Leo - 23:48/1/5  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason:/
 	Traceability: setValueTest5
 	
 	12 – Pass – Leo - 00:55/2/5  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason:/
 	Traceability: setValueTest6
 	*/
 	@DisplayName("setValueTestD")
@@ -511,13 +510,13 @@ class BoCTransactionTest {
 	
 	/* 
 	13 – Pass – Leo - 19:03/1/5  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason:/
 	Traceability: setCatTest1
 	
 	14 – Pass – Leo - 19:05/1/5  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason:/
 	Traceability: setCatTest2
 	*/
 	@DisplayName("setCatTest")
@@ -542,8 +541,8 @@ class BoCTransactionTest {
 
 	/* 
 	15 – Pass – Leo - 00:59/2/5  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason:/
 	Traceability: setCatTest3
 	*/
 	@Test
@@ -565,8 +564,8 @@ class BoCTransactionTest {
 	
 	/* 
 	16 – Pass – Leo - 22:21/1/5  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason:/
 	Traceability: toStringTest1
 	*/
 	@Test
@@ -586,8 +585,8 @@ class BoCTransactionTest {
 
 	/* 
 	17 – Pass – Leo - 22:23/1/5  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason:/
 	Traceability: toStringTest2
 	*/
 	@Test
@@ -607,8 +606,8 @@ class BoCTransactionTest {
 
 	/* 
 	18 – Pass – Leo - 22:37/1/5  
-	Problem: 
-	Reason:
+	Problem: /
+	Reason:/
 	Traceability: toStringTest3
 	*/
 	@Test
