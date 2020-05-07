@@ -526,10 +526,10 @@ Click to src code: [BoCApp](../src/CW3/src/BoCCategory.java) & [BoCAppTest](../s
 | !!! | Pass | ChangeTransactionCategoryTest8 | " ", "1", "1", "1" | Rent to Unknown | Rent to Unknown | / | / | / | 11:38/6/5 | Leo |
 | !!! | Pass | ChangeTransactionCategoryTest9 | "-5", "7", "2", "1" | The Mooch to Bills | The Mooch to Bills | / | / | / | 11:38/6/5 | Leo |
 | !!! | Pass | ChangeTransactionCategoryTest10 | "", "7", "4", "1" | The Mooch to Social | The Mooch to Social | / | / | / | 11:38/6/5 | Leo |
-| !!! | Pass | ChangeTransactionCategoryTest11 | "1", "100", "3", "1" | Rent to Groceries | Rent to Groceries |  |  |  |  |  |
-| !!! | Pass | ChangeTransactionCategoryTest12 | "1", " ", "1", "1" | Rent to Unknown | Rent to Unknown |  |  |  |  |  |
-| !!! | Pass | ChangeTransactionCategoryTest13 | "7", "-5", "2", "1" | The Mooch to Bills | The Mooch to Bills |  |  |  |  |  |
-| !!! | Pass | ChangeTransactionCategoryTest14 | "7", "", "4", "1" | The Mooch to Social | The Mooch to Social |  |  |  |  |  |
+| !!! | Pass | ChangeTransactionCategoryTest11 | "1", "100", "3", "1" | Rent to Groceries | Rent to Groceries | / | / | / | 14:06 5/6 | Leo |
+| !!! | Pass | ChangeTransactionCategoryTest12 | "1", " ", "1", "1" | Rent to Unknown | Rent to Unknown | / | / | / | 14:06 5/6 | Leo |
+| !!! | Pass | ChangeTransactionCategoryTest13 | "7", "-5", "2", "1" | The Mooch to Bills | The Mooch to Bills | / | / | / | 14:06 5/6 | Leo |
+| !!! | Pass | ChangeTransactionCategoryTest14 | "7", "", "4", "1" | The Mooch to Social | The Mooch to Social | / | / | / | 14:06 5/6 | Leo |
 
 #### Function 6: addTransaction(Scanner in) - Add Transaction function
 
