@@ -208,7 +208,7 @@ public class BoCApp {
             if (value.replaceAll(" ", "").equals("")) {
                 System.out.println("Wrong value. It should not be blank!");
                 continue;
-            } else if (value.matches("[0-9]+.[0-9]{2}") != true) {
+            } else if (value.matches("^[0-9]+\\.[0-9]{2}$") != true) {
                 System.out.println("Wrong value. It should be a positive number with two decimal places e.g. 10.00.");
                 continue;
             }
@@ -216,7 +216,7 @@ public class BoCApp {
             try {
                 temp.setTransactionValue(tvalue);
             } catch (Exception e) {
-                System.out.println("Set failed. This transaction value has already been set.");
+                System.out.println("Wrong value. It should be a positive number with two decimal places e.g. 10.00.");
                 continue;
             }
             flag1 = 2;
