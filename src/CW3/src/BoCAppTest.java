@@ -72,18 +72,18 @@ class BoCAppTest {
         prompt1 = new String("What is the title of the transaction?\r\nNOTE: It should not be blank and less than 25 characters.\r\n");
         prompt2 = new String("What is the value of the transaction?\r\nNOTE: It should be greater than 0 with two decimal places e.g. 10.00.\r\n");
         prompt3 = new String("What is the category of the transaction?\r\nNote: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.\r\n");
-        prompt4 = new String("What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters.\r\n");
+        prompt4 = new String("What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters or it will get first 15 charaters.\r\n");
         prompt5 = new String("What is the budget for this category?\r\nNote:It should be a pisitive decimal number with exact two decimal places.\r\n");
         prompt6 = new String("[Category added]");
         prompt7 = new String("Which transaction ID?\r\n");
         prompt8 = new String("Which category will it move to?\r\n");
         prompt9 = new String("Change complete!\r\n");
 
-        allCategory = new String("1) Unknown(¥0.00) - Est. ¥850.00 (¥850.00 Overspent)\r\n"+
+        allCategory = new String("1) Unknown(¥0.00) - Est. ¥863.99 (¥863.99 Overspent)\r\n"+
                 "2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)\r\n"+
                 "3) Groceries(¥75.00) - Est. ¥31.00 (¥44.00 Remaining)\r\n"+
-                "4) Social(¥100.00) - Est. ¥22.49 (¥77.51 Remaining)\r\n"+
-                "5) cat1Name(¥6.23) - Est. ¥0.00 (¥6.23 Remaining)\r\n"
+                "4) Social(¥100.00) - Est. ¥8.50 (¥91.50 Remaining)\r\n"+
+                "5) cat1Name1234567(¥6.23) - Est. ¥0.00 (¥6.23 Remaining)\r\n"
                 );
                 
         for (int x = 0; x < BoCApp.UserTransactions.size(); x++) {
@@ -576,15 +576,18 @@ class BoCAppTest {
     Traceability: AddCategoryTest
      */
     @Order(4)
-    @DisplayName("AddCategoryTest")
+    @DisplayName("AddCategoryTest1")
     @ParameterizedTest
     @MethodSource
-    void AddCategoryTest(String name, String budget, String alert) throws IllegalAccessException, 
+    void AddCategoryTest1(String name, String budget, String alert) throws IllegalAccessException, 
     IllegalArgumentException, InvocationTargetException, 
     NoSuchMethodException, SecurityException {
         Method AddCategoryTest = a.getClass().getDeclaredMethod("AddCategory", Scanner.class);
         AddCategoryTest.setAccessible(true);
         String input = "\n" + name + budget;
+        if(name.length()>15) {
+        	name = name.substring(0, 15);
+        }
         inp = new Scanner(input);
         try {
             AddCategoryTest.invoke(a, inp);
@@ -601,19 +604,64 @@ class BoCAppTest {
         }
     }
 
-    static List<Arguments> AddCategoryTest() {
+    static List<Arguments> AddCategoryTest1() {
         return List.of( // arguments:
-        Arguments.arguments("cat1Name\n","6.23\n","1"),
-        Arguments.arguments("cat2Name123456789\n","6.23\n", "Wrong title! It should be at most 15 characters."),
-        Arguments.arguments("cat1Name\n", "7.45\n", "Wrong title! It should not be the same as the existed name."),
-        Arguments.arguments("cat4Name\n", "6\n", "Wrong budget! It should be a positive decimal number with exact two decimal places."),
-        Arguments.arguments("cat5Name\n", "6.1\n", "Wrong budget! It should be a positive decimal number with exact two decimal places."),
-        Arguments.arguments("cat6Name\n", "-7.23\n", "Wrong budget! It should be a positive decimal number with exact two decimal places."),
-        Arguments.arguments("\n", "6.34\n", "Wrong title! It should not be blank."),
-        Arguments.arguments("   \n", "6.34\n", "Wrong title! It should not be blank."),
-        Arguments.arguments("cat9Name\n", "\n", "Wrong budget! It should not be blank."),
-        Arguments.arguments("cat10Name\n", "   \n", "Wrong budget! It should not be blank."),
-        Arguments.arguments("cat11Name\n", "0.00\n", "Wrong budget! It should be a positive decimal number with exact two decimal places.")
+        Arguments.arguments("cat1Name123456789\n","6.23\n","1")
+
+        );
+    }
+    @Order(5)
+    @DisplayName("AddCategoryTest2")
+    @ParameterizedTest
+    @MethodSource
+    void AddCategoryTest2(String illname, String name, String illBudget, String budget, String alert, String allCategory2) throws IllegalAccessException, 
+    IllegalArgumentException, InvocationTargetException, 
+    NoSuchMethodException, SecurityException {
+        Method AddCategoryTest = a.getClass().getDeclaredMethod("AddCategory", Scanner.class);
+        AddCategoryTest.setAccessible(true);
+        String input = "\n" + name + budget;
+        if(name.length()>15) {
+        	name = name.substring(0, 15);
+        }
+        inp = new Scanner(input);
+        try {
+            AddCategoryTest.invoke(a, inp);
+            BoCCategory tr = BoCApp.UserCategories.get(BoCApp.UserCategories.size()-1);
+            if (alert.equals("1")) {
+                assertEquals(prompt4 + prompt5 + prompt6 + "\r\n" + allCategory2, outContent.toString());
+                assertEquals(name.replace("\n", "") ,tr.CategoryName());
+                assertEquals(new BigDecimal(budget.replace("\n", "")) ,tr.CategoryBudget());
+            }
+        }
+        catch (Exception e) {
+
+            assertEquals(alert, e.getCause().getMessage());
+        }
+    }
+
+    static List<Arguments> AddCategoryTest2() {
+        return List.of( // arguments:
+        Arguments.arguments("\n","cat1Name\n","6\n","6.00\n", "1","1) Unknown(¥0.00) - Est. ¥863.99 (¥863.99 Overspent)\r\n" + 
+        		"2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)\r\n" + 
+        		"3) Groceries(¥75.00) - Est. ¥31.00 (¥44.00 Remaining)\r\n" + 
+        		"4) Social(¥100.00) - Est. ¥8.50 (¥91.50 Remaining)\r\n" + 
+        		"5) cat1Name1234567(¥6.23) - Est. ¥0.00 (¥6.23 Remaining)\r\n" + 
+        		"6) cat1Name(¥6.00) - Est. ¥0.00 (¥6.00 Remaining)\r\n" ),
+        Arguments.arguments("   \n","cat2Name\n","ads\n","6.23\n", "1","1) Unknown(¥0.00) - Est. ¥863.99 (¥863.99 Overspent)\r\n" + 
+        		"2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)\r\n" + 
+        		"3) Groceries(¥75.00) - Est. ¥31.00 (¥44.00 Remaining)\r\n" + 
+        		"4) Social(¥100.00) - Est. ¥8.50 (¥91.50 Remaining)\r\n" + 
+        		"5) cat1Name1234567(¥6.23) - Est. ¥0.00 (¥6.23 Remaining)\r\n" + 
+        		"6) cat1Name(¥6.00) - Est. ¥0.00 (¥6.00 Remaining)\r\n" + 
+        		"7) cat2Name(¥6.23) - Est. ¥0.00 (¥6.23 Remaining)\r\n"  ),
+        Arguments.arguments("cat2Name\n","cat3Name\n","-7.23\n","34.53\n", "1","1) Unknown(¥0.00) - Est. ¥863.99 (¥863.99 Overspent)\r\n" + 
+        		"2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)\r\n" + 
+        		"3) Groceries(¥75.00) - Est. ¥31.00 (¥44.00 Remaining)\r\n" + 
+        		"4) Social(¥100.00) - Est. ¥8.50 (¥91.50 Remaining)\r\n" + 
+        		"5) cat1Name1234567(¥6.23) - Est. ¥0.00 (¥6.23 Remaining)\r\n" + 
+        		"6) cat1Name(¥6.00) - Est. ¥0.00 (¥6.00 Remaining)\r\n" + 
+        		"7) cat2Name(¥6.23) - Est. ¥0.00 (¥6.23 Remaining)\r\n" + 
+        		"8) cat3Name(¥34.53) - Est. ¥0.00 (¥34.53 Remaining)\r\n")
         );
     }
 }
