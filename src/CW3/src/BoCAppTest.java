@@ -37,6 +37,9 @@ class BoCAppTest {
     private static String prompt9;
     private static String allCategory;
     private static String catList;
+    private static String alertTitle1;
+    private static String alertTitle2;
+    private static String alertBudget1;
 
     @BeforeAll 
     static void setup() {
@@ -72,18 +75,26 @@ class BoCAppTest {
         prompt1 = new String("What is the title of the transaction?\r\nNOTE: It should not be blank and less than 25 characters.\r\n");
         prompt2 = new String("What is the value of the transaction?\r\nNOTE: It should be greater than 0 with two decimal places e.g. 10.00.\r\n");
         prompt3 = new String("What is the category of the transaction?\r\nNote: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.\r\n");
-        prompt4 = new String("What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters.\r\n");
+        prompt4 = new String("What is the title of the category?\r\nNOTE: It should not be blank and should be at most 15 characters or it will get first 15 charaters.\r\n");
         prompt5 = new String("What is the budget for this category?\r\nNote:It should be a pisitive decimal number with exact two decimal places.\r\n");
         prompt6 = new String("[Category added]");
         prompt7 = new String("Which transaction ID?\r\n");
         prompt8 = new String("Which category will it move to?\r\n");
         prompt9 = new String("Change complete!\r\n");
-
+        alertTitle1 = new String("Wrong title! It should not be blank.\r\n" + 
+        		"What is the title of the category?\r\n" + 
+        		"NOTE: It should not be blank and should be at most 15 characters or it will get first 15 charaters.\r\n");
+        alertTitle2 = new String("Wrong title! It should not be the same as the existed name.\r\n" + 
+        		"What is the title of the category?\r\n" + 
+        		"NOTE: It should not be blank and should be at most 15 characters or it will get first 15 charaters.\r\n");
+        alertBudget1 = new String("Wrong budget! It should be a positive decimal number with exact two decimal places.\r\n" + 
+        		"What is the title of the category?\r\n" + 
+        		"NOTE: It should not be blank and should be at most 15 characters.\r\n");
         allCategory = new String("1) Unknown(¥0.00) - Est. ¥850.00 (¥850.00 Overspent)\r\n"+
                 "2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)\r\n"+
                 "3) Groceries(¥75.00) - Est. ¥31.00 (¥44.00 Remaining)\r\n"+
                 "4) Social(¥100.00) - Est. ¥22.49 (¥77.51 Remaining)\r\n"+
-                "5) cat1Name(¥6.23) - Est. ¥0.00 (¥6.23 Remaining)\r\n"
+                "5) cat1Name1234567(¥6.23) - Est. ¥0.00 (¥6.23 Remaining)\r\n"
                 );
                 
         for (int x = 0; x < BoCApp.UserTransactions.size(); x++) {
@@ -161,7 +172,7 @@ class BoCAppTest {
                                 "What do you want to do?\n" +
                                 "O = [O]verview\nT = List All [T]ransactions\n[num] = Show Category [num]\nC = [C]hange Transaction Category\nA = [A]dd Transaction\nN = [N]ew Category\nX = E[x]it\r\n" +
                                 "What is the title of the category?\r\n" +
-                                "NOTE: It should not be blank and should be at most 15 characters.\r\n" +
+                                "NOTE: It should not be blank and should be at most 15 characters or it will get first 15 charaters.\r\n" +
                                 "What is the budget for this category?\r\n" +
                                 "Note:It should be a pisitive decimal number with exact two decimal places.\r\n" +
                                 "[Category added]\r\n" +
@@ -409,7 +420,7 @@ class BoCAppTest {
                                 "What do you want to do?\n" +
                                 "O = [O]verview\nT = List All [T]ransactions\n[num] = Show Category [num]\nC = [C]hange Transaction Category\nA = [A]dd Transaction\nN = [N]ew Category\nX = E[x]it\r\n" +
                                 "What is the title of the category?\r\n" +
-                                "NOTE: It should not be blank and should be at most 15 characters.\r\n" +
+                                "NOTE: It should not be blank and should be at most 15 characters or it will get first 15 charaters.\r\n" +
                                 "What is the budget for this category?\r\n" +
                                 "Note:It should be a pisitive decimal number with exact two decimal places.\r\n" +
                                 "[Category added]\r\n" +
@@ -552,7 +563,7 @@ class BoCAppTest {
    @DisplayName("AddTransactionTest")
    @ParameterizedTest
    @MethodSource
-   void AddTransactionTest(String name, String name1, String val, String val1, String cat, String cat1, String exp) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
+   void AddTransactionTest(String name, String name1, String val, String val1, String cat, String cat1, String exp, String eval) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
        // prepare for calling a private method
        Method AddTransactionTest = a.getClass().getDeclaredMethod("AddTransaction", Scanner.class);
        AddTransactionTest.setAccessible(true);
@@ -569,9 +580,13 @@ class BoCAppTest {
        // compare the prompt message and confirmation message
        assertEquals(exp, outContent.toString());
        // compare the name, value and category
-       assertTrue(name.replace("\n", "").equals(tr.transactionName()));
-       assertEquals(new BigDecimal(val.replace("\n", "")) ,tr.transactionValue());
-       assertEquals(Integer.parseInt(cat.replace("\n", "")) - 1 ,tr.transactionCategory());
+       String eName = (name + name1).replaceAll("\n", "").replaceAll(" ", "");
+       if (eName.length() > 25) {
+    	   eName = eName.substring(0,25);
+       }
+       assertTrue(eName.equals(tr.transactionName()));
+       assertEquals(new BigDecimal(eval) ,tr.transactionValue());
+       assertEquals(0 ,tr.transactionCategory());
        
        
        
@@ -586,7 +601,7 @@ class BoCAppTest {
                		"NOTE: It should be greater than 0 with two decimal places e.g. 10.00.\r\n" + 
                		"What is the category of the transaction?\r\n" + 
                		"Note: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.\r\n" + 
-               		"tran1(¥1.00) was added to Unknown\r\n"),
+               		"tran1(¥1.00) was added to Unknown\r\n", "1.00"),
                Arguments.arguments("\n", "tran2\n", "2.00\n", "", "1\n", "", 
             		   "What is the title of the transaction?\r\n" + 
             		   "NOTE: It should not be blank and less than 25 characters.\r\n" + 
@@ -597,7 +612,7 @@ class BoCAppTest {
             		   "NOTE: It should be greater than 0 with two decimal places e.g. 10.00.\r\n" + 
             		   "What is the category of the transaction?\r\n" + 
             		   "Note: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.\r\n" + 
-            		   "tran2(¥2.00) was added to Unknown\r\n"),
+            		   "tran2(¥2.00) was added to Unknown\r\n", "2.00"),
                Arguments.arguments("tran3\n", "", "\n", "3.00\n", "1\n", "", 
             		   "What is the title of the transaction?\r\n" + 
             		   "NOTE: It should not be blank and less than 25 characters.\r\n" + 
@@ -608,7 +623,7 @@ class BoCAppTest {
             		   "NOTE: It should be greater than 0 with two decimal places e.g. 10.00.\r\n" + 
             		   "What is the category of the transaction?\r\n" + 
             		   "Note: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.\r\n" + 
-            		   "tran3(¥3.00) was added to Unknown\r\n"),
+            		   "tran3(¥3.00) was added to Unknown\r\n", "3.00"),
                Arguments.arguments("tran4\n", "", "4.00\n", "", "\n", "", 
             		   "What is the title of the transaction?\r\n" + 
             		   "NOTE: It should not be blank and less than 25 characters.\r\n" + 
@@ -616,7 +631,7 @@ class BoCAppTest {
             		   "NOTE: It should be greater than 0 with two decimal places e.g. 10.00.\r\n" + 
             		   "What is the category of the transaction?\r\n" + 
             		   "Note: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.\r\n" + 
-            		   "tran4(¥4.00) was added to Unknown\r\n"),
+            		   "tran4(¥4.00) was added to Unknown\r\n", "4.00"),
                Arguments.arguments("tran5\n", "", "5.00\n", "", "6\n", "1\n", 
             		   "What is the title of the transaction?\r\n" + 
             		   "NOTE: It should not be blank and less than 25 characters.\r\n" + 
@@ -627,7 +642,7 @@ class BoCAppTest {
             		   "Wrong category. It should be an integer between 1 - 4\r\n" + 
             		   "What is the category of the transaction?\r\n" + 
             		   "Note: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.\r\n" + 
-            		   "tran5(¥5.00) was added to Unknown\r\n"),
+            		   "tran5(¥5.00) was added to Unknown\r\n", "5.00"),
                Arguments.arguments("tran6\n", "", "0.00\n", "6.00\n", "1\n", "", 
             		   "What is the title of the transaction?\r\n" + 
             		   "NOTE: It should not be blank and less than 25 characters.\r\n" + 
@@ -639,7 +654,7 @@ class BoCAppTest {
             		   "What is the category of the transaction?\r\n" + 
             		   "Note: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.\r\n" + 
             		   "tran6(¥6.00) was added to Unknown\r\n" + 
-            		   ""),
+            		   "", "6.00"),
                Arguments.arguments("tran7\n", "", "-5.00\n", "7.00\n", "1\n", "", 
             		   "What is the title of the transaction?\r\n" + 
             		   "NOTE: It should not be blank and less than 25 characters.\r\n" + 
@@ -648,10 +663,10 @@ class BoCAppTest {
             		   "Wrong value. It should be a positive number with two decimal places e.g. 10.00.\r\n" + 
             		   "What is the value of the transaction?\r\n" + 
             		   "NOTE: It should be greater than 0 with two decimal places e.g. 10.00.\r\n" + 
-            		   "What is the category of the transaction?\r\n" + 
+            		   "What is the category of the transaction?\r\n" +  
             		   "Note: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.\r\n" + 
             		   "tran7(¥7.00) was added to Unknown\r\n" + 
-            		   ""),
+            		   "", "7.00"),
                Arguments.arguments("tran8\n", "", "8.00\n", "", "0\n", "1\n", 
             		   "What is the title of the transaction?\r\n" + 
             		   "NOTE: It should not be blank and less than 25 characters.\r\n" + 
@@ -663,7 +678,7 @@ class BoCAppTest {
             		   "What is the category of the transaction?\r\n" + 
             		   "Note: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.\r\n" + 
             		   "tran8(¥8.00) was added to Unknown\r\n" + 
-            		   ""),
+            		   "", "8.00"),
                Arguments.arguments("tran9\n", "", "9.00\n", "", "-1\n", "1\n", 
             		   "What is the title of the transaction?\r\n" + 
             		   "NOTE: It should not be blank and less than 25 characters.\r\n" + 
@@ -675,7 +690,7 @@ class BoCAppTest {
             		   "What is the category of the transaction?\r\n" + 
             		   "Note: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.\r\n" + 
             		   "tran9(¥9.00) was added to Unknown\r\n" + 
-            		   ""),
+            		   "", "9.00"),
                Arguments.arguments("tttttrrrrraaaaannnnn10101\n", "", "10.00\n", "", "1\n", "", 
             		   "What is the title of the transaction?\r\n" + 
             		   "NOTE: It should not be blank and less than 25 characters.\r\n" + 
@@ -684,7 +699,7 @@ class BoCAppTest {
             		   "What is the category of the transaction?\r\n" + 
             		   "Note: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.\r\n" + 
             		   "tttttrrrrraaaaannnnn10101(¥10.00) was added to Unknown\r\n" + 
-            		   ""),
+            		   "", "10.00"),
                Arguments.arguments("tttttrrrrraaaaannnnn111111111111\n", "", "11.00\n", "", "1\n", "", 
             		   "What is the title of the transaction?\r\n" + 
             		   "NOTE: It should not be blank and less than 25 characters.\r\n" + 
@@ -693,7 +708,7 @@ class BoCAppTest {
             		   "What is the category of the transaction?\r\n" + 
             		   "Note: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.\r\n" + 
             		   "tttttrrrrraaaaannnnn11111(¥11.00) was added to Unknown\r\n" + 
-            		   ""),
+            		   "", "11.00"),
                Arguments.arguments("tran12\n", "", "12\n", "12.00\n", "1\n", "", 
             		   "What is the title of the transaction?\r\n" + 
             		   "NOTE: It should not be blank and less than 25 characters.\r\n" + 
@@ -705,7 +720,7 @@ class BoCAppTest {
             		   "What is the category of the transaction?\r\n" + 
             		   "Note: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.\r\n" + 
             		   "tran12(¥12.00) was added to Unknown\r\n" + 
-            		   ""),
+            		   "", "12.00"),
                Arguments.arguments("   \n", "tran13\n", "13.00\n", "", "1\n", "", 
             		   "What is the title of the transaction?\r\n" + 
             		   "NOTE: It should not be blank and less than 25 characters.\r\n" + 
@@ -717,7 +732,7 @@ class BoCAppTest {
             		   "What is the category of the transaction?\r\n" + 
             		   "Note: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.\r\n" + 
             		   "tran13(¥13.00) was added to Unknown\r\n" + 
-            		   ""),
+            		   "", "13.00"),
                Arguments.arguments("tran14\n", "", "   \n", "14.00\n", "1\n", "", 
             		   "What is the title of the transaction?\r\n" + 
             		   "NOTE: It should not be blank and less than 25 characters.\r\n" + 
@@ -729,7 +744,7 @@ class BoCAppTest {
             		   "What is the category of the transaction?\r\n" + 
             		   "Note: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.\r\n" + 
             		   "tran14(¥14.00) was added to Unknown\r\n" + 
-            		   "")
+            		   "", "14.00")
        );
 	}
 		
@@ -842,7 +857,7 @@ class BoCAppTest {
 	
 
 	/* 
-	1 - Pass - Leo - 12ï¼š42/6/5  
+	1 - Pass - Leo - 12:42 /6/5  
 	Problem: /
 	Reason:/
 	Traceability: ChangeTransactionCategoryTest11, 12, 13, 14
@@ -919,16 +934,19 @@ class BoCAppTest {
     Reason: /
     Traceability: AddCategoryTest
      */
-    @Order(4)
-    @DisplayName("AddCategoryTest")
+	@Order(4)
+    @DisplayName("AddCategoryTest1")
     @ParameterizedTest
     @MethodSource
-    void AddCategoryTest(String name, String budget, String alert) throws IllegalAccessException, 
+    void AddCategoryTest1(String name, String budget, String alert) throws IllegalAccessException, 
     IllegalArgumentException, InvocationTargetException, 
     NoSuchMethodException, SecurityException {
         Method AddCategoryTest = a.getClass().getDeclaredMethod("AddCategory", Scanner.class);
         AddCategoryTest.setAccessible(true);
         String input = "\n" + name + budget;
+        if(name.length()>15) {
+        	name = name.substring(0, 15);
+        }
         inp = new Scanner(input);
         try {
             AddCategoryTest.invoke(a, inp);
@@ -945,19 +963,67 @@ class BoCAppTest {
         }
     }
 
-    static List<Arguments> AddCategoryTest() {
+    static List<Arguments> AddCategoryTest1() {
         return List.of( // arguments:
-        Arguments.arguments("cat1Name\n","6.23\n","1"),
-        Arguments.arguments("cat2Name123456789\n","6.23\n", "Wrong title! It should be at most 15 characters."),
-        Arguments.arguments("cat1Name\n", "7.45\n", "Wrong title! It should not be the same as the existed name."),
-        Arguments.arguments("cat4Name\n", "6\n", "Wrong budget! It should be a positive decimal number with exact two decimal places."),
-        Arguments.arguments("cat5Name\n", "6.1\n", "Wrong budget! It should be a positive decimal number with exact two decimal places."),
-        Arguments.arguments("cat6Name\n", "-7.23\n", "Wrong budget! It should be a positive decimal number with exact two decimal places."),
-        Arguments.arguments("\n", "6.34\n", "Wrong title! It should not be blank."),
-        Arguments.arguments("   \n", "6.34\n", "Wrong title! It should not be blank."),
-        Arguments.arguments("cat9Name\n", "\n", "Wrong budget! It should not be blank."),
-        Arguments.arguments("cat10Name\n", "   \n", "Wrong budget! It should not be blank."),
-        Arguments.arguments("cat11Name\n", "0.00\n", "Wrong budget! It should be a positive decimal number with exact two decimal places.")
+        Arguments.arguments("cat1Name123456789\n","6.23\n","1")
+
+        );
+    }
+    @Order(5)
+    @DisplayName("AddCategoryTest2")
+    @ParameterizedTest
+    @MethodSource
+    void AddCategoryTest2(String illName, String name, String illBudget, String budget, String alert, String alertTit, String alertBud, String allCategory2) throws IllegalAccessException, 
+    IllegalArgumentException, InvocationTargetException, 
+    NoSuchMethodException, SecurityException {
+        Method AddCategoryTest = a.getClass().getDeclaredMethod("AddCategory", Scanner.class);
+        AddCategoryTest.setAccessible(true);
+        String input = "\n" + illName + name + illBudget + budget;
+        if(name.length()>15) {
+        	name = name.substring(0, 15);
+        }
+        inp = new Scanner(input);
+        try {
+            AddCategoryTest.invoke(a, inp);
+            BoCCategory tr = BoCApp.UserCategories.get(BoCApp.UserCategories.size()-1);
+            if (alert.equals("1")) {
+                assertEquals(prompt4 +alertTit+ prompt5 +alertBud+ prompt6 + "\r\n" + allCategory2, outContent.toString());
+                assertEquals(name.replace("\n", "") ,tr.CategoryName());
+                assertEquals(new BigDecimal(budget.replace("\n", "")) ,tr.CategoryBudget());
+            }
+        }
+        catch (Exception e) {
+
+            assertEquals(alert, e.getCause().getMessage());
+        }
+    }
+
+    static List<Arguments> AddCategoryTest2() {
+        return List.of( // arguments:
+        Arguments.arguments("\n","cat1Name\n","6\n","6.00\n", "1",alertTitle1 ,alertBudget1 ,
+        		"1) Unknown(¥0.00) - Est. ¥850.00 (¥850.00 Overspent)\r\n" + 
+        		"2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)\r\n" + 
+        		"3) Groceries(¥75.00) - Est. ¥31.00 (¥44.00 Remaining)\r\n" + 
+        		"4) Social(¥100.00) - Est. ¥22.49 (¥77.51 Remaining)\r\n" + 
+        		"5) cat1Name1234567(¥6.23) - Est. ¥0.00 (¥6.23 Remaining)\r\n" + 
+        		"6) cat1Name(¥6.00) - Est. ¥0.00 (¥6.00 Remaining)\r\n" ),
+        Arguments.arguments("   \n","cat2Name\n","ads\n","6.23\n", "1",alertTitle1 ,alertBudget1 ,
+        		"1) Unknown(¥0.00) - Est. ¥850.00 (¥850.00 Overspent)\r\n" + 
+        		"2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)\r\n" + 
+        		"3) Groceries(¥75.00) - Est. ¥31.00 (¥44.00 Remaining)\r\n" + 
+        		"4) Social(¥100.00) - Est. ¥22.49 (¥77.51 Remaining)\r\n" + 
+        		"5) cat1Name1234567(¥6.23) - Est. ¥0.00 (¥6.23 Remaining)\r\n" + 
+        		"6) cat1Name(¥6.00) - Est. ¥0.00 (¥6.00 Remaining)\r\n" + 
+        		"7) cat2Name(¥6.23) - Est. ¥0.00 (¥6.23 Remaining)\r\n"  ),
+        Arguments.arguments("cat2Name\n","cat3Name\n","-7.23\n","34.53\n", "1",alertTitle2 ,alertBudget1 ,
+        		"1) Unknown(¥0.00) - Est. ¥850.00 (¥850.00 Overspent)\r\n" + 
+        		"2) Bills(¥120.00) - Est. ¥112.99 (¥7.01 Remaining)\r\n" + 
+        		"3) Groceries(¥75.00) - Est. ¥31.00 (¥44.00 Remaining)\r\n" + 
+        		"4) Social(¥100.00) - Est. ¥22.49 (¥77.51 Remaining)\r\n" + 
+        		"5) cat1Name1234567(¥6.23) - Est. ¥0.00 (¥6.23 Remaining)\r\n" + 
+        		"6) cat1Name(¥6.00) - Est. ¥0.00 (¥6.00 Remaining)\r\n" + 
+        		"7) cat2Name(¥6.23) - Est. ¥0.00 (¥6.23 Remaining)\r\n" + 
+        		"8) cat3Name(¥34.53) - Est. ¥0.00 (¥34.53 Remaining)\r\n")
         );
     }
 }
