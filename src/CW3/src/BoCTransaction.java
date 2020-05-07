@@ -97,12 +97,12 @@ public class BoCTransaction {
 
 	/* 
 	1 – Pass – Leo - 00:59/2/5  
-	Change:
-	Reason:
+	Change: added a if statement that only allow positive numbers or it will throw an exception
+	Reason: only positive numbers are allowed
 	Traceability: setCatTest1,2,3
 	*/
 	public void setTransactionCategory(int tCat) {
-		if (tCat >= 0) {
+		if (tCat > 0) {
 			transactionCategory = tCat;
 		}
 	}
@@ -130,8 +130,8 @@ public class BoCTransaction {
 
 	/* 
 	1 – Pass – Leo - 22:37/1/5  
-	Change:
-	Reason:
+	Change:Add time that can only shows minutes not seconds at the beginning of the string, and set a limit that if transactionName or transactionValue is null, it will return null
+	Reason:To reduce the possibility of test failure and meet the requirement.
 	Traceability: toStringTest1,2,3
 	*/
 	@Override
