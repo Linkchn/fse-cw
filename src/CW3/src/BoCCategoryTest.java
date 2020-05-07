@@ -269,6 +269,25 @@ class BoCCategoryTest {
 			assertEquals ("Set Failed, please set a valid name",e.getMessage());
 		}
 	}
+	
+	/*1. - Fail - Hongming PING - 11:10 7/5
+	Problem: If newName contains more than 15 letters, ite length would be remained.
+	Change: add a condition in if statement, which checks the length of newName
+			Keep its former 15 letters
+	Traceability: setCNTest5
+	2. - Pass - Hongming Ping - 11:13 7/5
+	Change:/
+	Problem:/
+	Traceability: setCNTest5
+	*/
+	@Test
+	void setCNTest5() throws Exception {
+		TestInputString="qazxswedcvfrtgbnhy";
+		BoCCategory copy = new BoCCategory();
+		copy.setCategoryName(TestInputString);
+		TestOutputString = copy.CategoryName();
+		assertEquals("qazxswedcvfrtgb", TestOutputString);
+	}
 
 	/* - Pass - Hongming PING - 16:52/1/5
 	Change: /
