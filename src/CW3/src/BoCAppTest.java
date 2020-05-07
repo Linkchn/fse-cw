@@ -503,7 +503,7 @@ class BoCAppTest {
 		SimpleDateFormat sdff=new SimpleDateFormat("yyyy-MM-dd HH:mm");
 		String sd = sdff.format(new Date(timeStamp));
 		return List.of(
-               Arguments.arguments(1,"Unknown: 1) "+sd+" Rent - ¥850.00\r\nUnknown: 8) "+sd+" tran1 - ¥1.00\r\n" + "Unknown: 9) "+sd+" tran4 - ¥4.00\r\n" + "Unknown: 10) "+sd+" tran6 - ¥0.00\r\n" + "Unknown: 11) "+sd+" tttttrrrrraaaaannnnn10101 - ¥10.00\r\n"+ "Unknown: 12) "+sd+" tttttrrrrraaaaannnnn11111 - ¥11.00\r\n"),
+               Arguments.arguments(1,"Unknown: 1) "+sd+" Rent - ¥850.00\r\n"),
                Arguments.arguments(2,"Bills: 2) "+sd+" Phone Bill - ¥37.99\r"+'\n'+"Bills: 3) "+sd+" Electricity Bill - ¥75.00\r"+'\n'),
                Arguments.arguments(3,"Groceries: 4) "+sd+" Sainsbury's Checkout - ¥23.76\r"+'\n'+"Groceries: 5) "+sd+" Tesco's Checkout - ¥7.24\r"+'\n'),
                Arguments.arguments(4,"Social: 6) "+sd+" RockCity Drinks - ¥8.50\r"+'\n'+"Social: 7) "+sd+" The Mooch - ¥13.99\r"+'\n'),
@@ -548,67 +548,191 @@ class BoCAppTest {
     Reason: add if for "" situation (blank input)
     Traceability: addTransactionTest 4''
      */
-    @Order(1)
-    @DisplayName("AddTransactionTest")
-    @ParameterizedTest
-    @MethodSource
-    void AddTransactionTest(String name, String val, String cat, String alert) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
-        // prepare for calling a private method
-        Method AddTransactionTest = a.getClass().getDeclaredMethod("AddTransaction", Scanner.class);
-        AddTransactionTest.setAccessible(true);
+   @Order(7)
+   @DisplayName("AddTransactionTest")
+   @ParameterizedTest
+   @MethodSource
+   void AddTransactionTest(String name, String name1, String val, String val1, String cat, String cat1, String exp) throws IllegalAccessException, IllegalArgumentException, InvocationTargetException, NoSuchMethodException, SecurityException {
+       // prepare for calling a private method
+       Method AddTransactionTest = a.getClass().getDeclaredMethod("AddTransaction", Scanner.class);
+       AddTransactionTest.setAccessible(true);
 
-        // create an input stream from expected inputs
-        String input = "\n"+ name + val + cat;
-        inp = new Scanner(input);
+       // create an input stream from expected inputs
+       String input = "\n"+ name + name1 + val + val1 + cat + cat1;
+       inp = new Scanner(input);
 
-        try {
-            AddTransactionTest.invoke(a, inp);
-            BoCTransaction tr = BoCApp.UserTransactions.get(BoCApp.UserTransactions.size()-1);
-            // if this should run properly without exception
-            if (alert.equals("1")) {
-                // handle cat with blank input, which should be considered as 1
-                if (cat.equals("\n")) {
-                    cat = cat.replaceAll("\n", "1");
-                }
-                // compare the prompt message and confirmation message
-                assertEquals(prompt1 + prompt2 + prompt3 + name.replace("\n", "") + "(¥" + val.replace("\n", "") + ")" + " was added to " + BoCApp.UserCategories.get(Integer.parseInt(cat.replace("\n", "")) - 1).CategoryName() + "\r\n", outContent.toString());
-                // compare the name, value and category
-                assertTrue(name.replace("\n", "").equals(tr.transactionName()));
-                assertEquals(new BigDecimal(val.replace("\n", "")) ,tr.transactionValue());
-                assertEquals(Integer.parseInt(cat.replace("\n", "")) - 1 ,tr.transactionCategory());
-            }
-        }
-        catch (Exception e) {
-            // firts make sure the exception is thrown from invocation
-            assertThrows(InvocationTargetException.class, () -> {
-                AddTransactionTest.invoke(a, inp);
-            });
-            // compare the expected alert message to the actual one
-            assertEquals(alert, e.getCause().getMessage());
-        }
-    }
+       
+       AddTransactionTest.invoke(a, inp);
+       BoCTransaction tr = BoCApp.UserTransactions.get(BoCApp.UserTransactions.size()-1);
+       
+       
+       // compare the prompt message and confirmation message
+       assertEquals(exp, outContent.toString());
+       // compare the name, value and category
+       assertTrue(name.replace("\n", "").equals(tr.transactionName()));
+       assertEquals(new BigDecimal(val.replace("\n", "")) ,tr.transactionValue());
+       assertEquals(Integer.parseInt(cat.replace("\n", "")) - 1 ,tr.transactionCategory());
+       
+       
+       
+   }
 
-    // list of arguments which will be taken by the above method
-    static List<Arguments> AddTransactionTest() {
-        return List.of( // arguments:
-                Arguments.arguments("tran1\n", "1.00\n", "1\n", "1"),
-                Arguments.arguments("\n", "2.00\n", "1\n", "Wrong name. It should not be blank!"),
-                Arguments.arguments("tran3\n", "\n", "1\n", "Wrong value. It should not be blank!"),
-                Arguments.arguments("tran4\n", "4.00\n", "\n", "1"),
-                Arguments.arguments("tran5\n", "5.00\n", "6\n", "Wrong category. It should be an integer between 1 - 4"),
-                Arguments.arguments("tran6\n", "0.00\n", "1\n", "Wrong value. It should be a positive number with two decimal places e.g. 10.00."),
-                Arguments.arguments("tran7\n", "-5.00\n", "1\n", "Wrong value. It should be a positive number with two decimal places e.g. 10.00."),
-                Arguments.arguments("tran8\n", "8.00\n", "0\n", "Wrong category. It should be an integer between 1 - 4"),
-                Arguments.arguments("tran9\n", "9.00\n", "-1\n", "Wrong category. It should be an integer between 1 - 4"),
-                Arguments.arguments("tttttrrrrraaaaannnnn10101\n", "10.00\n", "1\n", "1"),
-                Arguments.arguments("tttttrrrrraaaaannnnn111111111111\n", "11.00\n", "1\n", "Wrong name. It should not be more than 25 characters!"),
-                Arguments.arguments("tran12\n", "12\n", "1\n", "Wrong value. It should be a positive number with two decimal places e.g. 10.00."),
-                Arguments.arguments("   \n", "13.00\n", "1\n", "Wrong name. It should not be blank!"),
-                Arguments.arguments("tran14\n", "   \n", "1\n", "Wrong value. It should not be blank!")
-        );
+   // list of arguments which will be taken by the above method
+   static List<Arguments> AddTransactionTest() {
+       return List.of( // arguments:
+               Arguments.arguments("tran1\n", "", "1.00\n", "", "1\n", "", "What is the title of the transaction?\r\n" + 
+               		"NOTE: It should not be blank and less than 25 characters.\r\n" + 
+               		"What is the value of the transaction?\r\n" + 
+               		"NOTE: It should be greater than 0 with two decimal places e.g. 10.00.\r\n" + 
+               		"What is the category of the transaction?\r\n" + 
+               		"Note: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.\r\n" + 
+               		"tran1(¥1.00) was added to Unknown\r\n"),
+               Arguments.arguments("\n", "tran2\n", "2.00\n", "", "1\n", "", 
+            		   "What is the title of the transaction?\r\n" + 
+            		   "NOTE: It should not be blank and less than 25 characters.\r\n" + 
+            		   "Wrong name. It should not be blank!\r\n" + 
+            		   "What is the title of the transaction?\r\n" + 
+            		   "NOTE: It should not be blank and less than 25 characters.\r\n" + 
+            		   "What is the value of the transaction?\r\n" + 
+            		   "NOTE: It should be greater than 0 with two decimal places e.g. 10.00.\r\n" + 
+            		   "What is the category of the transaction?\r\n" + 
+            		   "Note: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.\r\n" + 
+            		   "tran2(¥2.00) was added to Unknown\r\n"),
+               Arguments.arguments("tran3\n", "", "\n", "3.00\n", "1\n", "", 
+            		   "What is the title of the transaction?\r\n" + 
+            		   "NOTE: It should not be blank and less than 25 characters.\r\n" + 
+            		   "What is the value of the transaction?\r\n" + 
+            		   "NOTE: It should be greater than 0 with two decimal places e.g. 10.00.\r\n" + 
+            		   "Wrong value. It should not be blank!\r\n" + 
+            		   "What is the value of the transaction?\r\n" + 
+            		   "NOTE: It should be greater than 0 with two decimal places e.g. 10.00.\r\n" + 
+            		   "What is the category of the transaction?\r\n" + 
+            		   "Note: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.\r\n" + 
+            		   "tran3(¥3.00) was added to Unknown\r\n"),
+               Arguments.arguments("tran4\n", "", "4.00\n", "", "\n", "", 
+            		   "What is the title of the transaction?\r\n" + 
+            		   "NOTE: It should not be blank and less than 25 characters.\r\n" + 
+            		   "What is the value of the transaction?\r\n" + 
+            		   "NOTE: It should be greater than 0 with two decimal places e.g. 10.00.\r\n" + 
+            		   "What is the category of the transaction?\r\n" + 
+            		   "Note: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.\r\n" + 
+            		   "tran4(¥4.00) was added to Unknown\r\n"),
+               Arguments.arguments("tran5\n", "", "5.00\n", "", "6\n", "1\n", 
+            		   "What is the title of the transaction?\r\n" + 
+            		   "NOTE: It should not be blank and less than 25 characters.\r\n" + 
+            		   "What is the value of the transaction?\r\n" + 
+            		   "NOTE: It should be greater than 0 with two decimal places e.g. 10.00.\r\n" + 
+            		   "What is the category of the transaction?\r\n" + 
+            		   "Note: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.\r\n" + 
+            		   "Wrong category. It should be an integer between 1 - 4\r\n" + 
+            		   "What is the category of the transaction?\r\n" + 
+            		   "Note: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.\r\n" + 
+            		   "tran5(¥5.00) was added to Unknown\r\n"),
+               Arguments.arguments("tran6\n", "", "0.00\n", "6.00\n", "1\n", "", 
+            		   "What is the title of the transaction?\r\n" + 
+            		   "NOTE: It should not be blank and less than 25 characters.\r\n" + 
+            		   "What is the value of the transaction?\r\n" + 
+            		   "NOTE: It should be greater than 0 with two decimal places e.g. 10.00.\r\n" + 
+            		   "Wrong value. It should be a positive number with two decimal places e.g. 10.00.\r\n" + 
+            		   "What is the value of the transaction?\r\n" + 
+            		   "NOTE: It should be greater than 0 with two decimal places e.g. 10.00.\r\n" + 
+            		   "What is the category of the transaction?\r\n" + 
+            		   "Note: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.\r\n" + 
+            		   "tran6(¥6.00) was added to Unknown\r\n" + 
+            		   ""),
+               Arguments.arguments("tran7\n", "", "-5.00\n", "7.00\n", "1\n", "", 
+            		   "What is the title of the transaction?\r\n" + 
+            		   "NOTE: It should not be blank and less than 25 characters.\r\n" + 
+            		   "What is the value of the transaction?\r\n" + 
+            		   "NOTE: It should be greater than 0 with two decimal places e.g. 10.00.\r\n" + 
+            		   "Wrong value. It should be a positive number with two decimal places e.g. 10.00.\r\n" + 
+            		   "What is the value of the transaction?\r\n" + 
+            		   "NOTE: It should be greater than 0 with two decimal places e.g. 10.00.\r\n" + 
+            		   "What is the category of the transaction?\r\n" + 
+            		   "Note: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.\r\n" + 
+            		   "tran7(¥7.00) was added to Unknown\r\n" + 
+            		   ""),
+               Arguments.arguments("tran8\n", "", "8.00\n", "", "0\n", "1\n", 
+            		   "What is the title of the transaction?\r\n" + 
+            		   "NOTE: It should not be blank and less than 25 characters.\r\n" + 
+            		   "What is the value of the transaction?\r\n" + 
+            		   "NOTE: It should be greater than 0 with two decimal places e.g. 10.00.\r\n" + 
+            		   "What is the category of the transaction?\r\n" + 
+            		   "Note: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.\r\n" + 
+            		   "Wrong category. It should be an integer between 1 - 4\r\n" + 
+            		   "What is the category of the transaction?\r\n" + 
+            		   "Note: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.\r\n" + 
+            		   "tran8(¥8.00) was added to Unknown\r\n" + 
+            		   ""),
+               Arguments.arguments("tran9\n", "", "9.00\n", "", "-1\n", "1\n", 
+            		   "What is the title of the transaction?\r\n" + 
+            		   "NOTE: It should not be blank and less than 25 characters.\r\n" + 
+            		   "What is the value of the transaction?\r\n" + 
+            		   "NOTE: It should be greater than 0 with two decimal places e.g. 10.00.\r\n" + 
+            		   "What is the category of the transaction?\r\n" + 
+            		   "Note: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.\r\n" + 
+            		   "Wrong category. It should be an integer between 1 - 4\r\n" + 
+            		   "What is the category of the transaction?\r\n" + 
+            		   "Note: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.\r\n" + 
+            		   "tran9(¥9.00) was added to Unknown\r\n" + 
+            		   ""),
+               Arguments.arguments("tttttrrrrraaaaannnnn10101\n", "", "10.00\n", "", "1\n", "", 
+            		   "What is the title of the transaction?\r\n" + 
+            		   "NOTE: It should not be blank and less than 25 characters.\r\n" + 
+            		   "What is the value of the transaction?\r\n" + 
+            		   "NOTE: It should be greater than 0 with two decimal places e.g. 10.00.\r\n" + 
+            		   "What is the category of the transaction?\r\n" + 
+            		   "Note: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.\r\n" + 
+            		   "tttttrrrrraaaaannnnn10101(¥10.00) was added to Unknown\r\n" + 
+            		   ""),
+               Arguments.arguments("tttttrrrrraaaaannnnn111111111111\n", "", "11.00\n", "", "1\n", "", 
+            		   "What is the title of the transaction?\r\n" + 
+            		   "NOTE: It should not be blank and less than 25 characters.\r\n" + 
+            		   "What is the value of the transaction?\r\n" + 
+            		   "NOTE: It should be greater than 0 with two decimal places e.g. 10.00.\r\n" + 
+            		   "What is the category of the transaction?\r\n" + 
+            		   "Note: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.\r\n" + 
+            		   "tttttrrrrraaaaannnnn11111(¥11.00) was added to Unknown\r\n" + 
+            		   ""),
+               Arguments.arguments("tran12\n", "", "12\n", "12.00\n", "1\n", "", 
+            		   "What is the title of the transaction?\r\n" + 
+            		   "NOTE: It should not be blank and less than 25 characters.\r\n" + 
+            		   "What is the value of the transaction?\r\n" + 
+            		   "NOTE: It should be greater than 0 with two decimal places e.g. 10.00.\r\n" + 
+            		   "Wrong value. It should be a positive number with two decimal places e.g. 10.00.\r\n" + 
+            		   "What is the value of the transaction?\r\n" + 
+            		   "NOTE: It should be greater than 0 with two decimal places e.g. 10.00.\r\n" + 
+            		   "What is the category of the transaction?\r\n" + 
+            		   "Note: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.\r\n" + 
+            		   "tran12(¥12.00) was added to Unknown\r\n" + 
+            		   ""),
+               Arguments.arguments("   \n", "tran13\n", "13.00\n", "", "1\n", "", 
+            		   "What is the title of the transaction?\r\n" + 
+            		   "NOTE: It should not be blank and less than 25 characters.\r\n" + 
+            		   "Wrong name. It should not be blank!\r\n" + 
+            		   "What is the title of the transaction?\r\n" + 
+            		   "NOTE: It should not be blank and less than 25 characters.\r\n" + 
+            		   "What is the value of the transaction?\r\n" + 
+            		   "NOTE: It should be greater than 0 with two decimal places e.g. 10.00.\r\n" + 
+            		   "What is the category of the transaction?\r\n" + 
+            		   "Note: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.\r\n" + 
+            		   "tran13(¥13.00) was added to Unknown\r\n" + 
+            		   ""),
+               Arguments.arguments("tran14\n", "", "   \n", "14.00\n", "1\n", "", 
+            		   "What is the title of the transaction?\r\n" + 
+            		   "NOTE: It should not be blank and less than 25 characters.\r\n" + 
+            		   "What is the value of the transaction?\r\n" + 
+            		   "NOTE: It should be greater than 0 with two decimal places e.g. 10.00.\r\n" + 
+            		   "Wrong value. It should not be blank!\r\n" + 
+            		   "What is the value of the transaction?\r\n" + 
+            		   "NOTE: It should be greater than 0 with two decimal places e.g. 10.00.\r\n" + 
+            		   "What is the category of the transaction?\r\n" + 
+            		   "Note: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.\r\n" + 
+            		   "tran14(¥14.00) was added to Unknown\r\n" + 
+            		   "")
+       );
 	}
-	
-	
+		
     /* 
 	1 - Pass - Leo - 00:18/6/5  
 	Problem: /
