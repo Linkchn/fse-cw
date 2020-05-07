@@ -489,8 +489,7 @@ Click to src code: [BoCApp](../src/CW3/src/BoCCategory.java) & [BoCApp](../src/C
 | !! | PASS | mainTest5 | C, 1 , 3, X | changeTransactionCategory method has been called | changeTransactionCategory method has been called | / | / | / | 22:46 6/5 | Leo |
 | !! | PASS | mainTest6 | N, X | add a new category to whole categories and display them | add a new category to whole categories and display them | / | / | / | 23:34 6/5 | Jiawei |
 | !! | PASS | mainTest7 | A, X | add a name, category title and spend, then give the result of adding transaction | add a name, category title and spend, then give the result of adding transaction | /                                                            | / | / | 23:34 6/5 | Shiliang |
-| !! | | mainTest8 | all function called |  | | | | | | |
-| !!! | | mainTest9 | illegal input | | | | | | | |
+| !! | PASS | mainTest8 | all function called | "O\nt\nT\n1\nC\n1\n3\nA\nTestTitle\n6.23\n1\nN\nTestTitle\n6.23\nX\n", All operation above is input in the last test | All is output as expected | / | / | / | 13:18 7/5 | Daze |
 #### Function 2: ArrayListofBoCTransactionobjects  - List Transactions function
 
 |Importance|Status|Test|Inputs|Expected Outcome|Test Outcome|Problem|Change|Reason|Time|Author|
