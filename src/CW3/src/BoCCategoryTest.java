@@ -143,17 +143,17 @@ class BoCCategoryTest {
 
 
 	/* CATEGORY NAME TEST*******************************************************************
-	1 – Pass – Yuxiang Zhang - 21:30/02/05  
+	1 - Pass - Yuxiang Zhang - 21:30/02/05  
 	Problem: /
 	Reason:/
 	Traceability:CategoryName Test 1
 	
-	2 – Pass – Yuxiang Zhang - 22:45/02/05  
+	2 - Pass - Yuxiang Zhang - 22:45/02/05  
 	Problem: /
 	Reason:/
 	Traceability:CategoryName Test 2
 	
-	3 – Pass – Yuxiang Zhang - 00:18/02/05  
+	3 - Pass - Yuxiang Zhang - 00:18/02/05  
 	Problem: /
 	Reason:/
 	Traceability:CategoryName Test 3
@@ -173,17 +173,17 @@ class BoCCategoryTest {
 
 
 	/* CATEGORY BUDGET TEST*******************************************************************
-	1 – Pass – Yuxiang Zhang - 14:29/03/05  
+	1 - Pass - Yuxiang Zhang - 14:29/03/05  
 	Problem: /
 	Reason:/
 	Traceability:CategoryBudget Test 1
 
-	2 – Pass – Yuxiang Zhang - 14:51/03/05  
+	2 - Pass - Yuxiang Zhang - 14:51/03/05  
 	Problem: /
 	Reason:/
 	Traceability:CategoryBudget Test 2
 
-	3 – Pass – Yuxiang Zhang - 15:32/03/05  
+	3 - Pass - Yuxiang Zhang - 15:32/03/05  
 	Problem: /
 	Reason:/
 	Traceability:CategoryBudget Test 3
@@ -202,16 +202,16 @@ class BoCCategoryTest {
 	}
 
 	/* CATEGORY  SPEND TEST*******************************************************************
-	1 – Pass – Yuxiang Zhang - 17:14/03/05  
+	1 - Pass - Yuxiang Zhang - 17:14/03/05  
 	Problem: /
 	Reason:/
 	Traceability:CategorySpend Test 1
-	2 – Pass – Yuxiang Zhang - 17:49/03/05  
+	2 - Pass - Yuxiang Zhang - 17:49/03/05  
 	Problem: /
 	Reason:/
 	Traceability:CategorySpend Test 2
 
-	3 – Pass – Yuxiang Zhang - 19:47/03/05
+	3 - Pass - Yuxiang Zhang - 19:47/03/05
 	Problem: /
 	Reason:/
 	Traceability:CategorySpend Test 3

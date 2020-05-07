@@ -176,6 +176,8 @@ public class BoCApp {
         String value;
         String cat;
         int flag1 = 0;
+        int tcat;
+        BigDecimal tvalue;
         BoCTransaction temp = new BoCTransaction();
         while (flag1 == 0) {
             System.out.println("What is the title of the transaction?\r\nNOTE: It should not be blank and less than 25 characters.");
@@ -186,8 +188,7 @@ public class BoCApp {
                 continue;
             }
             else if (title.length() > 25){
-                System.out.println("Wrong name. It should not be more than 25 characters!");
-                continue;
+                title = title.substring(0, 25);
             }
             try {
                 temp.setTransactionName(title);
@@ -200,7 +201,7 @@ public class BoCApp {
 
         }
 
-        BigDecimal tvalue;
+        
 		while (flag1 == 1) {
             System.out.println("What is the value of the transaction?\r\nNOTE: It should be greater than 0 with two decimal places e.g. 10.00.");
             value = in.nextLine();
@@ -221,6 +222,7 @@ public class BoCApp {
             flag1 = 2;
         }
 
+        
 		while (flag1 == 2) {
             System.out.println("What is the category of the transaction?\r\nNote: It should be the index number of a categoryType from above. Type \"1\" or press enter for the Unknown category.");
             cat = in.nextLine();
@@ -234,16 +236,17 @@ public class BoCApp {
                 System.out.println("Wrong category. It should be an integer between 1 - " + range);
                 continue;
             } else if (Integer.parseInt(cat) > UserCategories.size()) {
-                cat = cat.substring(0, 25);
+                System.out.println("Wrong category. It should be an integer between 1 - " + range);
+                continue;
             }
-            int tcat = Integer.parseInt(cat) - 1;
+            tcat = Integer.parseInt(cat) - 1;
             temp.setTransactionCategory(tcat);
             flag1 = 3;
         }
 
 		UserTransactions.add(temp);
 
-		System.out.println(title + "(¥" + tvalue + ")" + " was added to " + UserCategories.get(tcat).CategoryName());
+		System.out.println(temp.transactionName() + "(¥" + temp.transactionValue() + ")" + " was added to " + UserCategories.get(temp.transactionCategory()).CategoryName());
 	}
 
 	/* 

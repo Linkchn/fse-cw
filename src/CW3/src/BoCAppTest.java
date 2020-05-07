@@ -313,7 +313,7 @@ class BoCAppTest {
     }
 
     /*
-    5 – Pass – Leo - 21:18/6/5  
+    5 - Pass - Leo - 21:18/6/5  
 	Problem: /
 	Reason:/
 	Traceability: mainTest5

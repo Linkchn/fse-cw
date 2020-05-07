@@ -50,7 +50,7 @@ public class BoCTransaction {
 	}
 	
 	/* 
-	1 – Pass – Leo - 23:37/1/5  
+	1 - Pass - Leo - 23:37/1/5  
 	Change: considered situations that input is blank and only set name when no name exist before
 	Reason: Class description asks to set name only once and considered anomorlies
 	Traceability: setNameTest1,2,3,4,5,6
@@ -74,7 +74,7 @@ public class BoCTransaction {
 	}
 
 	/* 
-	1 – Pass – Leo - 00:55/2/5  
+	1 - Pass - Leo - 00:55/2/5  
 	Change: added a if statement that only allow positive numbers or it will throw an exception
 	Reason: only positive numbers are allowed
 	Traceability: setValueTest1,2,3,4,5,6
@@ -84,9 +84,8 @@ public class BoCTransaction {
 			if (tValue.compareTo(new BigDecimal("0.00")) == 1) {
 				// 1 means bigger, -1 means smaller, 0 means same
 				transactionValue = tValue;
-			}
-			if (tValue.scale()>2) {
-				transactionValue = null;
+			} else {
+				throw new Exception("Set failed. It should be greater than 0!");
 			}
 		}
 		else {
@@ -96,7 +95,7 @@ public class BoCTransaction {
 	}
 
 	/* 
-	1 – Pass – Leo - 00:59/2/5  
+	1 - Pass - Leo - 00:59/2/5  
 	Change: added a if statement that only allow positive numbers or it will throw an exception
 	Reason: only positive numbers are allowed
 	Traceability: setCatTest1,2,3
@@ -129,7 +128,7 @@ public class BoCTransaction {
 	}
 
 	/* 
-	1 – Pass – Leo - 22:37/1/5  
+	1 - Pass - Leo - 22:37/1/5  
 	Change:Add time that can only shows minutes not seconds at the beginning of the string, and set a limit that if transactionName or transactionValue is null, it will return null
 	Reason:To reduce the possibility of test failure and meet the requirement.
 	Traceability: toStringTest1,2,3
