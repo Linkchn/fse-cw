@@ -1,4 +1,4 @@
-# Test Plan (and eventually Test Report)
+# Test Plan & Report
 
 |Contents|
 |--------|
@@ -23,10 +23,9 @@ Third build Tests Plan Table according to the Class Description analysis in pair
 Then adjust codes and plan throughout the whole process of development to achieve the requirements.
 Branches will be made once pair work has begun.
   Group meeting will be organised 3 - 4 days once.
-
 - Since this BoCAPP is a small-sized business system, agile method allows us to focus on the software itself rather than on its design and documentation, which is exactly what we need. As is required and recommended, we use JUnit to do TDD process. Although the whole development process is not so heavy that every one can do their own small piece of job to finish the task, we consider pair programming could be a good method which fits us well. Most importantly, it will act as an informal review process because each line of code is looked at by at least one person. It largly reduces the risk of more errors with cheap program inspections. Secondly, it is recommended that we can do refactoring to improve the software structure. Different from normal development environment, pair programming provide a more friendly environment for refactoring to happen as others could benifit immediately from that. Thirdly, it obviously widens the mind of the way making tests and improves the ability of each other's programming skills.
-
-- Deep into the process, team is managed by several useful GitLab features. We use issues with labels to raise questions, distribute tasks, alert bugs, show what is ToDo, Doing and Done. Along with Boards, a very clear visible feature for managing tasks while clearly showing the whole process, Milestones are also used for make stage-based objectives with due time to control the productivity. Meetings are organised in period of three to five days, for the purpose of reporting works done, what to do next, work distribution, stategy adjustment etc. As pairs are devided, works will be distributed during the meeting and issued in GitLab.
+- Deep into the process, team is managed by several useful GitLab features. We use issues with labels to raise questions, distribute tasks, alert bugs, show what is To-do, Doing and Done. Along with Boards, a very clear visible feature for managing tasks while clearly showing the whole process, Milestones are also used for make stage-based objectives with due time to control the productivity. Meetings are organised in period of three to five days, for the purpose of reporting works done, what to do next, work distribution, strategy adjustment etc.. As pairs are divided, works will be distributed during the meeting and issued in GitLab.
+- Finally, a re-check of class description and requirement is done by every team member to make sure the work satisfy things listed. Once issues are all closed and tagged, the current version is released for examine.
 
 
 - #### Planned time line
@@ -186,13 +185,13 @@ Branches will be made once pair work has begun.
 
   work on tests and code fixing
   
-- 6/5 issues: 2/20
+- 6/5 issues: 2/22
 
   work on bug fixes
 
-- 7/5 issues: 
+- 7/5 issues: 0/22
 
-
+  
 
 ### IV. Meeting record
 
@@ -258,9 +257,9 @@ In the whole test, we have the first meeting in 23/4, we discuss about the overa
 
 ## Test Plan
 
-**You should add rows and even columns, and indeed more tables, freely as you think will improve the report.**
-
 ### Class: BoCTransaction
+
+[BoCTransaction](../src/CW3/src/BoCTransaction.java) & [BoCTransactionTest](../src/CW3/src/BoCTransactionTest.java)
 
 #### Function 1: BoCTransaction() - Default Constructor (no parameters)
 
@@ -368,6 +367,8 @@ This method should not be used in this class. So it has been deleted.
 
 
 ### Class: BoCCategory
+
+[BoCCategory](../src/CW3/src/BoCCategory.java) & [BoCCategoryTest](../src/CW3/src/BoCCategoryTest.java)
 
 #### Function 1: BoCCategory() - Default Constructor (no parameters)
 
